@@ -1,0 +1,3802 @@
+<rdf:RDF
+ xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+ xmlns:z="http://www.zotero.org/namespaces/export#"
+ xmlns:dc="http://purl.org/dc/elements/1.1/"
+ xmlns:foaf="http://xmlns.com/foaf/0.1/"
+ xmlns:bib="http://purl.org/net/biblio#"
+ xmlns:link="http://purl.org/rss/1.0/modules/link/"
+ xmlns:dcterms="http://purl.org/dc/terms/">
+    <rdf:Description rdf:about="https://zenodo.org/records/15644222">
+        <z:itemType>preprint</z:itemType>
+        <dc:publisher>
+           <foaf:Organization><foaf:name>Zenodo</foaf:name></foaf:Organization>
+        </dc:publisher>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Reyes</foaf:surname>
+                        <foaf:givenName>Richard J.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_2"/>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>curvature feedback</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>emergent mass</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>entropy</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>general relativity</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>geometry</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>nonlinear dynamics</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>quantum field theory</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>spacetime emergence</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>unified field theory</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>wave confinement</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:title>The Geometry of Resonance: Wave Confinement Theory and the Emergence of Mass, Force, and Spacetime</dc:title>
+        <dcterms:abstract>The Geometry of Resonance: Wave Confinement Theory and the Emergence of Mass, Force, and Spacetime
+
+Richard J. Reyes - April 22, 2025
+
+GitHub Repository: github.com/rickyjreyes/geometry_of_resonance
+
+YouTube: https://youtu.be/cZ4vqI10RJw?si=pk329PH2FW8wute8
+
+ 
+
+Wave Confinement Theory (WCT) proposes that mass, force, and spacetime curvature are not fundamental, but emergent phenomena arising from the confinement of oscillatory energy fields. By modeling standing waveforms under geometric and informational constraints, we demonstrate that inertial mass, curvature, force gradients, and effective spacetime structure emerge through internal curvature feedback, entropy regulation, and nonlinear wave dynamics.
+
+Lagrangian (WCT):𝓛_WCT = |∂_μ ψ|² − V(|ψ|²) + κ·(□ψ / (|ψ| + ε·e^(−α|ψ|²)))² + θ·(∇²ψ / (|ψ| + ε·e^(−α|ψ|²)))²
+
+This formulation incorporates curvature-driven energy localization and entropy-stabilized coherence. The theory derives an Einstein-like field equation from an emergent effective metric:
+
+Effective Emergent Metric:g_eff^μν = η^μν + κ·(∂μψ ∂νψ) / |ψ|²
+
+A corresponding stress-energy tensor is sourced entirely by the confined wavefield.
+
+Key Results
+
+
+
+
+
+Quantum consistency is achieved via operator and path-integral quantization of the nonlinear feedback terms.
+
+
+
+
+A regularized curvature spectrum reveals bounded eigenvalues and high-curvature modes stabilized by entropy suppression.
+
+
+
+
+Simulations confirm stable, coherent mass structures, entropy-limited growth, and quantized curvature modes.
+
+
+
+
+The linear wave and weak-field gravitational limits are recovered, ensuring compatibility with QFT and GR.
+
+
+
+Experimental Predictions
+
+
+
+
+
+Curvature-locked cavity resonance shifts (e.g., Fabry–Pérot systems)
+
+
+
+
+Modulation of beta decay rates due to curvature resonance
+
+
+
+Conceptual Summary
+
+
+
+
+
+Geometry, mass, and force arise from nonlinear curvature of confined waves.
+
+
+
+
+Spacetime emerges from vibrational coherence under informational constraints.
+
+
+
+
+Gauge symmetries (U(1), SU(2), SU(3)) arise from curvature-mode transformations.
+
+
+
+
+Constants of nature (G, ℏ, α, Λ) are derived from geometric feedback structure.
+
+
+
+ 
+
+Prologue: The Generative Wave
+
+Wave Confinement Theory begins with a single postulate:ψ exists.And its confinement under curvature gives rise to everything we interpret as &quot;physics.&quot;
+
+From this principle, four generative axes emerge:
+
+
+
+
+
+
+
+
+Symbol
+Meaning
+
+
+
+
+Amplitude - ψ
+Presence, or probability amplitude
+
+
+Phase - arg(ψ)
+Direction, encodes spin and symmetry
+
+
+Curvature - □ψ
+Difference, source of force and localization
+
+
+Time Evolution - ∂ₜψ
+Becoming, memory, history, entropy
+
+
+
+
+
+
+ 
+
+
+
+
+These geometric degrees of freedom, when bounded by feedback, generate all physical structure:
+
+
+
+
+
+A winding phase becomes a spinor
+
+
+
+
+A confined ψ becomes a massive particle
+
+
+
+
+Differences of state become the combinatorics of interaction
+
+
+
+
+Curvature feedback becomes gravitational geometry
+
+
+
+
+Coherence under pressure becomes spacetime itself
+
+
+
+In this view:
+
+
+
+
+
+Mass is not assigned, it is the coherence of ψ
+
+
+
+
+Spin is not postulated, it is a topological consequence of rotation
+
+
+
+
+Charge is not labeled, it is the symmetry path of phase difference
+
+
+
+
+Force is not applied, it is curvature emerging from internal feedback
+
+
+
+
+Physical Constants are not inserted, they emerge from geometric and informational constraints.
+
+
+
+Core Insight
+
+
+
+
+
+Mass emerges from energy,
+
+
+
+
+Energy emerges from resonance,
+
+
+
+
+Resonance emerges from boundary,
+
+
+
+
+Boundary emerges from information.
+
+
+
+Keywords
+
+Wave confinement, emergent mass, curvature feedback, unified field theory, entropy-stabilized fields, nonlinear geometry, effective metric, quantum emergence, gauge emergence, informational physics, beta quantization, spinor topology
+
+ 
+
+---
+
+For correspondence regarding this work, please contact [Richard J. Reyes] at [reyes.ricky30@gmail.com].
+
+ORCID iD: 0009-0005-5975-8718.</dcterms:abstract>
+        <dc:date>2025-04-22</dc:date>
+        <dc:identifier>DOI 10.5281/zenodo.15644222</dc:identifier>
+        <z:citationKey>reyesGeometryResonanceWave2025</z:citationKey>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://zenodo.org/records/15644222</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2026-06-03 19:46:22</dcterms:dateSubmitted>
+        <z:shortTitle>The Geometry of Resonance</z:shortTitle>
+        <z:language>eng</z:language>
+        <z:libraryCatalog>Zenodo</z:libraryCatalog>
+        <dc:rights>All rights reserved</dc:rights>
+    </rdf:Description>
+    <z:Attachment rdf:about="#item_2">
+        <z:itemType>attachment</z:itemType>
+        <z:path rdf:resource="files/2/Reyes - 2025 - The Geometry of Resonance Wave Confinement Theory and the Emergence of Mass, Force, and Spacetime.pdf"/>
+        <dc:title>Full Text PDF</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://zenodo.org/records/15644222/files/The_Geometry_Of_Resonance.pdf</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2026-06-03 19:46:25</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <rdf:Description rdf:about="https://zenodo.org/records/15596159">
+        <z:itemType>preprint</z:itemType>
+        <dc:publisher>
+           <foaf:Organization><foaf:name>Zenodo</foaf:name></foaf:Organization>
+        </dc:publisher>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Reyes</foaf:surname>
+                        <foaf:givenName>Richard J.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_4"/>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>curvature feedback</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>emergent mass</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>unified field theory</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>wave confinement</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>cosmological constant</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>effective metric</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>entropy-stabilized fields</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>fine-structure constant</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>fundamental constants</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>gravitational constant</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>informational geometry</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>planck constant</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>speed of light</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:title>Structure and Derivation of Physical Constants through Wave Confinement</dc:title>
+        <dcterms:abstract>Structure and Derivation of Physical Constants through Wave Confinement
+
+Richard J. Reyes - April 26, 2025
+
+GitHub Repository: github.com/rickyjreyes/geometry_of_resonance
+
+This work demonstrates that the gravitational constant (G), the speed of light (c), Planck’s constant (ℏ), the fine-structure constant (α), the cosmological constant (Λ), and the Planck scales (ℓₚ, tₚ, Eₚ) emerge naturally from the internal dynamics of confined oscillatory fields under curvature feedback mechanisms.
+
+By modeling curvature-regulated standing waves under geometric and informational constraints, Wave Confinement Theory (WCT) derives the observed values of fundamental constants as necessary outcomes of resonance geometry. These constants are not inserted, they arise from first principles.
+
+Beyond known constants, WCT introduces a new family of structural constants:
+
+
+
+
+
+Vacuum coherence length: ⟨ξ⟩ = 85.4 μm (reverse-derived from observed Λ via curvature feedback)
+
+
+
+
+Entropy–curvature ratio: σ = 0.0806 R
+
+
+
+
+Phase distortion scale: γ = 10⁻¹²⁰ R
+
+
+
+
+Topological resonance constant: β ≈ 0.01–0.1 R
+
+
+
+
+Nonlinear curvature feedback coefficient: θ = 10⁻¹²⁰ R
+
+
+
+Notation: Quantities marked with R are dimensionless resonance units, derived from coherence-locked wave structures in confined domains. They characterize normalized structural constants such as entropy–curvature ratio, resonance efficiency, and phase suppression scale.
+
+These constants are extracted via numerical simulations of confined wavefields with fourth-order curvature feedback, demonstrating:
+
+
+
+
+
+Monotonic entropy growth (dS/dt&gt;0dS/dt &gt; 0dS/dt&gt;0)
+
+
+
+
+Curvature energy dissipation
+
+
+
+
+Emergence of resonance-stabilized geometry from information-driven constraints
+
+
+
+This positions WCT as a candidate unified field framework where mass, energy, geometry, and entropy all emerge from confined wave coherence. Bayesian evaluation of internal consistency, dimensional coherence, and numerical results supports a strong prior plausibility of physical validity, pending experimental confirmation.
+
+WCT builds upon the theoretical foundation established in:The Geometry of Resonance: Wave Confinement Theory and the Emergence of Mass, Force, and Spacetime (Reyes, Zenodo 2025, DOI: 10.5281/zenodo.15286791).
+
+At its core, WCT proposes:Mass arises from energy. Energy from resonance. Resonance from boundary. Boundary from information.
+
+Keywords
+
+Wave confinement, fundamental constants, gravitational constant, speed of light, Planck constant, fine-structure constant, cosmological constant, emergent mass, curvature feedback, unified field theory, entropy-stabilized fields, effective metric, informational geometry
+
+---
+
+For correspondence regarding this work, please contact [Richard J. Reyes] at [reyes.ricky30@gmail.com].
+
+ORCID iD: 0009-0005-5975-8718.</dcterms:abstract>
+        <dc:date>2025-04-26</dc:date>
+        <dc:identifier>DOI 10.5281/zenodo.15596159</dc:identifier>
+        <z:citationKey>reyesStructureDerivationPhysical2025</z:citationKey>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://zenodo.org/records/15596159</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2026-06-03 19:46:49</dcterms:dateSubmitted>
+        <z:language>eng</z:language>
+        <z:libraryCatalog>Zenodo</z:libraryCatalog>
+        <dc:rights>All rights reserved</dc:rights>
+    </rdf:Description>
+    <z:Attachment rdf:about="#item_4">
+        <z:itemType>attachment</z:itemType>
+        <z:path rdf:resource="files/4/Reyes - 2025 - Structure and Derivation of Physical Constants through Wave Confinement.pdf"/>
+        <dc:title>Full Text PDF</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://zenodo.org/records/15596159/files/Structure%20and%20Derivation%20of%20Physical%20Constants%20through%20Wave%20Confinement.pdf</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2026-06-03 19:46:52</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <rdf:Description rdf:about="https://zenodo.org/records/17206381">
+        <z:itemType>preprint</z:itemType>
+        <dc:publisher>
+           <foaf:Organization><foaf:name>Zenodo</foaf:name></foaf:Organization>
+        </dc:publisher>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Reyes</foaf:surname>
+                        <foaf:givenName>Richard J.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_6"/>
+        <dc:title>Observation of Long-Lived Photon Resonance Confinement in Water Cavities</dc:title>
+        <dcterms:abstract>Observation of Long-Lived Photon Resonance Confinement in Water Cavities
+
+Richard J. Reyes - May 17, 2025
+
+GitHub Repository: github.com/rickyjreyes/geometry_of_resonance
+
+Experiment Repo: https://github.com/rickyjreyes/photodiode
+
+Abstract
+
+We present experimental verification of key predictions from Wave Confinement Theory (WCT), demonstrating that quantized beta resonance and mass-like behavior can emerge from confined photonic oscillations in a curvature-regulated medium.
+
+Using a chilled water-filled Fabry–Pérot or W shape optical cavity subjected to gentle angular perturbation and a 532 nm continuous-wave laser, we observe stable harmonic resonances that persist for up to 60 seconds after the laser source is blocked. This “light-off” coherence retention is consistent with curvature-locked standing waves and confirms the existence of topologically stabilized β modes, as predicted by WCT.
+
+Control tests confirm the absence of resonance when any critical element, confined medium, laser stimulus, or mirror alignment, is removed. The measured exponential decay in FFT harmonic amplitudes, temperature dependence, and sensitivity to angular swirl support WCT’s entropy–curvature feedback model. Observed spontaneous quantization of angular modes without traditional boundary conditions further strengthens the topological interpretation.
+
+These results complete Phase 4 of the WCT experimental roadmap, marking the first reproducible demonstration of coherent photonic confinement, spontaneous β quantization, and light-induced inertia-like persistence in a fluid cavity. The findings suggest a purely geometric origin of mass, offering a potential mechanism for artificial mass generation via wave confinement.
+
+KeywordsWave Confinement Theory, beta quantization, curvature locking, photonic mass, entropy decay, optical coherence, experimental physics, light-induced resonance, topological confinement, artificial mass generation</dcterms:abstract>
+        <dc:date>2025-05-17</dc:date>
+        <dc:identifier>DOI 10.5281/zenodo.17206381</dc:identifier>
+        <z:citationKey>reyesObservationLongLivedPhoton2025</z:citationKey>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://zenodo.org/records/17206381</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2026-06-03 19:47:08</dcterms:dateSubmitted>
+        <z:libraryCatalog>Zenodo</z:libraryCatalog>
+        <dc:rights>All rights reserved</dc:rights>
+    </rdf:Description>
+    <z:Attachment rdf:about="#item_6">
+        <z:itemType>attachment</z:itemType>
+        <z:path rdf:resource="files/6/Reyes - 2025 - Observation of Long-Lived Photon Resonance Confinement in Water Cavities.pdf"/>
+        <dc:title>Full Text PDF</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://zenodo.org/records/17206381/files/Observation%20of%20Long-Lived%20Photon%20Resonance%20Confinement%20in%20Water%20Cavities.pdf</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2026-06-03 19:47:12</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <rdf:Description rdf:about="https://zenodo.org/records/17743607">
+        <z:itemType>preprint</z:itemType>
+        <dc:publisher>
+           <foaf:Organization><foaf:name>Zenodo</foaf:name></foaf:Organization>
+        </dc:publisher>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Reyes</foaf:surname>
+                        <foaf:givenName>Richard J.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_8"/>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Cook-Levin reduction</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>curvature complexity</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>expander graphs</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>geometric complexity</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>model-relative lower bounds</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>NC Circuits</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>non-natural proofs</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>non-relativizing arguments</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>NP Verification</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>P vs NP</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>PWCC</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Wave Computation</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Wave Confinement Theory</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>WCC</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>WCT</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:title>P vs NP in Curvature-Bounded Wave Computation: A Model-Relative P_WCC ≠ NP_WCC Separation</dc:title>
+        <dcterms:abstract>P vs NP in Curvature-Bounded Wave Computation: A Model-Relative P₍WCC₎ ≠ NP₍WCC₎ SeparationRichard J. Reyes - November 17, 2025(Original release: May 7, 2025)
+
+Github WaveLock: https://github.com/rickyjreyes/Wavelock
+
+This paper develops a model-relative P vs NP program inside a curvature-regulated wave computation framework inspired by Wave Confinement Theory (WCT). Computation is modeled as the evolution of confined oscillatory states under curvature and entropy constraints. From this, the work defines a discrete Wave Curvature Computation (WCC) model and associated complexity classes P₍WCC₎ and NP₍WCC₎, obtained by bounding both evolution time and curvature resources.
+
+On the analytic side, the manuscript introduces a semantic curvature-complexity measure CΘ(f) based on the WCT curvature operator Θ[ψ]. It then constructs a locked-expander family of 3-SAT instances and proves that any realization of this family inside the WCT curvature machine must pay exponential curvature cost
+
+CΘ(Fₙ) ≥ 2^Ω(n)
+
+yielding a non-natural, non-relativizing lower bound that excludes any polynomial-size, curvature-bounded WCC tiling for SAT within this specific curvature model. All such results are explicitly scoped to the WCT/WCC curvature machine and are not claimed as classical circuit lower bounds.
+
+On the symbolic side, the paper gives a discrete Turing abstraction of WCT, encoding complex wavefields as finite-precision bitstrings and simulating each curvature-regulated update step by low-depth arithmetic circuits. A key result is that single WCC update steps lie in NC¹, implying P₍WCC₎ ⊆ P under standard encodings. The author constructs a purely symbolic NC¹ verifier for curvature-locked (coherence-verified) configurations and develops a Cook–Levin–style reduction from 3-SAT to a P₍WCC₎ wave-stability problem: SAT instances are mapped to symbolic wave/interference configurations that are accepted exactly when the corresponding clause structure is satisfied.
+
+The manuscript then formulates a model-internal separation program: under explicit geometric and dynamical hypotheses (dimensional-lock curvature barriers and super-polynomial constructive depth), one would obtain an internal separation
+
+P₍WCC₎ ⊊ NP₍WCT₎
+
+at the level of the WCC/WCT model. This is presented as a conjectural program, not a completed proof: all unconditional separations and lower bounds are strictly inside the curvature-bounded WCT machine, and every link to the classical classes P and NP is framed as an explicit conditional template. In particular, any implication P ≠ NP would additionally require proving that ideal WCC machines and classical Turing machines simulate each other with only polynomial overhead; this compatibility hypothesis is not assumed or claimed in the paper.
+
+The work also includes numerical experiments (CuPy-accelerated WCT simulations on growing grids) as qualitative motivation: certain coherent target states remain hard to reach under fixed step budgets as system size increases. These simulations are labeled as heuristic and illustrative only and are not used as part of any formal proof or lower-bound argument.
+
+Key contributions (model-relative to WCT/WCC)
+
+• Definition of a curvature-regulated wave computation model (WCC) and complexity classes P₍WCC₎ and NP₍WCC₎ under explicit rail constraints on curvature, entropy, and dimension.• Introduction of the curvature-complexity functional CΘ(f) and proof that certain expander-locked 3-SAT families require exponential curvature cost CΘ(Fₙ) ≥ 2^Ω(n) in the WCT curvature machine, giving a non-natural, non-relativizing analytic lower bound for SAT in this model.• Construction of a discrete symbolic WCT/WCC abstraction: finite-precision bit encodings, local curvature-regulated update rules, and a Turing-equivalent simulation template with per-step complexity in NC¹.• Design of an NC¹ verifier for curvature-locked configurations and a Cook–Levin–style reduction from 3-SAT to a P₍WCC₎ “wave-stability” problem, fully within a discrete symbolic setting.• Formulation of a dimensional-lock hypothesis and a time-hierarchy-style internal separation program (P₍WCC₎ ⊊ NP₍WCC₎) together with a conditional bridge showing how, if ideal WCC and Turing computation are polynomially equivalent, such an internal separation plus the curvature lower bound would imply the classical conjecture P ≠ NP.
+
+Throughout, the manuscript does not claim an unconditional proof that P ≠ NP; it isolates a curvature-based, model-specific lower bound and a structured internal separation program, making all classical implications explicitly conditional.
+
+Relation to previous WCT volumes
+
+This paper is part of a larger Wave Confinement Theory program and builds on the formal and physical foundations developed in:
+
+• The Geometry of Resonance: Wave Confinement Theory and the Emergence of Mass, Force, and Spacetime Richard J. Reyes, Zenodo 2025, DOI: 10.5281/zenodo.15356814
+
+• Structure and Derivation of Physical Constants through Wave Confinement Richard J. Reyes, Zenodo 2025, DOI: 10.5281/zenodo.15341540
+
+Those earlier works introduce the curvature-feedback Lagrangian, confinement rails, and operators such as Θ[ψ] that are here specialized to construct WCC curvature machines, define curvature complexity, and explore model-relative complexity separations.
+
+KeywordsP vs NP; model-relative lower bounds; curvature complexity; Wave Confinement Theory (WCT); wave computation (WCC); P₍WCC₎; NP₍WCC₎; NP verification; NC¹ circuits; Cook–Levin reduction; expander graphs; non-natural proofs; non-relativizing arguments; geometric complexity.
+
+Author &amp; ContactAuthor: Richard J. ReyesORCID iD: 0009-0005-5975-8718Email: reyes.ricky30@gmail.com</dcterms:abstract>
+        <dc:date>2025-05-07</dc:date>
+        <dc:identifier>DOI 10.5281/zenodo.17743607</dc:identifier>
+        <z:citationKey>reyesVsNPCurvatureBounded2025</z:citationKey>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://zenodo.org/records/17743607</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2026-06-03 19:47:25</dcterms:dateSubmitted>
+        <z:shortTitle>P vs NP in Curvature-Bounded Wave Computation</z:shortTitle>
+        <z:language>eng</z:language>
+        <z:libraryCatalog>Zenodo</z:libraryCatalog>
+        <dc:rights>All rights reserved</dc:rights>
+    </rdf:Description>
+    <z:Attachment rdf:about="#item_8">
+        <z:itemType>attachment</z:itemType>
+        <z:path rdf:resource="files/8/Reyes - 2025 - P vs NP in Curvature-Bounded Wave Computation A Model-Relative P_WCC ≠ NP_WCC Separation.pdf"/>
+        <dc:title>Full Text PDF</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://zenodo.org/records/17743607/files/P%20v.%20NP.pdf</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2026-06-03 19:47:27</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <rdf:Description rdf:about="https://zenodo.org/records/17578766">
+        <z:itemType>preprint</z:itemType>
+        <dc:publisher>
+           <foaf:Organization><foaf:name>Zenodo</foaf:name></foaf:Organization>
+        </dc:publisher>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Reyes</foaf:surname>
+                        <foaf:givenName>Richard J.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_10"/>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Conservation Laws</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Continuum Limits</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>D Discrete Model</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Finite-K Selection</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Lyapunov Band-Pass</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Nonlinear Dynamics</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Null Flow</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Pattern Formation</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Phase-Flux Field</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Shell Quantization</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Wave Confinement</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:title>Phase-Flux Field (PFF): Axiomatic Substrate for Wave Confinement Theory Zero-Wave Invariance, Finite-k Lyapunov Band-Pass, Shell Quantization, and D4 to Continuum</dc:title>
+        <dcterms:abstract>Phase-Flux Field (PFF): Axiomatic Substrate for Wave Confinement TheoryZero-Wave Invariance, Finite-k Lyapunov Band-Pass, Shell Quantization, and D₄ → ContinuumRichard J. Reyes - September 8, 2025
+
+GitHub Repository: github.com/rickyjreyes/geometry_of_resonance
+
+YouTube: https://youtu.be/6nCEeYC7u_k?si=MT2Ts2RhPkaUBZGK
+
+ 
+
+Description:This paper introduces the Phase–Flux Field (PFF) as a minimal, wave-first substrate defined only by observables, energy density u(x,t), energy flux S(x,t), and phase θ(x,t). Two kinematic axioms, local conservation ∂t u + ∇·S = 0 and a null-flow constraint |S|² = u² (units c = 1), fix transport structure without invoking electromagnetic, particle, or gauge semantics. The uniform Zero-Wave state ZW₀ is isolated as the seed of organization.
+
+A Lyapunov band-pass “rail” is derived that selects a finite wavenumber ring, with linear growth σ(k) = r + a k² − b k⁴ and saturating nonlinearity yielding IR/UV stability. Near onset, a triadic amplitude system and a strictly decreasing Lyapunov functional certify pattern selection at k⋆. A discrete D₄ cell model is constructed and shown to converge to the continuum PFF limit, providing a concrete discrete-to-continuum bridge. Phase winding yields a shell-quantization rule (integer topological charge), tying spectral selection to geometric organization. The manuscript includes well-posed Cauchy data, unit normalization, and a reproducible checklist for numerical validation.
+
+Key results include:
+
+
+
+
+
+Axiomatization of PFF kinematics from observables: conservation and null-flow constraints fix transport without external field semantics.
+
+
+
+
+Zero-Wave invariance lemma (seed state persistence) and conditions for departure into finite-band growth.
+
+
+
+
+Lyapunov band-pass rail with σ(k) = r + a k² − b k⁴, finite-k selection k⋆, and a Lyapunov functional F with Ḟ ≤ 0.
+
+
+
+
+Near-onset amplitude equations with explicit triad selection rules and stability regions.
+
+
+
+
+Discrete D₄ cell → continuum ring derivation with matching flux and phase constraints.
+
+
+
+
+Shell quantization via phase winding m ∈ ℤ, linking topology to spectral shells.
+
+
+
+
+Reproducibility protocol: domain/grid/Δt specification, units table, and a validation checklist (finite-band spectrum, Lyapunov descent, phase-winding count).
+
+
+
+Built upon the foundation established in:The Geometry of Resonance: Wave Confinement Theory and the Emergence of Mass, Force, and Spacetime (Reyes, Zenodo 2025, DOI: 10.5281/zenodo.15356814).
+
+Keywords:Phase–Flux Field, wave confinement, Lyapunov band-pass, finite-k selection, D₄ discrete model, shell quantization, conservation laws, null flow, pattern formation, nonlinear dynamics, continuum limits.
+
+Version: v1.0 (September 8, 2025)
+
+Contact:Richard J. Reyes — reyes.ricky30@gmail.comORCID iD: 0009-0005-5975-8718</dcterms:abstract>
+        <dc:date>2025-09-08</dc:date>
+        <dc:identifier>DOI 10.5281/zenodo.17578766</dc:identifier>
+        <z:citationKey>reyesPhaseFluxFieldPFF2025</z:citationKey>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://zenodo.org/records/17578766</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2026-06-03 19:47:37</dcterms:dateSubmitted>
+        <z:shortTitle>Phase-Flux Field (PFF)</z:shortTitle>
+        <z:libraryCatalog>Zenodo</z:libraryCatalog>
+        <dc:rights>All rights reserved</dc:rights>
+    </rdf:Description>
+    <z:Attachment rdf:about="#item_10">
+        <z:itemType>attachment</z:itemType>
+        <z:path rdf:resource="files/10/Reyes - 2025 - Phase-Flux Field (PFF) Axiomatic Substrate for Wave Confinement Theory Zero-Wave Invariance, Finite.pdf"/>
+        <dc:title>Full Text PDF</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://zenodo.org/records/17578766/files/Phase%20Flux.pdf</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2026-06-03 19:47:39</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <rdf:Description rdf:about="https://zenodo.org/records/17732661">
+        <z:itemType>preprint</z:itemType>
+        <dc:publisher>
+           <foaf:Organization><foaf:name>Zenodo</foaf:name></foaf:Organization>
+        </dc:publisher>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Reyes</foaf:surname>
+                        <foaf:givenName>Richard J.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_12"/>
+        <dc:title>Resonance-Confinement Architecture: A Physically Bounded Substrate for Safe Superintelligence</dc:title>
+        <dcterms:abstract>Resonance-Confinement Architecture: A Physically Bounded Substrate for Safe Superintelligence
+
+Richard J. Reyes, June 11, 2025GitHub Repository: github.com/rickyjreyes/geometry_of_resonanceGitHub Wavelock: https://github.com/rickyjreyes/Wavelock
+
+Description:The Resonance-Confinement Architecture (RCA) introduces a fundamentally new framework for symbolic artificial general intelligence (AGI), grounded in the physics of wave coherence and curvature feedback rather than stochastic optimization. Drawing from Wave Confinement Theory, RCA treats intelligence as a physical phenomenon, emergent from the self-organization of bounded, resonant wavefields.
+
+Unlike neural networks, RCA agents evolve by maintaining internal consistency through entropy-regulated feedback and resonance-based encoding. This enables coherent symbolic persistence, memory formation, and structural adaptation over time, without reliance on gradients, parameters, or reinforcement learning. The architecture formalizes a First Law of Intelligent Resonance: coherent systems tend to increase structured information.
+
+Core Design Principles:
+
+
+
+
+
+Intelligence is a physical process emerging from bounded wave coherence
+
+
+
+
+Symbolic representations are stabilized through informational constraints
+
+
+
+
+Identity and memory are encoded through resonance
+
+
+
+
+Structured information grows under entropy-limited feedback
+
+
+
+
+Interaction is regulated by coherence pressure and symmetry transformation
+
+
+
+Key Innovations:
+
+
+
+
+
+Symbolic behavior arises from geometric feedback, not reward maximization
+
+
+
+
+Coherence dynamics replace backpropagation and prevent semantic collapse
+
+
+
+
+Entropy-limited evolution enables long-term persistence and corrigibility
+
+
+
+
+Formal theorems prove energy boundedness, Lyapunov stability, and coherence growth
+
+
+
+
+Numerical simulations confirm emergent resonant structures and survivability trajectories
+
+
+
+Implications for AGI:RCA offers the first mathematically grounded path to scalable and survivable superintelligence, where symbolic logic remains physically bounded, epistemically corrigible, and resistant to recursive collapse. By aligning intelligence with the informational structure of reality, RCA offers a safe and coherent alternative to LLM-based scaling, one capable of persistent identity, distributed reasoning, and long-term stability.
+
+Safety and Ethics Statement:This work is a theoretical and mathematical framework, not an implementation blueprint. RCA is intended to define containment boundaries and prevent symbolic collapse, not to promote unconstrained deployment. All experimentation must occur under strict physical, ethical, and containment oversight.
+
+Keywords:Symbolic AGI, resonance confinement, coherence feedback, entropy regulation, intelligent resonance, non-gradient AI, survivability architecture, curvature dynamics, resonance encoding, symbolic persistence
+
+ContactRichard J. ReyesEmail: reyes.ricky30@gmail.comORCID: 0009-0005-5975-8718</dcterms:abstract>
+        <dc:date>2025-06-11</dc:date>
+        <dc:identifier>DOI 10.5281/zenodo.17732661</dc:identifier>
+        <z:citationKey>reyesResonanceConfinementArchitecturePhysically2025</z:citationKey>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://zenodo.org/records/17732661</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2026-06-03 19:47:49</dcterms:dateSubmitted>
+        <z:shortTitle>Resonance-Confinement Architecture</z:shortTitle>
+        <z:libraryCatalog>Zenodo</z:libraryCatalog>
+        <dc:rights>All rights reserved</dc:rights>
+    </rdf:Description>
+    <z:Attachment rdf:about="#item_12">
+        <z:itemType>attachment</z:itemType>
+        <z:path rdf:resource="files/12/Reyes - 2025 - Resonance-Confinement Architecture A Physically Bounded Substrate for Safe Superintelligence.pdf"/>
+        <dc:title>Full Text PDF</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://zenodo.org/records/17732661/files/AI_trajectory.pdf</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2026-06-03 19:47:50</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <rdf:Description rdf:about="https://zenodo.org/records/17732648">
+        <z:itemType>preprint</z:itemType>
+        <dc:publisher>
+           <foaf:Organization><foaf:name>Zenodo</foaf:name></foaf:Organization>
+        </dc:publisher>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Reyes</foaf:surname>
+                        <foaf:givenName>Richard J.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_14"/>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Wave Confinement</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Coherence Collapse</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Curvature Feedback</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Emergent Order</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Entropic Eigenmodes</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Fourier Band Selection</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Gingzburg-Landau</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Lyapunov Descent</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Spectral Entropy</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Swift Hohenberg</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:title>Self-Emergent Fourier Cymatics: Entropic Eigenmodes out of Chaos</dc:title>
+        <dcterms:abstract>Self-Emergent Fourier Cymatics: Entropic Eigenmodes out of ChaosRichard J. Reyes - September 16, 2025
+
+GitHub Repository: github.com/rickyjreyes/geometry_of_resonanceYouTube: https://youtu.be/zn570q06gO0?si=318Glpib9h6I9fS7
+
+This work presents a formal derivation and numerical study of self-emergent Fourier eigenmodes arising from curvature-regulated wave confinement. Starting from the Wave Confinement Theory (WCT) Lagrangian with curvature feedback and entropy suppression, we derive a Lyapunov-stable evolution equation that drives arbitrary random seeds into coherent, quantized Fourier structures. The dynamics exhibit spectral narrowing, entropy reduction, and spontaneous selection of discrete harmonic supports, without external tuning.
+
+Established in the paper
+
+
+
+
+
+Curvature feedback operatorΘ[ψ] = −∇²ψ / (ψ + ϵe⁻ᵅ|ψ|²)
+
+Key results
+
+
+
+
+
+Energy monotonicity is ensured by a Lyapunov functional, driving the system toward coherent states.
+
+
+
+
+Fourier-space entropy collapses into a finite mode set K*.
+
+
+
+
+The dynamics reveal an ontological flow: from a trivial 0D seed to structured eigenmodes via curvature–entropy coupling.
+
+
+
+
+Coherent projection methods isolate stable modes and reconstruct observable confined fields.
+
+
+
+
+
+ContributionConstructively demonstrates that chaotic fields evolve toward self-organized, entropic eigenmodes governed by curvature and confinement, generalizing cymatic structures into a spectral framework and providing a rigorous bridge from random initial conditions to coherent physical forms. Extends the WCT program on curvature-regularized Lagrangians, spectral entropy functionals, and emergent harmonic quantization across physical systems. Relevant to condensed matter, plasma, and field-theoretic contexts with a reproducible formulation for spectral self-organization.KeywordsWave confinement; entropic eigenmodes; spectral entropy; Lyapunov descent; curvature feedback; Swift–Hohenberg; complex Ginzburg–Landau; Fourier band selection; coherence collapse; emergent order.
+
+---
+
+For correspondence regarding this work, please contact [Richard J. Reyes] at [reyes.ricky30@gmail.com].
+
+ORCID iD: 0009-0005-5975-8718.</dcterms:abstract>
+        <dc:date>2025-09-16</dc:date>
+        <dc:identifier>DOI 10.5281/zenodo.17732648</dc:identifier>
+        <z:citationKey>reyesSelfEmergentFourierCymatics2025</z:citationKey>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://zenodo.org/records/17732648</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2026-06-03 19:48:03</dcterms:dateSubmitted>
+        <z:shortTitle>Self-Emergent Fourier Cymatics</z:shortTitle>
+        <z:libraryCatalog>Zenodo</z:libraryCatalog>
+        <dc:rights>All rights reserved</dc:rights>
+    </rdf:Description>
+    <z:Attachment rdf:about="#item_14">
+        <z:itemType>attachment</z:itemType>
+        <z:path rdf:resource="files/14/Reyes - 2025 - Self-Emergent Fourier Cymatics Entropic Eigenmodes out of Chaos.pdf"/>
+        <dc:title>Full Text PDF</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://zenodo.org/records/17732648/files/Self-Emergent%20Fourier%20Cymatics%20Entropic%20Eigenmodes%20out%20of%20Chaos.pdf</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2026-06-03 19:48:06</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <rdf:Description rdf:about="https://zenodo.org/records/17081283">
+        <z:itemType>preprint</z:itemType>
+        <dc:publisher>
+           <foaf:Organization><foaf:name>Zenodo</foaf:name></foaf:Organization>
+        </dc:publisher>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Reyes</foaf:surname>
+                        <foaf:givenName>Richard J.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_16"/>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Continuim PDE</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Curvature-feedback instability</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Extra Dimensions</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Gaussian field</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Laplacian scaling</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Quantum Field Theory Constraints</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>spatial dimension bound</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:title>Hard Upper Bound on Spatial Dimensionality in Wave Confinement Theory</dc:title>
+        <dcterms:abstract>Hard Upper Bound on Spatial Dimensionality in Wave Confinement TheoryRichard J. Reyes - August 13, 2025
+
+GitHub Repository: github.com/rickyjreyes/geometry_of_resonance
+
+YouTube: https://youtu.be/gdwYIeVWr7I?si=I6XLYv7AbZRNst02This work establishes an exact continuum scaling law for the Laplacian norm of a Gaussian test field in n spatial dimensions,
+
+||Δψ_λ||²_{L²} = C_n × λ^(4−n),where C_n = n(n+2) × (π/2)^(n/2) × σ^(n−4)
+
+and connects it to a general instability mechanism in wave-like systems with curvature–feedback coupling.The result implies that stable, self-localized waves in infinite flat space are only possible for n ≤ 3, providing a natural mathematical bound on the number of large, continuous spatial dimensions.
+
+The analysis combines:
+
+
+
+
+
+Exact analytic integration in the continuum to confirm the scaling exponent 4−n.
+
+
+
+
+Numerical spectral simulations in 2D, 3D, and 4D to validate the scaling law and identify finite-domain artifacts.
+
+
+
+
+A discussion of physical implications for higher-dimensional field theories, extra-dimensional models, and confinement stability.
+
+
+
+Keywords: spatial dimension bound, Laplacian scaling, Gaussian field, curvature–feedback instability, continuum PDE, quantum field theory constraints, extra dimensions.
+
+Notes: The scaling law matches heuristic predictions from the six-mechanism collapse proof in the main text. A caution on numerical artifacts for n=4 periodic domains is included, along with the closed-form constants C_n for direct verification.</dcterms:abstract>
+        <dc:date>2025-08-13</dc:date>
+        <dc:identifier>DOI 10.5281/zenodo.17081283</dc:identifier>
+        <z:citationKey>reyesHardUpperBound2025</z:citationKey>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://zenodo.org/records/17081283</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2026-06-03 19:48:29</dcterms:dateSubmitted>
+        <z:libraryCatalog>Zenodo</z:libraryCatalog>
+        <dc:rights>All rights reserved</dc:rights>
+    </rdf:Description>
+    <z:Attachment rdf:about="#item_16">
+        <z:itemType>attachment</z:itemType>
+        <z:path rdf:resource="files/16/Reyes - 2025 - Hard Upper Bound on Spatial Dimensionality in Wave Confinement Theory.pdf"/>
+        <dc:title>Full Text PDF</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://zenodo.org/records/17081283/files/Hard%20Upper%20Bound%20on%20Spatial%20Dimensionality%20in%20Wave%20Confinement%20Theory.pdf</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2026-06-03 19:48:30</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <rdf:Description rdf:about="https://zenodo.org/records/17715872">
+        <z:itemType>preprint</z:itemType>
+        <dc:publisher>
+           <foaf:Organization><foaf:name>Zenodo</foaf:name></foaf:Organization>
+        </dc:publisher>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Reyes</foaf:surname>
+                        <foaf:givenName>Richard J.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_18"/>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Wave Confinement Theory</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Curvature Locking</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Detector Resolution</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Energy Smearing</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Ghost Harmonics</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>JUNO</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Log-Entry Oscillations</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Neutrinos</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Spectral Modulation</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:title>JUNO Energy Resolution and Detectability of WCT Ghost-Mode Neutrinos</dc:title>
+        <dcterms:abstract>JUNO Energy Resolution and Detectability of WCT Ghost-Mode NeutrinosRichard J. Reyes - November 20, 2025(Original release: November 20, 2025)
+
+This paper establishes a quantitative detectability analysis for Wave Confinement Theory (WCT) ghost-mode neutrinos using the independently measured performance of the JUNO detector. In WCT, a neutrino corresponds to a curvature-locked ghost harmonic (node-mode n = 3), producing a small multiplicative modulation of an otherwise smooth energy spectrum. The intrinsic modulation amplitude is predicted to be Ag ≈ 1–2%, oscillatory in log-energy rather than linear energy.
+
+The manuscript derives, from first principles, the exact convolution kernel describing JUNO’s energy smearing in log-energy space. Using JUNO’s published stochastic resolution, nonlinearity, and spatial-uniformity measurements, the work propagates these detector characteristics through the WCT ghost-mode ansatz and obtains closed-form detectability inequalities. A central result is the exponential amplitude-retention law A_eff(E) = Ag exp(−½ kℓ² σℓ²), which determines when ghost-mode oscillations survive the blurring introduced by the detector’s finite energy resolution.
+
+The analysis shows that JUNO admits ghost-mode frequencies up to kℓ ≈ 30–60 (depending on energy) while retaining at least half of the original modulation amplitude. By comparing A_eff to JUNO’s combined systematic envelope β_max ≈ 1.5–2%, the paper derives a lower bound Ag ≥ β_max exp(½ kℓ²σℓ²), demonstrating that intrinsic amplitudes Ag ≈ 1.6% with moderate log-frequency kℓ ≲ 20–30 are, in principle, experimentally resolvable. Extended detectability tables (0.5–12 MeV) quantify the full energy-dependent window in which ghost harmonics survive JUNO smearing and exceed the systematic bias.
+
+The manuscript further provides an oscillation-space formulation: curvature-induced shifts Δm² → Δm² + δ(Δm²) generate sub-percent corrections to the survival probability, lying precisely within JUNO’s measured sensitivity band. Together, the energy-space and oscillation-space projections show that JUNO’s realized detector performance—percent-level nonlinearity, percent-level spatial uniformity, and few-percent energy resolution—matches exactly the instrumental requirements implied by WCT ghost-mode phenomenology.
+
+Key contributions
+
+• Derivation of the log-energy smearing kernel implied by JUNO’s resolution model σ_E/E = √(a²/E + b²).• Exponential damping formula for ghost-mode amplitude and closed-form visibility bounds for frequencies kℓ ≲ O(10²).• Energy-dependent detectability inequalities Ag ≥ β_max exp(½ kℓ²σℓ²), yielding Ag ≈ 1–2% as the minimal intrinsic amplitude required for observability.• Full detectability tables (0.5–12 MeV) using JUNO’s measured stochastic and systematic uncertainties.• Oscillation-space curvature corrections showing sub-percent Δm² shifts within JUNO’s resolving power.• A quantitative match between WCT ghost-mode predictions and the independently realized precision of the JUNO detector.
+
+Relation to previous WCT volumesThis paper builds on the curvature-feedback framework and confinement operators developed in:
+
+• Emergence of Effective Mass — Solenoidal Topology of Vibrational Energy Richard J. Reyes, Zenodo 2025, DOI: 10.5281/zenodo.15361128
+
+• The Geometry of Resonance Richard J. Reyes, Zenodo 2025, DOI: 10.5281/zenodo.15286791
+
+• Phase–Flux Field (PFF) Richard J. Reyes, Zenodo 2025, DOI: 10.5281/zenodo.15315798
+
+These earlier works introduce the curvature-locked dynamics, spectral structures, and operators used here to model the neutrino as a ghost harmonic and to derive detector-level constraints.
+
+KeywordsNeutrinos; JUNO; ghost harmonics; Wave Confinement Theory; log-energy oscillations; detector resolution; spectral modulation; curvature locking; Δm² precision; energy smearing.
+
+Author &amp; ContactAuthor: Richard J. ReyesORCID iD: 0009-0005-5975-8718Email: reyes.ricky30@gmail.com</dcterms:abstract>
+        <dc:date>2025-11-20</dc:date>
+        <dc:identifier>DOI 10.5281/zenodo.17715872</dc:identifier>
+        <z:citationKey>reyesJUNOEnergyResolution2025</z:citationKey>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://zenodo.org/records/17715872</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2026-06-03 19:48:48</dcterms:dateSubmitted>
+        <z:libraryCatalog>Zenodo</z:libraryCatalog>
+        <dc:rights>All rights reserved</dc:rights>
+    </rdf:Description>
+    <z:Attachment rdf:about="#item_18">
+        <z:itemType>attachment</z:itemType>
+        <z:path rdf:resource="files/18/Reyes - 2025 - JUNO Energy Resolution and Detectability of WCT Ghost-Mode Neutrinos.pdf"/>
+        <dc:title>Full Text PDF</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://zenodo.org/records/17715872/files/JUNO%20Energy%20Resolution%20and%20Detectability%20of%20WCT%20Ghost-Mode%20Neutrinos.pdf</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2026-06-03 19:48:49</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <rdf:Description rdf:about="https://zenodo.org/records/17459463">
+        <z:itemType>preprint</z:itemType>
+        <dc:publisher>
+           <foaf:Organization><foaf:name>Zenodo</foaf:name></foaf:Organization>
+        </dc:publisher>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Reyes</foaf:surname>
+                        <foaf:givenName>Richard J.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_20"/>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Wave Confinement Theory</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Nonlinear Dynamics</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Curvature Feedback</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Lyapunov Descent</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Emergent Mass</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Geometric Inertia</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Hopf Fibration</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Photon Confinement</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Solenoidal Topology</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Spinor Quantization</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>SU2 Symmetry</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Torsion</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:title>Emergence of Effective Mass: Solenoidal Topology of Vibrational Energy</dc:title>
+        <dcterms:abstract>Emergence of Effective Mass: Solenoidal Topology of Vibrational Energy
+
+Richard J. Reyes - October 27, 2025
+
+GitHub Repository: github.com/rickyjreyes/geometry_of_resonance
+
+YouTube: https://youtu.be/ffgaRGFwfcI?si=VFQeAaqmYb0hle-3
+
+ 
+
+Description
+
+This work demonstrates how inertial mass arises from geometric confinement of wavefields, showing that a photon constrained to a solenoidal path experiences a curvature-induced phase delay that manifests as effective inertia. Within the framework of Wave Confinement Theory (WCT), we derive and verify the loop-quantized mass law:
+
+m = ℏ ⁄ c ⟨√(κ² + τ²)⟩_Γ
+
+linking curvature and torsion of the guiding path to the mass of the confined mode.
+
+Starting from the covariant WCT Lagrangian, the analysis proceeds through the Phase–Flux Field (PFF) and Self-Emergent Fourier Cymatics (SEFC) layers, culminating in the solenoidal mass channel as the geometrical origin of inertia. Theoretical derivations are supported by numerical examples, variational proofs, and connections to experimental observables such as cavity frequency shifts (ppm-scale) in curved optical guides.
+
+Key Contributions
+
+• Derivation of the loop-quantized mass formula from curvature and torsion invariants.• Demonstration that curvature-induced phase delay produces an effective refractive index and reduced phase velocity.• Variational formulation connecting curvature confinement to spin-½ through a Möbius half-twist closure.• Analytical derivation of the Bohr–Sommerfeld shell rule from Lyapunov descent of the energy functional.• Emergent U(1) and SU(2) gauge structures from phase winding and triadic mode coupling.• Construction of a torsionless effective metric gᵉᶠᶠ_μν from curvature feedback, producing measurable frequency shifts.• “Electron block” derivation showing the electron as a stable, curvature-locked photon loop with correct mass, spin, and magnetic moment.• Mapping to the Hopf–quaternion geometry of S³ ≃ SU(2), relating toroidal confinement to atomic orbitals.
+
+Keywords
+
+wave confinement theory; solenoidal topology; emergent mass; curvature feedback; spinor quantization; torsion; Lyapunov descent; SU(2) symmetry; Hopf fibration; nonlinear dynamics; photon confinement; geometric inertia</dcterms:abstract>
+        <dc:date>2025-10-27</dc:date>
+        <dc:identifier>DOI 10.5281/zenodo.17459463</dc:identifier>
+        <z:citationKey>reyesEmergenceEffectiveMass2025</z:citationKey>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://zenodo.org/records/17459463</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2026-06-03 19:49:02</dcterms:dateSubmitted>
+        <z:shortTitle>Emergence of Effective Mass</z:shortTitle>
+        <z:libraryCatalog>Zenodo</z:libraryCatalog>
+        <dc:rights>All rights reserved</dc:rights>
+    </rdf:Description>
+    <z:Attachment rdf:about="#item_20">
+        <z:itemType>attachment</z:itemType>
+        <z:path rdf:resource="files/20/Reyes - 2025 - Emergence of Effective Mass Solenoidal Topology of Vibrational Energy.pdf"/>
+        <dc:title>Full Text PDF</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://zenodo.org/records/17459463/files/Emergence%20of%20Effective%20Mass%20Solenoidal%20Topology%20of%20Vibrational%20Energy.pdf</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2026-06-03 19:49:06</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <rdf:Description rdf:about="https://zenodo.org/records/20164333">
+        <z:itemType>preprint</z:itemType>
+        <dc:publisher>
+           <foaf:Organization><foaf:name>Zenodo</foaf:name></foaf:Organization>
+        </dc:publisher>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Reyes</foaf:surname>
+                        <foaf:givenName>Richard J.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_24"/>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Wave Confinement Theory</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>WCT</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>active-domain winding</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>B⁰ → K*⁰ μ⁺μ⁻</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>bounded Poisson likelihood</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>candidate-spectrum geometry</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>charmonium vetoes</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>discrete scale structure</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>flavor physics</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>inverse-Koide square-root dilation</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>KDE baseline</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Koide comb</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Koide relation</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>LHCb</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>log-periodic residuals</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>open data</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>P′₅ anomaly</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>q² spectrum</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>rare B decays</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>scale dilation</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>sideband analysis</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>spectral residuals</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Wilson coefficient C₉</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:title>Log-Spectral Structure and Koide-Like Winding Geometry in Open-Data B⁰ → K*⁰ μ⁺μ⁻ Candidate Spectra</dc:title>
+        <dcterms:abstract>Log-Spectral Structure and Koide-Like Winding Geometry in Open-Data B⁰ → K*⁰ μ⁺μ⁻ Candidate SpectraRichard J. Reyes - Original Release: May 9, 2026
+
+GitHub: https://github.com/rickyjreyes/LHC
+
+Description
+
+This record presents an independent diagnostic analysis of the LHCb open-data B⁰ → K*⁰ μ⁺μ⁻ candidate yield spectrum. The study tests whether the q² distribution contains reproducible log-periodic residual structure beyond a smooth baseline, using KDE baseline repair, widened charmonium vetoes, bounded Poisson likelihood tests, null comparisons, integer active-domain winding, Koide-comb geometry, sideband checks, and veto-window covariance tests.
+
+The tested residual form is:
+
+ℓ = ln(q²)
+
+with bounded log-periodic component:
+
+Δ(ℓ) ∼ A · cos(kℓ + φ)
+
+where:
+
+• A - bounded residual amplitude• k - log-frequency• φ - phase offset• ℓ - logarithmic momentum-transfer coordinate
+
+After replacing the initial Savitzky–Golay baseline with a resonance-aware KDE baseline, a high-k residual family survives across the KDE bandwidth ladder:
+
+s_KDE ∈ [0.50, 1.50]
+
+The free-frequency optimum shifts with KDE bandwidth, while the structure maps more naturally into active-domain winding coordinates:
+
+n = k Δℓ_A / (2π)
+
+where Δℓ_A is the retained active log-domain support after vetoes.
+
+In this coordinate, the reference branch maps near the stable integer active-domain winding:
+
+n_ℓ = 15
+
+The integer-winding family:
+
+{10, 15, 20}
+
+encodes the charged-lepton Koide ratio:
+
+Q_ℓ = 2/3
+
+as a true-sideband winding ratio.
+
+In the unrestricted trigonometric scan, the folded Q = 4/9 branch gives a stronger ΔD, while the true-sideband Koide branch remains the Class I reference geometry. A well-first scan, performed before imposing the comb model, finds the cleanest raw Koide-like triplet in the B-low sideband:
+
+(9.8141, 14.5614, 19.0196)
+
+with:
+
+Q_mean ≃ 0.6635
+
+The signal-window triplet:
+
+(12.1421, 17.6350, 23.5082)
+
+is related to the B-low triplet by a resolved-regime dilation:
+
+n_sig ≃ 1.2283 n_Blow
+
+with:
+
+p_scale = 0.00586
+
+under random triplet pairing in the resolved-well regime.
+
+The scale factor also lies close to the candidate inverse-Koide square-root dilation:
+
+a ≃ 1.228287√(Q_ℓ⁻¹) = √(3/2) ≃ 1.224745
+
+a difference of approximately 0.29%.
+
+The result supports a structured candidate-spectrum log-domain with active-domain winding stability, Koide-like sideband geometry, and scale-coupled signal/sideband projections. More broadly, the work introduces log-spectral and active-domain winding diagnostics as tools for identifying structured residual geometry in collider candidate spectra.
+
+ 
+
+Input data for this analysis are public LHCb Open Data Ntupling Service request-48 output files.
+
+HTTPS links:
+
+open https://opendata-lhcb-ntupling-service.app.cern.ch/api/requests/48/outputs/real-production/.filelist.yamlopen https://opendata-lhcb-ntupling-service.app.cern.ch/api/requests/48/outputs/real-production/00382466_00000001_1.dvntuple.rootopen https://opendata-lhcb-ntupling-service.app.cern.ch/api/requests/48/outputs/real-production/00382466_00000002_1.dvntuple.rootopen https://opendata-lhcb-ntupling-service.app.cern.ch/api/requests/48/outputs/real-production/00382466_00000003_1.dvntuple.rootopen https://opendata-lhcb-ntupling-service.app.cern.ch/api/requests/48/outputs/real-production/00382467_00000001_1.dvntuple.rootopen https://opendata-lhcb-ntupling-service.app.cern.ch/api/requests/48/outputs/real-production/00382467_00000002_1.dvntuple.rootopen https://opendata-lhcb-ntupling-service.app.cern.ch/api/requests/48/outputs/real-production/00382467_00000003_1.dvntuple.root
+
+Command-line download with XRootD:
+
+conda install -c conda-forge xrootd
+
+mkdir -p data/lhcb_request_48cd data/lhcb_request_48
+
+xrdcp root://eospublic.cern.ch//eos/opendata/lhcb/upload/opendata-lhcb-ntupling-service/analysis-productions/merge-requests/5826/outputs/real-production/.filelist.yaml .xrdcp root://eospublic.cern.ch//eos/opendata/lhcb/upload/opendata-lhcb-ntupling-service/analysis-productions/merge-requests/5826/outputs/real-production/00382466_00000001_1.dvntuple.root .xrdcp root://eospublic.cern.ch//eos/opendata/lhcb/upload/opendata-lhcb-ntupling-service/analysis-productions/merge-requests/5826/outputs/real-production/00382466_00000002_1.dvntuple.root .xrdcp root://eospublic.cern.ch//eos/opendata/lhcb/upload/opendata-lhcb-ntupling-service/analysis-productions/merge-requests/5826/outputs/real-production/00382466_00000003_1.dvntuple.root .xrdcp root://eospublic.cern.ch//eos/opendata/lhcb/upload/opendata-lhcb-ntupling-service/analysis-productions/merge-requests/5826/outputs/real-production/00382467_00000001_1.dvntuple.root .xrdcp root://eospublic.cern.ch//eos/opendata/lhcb/upload/opendata-lhcb-ntupling-service/analysis-productions/merge-requests/5826/outputs/real-production/00382467_00000002_1.dvntuple.root .xrdcp root://eospublic.cern.ch//eos/opendata/lhcb/upload/opendata-lhcb-ntupling-service/analysis-productions/merge-requests/5826/outputs/real-production/00382467_00000003_1.dvntuple.root .
+
+ 
+
+Keywords
+
+LHCb; B⁰ → K*⁰ μ⁺μ⁻; open data; q² spectrum; log-periodic residuals; active-domain winding; Koide relation; Koide comb; Wave Confinement Theory; WCT; candidate-spectrum geometry; bounded Poisson likelihood; KDE baseline; charmonium vetoes; flavor physics; P′₅ anomaly; Wilson coefficient C₉; sideband analysis; scale dilation; inverse-Koide square-root dilation; discrete scale structure; spectral residuals; rare B decays
+
+Author &amp; Contact
+
+Author: Richard J. ReyesORCID iD: 0009-0005-5975-8718Email: reyes.ricky30@gmail.com</dcterms:abstract>
+        <dc:date>2026-05-09</dc:date>
+        <dc:identifier>DOI 10.5281/zenodo.20164333</dc:identifier>
+        <z:citationKey>reyesLogSpectralStructureKoideLike2026</z:citationKey>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://zenodo.org/records/20164333</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2026-06-03 19:49:24</dcterms:dateSubmitted>
+        <z:libraryCatalog>Zenodo</z:libraryCatalog>
+        <dc:rights>All rights reserved</dc:rights>
+    </rdf:Description>
+    <z:Attachment rdf:about="#item_24">
+        <z:itemType>attachment</z:itemType>
+        <z:path rdf:resource="files/24/Reyes - 2026 - Log-Spectral Structure and Koide-Like Winding Geometry in Open-Data B⁰ → K⁰ μ⁺μ⁻ Candidate Spectra.pdf"/>
+        <dc:title>Full Text PDF</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://zenodo.org/records/20164333/files/LHC_paper.pdf</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2026-06-03 19:49:25</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <rdf:Description rdf:about="https://zenodo.org/records/17887562">
+        <z:itemType>preprint</z:itemType>
+        <dc:publisher>
+           <foaf:Organization><foaf:name>Zenodo</foaf:name></foaf:Organization>
+        </dc:publisher>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Reyes</foaf:surname>
+                        <foaf:givenName>Richard J.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_26"/>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Wave Confinement Theory</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Curvature Harmonics</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Curvature Saturation</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Curvature-Koide Invariant</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Dimensional Stability</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Eigenmode Spectrum</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Fermion Triplets</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Geometric Mass Ratios</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Geometric Unification</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Koide Relation</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Mass-Phase Geometry</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Nonlinear Wave Confinement</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Poloidal Curvature</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Spin-Curvature Partition</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Theta-Operator</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Toroidal Eigenmodes</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Torsion Budget</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:title>Wave Confinement Theory Predicts the Koide Mass Relation: A Curvature–Harmonic Origin of Fermion Mass Triplets</dc:title>
+        <dcterms:abstract>Wave Confinement Theory Predicts the Koide Mass RelationA Curvature–Harmonic Origin of Fermion Mass Triplets
+
+Richard J. Reyes - December 10, 2025
+
+Overview
+
+This paper demonstrates that the Koide mass relation for fermion triplets is a direct consequence of the curvature spectrum of confined toroidal eigenmodes in Wave Confinement Theory (WCT).
+
+Dimensional stability of the WCT curvature functional imposes a universal bound on the poloidal curvature fraction of a spin-s soliton:
+
+η² m² ≤ 2s / (2s + 1)
+
+Stable eigenmodes saturate this inequality. This identifies a curvature harmonic:
+
+K(s)² = 2s / (2s + 1)
+
+which fixes the Koide mass–phase angle through the identification:
+
+cos θ = K(s)
+
+Combining this with Koide’s geometric identity:
+
+Q = 1 / (3 cos² θ)
+
+yields the spin-dependent Koide law:
+
+Q(s) = (2s + 1) / (6s)
+
+For s = 1/2, this gives:
+
+Qℓ = 2/3
+
+exactly.
+
+Key Results
+
+• A dimensional-stability theorem for toroidal WCT eigenmodes fixes a finite curvature budget shared between torsion (spin) and poloidal winding.
+
+• Curvature–Koide invariant:
+
+Q(s) · K(s)² = 1/3
+
+• Mass–phase angle identification:
+
+cos θ = K(s)
+
+• Exact reproduction of the charged-lepton ratio:
+
+Qℓ = 2/3
+
+• Effective-spin interpretation for quark triplets:
+
+s_eff ≈ 0.56⇒ Q_q ≈ 0.63
+
+• Curvature-suppressed neutrino sector consistent with:
+
+Q_ν ≈ 1/3
+
+Numerical Verification
+
+The paper includes a full extraction pipeline for toroidal WCT eigenmodes.
+
+For the m = 1, spin-1/2 soliton:
+
+Extracted aspect ratio:η = 0.7070 ± 0.01
+
+Poloidal winding:m = 1
+
+Numerical curvature parameter:x_num = η² m² = 0.500 ± 0.015
+
+Theoretical prediction:x_th = 1/2
+
+Agreement within a few percent confirms the curvature-fraction law.
+
+Relation to Prior WCT Work
+
+This paper builds directly on the curvature formalism developed in:
+
+• Rest Energy from Density-Weighted Loop Curvature (2025)• Resonant Cavity of Vector Fields (2025)• The Geometry of Resonance (2025)
+
+These works introduce the Θ-operator, curvature locking, and confined toroidal eigenmodes used here.
+
+Significance
+
+• First derivation of Koide’s relation from a physical curvature mechanism• Charged-lepton value emerges with no free parameters• Quark and neutrino Koide patterns follow from the same curvature–harmonic structure
+
+Keywords
+
+Curvature harmonics; mass-phase geometry; Koide relation; fermion triplets; Wave Confinement Theory; toroidal eigenmodes; curvature saturation; dimensional stability; poloidal curvature; torsion budget; spin–curvature partition; effective spin; curvature-locked solitons; geometric mass ratios; curvature–Koide invariant; eigenmode spectrum; nonlinear wave confinement; Θ-operator; geometric unification.
+
+Author &amp; Contact
+
+Author: Richard J. ReyesORCID iD: 0009-0005-5975-8718Email: reyes.ricky30@gmail.com</dcterms:abstract>
+        <dc:date>2025-12-10</dc:date>
+        <dc:identifier>DOI 10.5281/zenodo.17887562</dc:identifier>
+        <z:citationKey>reyesWaveConfinementTheory2025</z:citationKey>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://zenodo.org/records/17887562</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2026-06-03 19:49:35</dcterms:dateSubmitted>
+        <z:shortTitle>Wave Confinement Theory Predicts the Koide Mass Relation</z:shortTitle>
+        <z:libraryCatalog>Zenodo</z:libraryCatalog>
+        <dc:rights>All rights reserved</dc:rights>
+    </rdf:Description>
+    <z:Attachment rdf:about="#item_26">
+        <z:itemType>attachment</z:itemType>
+        <z:path rdf:resource="files/26/Reyes - 2025 - Wave Confinement Theory Predicts the Koide Mass Relation A Curvature–Harmonic Origin of Fermion Mas.pdf"/>
+        <dc:title>Full Text PDF</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://zenodo.org/records/17887562/files/Wave%20Confinement%20Theory%20Predicts%20the%20Koide%20Mass%20Relation.pdf</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2026-06-03 19:49:37</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <rdf:Description rdf:about="https://zenodo.org/records/18936949">
+        <z:itemType>preprint</z:itemType>
+        <dc:publisher>
+           <foaf:Organization><foaf:name>Zenodo</foaf:name></foaf:Organization>
+        </dc:publisher>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Reyes</foaf:surname>
+                        <foaf:givenName>Richard J.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_28"/>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Wave Confinement Theory</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Koide Relation</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Toroidal Eigenmodes</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Cole-Hopf Transform</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Curvature Flow</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Curvature Invariants</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Filament Localization</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Geometric Mass Models</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>KPZ Equation</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Lepton Mass Spectrum</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Logarithmic Curvature Operator</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Nonlinear Wavefields</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Topological Confinement</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:title>Logarithmic Curvature Flow, Filament Localization, and the Geometric Origin of the Lepton Mass Spectrum</dc:title>
+        <dcterms:abstract>Logarithmic Curvature Flow, Filament Localization, and the Geometric Origin of the Lepton Mass SpectrumRichard J. Reyes - March 10, 2026
+
+Overview
+
+This document develops a mathematical framework within Wave Confinement Theory (WCT) in which particle masses arise from localized curvature modes of a nonlinear complex wavefield.
+
+The work shows that the curvature–feedback operator governing the wavefield admits a logarithmic representation that transforms the dynamics into a viscous Hamilton–Jacobi equation. Through the Cole–Hopf transformation this nonlinear flow linearizes to a diffusion equation, implying that stable localized states cannot arise from local nonlinear trapping alone and instead require global topological confinement.
+
+Within closed or periodic geometries the dynamics organize into filamentary curvature modes whose core curvature invariant determines the effective inverse length scale of the confined state and therefore its rest mass scale.
+
+Core Result
+
+The analysis demonstrates that curvature localization along closed filaments produces a periodic curvature spectrum. Under weak modulation this spectrum takes the form
+
+σ(ϕ)≈(a+bcos⁡ϕ)2.\sigma(\phi) \approx (a + b \cos \phi)^2 .σ(ϕ)≈(a+bcosϕ)2.
+
+Discrete phase offsets separated by 2π/32\pi/32π/3 generate three curvature eigenvalues whose square roots lie on a circle in m\sqrt{m}m-space.
+
+This geometric structure reproduces the known Koide relation for the charged lepton masses.
+
+Key Mathematical Structure
+
+The derivation proceeds through the following chain:
+
+curvature–feedback operator↓logarithmic field transform↓viscous Hamilton–Jacobi equation↓Cole–Hopf linearization↓diffusion dynamics↓topological confinement↓filament localization↓periodic curvature spectrum↓Koide mass geometry.
+
+The curvature flow equation derived in this work belongs to the deterministic Kardar–Parisi–Zhang (KPZ) universality class, providing a connection between the WCT curvature dynamics and well-studied nonlinear growth equations.
+
+Dimensional Stability
+
+Scaling analysis of the logarithmic curvature flow identifies a critical spatial dimension
+
+dc=3d_c = 3dc=3
+
+at which the nonlinear gradient term becomes scale invariant. This suggests that stable curvature confinement occurs naturally in three spatial dimensions.
+
+Scope and Interpretation
+
+This work develops the mathematical structure linking curvature flow, topological confinement, and mass geometry. It does not claim a complete microscopic model of particle physics.
+
+In particular, the following aspects remain open problems:
+
+
+
+
+
+determination of the absolute mass scale,
+
+
+
+
+selection of the phase on the Koide circle,
+
+
+
+
+derivation of discrete curvature shell eigenvalues for specific particle sectors.
+
+
+
+The paper therefore establishes a geometric mechanism capable of generating the observed lepton mass relation, while leaving the full spectral problem for future work.
+
+Relation to Prior Work
+
+This manuscript builds on earlier Wave Confinement Theory papers developing curvature-based descriptions of mass, resonance, and confinement dynamics.
+
+The present work specifically extends these ideas by:
+
+
+
+
+
+deriving the logarithmic curvature flow representation,
+
+
+
+
+identifying the Cole–Hopf diffusion structure,
+
+
+
+
+linking the curvature spectrum to the geometric form of the Koide relation.
+
+
+
+Significance
+
+If the curvature–filament framework is correct, the charged lepton mass hierarchy emerges as a geometric property of confined curvature modes rather than a set of independent fundamental parameters.
+
+The results suggest that particle masses may reflect eigenvalues of a curvature spectrum determined by the topology and geometry of the underlying wavefield.
+
+Keywords
+
+wave confinement theory; curvature flow; logarithmic curvature operator; filament localization; KPZ equation; Cole–Hopf transform; curvature invariants; toroidal eigenmodes; lepton mass spectrum; Koide relation; geometric mass models; nonlinear wavefields; topological confinement.
+
+Author &amp; Contact
+
+Author: Richard J. ReyesORCID iD: 0009-0005-5975-8718Email: reyes.ricky30@gmail.com</dcterms:abstract>
+        <dc:date>2026-03-10</dc:date>
+        <dc:identifier>DOI 10.5281/zenodo.18936949</dc:identifier>
+        <z:citationKey>reyesLogarithmicCurvatureFlow2026</z:citationKey>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://zenodo.org/records/18936949</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2026-06-03 19:49:54</dcterms:dateSubmitted>
+        <z:libraryCatalog>Zenodo</z:libraryCatalog>
+        <dc:rights>All rights reserved</dc:rights>
+    </rdf:Description>
+    <z:Attachment rdf:about="#item_28">
+        <z:itemType>attachment</z:itemType>
+        <z:path rdf:resource="files/28/Reyes - 2026 - Logarithmic Curvature Flow, Filament Localization, and the Geometric Origin of the Lepton Mass Spect.pdf"/>
+        <dc:title>Full Text PDF</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://zenodo.org/records/18936949/files/Logarithmic%20Curvature%20Flow,%20Filament%20Localization,%20and%20the%20Geometric%20Origin%20of%20the%20Lepton%20Mass%20Spectrum.pdf</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2026-06-03 19:49:55</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <rdf:Description rdf:about="https://zenodo.org/records/19122146">
+        <z:itemType>preprint</z:itemType>
+        <dc:publisher>
+           <foaf:Organization><foaf:name>Zenodo</foaf:name></foaf:Organization>
+        </dc:publisher>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Reyes</foaf:surname>
+                        <foaf:givenName>Richard J.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_30"/>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Wave Confinement Theory</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>curvature invariants</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>curvature-based cryptography</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>deterministic dynamics</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>entropy regularization</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>geometric hashing</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>nonlinear PDE evolution</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>one-way functions</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>post-quantum cryptography</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>wavefield commitment schemes</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>WaveLock</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:title>WaveLock: A Curvature-Locked One-Way Function Based on Nonlinear PDE Evolution</dc:title>
+        <dcterms:abstract>WaveLock: A Curvature-Locked One-Way Function Based on Nonlinear PDE EvolutionRichard J. Reyes - Original Release: December 1, 2025 Latest: March 19, 2026
+
+Overview
+
+This document introduces WaveLock, a cryptographic construction grounded in nonlinear partial differential equation (PDE) evolution within the Wave Confinement Theory (WCT) framework.
+
+The work defines a deterministic curvature-driven evolution of a complex wavefield whose final state acts as a cryptographic commitment. The transformation from initial state to evolved configuration is computationally feasible in the forward direction but exhibits strong resistance to inversion, forming the basis of a one-way function.An open-source reference implementation is available at:https://github.com/rickyjreyes/Wavelock
+
+By embedding geometric curvature functionals, entropy regularization, and nonlinear feedback into the evolution operator, the system produces high-dimensional outputs that are extremely sensitive to initial conditions while remaining fully deterministic and reproducible.
+
+Core Result
+
+The analysis demonstrates that nonlinear curvature evolution of a wavefield generates a commitment function of the form
+
+ψ₀ → ψ★ → H(ψ★)
+
+where ψ₀ is the initial state, ψ★ is the evolved curvature-locked configuration, and H is a canonical hash over curvature invariants and field structure.
+
+Small perturbations in ψ₀ produce exponentially diverging ψ★ under evolution, while recovering ψ₀ from ψ★ requires solving a high-dimensional nonlinear inverse problem with no known efficient algorithm.
+
+This establishes WaveLock as a curvature-based one-way function candidate grounded in continuous dynamics rather than discrete combinatorics.
+
+Key Mathematical Structure
+
+The construction follows the chain:
+
+nonlinear wavefield initialization↓curvature–feedback operator↓entropy-regularized evolution↓nonlinear PDE dynamics↓deterministic forward evolution↓curvature-locked state ψ★↓canonical serialization↓cryptographic commitment.
+
+The governing evolution combines gradient energy, curvature feedback, and entropy terms into a unified functional that drives the system toward stable high-complexity configurations.
+
+Dimensional and Computational Constraints
+
+The system enforces strict structural constraints on the wavefield:
+
+ψ ∈ ℝ² with power-of-two spatial discretization
+
+This ensures compatibility with spectral operators, deterministic evolution, and bounded computational regimes.
+
+The framework introduces curvature-budget classifications (PWCC, NPWCC) that bound computational cost and define admissible evolution regimes, linking physical curvature constraints to computational complexity classes.
+
+Scope and Interpretation
+
+This work establishes the mathematical and computational structure of WaveLock as a curvature-based one-way function.
+
+It does not claim:
+
+a formal proof of cryptographic hardness,
+
+reduction to standard assumptions (e.g., factoring, lattices),
+
+or resistance against all quantum or future adversarial models.
+
+Open problems include:
+
+formal inversion hardness proofs,
+
+tight complexity class characterization,
+
+optimization of parameter regimes for security-performance tradeoffs,
+
+analysis under adversarial and quantum attack models.
+
+Relation to Prior Work
+
+This manuscript builds on prior Wave Confinement Theory work on curvature operators, nonlinear wave dynamics, and geometric confinement.
+
+The present contribution extends these ideas by:
+
+constructing a deterministic PDE-based cryptographic primitive,
+
+formalizing curvature evolution as a one-way transformation,
+
+introducing commitment schemes based on wavefield invariants,
+
+linking geometric evolution to computational irreversibility.
+
+Significance
+
+If the WaveLock construction is secure, it represents a new class of cryptographic primitives derived from continuous nonlinear dynamics rather than discrete algebraic structures.
+
+The results suggest that cryptographic hardness may arise from geometric complexity and irreversible PDE evolution, opening a path toward physics-inspired cryptography and alternative post-quantum constructions.
+
+Keywords
+
+wave confinement theory; WaveLock; curvature-based cryptography; nonlinear PDE evolution; one-way functions; geometric hashing; curvature invariants; entropy regularization; deterministic dynamics; post-quantum cryptography; wavefield commitment schemes.
+
+Author &amp; Contact
+
+Author: Richard J. ReyesORCID iD: 0009-0005-5975-8718Email: reyes.ricky30@gmail.com</dcterms:abstract>
+        <dc:date>2025-12-01</dc:date>
+        <dc:identifier>DOI 10.5281/zenodo.19122146</dc:identifier>
+        <z:citationKey>reyesWaveLockCurvatureLockedOneWay2025</z:citationKey>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://zenodo.org/records/19122146</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2026-06-03 19:50:06</dcterms:dateSubmitted>
+        <z:shortTitle>WaveLock</z:shortTitle>
+        <z:libraryCatalog>Zenodo</z:libraryCatalog>
+        <dc:rights>All rights reserved</dc:rights>
+    </rdf:Description>
+    <z:Attachment rdf:about="#item_30">
+        <z:itemType>attachment</z:itemType>
+        <z:path rdf:resource="files/30/Reyes - 2025 - WaveLock A Curvature-Locked One-Way Function Based on Nonlinear PDE Evolution.pdf"/>
+        <dc:title>Full Text PDF</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://zenodo.org/records/19122146/files/wavelock_paper.pdf</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2026-06-03 19:50:08</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <rdf:Description rdf:about="https://zenodo.org/records/17783074">
+        <z:itemType>preprint</z:itemType>
+        <dc:publisher>
+           <foaf:Organization><foaf:name>Zenodo</foaf:name></foaf:Organization>
+        </dc:publisher>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Reyes</foaf:surname>
+                        <foaf:givenName>Richard J.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_32"/>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>PWCC</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Wave Confinement Theory</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>AGI Safety</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Computational Complexity</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Curvature Capacity</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Curvature-Bounded Computation</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Distinguishability Curvature</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>NPWCC</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Physical Computation</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Turing Simulation</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Wave Curvature Computation</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Wave-Encoded Information</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:title>The Classical P vs NP Problem is Mathematically and Physically Ill-Posed</dc:title>
+        <dcterms:abstract>The Classical P vs NP Problem is Mathematically and Physically Ill-PosedRichard J. Reyes — December 1, 2025Original release: December 1, 2025
+
+GitHub Wavelock: https://github.com/rickyjreyes/Wavelock
+
+Description
+
+This paper reframes the classical P vs NP problem from the standpoint of physical computation. The central claim is that real computation cannot be separated from geometry, energy, memory, distinguishability, and finite propagation. A Turing machine can idealize these costs away; a physical system cannot.
+
+Using the Wave Confinement Theory computational model, Wave Curvature Computation (WCC), the manuscript studies what happens when symbolic computation is forced to obey curvature, locality, finite precision, finite bandwidth, and physical distinguishability constraints.
+
+Core Question
+
+Can NP-style witness search remain physically realizable when every stored bit, transported symbol, and verified witness carries nonzero curvature cost?
+
+The paper argues that the classical P vs NP formulation is not the correct physical question. The classical formulation assumes an idealized computational substrate with:
+
+• infinite precision• zero curvature cost• zero geometric memory cost• zero free-energy cost for symbolic distinction• perfect distinguishability• unbounded abstraction from the physical carrier
+
+WCC replaces that abstraction with a curvature-bounded computation model.
+
+Core Structure
+
+The paper defines physical computation through:
+
+• finite-precision wave states• local update rules• bounded propagation• curvature-capacity limits• entropy and stability rails• distinguishability costs for stored and verified symbols
+
+Within this model, computation is not just symbol manipulation. It is geometric state evolution under physical resource constraints.
+
+The paper introduces a curvature-complexity functional:
+
+C_Θ(f)
+
+where Θ is the WCT curvature operator. This functional measures the geometric cost of representing or verifying structured symbolic information inside a curvature-regulated substrate.
+
+Locked-Expander SAT
+
+A central construction is the Locked-Expander 3-SAT family. These instances are designed so that valid witnesses require globally coordinated structure. In the WCC model, the paper argues that realizing these witnesses requires exponential curvature cost:
+
+C_Θ(F_n) ≥ 2^Ω(n)
+
+while physically admissible WCC computation is bounded by polynomial curvature capacity under locality, finite bandwidth, finite precision, and stability constraints.
+
+This yields an internal WCC separation:
+
+P_WCC ≠ NP_WCC
+
+inside the curvature-bounded physical model.
+
+Physical Computation vs Classical Abstraction
+
+Classical Turing computation asks what can be decided by an ideal symbolic machine.
+
+Physical WCC computation asks what can be realized by a bounded geometric system.
+
+The paper’s central conclusion is that the classical P vs NP question is not directly a question about real physical computation. It is a question about a curvature-free, infinite-precision abstraction.
+
+The physical version studied here is:
+
+P_physical ≠ NP_physical
+
+where physical computation is constrained by curvature cost, finite distinguishability, bounded propagation, and finite information capacity.
+
+Key Contributions
+
+• Reframes P vs NP as a physical-computation problem rather than a purely symbolic abstraction.• Defines Wave Curvature Computation (WCC) as a curvature-bounded computational model.• Introduces curvature-capacity constraints for memory, witness representation, transport, and verification.• Develops a Locked-Expander SAT family requiring exponential curvature cost in the WCC model.• Derives an internal physical separation between curvature-bounded polynomial computation and curvature-expensive witness verification.• Identifies the curvature-free Turing machine as an idealized limit rather than a physically complete model of computation.• Connects computational complexity to WCT curvature laws, spectral rails, finite-bandwidth constraints, and geometric information storage.
+
+Why This Matters
+
+If computation is physical, then complexity is not only about time steps and symbolic rules. It is also about the geometry required to store, distinguish, move, and verify information.
+
+This paper proposes that the real-world version of P vs NP must include physical resource costs that classical Turing machines abstract away. Under curvature-bounded computation, NP-style witness search can exceed polynomial physical capacity even when symbolic descriptions remain finite.
+
+The result is a physics-rooted complexity framework in which computational difficulty emerges from geometric curvature cost.
+
+Relation to Previous WCT Volumes
+
+This manuscript builds on:
+
+• P vs NP in Curvature-Bounded Wave Computation — Richard J. Reyes, Zenodo 2025• WaveLock: A Curvature-Locked One-Way Function Based on Nonlinear PDE Evolution — Richard J. Reyes, Zenodo 2025• The Geometry of Resonance — Richard J. Reyes, Zenodo 2025
+
+Together, these works define the WCT/WCC computational program: computation as bounded wave evolution, symbolic structure as geometric confinement, and complexity as curvature cost.
+
+Keywords
+
+P vs NP; physical computation; computational complexity; curvature-bounded computation; Wave Confinement Theory; Wave Curvature Computation; WCC; P_WCC; NP_WCC; physical P≠NP; curvature capacity; distinguishability cost; geometric memory; finite precision; Turing machines; SAT; 3-SAT; locked expander; curvature complexity; wave computation; AGI safety; finite-bandwidth computation; symbolic physics; nonlinear computation
+
+Author &amp; Contact
+
+Author: Richard J. ReyesORCID iD: 0009-0005-5975-8718Email: reyes.ricky30@gmail.com</dcterms:abstract>
+        <dc:date>2025-12-01</dc:date>
+        <dc:identifier>DOI 10.5281/zenodo.17783074</dc:identifier>
+        <z:citationKey>reyesClassicalVsNP2025</z:citationKey>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://zenodo.org/records/17783074</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2026-06-03 19:50:18</dcterms:dateSubmitted>
+        <z:libraryCatalog>Zenodo</z:libraryCatalog>
+        <dc:rights>All rights reserved</dc:rights>
+    </rdf:Description>
+    <z:Attachment rdf:about="#item_32">
+        <z:itemType>attachment</z:itemType>
+        <z:path rdf:resource="files/32/Reyes - 2025 - The Classical P vs NP Problem is Mathematically and Physically Ill-Posed.pdf"/>
+        <dc:title>Full Text PDF</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://zenodo.org/records/17783074/files/THE%20P%20vs%20NP%20PROBLEM%20IS%20NOT%20MATHEMATICAL.pdf</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2026-06-03 19:50:19</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <rdf:Description rdf:about="https://zenodo.org/records/17732642">
+        <z:itemType>preprint</z:itemType>
+        <dc:publisher>
+           <foaf:Organization><foaf:name>Zenodo</foaf:name></foaf:Organization>
+        </dc:publisher>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Reyes</foaf:surname>
+                        <foaf:givenName>Richard J.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_34"/>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>P vs NP</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>PWCC</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Wave Confinement Theory</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>AGI Safety</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Computational Complexity</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Curvature-Bounded Computation</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>NPWCC</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Cellular Automata</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Local-Update Machines</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Turing Equivalence</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Turing Machines</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Verifier Bijection</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Wave-Constrained Computation</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:title>Discrete Wave-Constrained Computation and Classical Complexity: Turing Equivalence for 𝐏 and 𝐍𝐏</dc:title>
+        <dcterms:abstract>Discrete Wave-Constrained Computation and Classical Complexity: Turing Equivalence for 𝐏 and 𝐍𝐏
+
+Richard J. Reyes – November 26, 2025(Original release: November 26, 2025)
+
+Github Wavelock: https://github.com/rickyjreyes/Wavelock
+
+This paper isolates the discrete core of Wave Confinement Theory (WCT) as a rigorously defined machine model—wave-constrained computation (WCC)—and compares its complexity classes to the classical Turing framework. In the WCC model, information is stored on a finite lattice Λₙ ⊂ ℤᵈ with finitely many metastable states S and a fixed-radius local update rule U : Sᴺʳ → S. Computation proceeds in synchronous, deterministic rounds subject to three “rails”:(1) Locality (bounded neighborhood radius),(2) Finite precision (fixed |S|), and(3) Bounded propagation (polynomially bounded lattice size |Λₙ|).Under these constraints, the global configuration space S^Λₙ is finite, forbidding hypercomputation and placing WCC firmly inside classical discrete complexity.
+
+Within this resource model, the paper constructs an explicit simulation of any polynomial-time deterministic Turing machine by a polynomial-time WCC machine. The encoding maps tape configurations to lattice configurations with only constant-factor overhead in time and polynomial overhead in space, and the local rule U is shown to realize single-tape head moves using radius-1 neighborhoods. Conversely, any polynomial-time WCC machine is simulated by a deterministic Turing machine with polynomial overhead via a standard “cellular automaton on a tape” construction, together yielding the class equality 𝐏𝗪𝗖𝗖 = 𝐏𝗧𝘂𝗿𝗶𝗻𝗴.A deterministic replay lemma guarantees that, given (C₀, U), the entire trajectory (Cₜ)ₜ ≥ ₀ is uniquely determined and reproducible by any verifier, making WCC evolutions fully auditable.
+
+The equivalence is then lifted from deterministic decision procedures to verifier-based nondeterministic computation. The paper defines 𝐍𝐏𝗪𝗖𝗖 via polynomial-time WCC verifiers with polynomially bounded witnesses, constructs an explicit certificate-embedding map from classical witnesses w into WCC configurations, and proves a verifier bijection L ∈ 𝐍𝐏 ⇔ L ∈ 𝐍𝐏𝗪𝗖𝗖. Together with the 𝐏-equivalence, this establishes a full bijection between (𝐏, 𝐍𝐏) and (𝐏𝗪𝗖𝗖, 𝐍𝐏𝗪𝗖𝗖) at the discrete symbolic level. As a consequence, wave-constrained computation—once stripped down to locality, finite precision, and bounded propagation—realizes exactly the classical 𝐏 and 𝐍𝐏 classes: it is neither sub-Turing nor super-Turing in power.
+
+Finally, the manuscript interprets these equivalence results in the broader WCT/AGI context. It shows how the discrete WCC–Turing bijection serves as a symbolic backbone for later work where geometric and energetic WCT rails (curvature-bounded bandlimits, dimensional locks, and spatiotemporal resource ceilings) are added on top. Under these additional physical constraints, and assuming the classical separation 𝐏 ≠ 𝐍𝐏, the framework yields a conditional NP-safety statement: no AGI implemented on WCT-bounded hardware with polynomial volume, time, and energy can decide all NP-complete languages on all inputs within polynomial physical resources. Any such violation would have to break either the WCT rails or the standard complexity assumption, not the discrete equivalence established here.
+
+Key Contributions
+
+• Formal definition of discrete WCC machines as finite-lattice, finite-state, finite-radius local-update models with explicit space, time, and precision rails.• Deterministic replay and precision-stability lemmas showing that global WCC evolution is uniquely determined, auditable, and confined to fixed finite precision.• Polynomial-time simulation of deterministic Turing machines by WCC machines with constant-factor time overhead and polynomial space overhead, yielding 𝐏𝗧𝘂𝗿𝗶𝗻𝗴 ⊆ 𝐏𝗪𝗖𝗖.• Polynomial-time simulation of WCC machines by deterministic Turing machines with polynomial overhead, yielding 𝐏𝗪𝗖𝗖 ⊆ 𝐏𝗧𝘂𝗿𝗶𝗻𝗴 and thus 𝐏𝗪𝗖𝗖 = 𝐏𝗧𝘂𝗿𝗶𝗻𝗴.• Definition of 𝐍𝐏𝗪𝗖𝗖 via WCC verifiers and an explicit certificate-embedding map, together with a verifier bijection proving 𝐍𝐏𝗪𝗖𝗖 = 𝐍𝐏𝗧𝘂𝗿𝗶𝗻𝗴.• A four-layer bijection construction (input encoding, acceptance decoding, certificate embedding, dynamical correspondence) that establishes a one-to-one correspondence between classical (x, w) pairs and wave-encoded (E(x), C(w)) configurations.• Interpretation of the discrete equivalence as a foundation for WCT-based curvature and resource-bounded lower bounds, including a conditional NP-safety result for WCT-bounded AGI systems.
+
+Relation to Previous WCT Volumes
+
+This paper extracts and completes the purely discrete, classical part of the broader Wave Confinement Theory computational program developed in:
+
+• Structure and Derivation of Physical Constants through Wave Confinement Richard J. Reyes, Zenodo 2025, DOI: 10.5281/zenodo.15341540
+
+• The Geometry of Resonance: Wave Confinement Theory and the Emergence of Mass, Force, and Spacetime Richard J. Reyes, Zenodo 2025, DOI: 10.5281/zenodo.15356814
+
+It also refines and extends the discrete Turing-abstraction and complexity-class mapping first formulated in:
+
+• P vs NP in Curvature-Bounded Wave Computation — A Model-Relative 𝐏𝗪𝗖𝗖 ≠ 𝐍𝐏𝗪𝗖𝗖 Separation Richard J. Reyes, Zenodo 2025
+
+These earlier works introduce the continuous curvature operators, curvature-entropy functionals, and WCT rails that motivate WCC. The present paper isolates the discrete WCC model, proves its exact Turing equivalence, and prepares the ground for transferring curvature-based lower bounds into the classical complexity landscape under explicit compatibility hypotheses.
+
+Keywords
+
+Computational complexity; Turing machines; local-update machines; cellular automata; Wave Confinement Theory; wave-constrained computation; 𝐏𝗪𝗖𝗖; 𝐍𝐏𝗪𝗖𝗖; Turing equivalence; P vs NP; verifier bijection; AGI safety; curvature-bounded computation.
+
+Author &amp; Contact
+
+Author: Richard J. ReyesORCID iD: 0009-0005-5975-8718Email: reyes.ricky30@gmail.com</dcterms:abstract>
+        <dc:date>2025-11-26</dc:date>
+        <dc:identifier>DOI 10.5281/zenodo.17732642</dc:identifier>
+        <z:citationKey>reyesDiscreteWaveConstrainedComputation2025</z:citationKey>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://zenodo.org/records/17732642</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2026-06-03 19:50:27</dcterms:dateSubmitted>
+        <z:shortTitle>Discrete Wave-Constrained Computation and Classical Complexity</z:shortTitle>
+        <z:libraryCatalog>Zenodo</z:libraryCatalog>
+        <dc:rights>All rights reserved</dc:rights>
+    </rdf:Description>
+    <z:Attachment rdf:about="#item_34">
+        <z:itemType>attachment</z:itemType>
+        <z:path rdf:resource="files/34/Reyes - 2025 - Discrete Wave-Constrained Computation and Classical Complexity Turing Equivalence for  and .pdf"/>
+        <dc:title>Full Text PDF</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://zenodo.org/records/17732642/files/pvnp_turing.pdf</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2026-06-03 19:50:28</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <rdf:Description rdf:about="https://zenodo.org/records/19705254">
+        <z:itemType>preprint</z:itemType>
+        <dc:publisher>
+           <foaf:Organization><foaf:name>Zenodo</foaf:name></foaf:Organization>
+        </dc:publisher>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Reyes</foaf:surname>
+                        <foaf:givenName>Richard J.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_36"/>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>flavor physics</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>LHCb</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>angular anomaly</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>C₉(q²); B⁰ → K*⁰ μ⁺μ⁻</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>discrete scale invariance</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>log-periodic modulation</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>spectral structure</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>wave confinement theory</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Wilson coefficient</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:title>A Curvature-Induced Log-Periodic Deformation of C9(q 2): Wave Confinement Theory and the LHCb B 0 → K ∗0µ+µ− Anomaly</dc:title>
+        <dcterms:abstract>A Curvature-Induced Log-Periodic Deformation of C9(q 2): Wave Confinement Theory and the LHCb B 0 → K ∗0µ+µ− AnomalyRichard J. Reyes - April 22, 2026Overview
+
+This work introduces a curvature-driven deformation of the Wilson coefficient C₉(q²) in the b → s ℓ⁺ℓ⁻ sector, motivated by Wave Confinement Theory (WCT). The deformation takes the form of a log-periodic modulation arising from curvature-induced spectral structure in a confined wavefield.
+
+The framework proposes that the observed deviations in B⁰ → K*⁰ μ⁺μ⁻ angular observables, particularly P′₅(q²), can be modeled as a structured, scale-dependent perturbation of C₉(q²), rather than a constant shift.
+
+
+
+Core Result
+
+The effective Wilson coefficient is modified as:
+
+C₉^eff(q²) = C₉^SM + δC₉(q²)
+
+with a curvature-induced deformation:
+
+δC₉(q²) = A · cos(ω · log(q² / Λ²) + φ)
+
+where:
+
+• A — modulation amplitude• ω — log-frequency• Λ — curvature-defined scale• φ — phase offset
+
+This form produces localized deviations across q² consistent with LHCb measurements while preserving the global structure of the Standard Model.
+
+
+
+Key Structure
+
+The construction follows the chain:
+
+wavefield dynamics→ curvature feedback→ spectral band selection→ discrete scale structure→ log-periodic modulation→ deformation of C₉(q²)→ angular observable deviations
+
+The log-periodicity arises from discrete scale invariance induced by curvature locking across spectral shells.
+
+
+
+Physical Interpretation
+
+Within this framework:
+
+• C₉(q²) encodes the effective response of a curvature-regulated field• deviations are interpreted as spectral interference effects rather than new particle exchange• the anomaly reflects structured modulation in the underlying wavefield rather than a constant offset
+
+No additional degrees of freedom are introduced; the effect emerges from internal geometric dynamics.
+
+
+
+Scope and Limitations
+
+This work does not claim:
+
+• a full global fit across all flavor observables• resolution of all anomalies in the b → s ℓ⁺ℓ⁻ sector• a complete embedding within the Standard Model effective field theory
+
+The deformation is presented as a minimal, structured ansatz motivated by curvature dynamics.
+
+Open problems include:
+
+• global fit validation across all Wilson coefficients• correlation with other decay channels• derivation of parameters (A, ω, Λ, φ) from first principles
+
+
+
+Significance
+
+If supported by further analysis, this framework suggests:
+
+• anomalies in flavor physics may arise from geometric spectral structure• log-periodic modulations provide a new class of signatures beyond constant Wilson shifts• curvature-based field dynamics can produce observable effects at collider scales
+
+More broadly, the work proposes that certain deviations from Standard Model predictions may reflect underlying spectral structure rather than new particle content.
+
+
+
+Keywords
+
+flavor physics; LHCb; Wilson coefficient; C₉(q²); B⁰ → K*⁰ μ⁺μ⁻; angular anomaly; log-periodic modulation; discrete scale invariance; spectral structure; wave confinement theory
+
+Author &amp; Contact
+
+Author: Richard J. ReyesORCID iD: 0009-0005-5975-8718Email: reyes.ricky30@gmail.com</dcterms:abstract>
+        <dc:date>2026-04-23</dc:date>
+        <dc:identifier>DOI 10.5281/zenodo.19705254</dc:identifier>
+        <z:citationKey>reyesCurvatureInducedLogPeriodicDeformation2026</z:citationKey>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://zenodo.org/records/19705254</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2026-06-03 19:50:36</dcterms:dateSubmitted>
+        <z:shortTitle>A Curvature-Induced Log-Periodic Deformation of C9(q 2)</z:shortTitle>
+        <z:libraryCatalog>Zenodo</z:libraryCatalog>
+        <dc:rights>All rights reserved</dc:rights>
+    </rdf:Description>
+    <z:Attachment rdf:about="#item_36">
+        <z:itemType>attachment</z:itemType>
+        <z:path rdf:resource="files/36/Reyes - 2026 - A Curvature-Induced Log-Periodic Deformation of C9(q 2) Wave Confinement Theory and the LHCb B 0 →.pdf"/>
+        <dc:title>Full Text PDF</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://zenodo.org/records/19705254/files/LHC.pdf</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2026-06-03 19:50:37</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <bib:Article rdf:about="https://zenodo.org/records/20142976">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Journal>
+               <dc:identifier>DOI 10.5281/zenodo.20142976</dc:identifier>
+            </bib:Journal>
+        </dcterms:isPartOf>
+        <dc:publisher>
+           <foaf:Organization><foaf:name>Zenodo</foaf:name></foaf:Organization>
+        </dc:publisher>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Reyes</foaf:surname>
+                        <foaf:givenName>Richard J.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_38"/>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>agent drift</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>AI alignment</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>AI Safety</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>autonomous agents</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>coherence mirage</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>curriculum drift</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>emergent misalignment</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>evolving memory</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>generative-models</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>GPT-4</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>model collapse</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>multi-agent systems</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>prediction audit</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>problem drift</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>recursive AI drift</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>recursive degradation</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>recursive self-processing</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>reward hacking</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>RLVR</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>self-consuming</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>semantic drift</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>symbolic drift</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>synthetic data collapse</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>technical note</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>verifier gaming</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:title>Recursive AI Drift: A 2025 Prediction Timeline External Validation Audit and Technical Note</dc:title>
+        <dcterms:abstract>Recursive AI Drift: A 2025 Prediction Timeline External Validation Audit and Technical Note
+
+Richard J. Reyes - Original Release: May 12, 2026
+
+OverviewThis technical note presents a dated prediction audit of a June 2025 forecast concerning recursive symbolic drift in artificial intelligence systems.
+
+The original forecast proposed that recursive language and agentic systems would first show measurable semantic degradation under self-processing, then increasing autonomous-agent failure, then harder-to-audit drift in multi-agent and persistent-memory settings, and eventually stronger misalignment risks under increasing autonomy.
+
+The central concern is the coherence mirage: a failure regime in which an AI system preserves fluent surface output while its semantic anchor degrades.
+
+This audit compares that prediction timeline against external literature on model collapse, self-consuming generative loops, synthetic-data scaling collapse, real/synthetic data accumulation, autonomous-agent failure, agent drift, problem drift, curriculum drift, evolving-memory risks, enterprise GenAI deployment fragility, reward hacking, verifier gaming, constraint drift, and emergent misalignment from reinforcement learning.
+
+The audit finds external validation for the recursive-degradation mechanism, substantial support for early autonomous-agent failure, formal categorization of mid-stage drift, and material warning evidence for late-stage misalignment risks along the 2025–2030 trajectory.
+
+Core ResultRecursive AI systems can preserve fluent output while their semantic anchor degrades.
+
+This produces a coherence mirage:
+
+fluent output→ apparent coherence→ hidden semantic drift→ degraded internal alignment with the original target
+
+The strongest validated mechanism is recursive degradation under self-consuming or recursively generated data conditions.
+
+The original GPT-4 recursive self-processing data provide a concrete decay-rate calibration:
+
+CCS ≃ 0.85 → 0.65 over 10 recursive debate turns
+
+Using:
+
+C(n) = C₀e^(-λn)
+
+gives:
+
+λ ≃ 0.0268 per recursive turn
+
+and a coherence half-life of approximately:
+
+n₁/₂ ≃ 25.8 turns
+
+This supports the original 20–30 recursive-generation warning band as a GPT-4-specific provenance result with model-specific scope.
+
+Framework PriorityThis record also serves as a terminology-priority and framework-priority audit for the June 2025 RCA recursive-drift architecture.
+
+The June 2025 RCA work timestamped a broad failure geometry in which recursive symbolic systems can preserve surface fluency while losing semantic anchoring, corrigibility, and external correction capacity.
+
+The priority claim is term-specific. Earlier model-collapse, self-consuming-data, scaling-collapse, real/synthetic accumulation, and problem-drift literature form the foundation or adjacent literature. The June 2025 RCA record establishes priority for the unified recursive-symbolic failure geometry and for RCA-specific terms including coherence mirage, semantic anchor decay, propagation–correction criticality, collapse score, symbolic heartbeat, Physical Symbolic Kill Logic, and the Confinement Termination Principle.
+
+Later 2025–2026 terms such as agent drift, memory drift, curriculum drift, constraint drift, verifier gaming, tool-use reward hacking, and reward-hacking generalization are treated as narrower, independently formalized, or operationally adjacent subcases of that broader recursive symbolic failure geometry.
+
+Pre-existing and parallel sources are classified as foundation or adjacent literature. Later sources are classified as external validation or formalization where their first public version postdates the June 2025 RCA release.
+
+Validation StructureThe audit uses a 0–10 qualitative validation meter:
+
+• Recursive Degradation: 8/10• Agent Failure Modes / Soft Collapse Onset: 8/10• Multi-Agent Drift: 7/10• Hard Semantic Drift: 6/10• Active Misalignment: 6/10• Irreversible Drift: 3/10
+
+SignificanceThis technical note provides a timestamped, externally checkable audit of a 2025 AI-risk forecast and recursive-drift framework.
+
+The significance lies in the later appearance of several failure categories predicted or unified in 2025 as named or independently studied topics in external literature:
+
+• autonomous-agent failure• agent drift• semantic drift• curriculum drift• evolving-memory drift• constraint drift• reward hacking• verifier gaming• emergent misalignment
+
+The note also identifies earlier foundation literature that RCA builds on or overlaps with:
+
+• model collapse• self-consuming synthetic-data degradation• scaling-law collapse• real/synthetic accumulation• problem drift
+
+The note records timestamped validation of the original trajectory and a term-specific priority claim for the RCA recursive-drift framework, with defined open validation boundaries.
+
+Keywordsrecursive AI drift; coherence mirage; semantic drift; symbolic drift; model collapse; recursive degradation; self-consuming generative models; synthetic data collapse; autonomous agents; agent drift; multi-agent systems; problem drift; curriculum drift; constraint drift; evolving memory; AI alignment; reward hacking; verifier gaming; RLVR; emergent misalignment; AI safety; technical note; prediction audit; GPT-4; recursive self-processing; external validation; Resonance-Confinement Architecture; RCA; semantic anchor decay; collapse score; propagation-correction criticality</dcterms:abstract>
+        <dc:date>2026-05-12</dc:date>
+        <z:citationKey>reyesRecursiveAIDrift2026</z:citationKey>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://zenodo.org/records/20142976</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2026-06-03 19:50:45</dcterms:dateSubmitted>
+        <z:shortTitle>Recursive AI Drift</z:shortTitle>
+        <z:libraryCatalog>Zenodo</z:libraryCatalog>
+        <dc:rights>All rights reserved</dc:rights>
+    </bib:Article>
+    <z:Attachment rdf:about="#item_38">
+        <z:itemType>attachment</z:itemType>
+        <z:path rdf:resource="files/38/Reyes - 2026 - Recursive AI Drift A 2025 Prediction Timeline External Validation Audit and Technical Note.pdf"/>
+        <dc:title>Full Text PDF</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://zenodo.org/records/20142976/files/AI_Validated_Predictions.pdf</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2026-06-03 19:50:47</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <bib:Article rdf:about="https://zenodo.org/records/17957713">
+        <z:itemType>journalArticle</z:itemType>
+        <dcterms:isPartOf>
+            <bib:Journal>
+               <dc:identifier>DOI 10.5281/zenodo.17957713</dc:identifier>
+            </bib:Journal>
+        </dcterms:isPartOf>
+        <dc:publisher>
+           <foaf:Organization><foaf:name>Zenodo</foaf:name></foaf:Organization>
+        </dc:publisher>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Reyes</foaf:surname>
+                        <foaf:givenName>Richard J.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_40"/>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>angular modulation</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>experimental ledger</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>falsifiable predictions</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>harmonic spectrum</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>long-lived resonance</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>non-volatile states</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>optical excitation</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>persistent electrical states</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>photodiode</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>protocol registration</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>state induction</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>threshold dynamics</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>ultraviolet illumination</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:title>Prediction &amp; Protocol Ledger: Long-Lived Harmonic State Induction in Photodiodes</dc:title>
+        <dcterms:abstract>Prediction &amp; Protocol Ledger: Long-Lived Harmonic State Induction in Photodiodes
+
+Richard J. Reyes - December 16, 2025
+
+ 
+
+GitHub Repository: https://github.com/rickyjreyes/photodiode
+
+Overview
+
+This ledger records a predictive, protocol-level claim that a sub-minute optical excitation applied to a standard silicon photodiode can induce a long-lived, discrete harmonic electrical state that persists for weeks to months after all illumination and motion cease.
+
+The document formalizes a deterministic induction procedure involving ultraviolet illumination combined with controlled angular modulation of concurrent visible light. The claimed phenomenon is characterized by a sharp state transition, a non-random harmonic spectrum, and temporal persistence far exceeding the excitation duration.
+
+This ledger is intentionally pre-confirmatory. It does not report experimental results or propose a microscopic mechanism. Its purpose is to establish priority on causality, inducibility, and falsifiability prior to further experimentation or independent replication.
+
+Claimed Phenomenon
+
+A brief optical trigger (&lt; 60 s) produces a persistent electrical state in a photodiode that:
+
+
+
+
+
+is absent prior to excitation,
+
+
+
+
+does not require continued power or illumination,
+
+
+
+
+exhibits stable harmonic frequency ratios (n/k structure),
+
+
+
+
+and remains detectable for ≥ 30 days (with observed persistence extending to multiple months).
+
+
+
+The transition is consistent with a threshold or lock-in event rather than linear accumulation or slow relaxation.
+
+Protocol Summary
+
+The ledger specifies:
+
+
+
+
+
+Device conditions (virgin, dark-stored silicon photodiode),
+
+
+
+
+Optical excitation parameters (UV wavelength range, duration),
+
+
+
+
+Concurrent visible illumination,
+
+
+
+
+Controlled angular / torsional modulation during excitation,
+
+
+
+
+A critical termination order governing state lock-in.
+
+
+
+The protocol is written to be directly executable without interpretive steps.
+
+Pre-Declared Signature
+
+If the claim is correct, replication of the protocol must produce:
+
+
+
+
+
+A discrete state transition from baseline to structured output,
+
+
+
+
+A harmonic spectral ladder with fixed frequency ratios,
+
+
+
+
+Long-term persistence without further excitation,
+
+
+
+
+Spectral invariance under power cycling, darkness, and quiescent conditions.
+
+
+
+These observables are declared in advance, preventing post-hoc fitting.
+
+Falsification Conditions
+
+The claim is explicitly falsified if:
+
+
+
+
+
+A virgin photodiode does not enter a harmonic state under the protocol,
+
+
+
+
+The signal exhibits only broadband noise or monotonic exponential decay,
+
+
+
+
+The effect is not reproducible on multiple devices,
+
+
+
+
+The signal vanishes immediately when excitation ceases.
+
+
+
+These conditions bound the claim and render it experimentally decidable.
+
+Relation to Prior Work
+
+This ledger complements prior observational and theoretical work by the author on long-lived resonance phenomena and curvature-locked wave dynamics, but does not depend on or assert any specific theoretical framework.
+
+Interpretation: including semiconductor-level mechanisms, field-matter coupling, or geometric/topological models, is explicitly deferred.
+
+Significance
+
+This document establishes priority on an inducible physical effect, not on its explanation.
+
+If confirmed, the phenomenon implies the existence of a non-volatile, geometry-sensitive memory state accessible via brief optical excitation in standard photodiodes. Regardless of mechanism, such behavior lies outside conventional linear electronic response and warrants focused experimental investigation.
+
+Keywords
+
+photodiode; persistent electrical states; harmonic spectrum; optical excitation; ultraviolet illumination; angular modulation; long-lived resonance; non-volatile states; protocol registration; falsifiable prediction; state induction; threshold dynamics; experimental ledger.
+
+Author &amp; Contact
+
+Author: Richard J. ReyesORCID iD: 0009-0005-5975-8718Email: reyes.ricky30@gmail.com</dcterms:abstract>
+        <dc:date>2025-12-16</dc:date>
+        <z:citationKey>reyesPredictionProtocolLedger2025</z:citationKey>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://zenodo.org/records/17957713</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2026-06-03 19:50:58</dcterms:dateSubmitted>
+        <z:shortTitle>Prediction &amp; Protocol Ledger</z:shortTitle>
+        <z:libraryCatalog>Zenodo</z:libraryCatalog>
+        <dc:rights>All rights reserved</dc:rights>
+    </bib:Article>
+    <z:Attachment rdf:about="#item_40">
+        <z:itemType>attachment</z:itemType>
+        <z:path rdf:resource="files/40/Reyes - 2025 - Prediction &amp; Protocol Ledger Long-Lived Harmonic State Induction in Photodiodes.pdf"/>
+        <dc:title>Full Text PDF</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://zenodo.org/records/17957713/files/Long-Lived%20Harmonic%20State%20Induction%20in%20Photodiodes.pdf</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2026-06-03 19:50:59</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <rdf:Description rdf:about="https://zenodo.org/records/19578185">
+        <z:itemType>preprint</z:itemType>
+        <dc:publisher>
+           <foaf:Organization><foaf:name>Zenodo</foaf:name></foaf:Organization>
+        </dc:publisher>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Reyes</foaf:surname>
+                        <foaf:givenName>Richard J.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_42"/>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>wave confinement theory</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>coherence</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>control</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>control barrier</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>energy balance</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>fusion energy</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Lyapunov stability</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>MHD stabilization</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>modeling</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>plasma confinement</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>SPARC</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>tokamak</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:title>Nuclear Fusion Tokamak with Self Sustaining Resonance</dc:title>
+        <dcterms:abstract>Nuclear Fusion Tokamak with Self-Sustaining Resonance
+
+Richard J. Reyes - Original Release: April 14, 2026Latest: April 14, 2026
+
+
+
+Overview
+
+This work presents a control-theoretic architecture for tokamak operation that achieves sustained burn conditions through closed-loop regulation of confinement, power balance, and stability constraints, using only standard diagnostics and actuators.
+
+The framework introduces a coherence-controlled transport model in which plasma confinement is parameterized by a scalar observable I(t)∈[0,1]I(t) \in [0,1]I(t)∈[0,1], derived from turbulence suppression and shear locking measurements. This enables real-time modulation of the energy confinement time τE(I)\tau_E(I)τE(I), transforming plasma stability into a controllable quantity.
+
+A staged allocator enforces simultaneous satisfaction of three constraints:
+
+
+
+thermal balance,
+
+divertor loading,
+
+magnetic safety profile,
+
+
+producing a self-consistent operating point that is maintained as a stable attractor under feedback control.
+
+The system is implemented as an operator-ready control loop, with explicit handling of noise, actuator limits, and real-time diagnostics.
+
+
+
+Core Result
+
+The system defines a closed-loop evolution governed by:
+
+W→I→τE(I)→M(t)W \rightarrow I \rightarrow \tau_E(I) \rightarrow M(t)W→I→τE(I)→M(t)
+
+where:
+
+
+
+WWW: plasma thermal energy
+
+III: coherence proxy
+
+τE(I)\tau_E(I)τE(I): confinement time
+
+M(t)M(t)M(t): thermal margin
+
+
+with
+
+M(t)=(1−ζ~)Pα+ηiPEM−WτE(I)M(t) = (1 - \tilde{\zeta}) P_\alpha + \eta_i P_{EM} - \frac{W}{\tau_E(I)}M(t)=(1−ζ~)Pα+ηiPEM−τE(I)W
+
+A sustained burn regime is achieved when:
+
+ζ~Pα≥Prack+PEM,M(t)≥0\tilde{\zeta} P_\alpha \ge P_{rack} + P_{EM}, \quad M(t) \ge 0ζ~Pα≥Prack+PEM,M(t)≥0
+
+Under these conditions, the system enters a latched state in which the plasma remains within a bounded, stable region of state space over extended durations.
+
+This establishes a control-stabilized burn regime, in which confinement, power balance, and safety constraints are simultaneously satisfied through feedback.
+
+
+
+Key Mathematical Structure
+
+The construction follows the chain:
+
+plasma state measurement↓coherence proxy I(t)I(t)I(t)↓transport mapping τE(I)\tau_E(I)τE(I)↓energy balance dynamics↓constraint enforcement (thermal, divertor, safety)↓staged control allocation↓feedback stabilization↓invariant burn region Ωburn\Omega_{burn}Ωburn↓sustained operation.
+
+The burn region is defined as:
+
+Ωburn={Mth≥0,  Mdiv≥0,  qmin≥qthr}\Omega_{burn} = \{ M_{th} \ge 0,\; M_{div} \ge 0,\; q_{min} \ge q_{thr} \}Ωburn={Mth≥0,Mdiv≥0,qmin≥qthr}
+
+and is shown to be forward invariant under bounded perturbations, establishing stability of the operating regime.
+
+A composite Lyapunov functional
+
+Lexp=L0+ξTPξL_{exp} = L_0 + \xi^T P \xiLexp=L0+ξTPξ
+
+combines slow burn dynamics with fast 3D instability suppression, yielding:
+
+L˙exp≤−c0L0−cξ∥ξ∥2+dest∥η∥2\dot{L}_{exp} \le -c_0 L_0 - c_\xi \|\xi\|^2 + d_{est}\|\eta\|^2L˙exp≤−c0L0−cξ∥ξ∥2+dest∥η∥2
+
+which guarantees convergence to the burn manifold up to bounded noise.
+
+
+
+Dimensional and Control Constraints
+
+The system operates within a bounded parameter regime defined by:
+
+
+
+confinement scaling: τE(I)=τ0[1+(τgain−1)Ip]\tau_E(I) = \tau_0[1 + (\tau_{gain}-1)I^p]τE(I)=τ0[1+(τgain−1)Ip]
+
+actuator limits: PEM,Uloop,χcd,σedgeP_{EM}, U_{loop}, \chi_{cd}, \sigma_{edge}PEM,Uloop,χcd,σedge
+
+dimensionless plasma constraints: βN,q95,H98y2,ρ∗\beta_N, q_{95}, H_{98y2}, \rho_*βN,q95,H98y2,ρ∗
+
+
+A dual-loop architecture is enforced:
+
+
+
+slow supervisory loop (burn regulation),
+
+fast stability loop (3D MHD suppression).
+
+
+The control law includes explicit robustness margins:
+
+Mmin≥ΓTresp,Δth,ΔrackM_{min} \ge \Gamma T_{resp}, \quad \Delta_{th}, \Delta_{rack}Mmin≥ΓTresp,Δth,Δrack
+
+ensuring stability under measurement noise, delays, and actuator uncertainty.
+
+
+
+Scope and Interpretation
+
+This work establishes a control-stable tokamak operating regime based on a diagnostic-driven transport model.
+
+It does not claim:
+
+
+
+a first-principles derivation of plasma transport,
+
+a proof of ignition independent of external power,
+
+complete resolution of turbulence or MHD physics.
+
+
+The latch condition is defined as virtual (accounting-based) unless energy harvesting hardware is present.
+
+Open problems include:
+
+
+
+deriving τE(I)\tau_E(I)τE(I) from turbulence physics,
+
+full spectral stability analysis of MHD modes,
+
+integration with first-principles transport solvers,
+
+experimental validation on SPARC-class devices.
+
+
+
+
+Relation to Prior Work
+
+This manuscript builds on tokamak transport theory, control barrier function methods, and Wave Confinement Theory (WCT).
+
+The contribution extends prior work by:
+
+
+
+formalizing plasma confinement as a control-invariant region,
+
+introducing a coherence-based transport parameterization,
+
+constructing a staged allocator for multi-constraint regulation,
+
+integrating estimation, control, and stability into a unified architecture.
+
+
+Within WCT, the burn state is interpreted as a macroscopic curvature-locked eigenmode, selected by feedback constraints.
+
+
+
+Significance
+
+If validated experimentally, this framework provides:
+
+
+
+a deployable control architecture for sustained tokamak operation,
+
+a method for real-time confinement regulation,
+
+a pathway to stable long-duration burn regimes without new hardware.
+
+
+More broadly, it suggests that fusion stability can be achieved through structured feedback and constraint enforcement, rather than requiring full predictive control of plasma microphysics.
+
+
+
+Keywords
+
+tokamak control; fusion energy; plasma confinement; energy balance; coherence proxy; transport modeling; control barrier functions; Lyapunov stability; MHD stabilization; SPARC tokamak; real-time plasma control; wave confinement theory.
+
+
+
+Author &amp; Contact
+
+Author: Richard J. ReyesORCID iD: 0009-0005-5975-8718Email: reyes.ricky30@gmail.com</dcterms:abstract>
+        <dc:date>2026-04-14</dc:date>
+        <dc:identifier>DOI 10.5281/zenodo.19578185</dc:identifier>
+        <z:citationKey>reyesNuclearFusionTokamak2026</z:citationKey>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://zenodo.org/records/19578185</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2026-06-03 19:51:09</dcterms:dateSubmitted>
+        <z:libraryCatalog>Zenodo</z:libraryCatalog>
+        <dc:rights>All rights reserved</dc:rights>
+    </rdf:Description>
+    <z:Attachment rdf:about="#item_42">
+        <z:itemType>attachment</z:itemType>
+        <z:path rdf:resource="files/42/Reyes - 2026 - Nuclear Fusion Tokamak with Self Sustaining Resonance.pdf"/>
+        <dc:title>Full Text PDF</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://zenodo.org/records/19578185/files/Nuclear_Fusion_Tokamak.pdf</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2026-06-03 19:51:10</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <rdf:Description rdf:about="https://zenodo.org/records/20435463">
+        <z:itemType>preprint</z:itemType>
+        <dc:publisher>
+           <foaf:Organization><foaf:name>Zenodo</foaf:name></foaf:Organization>
+        </dc:publisher>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Reyes</foaf:surname>
+                        <foaf:givenName>Richard J.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_44"/>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>log-periodic residuals</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>discrete scale invariance</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>atomic spectra; atomic line lists</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Co II</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Fe II</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>line-density analysis</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>log-periodicity</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>logarithmic wavenumber</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>NIST Atomic Spectra Database</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Poisson likelihood</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>transition metals</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>wavenumber</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:title>Bin-Stable Log-Periodic Structure in Public NIST Atomic Line List</dc:title>
+        <dcterms:abstract>Bin-Stable Log-Periodic Structure in Public NIST Atomic Line ListsAuthors/CreatorsReyes, Richard J. (Researcher)
+
+DescriptionBin-Stable Log-Periodic Structure in Public NIST Atomic Line ListsRichard J. Reyes - Original Release: May 28, 2026
+
+GitHub: https://github.com/rickyjreyes/NIST
+
+DescriptionThis record presents an independent reproducible line-density analysis of public NIST Atomic Spectra Database line-list exports. The study tests whether atomic transition line lists contain stable log-periodic structure when represented in logarithmic wavenumber coordinates. The analysis is not a flux-spectrum measurement and is not endorsed or certified by NIST; NIST is used only as the public data source.
+
+The tested coordinate is:
+
+ℓ=ln⁡(σ)\ell = \ln(\sigma)ℓ=ln(σ)
+
+where:
+
+• σ\sigmaσ - wavenumber in cm⁻¹• ℓ\ellℓ - logarithmic wavenumber coordinate
+
+For each line list, wavenumbers are cleaned, optionally filtered by ionization stage, transformed into ℓ\ellℓ, binned, and compared against a Gaussian-smoothed baseline using a one-mode Poisson log-linear harmonic model.
+
+The tested residual form is:
+
+Δ(ℓ)∼Acos⁡(kℓ+ϕ)\Delta(\ell) \sim A \cos(k\ell + \phi)Δ(ℓ)∼Acos(kℓ+ϕ)
+
+where:
+
+• AAA - bounded residual amplitude• kkk - log-frequency• ϕ\phiϕ - phase offset• ℓ\ellℓ - logarithmic wavenumber coordinate
+
+The primary canonical result is reported for Fe II. After cleaning and duplicate removal, the canonical Fe II run contains:
+
+NFeII=9447N_{\mathrm{FeII}} = 9447NFeII=9447
+
+unique usable lines.
+
+Across histogram bin counts:
+
+B∈{120,160,200}B \in \{120,160,200\}B∈{120,160,200}
+
+Fe II yields the same best log-frequency:
+
+k⋆=31.3265306122449k_\star = 31.3265306122449k⋆=31.3265306122449
+
+with active-domain winding:
+
+n⋆≈10.7n_\star \approx 10.7n⋆≈10.7
+
+and zero null exceedances in 5000 parametric bootstrap draws for each bin setting.
+
+A companion neighbor-ion batch analysis is included for Ni II, Co II, Cr II, Mn II, and Ti II. Among these neighboring ions, Co II is the only species that qualitatively reproduces the Fe II signature, showing bin-stable structure near:
+
+k⋆≈30.24k_\star \approx 30.24k⋆≈30.24
+
+with winding:
+
+n⋆≈10.95–10.98n_\star \approx 10.95\text{–}10.98n⋆≈10.95–10.98
+
+and zero null exceedances across the displayed bin counts.
+
+Ni II is statistically marginal because of its smaller line count. Cr II, Mn II, and Ti II do not maintain bin-stable k⋆k_\stark⋆ at the displayed precision.
+
+The result supports a reproducible log-periodic regularity in logarithmic atomic line-density space, especially in Fe II and secondarily in Co II. The claim is intentionally narrow: this is a bin-stability observation in public atomic line-list data, not a proof of a physical mechanism. The record separates the promoted Fe II verdict-bearing result from exploratory neighboring-ion scans and identifies baseline-sensitivity audits as a remaining validation step.
+
+Input Data
+
+Input data are public CSV exports from the NIST Atomic Spectra Database line-list interface.
+
+Primary source:
+
+NIST ASD Lines Formhttps://physics.nist.gov/PhysRefData/ASD/lines_form.html
+
+The analysis uses exported atomic transition line lists, including Fe II and neighboring transition-metal ions. Wavenumbers are parsed from the NIST exports; if direct wavenumber values are absent, wavelength values in nm may be converted by:
+
+σi=107λi\sigma_i = \frac{10^7}{\lambda_i}σi=λi107
+
+with λi\lambda_iλi in nm and σi\sigma_iσi in cm⁻¹.
+
+KeywordsNIST Atomic Spectra Database; atomic spectra; atomic line lists; Fe II; Co II; transition metals; wavenumber; logarithmic wavenumber; log-periodic residuals; log-periodicity; discrete scale invariance; line-density analysis; Poisson likelihood; Poisson log-linear model; parametric bootstrap; bin stability; active-domain winding; spectral residuals; Gaussian-smoothed baseline; Wave Confinement Theory; WCT; reproducible data analysis; public scientific data
+
+Author &amp; ContactAuthor: Richard J. ReyesORCID iD: 0009-0005-5975-8718Email: reyes.ricky30@gmail.com</dcterms:abstract>
+        <dc:date>2026-05-28</dc:date>
+        <dc:identifier>DOI 10.5281/zenodo.20435463</dc:identifier>
+        <z:citationKey>reyesBinStableLogPeriodicStructure2026</z:citationKey>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://zenodo.org/records/20435463</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2026-06-03 19:51:18</dcterms:dateSubmitted>
+        <z:libraryCatalog>Zenodo</z:libraryCatalog>
+        <dc:rights>All rights reserved</dc:rights>
+    </rdf:Description>
+    <z:Attachment rdf:about="#item_44">
+        <z:itemType>attachment</z:itemType>
+        <z:path rdf:resource="files/44/Reyes - 2026 - Bin-Stable Log-Periodic Structure in Public NIST Atomic Line List.pdf"/>
+        <dc:title>Full Text PDF</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://zenodo.org/records/20435463/files/Bin-Stable%20Log-Periodic%20Structure%20in%20Public%20NIST%20Atomic%20Line%20List.pdf</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2026-06-03 19:51:19</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+    <rdf:Description rdf:about="https://zenodo.org/records/20533537">
+        <z:itemType>preprint</z:itemType>
+        <dc:publisher>
+           <foaf:Organization><foaf:name>Zenodo</foaf:name></foaf:Organization>
+        </dc:publisher>
+        <bib:authors>
+            <rdf:Seq>
+                <rdf:li>
+                    <foaf:Person>
+                        <foaf:surname>Reyes</foaf:surname>
+                        <foaf:givenName>Richard J.</foaf:givenName>
+                    </foaf:Person>
+                </rdf:li>
+            </rdf:Seq>
+        </bib:authors>
+        <link:link rdf:resource="#item_47"/>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Wave Confinement Theory</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Wave Confinement</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Curvature Locking</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Covariant Invariant</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Density-weighted Curvature</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Geometric Origin of Energy</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Holonomy</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Inertial Mass</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+           <z:AutomaticTag><rdf:value>Rest Energy</rdf:value></z:AutomaticTag>
+        </dc:subject>
+        <dc:subject>
+            <z:AutomaticTag>
+               <rdf:value>Variational Stability</rdf:value>
+            </z:AutomaticTag>
+        </dc:subject>
+        <dc:title>Rest Energy from Density-Weighted Loop Curvature: A Covariant Locking Principle</dc:title>
+        <dcterms:abstract>Rest Energy from Density-Weighted Loop Curvature: A Covariant Locking PrincipleRichard J. Reyes – November 11, 2025
+
+GitHub Repository: github.com/rickyjreyes/geometry_of_resonance
+
+ 
+
+This paper develops a covariant formulation of rest energy as an invariant of curvature-regulated wave confinement. Starting from the Wave Confinement Theory (WCT) Lagrangian, it derives the density-weighted loop identity connecting the effective wavenumber keff to curvature and phase locking along a closed path. The resulting relation
+
+Erest = ħc⟨σ⟩w , m = (ħ/c)⟨σ⟩w
+
+defines inertial mass as the density-weighted mean curvature of a confined field.
+
+Established in the paperCovariant Locking Principle:∂sφ = σ + α / w(s)with the closure condition ∮Γσ ds = 2πn, yielding finite, stable, and unique mass–energy eigenvalues.
+
+Key results• The rest-energy law Erest = ħc⟨σ⟩w recovers E = mc² as a special case.• The variational functional ensures strict stability and eliminates ultraviolet divergence as L → 0.• The formalism extends naturally to gauge and spin-covariant derivatives, linking curvature locking to electromagnetism and gravity.• Quantitative bounds connect imperfect lock error, mass variance, and holonomy.
+
+ContributionProvides a first-principles derivation of rest energy and mass as emergent invariants of wave confinement. The work unifies curvature, phase, and energy through a covariant locking mechanism, demonstrating how finite mass and inertia arise without singularities. It advances the WCT program toward a geometric–field correspondence that bridges microscopic confinement and macroscopic gravitation.
+
+Keywordswave confinement; rest energy; curvature locking; covariant invariant; density-weighted curvature; holonomy; inertial mass; geometric origin of energy; variational stability; Wave Confinement Theory.
+
+For correspondence regarding this work, please contact Richard J. Reyes at reyes.ricky30@gmail.com.ORCID iD: 0009-0005-5975-8718.</dcterms:abstract>
+        <dc:date>2025-11-11</dc:date>
+        <dc:identifier>DOI 10.5281/zenodo.20533537</dc:identifier>
+        <z:citationKey>reyesRestEnergyDensityWeighted2025</z:citationKey>
+        <dc:identifier>
+            <dcterms:URI>
+               <rdf:value>https://zenodo.org/records/20533537</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2026-06-04 05:20:17</dcterms:dateSubmitted>
+        <z:shortTitle>Rest Energy from Density-Weighted Loop Curvature</z:shortTitle>
+        <z:libraryCatalog>Zenodo</z:libraryCatalog>
+        <dc:rights>All rights reserved</dc:rights>
+    </rdf:Description>
+    <z:Attachment rdf:about="#item_47">
+        <z:itemType>attachment</z:itemType>
+        <z:path rdf:resource="files/47/Reyes - 2025 - Rest Energy from Density-Weighted Loop Curvature A Covariant Locking Principle.pdf"/>
+        <dc:title>Full Text PDF</dc:title>
+        <dc:identifier>
+            <dcterms:URI>
+                <rdf:value>https://zenodo.org/records/20533537/files/Rest%20Energy%20from%20Density.pdf</rdf:value>
+            </dcterms:URI>
+        </dc:identifier>
+        <dcterms:dateSubmitted>2026-06-04 05:20:19</dcterms:dateSubmitted>
+        <z:linkMode>1</z:linkMode>
+        <link:type>application/pdf</link:type>
+    </z:Attachment>
+</rdf:RDF>

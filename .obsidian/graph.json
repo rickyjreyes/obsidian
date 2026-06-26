@@ -1,0 +1,79 @@
+{
+  "collapse-filter": false,
+  "search": "path:\"02 Concepts\" file:(\"Fusion Energy\" OR \"Tokamak\" OR \"Tokamak Control\" OR \"Plasma confinement\" OR \"Real-time plasma control\" OR \"MHD Stabilization\" OR \"Transport modeling\" OR \"Energy balance\" OR \"Coherence proxy\" OR \"Control\" OR \"Control barrier\" OR \"Control barrier functions\" OR \"SPARC\" OR \"Coherence\" OR \"Resonance confinement\")",
+  "showTags": false,
+  "showAttachments": false,
+  "hideUnresolved": false,
+  "showOrphans": true,
+  "collapse-color-groups": true,
+  "colorGroups": [
+    {
+      "query": "00 Maps",
+      "color": {
+        "a": 1,
+        "rgb": 2935773
+      }
+    },
+    {
+      "query": "01 Literature Notes",
+      "color": {
+        "a": 1,
+        "rgb": 9237432
+      }
+    },
+    {
+      "query": "02 Concepts",
+      "color": {
+        "a": 1,
+        "rgb": 5200350
+      }
+    },
+    {
+      "query": "03 Equations",
+      "color": {
+        "a": 1,
+        "rgb": 11135481
+      }
+    },
+    {
+      "query": "04 Collections",
+      "color": {
+        "a": 1,
+        "rgb": 5431473
+      }
+    },
+    {
+      "query": "05 Derivations",
+      "color": {
+        "a": 1,
+        "rgb": 5419488
+      }
+    },
+    {
+      "query": "06 Predictions",
+      "color": {
+        "a": 1,
+        "rgb": 14701180
+      }
+    },
+    {
+      "query": "07 Experiments",
+      "color": {
+        "a": 1,
+        "rgb": 5431425
+      }
+    }
+  ],
+  "collapse-display": true,
+  "showArrow": true,
+  "textFadeMultiplier": -1.7,
+  "nodeSizeMultiplier": 1.36574844074844,
+  "lineSizeMultiplier": 0.673024948024948,
+  "collapse-forces": true,
+  "centerStrength": 0.438149688149688,
+  "repelStrength": 10.1767151767152,
+  "linkStrength": 0.687629937629938,
+  "linkDistance": 203,
+  "scale": 0.3692465245171618,
+  "close": true
+}

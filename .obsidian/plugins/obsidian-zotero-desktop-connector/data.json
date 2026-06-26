@@ -1,0 +1,27 @@
+{
+  "database": "Zotero",
+  "noteImportFolder": "Research/01 Literature Notes",
+  "pdfExportImageDPI": 120,
+  "pdfExportImageFormat": "jpg",
+  "pdfExportImageQuality": 90,
+  "citeFormats": [
+    {
+      "name": "IEEE Citation",
+      "format": "formatted-citation",
+      "cslStyle": "ieee"
+    }
+  ],
+  "exportFormats": [
+    {
+      "name": "Import Research Paper",
+      "outputPathTemplate": "Research/01 Literature Notes/{{citekey}}.md",
+      "imageOutputPathTemplate": "Attachments/{{citekey}}/",
+      "imageBaseNameTemplate": "image",
+      "templatePath": "Templates/Zotero Research Paper.md",
+      "cslStyle": "ieee"
+    }
+  ],
+  "citeSuggestTemplate": "[[{{citekey}}]]",
+  "openNoteAfterImport": true,
+  "whichNotesToOpenAfterImport": "first-imported-note"
+}

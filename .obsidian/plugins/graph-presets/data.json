@@ -1,0 +1,2455 @@
+{
+  "presets": [
+    {
+      "id": "9331c185-9f66-4c00-9e19-9e737b63fa1a",
+      "name": "01 — Core WCT foundations",
+      "options": {
+        "collapse-filter": false,
+        "search": "path:\"02 Concepts\" file:(\"Wave Confinement Theory\" OR \"Phase-Flux Field\" OR \"Geometry\" OR \"Curvature Feedback\" OR \"Theta Operator\" OR \"Θ-operator\" OR \"Conservation Laws\" OR \"Covariant Invariant\" OR \"Nonlinear Wave Confinement\" OR \"Nonlinear Wavefields\" OR \"Unified Field Theory\" OR \"Quantum emergence\" OR \"Spacetime Emergence\" OR \"Effective Metric\")",
+        "showTags": false,
+        "showAttachments": false,
+        "hideUnresolved": false,
+        "showOrphans": true,
+        "collapse-color-groups": true,
+        "colorGroups": [
+          {
+            "query": "00 Maps",
+            "color": {
+              "a": 1,
+              "rgb": 2935773
+            }
+          },
+          {
+            "query": "01 Literature Notes",
+            "color": {
+              "a": 1,
+              "rgb": 9237432
+            }
+          },
+          {
+            "query": "02 Concepts",
+            "color": {
+              "a": 1,
+              "rgb": 5200350
+            }
+          },
+          {
+            "query": "03 Equations",
+            "color": {
+              "a": 1,
+              "rgb": 11135481
+            }
+          },
+          {
+            "query": "04 Collections",
+            "color": {
+              "a": 1,
+              "rgb": 5431473
+            }
+          },
+          {
+            "query": "05 Derivations",
+            "color": {
+              "a": 1,
+              "rgb": 5419488
+            }
+          },
+          {
+            "query": "06 Predictions",
+            "color": {
+              "a": 1,
+              "rgb": 14701180
+            }
+          },
+          {
+            "query": "07 Experiments",
+            "color": {
+              "a": 1,
+              "rgb": 5431425
+            }
+          }
+        ],
+        "collapse-display": true,
+        "showArrow": true,
+        "textFadeMultiplier": -1.7,
+        "nodeSizeMultiplier": 1.36574844074844,
+        "lineSizeMultiplier": 0.673024948024948,
+        "collapse-forces": true,
+        "centerStrength": 0.438149688149688,
+        "repelStrength": 10.1767151767152,
+        "linkStrength": 0.687629937629938,
+        "linkDistance": 203,
+        "scale": 0.3692465245171618,
+        "close": false
+      },
+      "nodePositions": [
+        {
+          "id": "Research/02 Concepts/Quantum emergence.md",
+          "x": -1.9046244621276855,
+          "y": -429.67999267578125
+        },
+        {
+          "id": "Research/02 Concepts/Spacetime Emergence.md",
+          "x": 239.02532958984375,
+          "y": -324.5453796386719
+        },
+        {
+          "id": "Research/02 Concepts/Theta Operator.md",
+          "x": 183.09783935546875,
+          "y": 268.9627990722656
+        },
+        {
+          "id": "Research/02 Concepts/Unified Field Theory.md",
+          "x": -184.13624572753906,
+          "y": -46.13200378417969
+        },
+        {
+          "id": "Research/02 Concepts/Wave Confinement Theory.md",
+          "x": 44.393028259277344,
+          "y": 143.51641845703125
+        },
+        {
+          "id": "02 Concepts/B0 → K star 0 μ+μ−",
+          "x": -98.12158203125,
+          "y": 394.8061218261719
+        },
+        {
+          "id": "Research/02 Concepts/Candidate-spectrum geometry.md",
+          "x": 108.66636657714844,
+          "y": 453.0099792480469
+        },
+        {
+          "id": "Research/02 Concepts/Conservation Laws.md",
+          "x": 88.79051971435547,
+          "y": 1.6761237382888794
+        },
+        {
+          "id": "Research/02 Concepts/Covariant Invariant.md",
+          "x": -198.09597778320312,
+          "y": 154.97230529785156
+        },
+        {
+          "id": "Research/02 Concepts/Curvature Feedback.md",
+          "x": 70.92607116699219,
+          "y": -150.2021484375
+        },
+        {
+          "id": "Research/02 Concepts/Effective Metric.md",
+          "x": -200.0775909423828,
+          "y": -283.7831726074219
+        },
+        {
+          "id": "Research/02 Concepts/Geometry.md",
+          "x": 250.8471221923828,
+          "y": -127.62692260742188
+        },
+        {
+          "id": "Research/02 Concepts/Informational geometry.md",
+          "x": -322.7062683105469,
+          "y": -60.19596862792969
+        },
+        {
+          "id": "Research/02 Concepts/Mass-Phase Geometry.md",
+          "x": -90.30925750732422,
+          "y": 249.13174438476562
+        },
+        {
+          "id": "Research/02 Concepts/Nonlinear geometry.md",
+          "x": 73.42105865478516,
+          "y": -312.6400146484375
+        },
+        {
+          "id": "Research/02 Concepts/Nonlinear Wave Confinement.md",
+          "x": -348.23651123046875,
+          "y": 262.6163024902344
+        },
+        {
+          "id": "Research/02 Concepts/Nonlinear Wavefields.md",
+          "x": 309.7486877441406,
+          "y": 93.19134521484375
+        },
+        {
+          "id": "Research/02 Concepts/Phase-Flux Field.md",
+          "x": -83.48030090332031,
+          "y": -136.5960235595703
+        }
+      ],
+      "createdAt": "2026-06-26T00:37:31.540Z",
+      "updatedAt": "2026-06-26T00:41:11.442Z"
+    },
+    {
+      "id": "2fc2a2c0-d201-4a35-81cd-3e842c31a33c",
+      "name": "02 — Dynamics, stability, and selection",
+      "options": {
+        "collapse-filter": false,
+        "search": "path:\"02 Concepts\" file:(\"Curvature dynamics\" OR \"Curvature Flow\" OR \"Curvature Locking\" OR \"Curvature Saturation\" OR \"Curvature-Feedback Instability\" OR \"Lyapunov Descent\" OR \"Lyapunov Stability\" OR \"Variational Stability\" OR \"Finite-k Selection\" OR \"Lyapunov Band-Pass\" OR \"Entropy regulation\" OR \"Entropy decay\" OR \"Entropy-stabilized fields\" OR \"Threshold dynamics\" OR \"Deterministic dynamics\")",
+        "showTags": false,
+        "showAttachments": false,
+        "hideUnresolved": false,
+        "showOrphans": true,
+        "collapse-color-groups": true,
+        "colorGroups": [
+          {
+            "query": "00 Maps",
+            "color": {
+              "a": 1,
+              "rgb": 2935773
+            }
+          },
+          {
+            "query": "01 Literature Notes",
+            "color": {
+              "a": 1,
+              "rgb": 9237432
+            }
+          },
+          {
+            "query": "02 Concepts",
+            "color": {
+              "a": 1,
+              "rgb": 5200350
+            }
+          },
+          {
+            "query": "03 Equations",
+            "color": {
+              "a": 1,
+              "rgb": 11135481
+            }
+          },
+          {
+            "query": "04 Collections",
+            "color": {
+              "a": 1,
+              "rgb": 5431473
+            }
+          },
+          {
+            "query": "05 Derivations",
+            "color": {
+              "a": 1,
+              "rgb": 5419488
+            }
+          },
+          {
+            "query": "06 Predictions",
+            "color": {
+              "a": 1,
+              "rgb": 14701180
+            }
+          },
+          {
+            "query": "07 Experiments",
+            "color": {
+              "a": 1,
+              "rgb": 5431425
+            }
+          }
+        ],
+        "collapse-display": true,
+        "showArrow": true,
+        "textFadeMultiplier": -1.7,
+        "nodeSizeMultiplier": 1.36574844074844,
+        "lineSizeMultiplier": 0.673024948024948,
+        "collapse-forces": true,
+        "centerStrength": 0.438149688149688,
+        "repelStrength": 10.1767151767152,
+        "linkStrength": 0.687629937629938,
+        "linkDistance": 203,
+        "scale": 0.3692465245171618,
+        "close": false
+      },
+      "nodePositions": [
+        {
+          "id": "Research/02 Concepts/Threshold dynamics.md",
+          "x": -3.1163747310638428,
+          "y": -344.3268737792969
+        },
+        {
+          "id": "Research/02 Concepts/Variational Stability.md",
+          "x": 120.59583282470703,
+          "y": 257.1629333496094
+        },
+        {
+          "id": "Research/02 Concepts/Curvature dynamics.md",
+          "x": -1.997207522392273,
+          "y": 10.760851860046387
+        },
+        {
+          "id": "Research/02 Concepts/Curvature Flow.md",
+          "x": 212.3802947998047,
+          "y": -39.169193267822266
+        },
+        {
+          "id": "Research/02 Concepts/Curvature Locking.md",
+          "x": -6.736760139465332,
+          "y": 391.91790771484375
+        },
+        {
+          "id": "Research/02 Concepts/Curvature Saturation.md",
+          "x": -187.53594970703125,
+          "y": 267.8451232910156
+        },
+        {
+          "id": "Research/02 Concepts/Curvature-Feedback Instability.md",
+          "x": 362.52728271484375,
+          "y": -162.3168182373047
+        },
+        {
+          "id": "Research/02 Concepts/Deterministic dynamics.md",
+          "x": -31.588441848754883,
+          "y": -128.7177276611328
+        },
+        {
+          "id": "Research/02 Concepts/Entropy decay.md",
+          "x": 239.6195068359375,
+          "y": 330.2686767578125
+        },
+        {
+          "id": "Research/02 Concepts/Entropy regulation.md",
+          "x": 142.38265991210938,
+          "y": -223.21731567382812
+        },
+        {
+          "id": "Research/02 Concepts/Entropy-stabilized fields.md",
+          "x": 269.7217712402344,
+          "y": 117.60454559326172
+        },
+        {
+          "id": "Research/02 Concepts/Finite-k Selection.md",
+          "x": -201.85269165039062,
+          "y": -352.5277404785156
+        },
+        {
+          "id": "Research/02 Concepts/Lyapunov Band-Pass.md",
+          "x": -235.37596130371094,
+          "y": -140.5489959716797
+        },
+        {
+          "id": "Research/02 Concepts/Lyapunov Descent.md",
+          "x": -404.68634033203125,
+          "y": -76.0236587524414
+        },
+        {
+          "id": "Research/02 Concepts/Lyapunov Stability.md",
+          "x": -325.6873474121094,
+          "y": 137.81143188476562
+        }
+      ],
+      "createdAt": "2026-06-26T00:37:43.413Z",
+      "updatedAt": "2026-06-26T00:41:43.692Z"
+    },
+    {
+      "id": "2e27ae9d-e0b4-4587-a278-aad7c51cca05",
+      "name": "03 — Topology and localization",
+      "options": {
+        "collapse-filter": false,
+        "search": "path:\"02 Concepts\" file:(\"Topological Confinement\" OR \"Solenoidal Topology\" OR \"Toroidal Eigenmodes\" OR \"Curvature-locked solitons\" OR \"Filament Localization\" OR \"Spinor topology\" OR \"Spinor Quantization\" OR \"SU(2) Symmetry\" OR \"Hopf Fibration\" OR \"Holonomy\" OR \"Torsion\" OR \"Torsion Budget\" OR \"Poloidal Curvature\" OR \"Shell Quantization\" OR \"Beta quantization\")",
+        "showTags": false,
+        "showAttachments": false,
+        "hideUnresolved": false,
+        "showOrphans": true,
+        "collapse-color-groups": true,
+        "colorGroups": [
+          {
+            "query": "00 Maps",
+            "color": {
+              "a": 1,
+              "rgb": 2935773
+            }
+          },
+          {
+            "query": "01 Literature Notes",
+            "color": {
+              "a": 1,
+              "rgb": 9237432
+            }
+          },
+          {
+            "query": "02 Concepts",
+            "color": {
+              "a": 1,
+              "rgb": 5200350
+            }
+          },
+          {
+            "query": "03 Equations",
+            "color": {
+              "a": 1,
+              "rgb": 11135481
+            }
+          },
+          {
+            "query": "04 Collections",
+            "color": {
+              "a": 1,
+              "rgb": 5431473
+            }
+          },
+          {
+            "query": "05 Derivations",
+            "color": {
+              "a": 1,
+              "rgb": 5419488
+            }
+          },
+          {
+            "query": "06 Predictions",
+            "color": {
+              "a": 1,
+              "rgb": 14701180
+            }
+          },
+          {
+            "query": "07 Experiments",
+            "color": {
+              "a": 1,
+              "rgb": 5431425
+            }
+          }
+        ],
+        "collapse-display": true,
+        "showArrow": true,
+        "textFadeMultiplier": -1.7,
+        "nodeSizeMultiplier": 1.36574844074844,
+        "lineSizeMultiplier": 0.673024948024948,
+        "collapse-forces": true,
+        "centerStrength": 0.438149688149688,
+        "repelStrength": 10.1767151767152,
+        "linkStrength": 0.687629937629938,
+        "linkDistance": 203,
+        "scale": 0.3692465245171618,
+        "close": false
+      },
+      "nodePositions": [
+        {
+          "id": "Research/02 Concepts/Poloidal Curvature.md",
+          "x": -23.7443904876709,
+          "y": 15.60738468170166
+        },
+        {
+          "id": "Research/02 Concepts/Shell Quantization.md",
+          "x": -139.53367614746094,
+          "y": -127.01872253417969
+        },
+        {
+          "id": "Research/02 Concepts/Solenoidal Topology.md",
+          "x": -41.10416793823242,
+          "y": 197.52706909179688
+        },
+        {
+          "id": "Research/02 Concepts/Spinor Quantization.md",
+          "x": 219.0730438232422,
+          "y": 267.3916015625
+        },
+        {
+          "id": "Research/02 Concepts/Spinor topology.md",
+          "x": 45.39344024658203,
+          "y": -395.9226989746094
+        },
+        {
+          "id": "Research/02 Concepts/SU(2) Symmetry.md",
+          "x": -212.57301330566406,
+          "y": 260.941650390625
+        },
+        {
+          "id": "Research/02 Concepts/Topological Confinement.md",
+          "x": 82.7399673461914,
+          "y": -96.92322540283203
+        },
+        {
+          "id": "Research/02 Concepts/Toroidal Eigenmodes.md",
+          "x": 52.97032165527344,
+          "y": -249.94207763671875
+        },
+        {
+          "id": "Research/02 Concepts/Torsion Budget.md",
+          "x": 209.53041076660156,
+          "y": 130.5321807861328
+        },
+        {
+          "id": "Research/02 Concepts/Torsion.md",
+          "x": -68.02184295654297,
+          "y": 389.0894470214844
+        },
+        {
+          "id": "Research/02 Concepts/Beta quantization.md",
+          "x": -164.50270080566406,
+          "y": -286.9102783203125
+        },
+        {
+          "id": "Research/02 Concepts/Curvature-locked solitons.md",
+          "x": 245.693603515625,
+          "y": -59.44304656982422
+        },
+        {
+          "id": "Research/02 Concepts/Filament Localization.md",
+          "x": 288.0323486328125,
+          "y": -230.96664428710938
+        },
+        {
+          "id": "Research/02 Concepts/Holonomy.md",
+          "x": -366.9538269042969,
+          "y": -79.3092269897461
+        },
+        {
+          "id": "Research/02 Concepts/Hopf Fibration.md",
+          "x": 106.40766906738281,
+          "y": 396.9320983886719
+        }
+      ],
+      "createdAt": "2026-06-26T00:38:09.263Z",
+      "updatedAt": "2026-06-26T00:41:52.663Z"
+    },
+    {
+      "id": "188ffb72-fa6e-41da-bf84-bc14936480e3",
+      "name": "04 — Mass, particles, and constants",
+      "options": {
+        "collapse-filter": false,
+        "search": "path:\"02 Concepts\" file:(\"Emergent Mass\" OR \"Inertial Mass\" OR \"Rest Energy\" OR \"Density-Weighted Curvature\" OR \"Artificial mass generation\" OR \"Photonic mass\" OR \"Geometric Inertia\" OR \"Geometric Mass Models\" OR \"Geometric Mass Ratios\" OR \"Geometric Origin of Energy\" OR \"Mass-Phase Geometry\" OR \"Fermion Triplets\" OR \"Lepton Mass Spectrum\" OR \"Koide Relation\" OR \"Curvature-Koide Invariant\" OR \"Koide comb\" OR \"Inverse-Koide square-root dilation\" OR \"Fundamental constants\" OR \"Fine-Structure Constant\" OR \"Gravitational Constant\" OR \"Planck Constant\" OR \"Speed of Light\" OR \"Cosmological Constant\")",
+        "showTags": false,
+        "showAttachments": false,
+        "hideUnresolved": false,
+        "showOrphans": true,
+        "collapse-color-groups": true,
+        "colorGroups": [
+          {
+            "query": "00 Maps",
+            "color": {
+              "a": 1,
+              "rgb": 2935773
+            }
+          },
+          {
+            "query": "01 Literature Notes",
+            "color": {
+              "a": 1,
+              "rgb": 9237432
+            }
+          },
+          {
+            "query": "02 Concepts",
+            "color": {
+              "a": 1,
+              "rgb": 5200350
+            }
+          },
+          {
+            "query": "03 Equations",
+            "color": {
+              "a": 1,
+              "rgb": 11135481
+            }
+          },
+          {
+            "query": "04 Collections",
+            "color": {
+              "a": 1,
+              "rgb": 5431473
+            }
+          },
+          {
+            "query": "05 Derivations",
+            "color": {
+              "a": 1,
+              "rgb": 5419488
+            }
+          },
+          {
+            "query": "06 Predictions",
+            "color": {
+              "a": 1,
+              "rgb": 14701180
+            }
+          },
+          {
+            "query": "07 Experiments",
+            "color": {
+              "a": 1,
+              "rgb": 5431425
+            }
+          }
+        ],
+        "collapse-display": true,
+        "showArrow": true,
+        "textFadeMultiplier": -1.7,
+        "nodeSizeMultiplier": 1.36574844074844,
+        "lineSizeMultiplier": 0.673024948024948,
+        "collapse-forces": true,
+        "centerStrength": 0.438149688149688,
+        "repelStrength": 10.1767151767152,
+        "linkStrength": 0.687629937629938,
+        "linkDistance": 203,
+        "scale": 0.3692465245171618,
+        "close": false
+      },
+      "nodePositions": [
+        {
+          "id": "02 Concepts/B0 → K star 0 μ+μ−",
+          "x": -95.68991088867188,
+          "y": -115.52875518798828
+        },
+        {
+          "id": "Research/02 Concepts/Photonic mass.md",
+          "x": 42.63287353515625,
+          "y": 388.92840576171875
+        },
+        {
+          "id": "Research/02 Concepts/Planck Constant.md",
+          "x": -244.77906799316406,
+          "y": -329.8736877441406
+        },
+        {
+          "id": "Research/02 Concepts/Rest Energy.md",
+          "x": 311.7927551269531,
+          "y": 106.40096282958984
+        },
+        {
+          "id": "Research/02 Concepts/Speed of Light.md",
+          "x": -331.1044616699219,
+          "y": -480.084716796875
+        },
+        {
+          "id": "Research/02 Concepts/Artificial mass generation.md",
+          "x": 222.21205139160156,
+          "y": 491.67340087890625
+        },
+        {
+          "id": "Research/02 Concepts/Cosmological Constant.md",
+          "x": -95.56847381591797,
+          "y": -583.5407104492188
+        },
+        {
+          "id": "Research/02 Concepts/Curvature-Koide Invariant.md",
+          "x": -419.3954772949219,
+          "y": -45.40166091918945
+        },
+        {
+          "id": "Research/02 Concepts/Density-Weighted Curvature.md",
+          "x": 293.17083740234375,
+          "y": 279.1504211425781
+        },
+        {
+          "id": "Research/02 Concepts/Emergent Mass.md",
+          "x": 13.433989524841309,
+          "y": -314.9643249511719
+        },
+        {
+          "id": "Research/02 Concepts/Fermion Triplets.md",
+          "x": -305.22393798828125,
+          "y": 127.08890533447266
+        },
+        {
+          "id": "Research/02 Concepts/Fine-Structure Constant.md",
+          "x": 64.68978881835938,
+          "y": -489.1237487792969
+        },
+        {
+          "id": "Research/02 Concepts/Fundamental constants.md",
+          "x": -294.8910217285156,
+          "y": -210.74224853515625
+        },
+        {
+          "id": "Research/02 Concepts/Geometric Inertia.md",
+          "x": 245.63775634765625,
+          "y": -373.490234375
+        },
+        {
+          "id": "Research/02 Concepts/Geometric Mass Models.md",
+          "x": 360.4290771484375,
+          "y": -57.8105354309082
+        },
+        {
+          "id": "Research/02 Concepts/Geometric Mass Ratios.md",
+          "x": -197.8704071044922,
+          "y": 234.37646484375
+        },
+        {
+          "id": "Research/02 Concepts/Geometric Origin of Energy.md",
+          "x": 529.4863891601562,
+          "y": 89.62420654296875
+        },
+        {
+          "id": "Research/02 Concepts/Gravitational Constant.md",
+          "x": -141.9732208251953,
+          "y": -437.1496276855469
+        },
+        {
+          "id": "Research/02 Concepts/Inertial Mass.md",
+          "x": 465.9508056640625,
+          "y": 316.5290222167969
+        },
+        {
+          "id": "Research/02 Concepts/Inverse-Koide square-root dilation.md",
+          "x": -88.86404418945312,
+          "y": 82.31487274169922
+        },
+        {
+          "id": "Research/02 Concepts/Koide comb.md",
+          "x": 96.54057312011719,
+          "y": 117.23067474365234
+        },
+        {
+          "id": "Research/02 Concepts/Koide Relation.md",
+          "x": 56.86311721801758,
+          "y": -69.37939453125
+        },
+        {
+          "id": "Research/02 Concepts/Lepton Mass Spectrum.md",
+          "x": 354.9250793457031,
+          "y": -231.84849548339844
+        },
+        {
+          "id": "Research/02 Concepts/Mass-Phase Geometry.md",
+          "x": -456.468017578125,
+          "y": 152.40525817871094
+        }
+      ],
+      "createdAt": "2026-06-26T00:38:13.390Z",
+      "updatedAt": "2026-06-26T00:42:47.206Z"
+    },
+    {
+      "id": "b6f3c216-923d-476a-a637-66c428ed212b",
+      "name": "05 — Spectral emergence and pattern formation",
+      "options": {
+        "collapse-filter": false,
+        "search": "path:\"02 Concepts\" file:(\"Spectral structure\" OR \"Spectral Entropy\" OR \"Spectral Modulation\" OR \"Spectral residuals\" OR \"Eigenmode Spectrum\" OR \"Curvature Harmonics\" OR \"Harmonic spectrum\" OR \"Discrete Scale Invariance\" OR \"Discrete scale structure\" OR \"Log-periodicity\" OR \"Log-periodic modulation\" OR \"Log-Periodic Residuals\" OR \"Log-Energy Oscillations\" OR \"Logarithmic wavenumber\" OR \"Fourier Band Selection\" OR \"Entropic Eigenmodes\" OR \"Emergent Order\" OR \"Pattern Formation\" OR \"Swift-Hohenberg\" OR \"Ginzburg-Landau\" OR \"Complex Ginzburg-Landau\" OR \"Wavenumber\" OR \"Scale dilation\")",
+        "showTags": false,
+        "showAttachments": false,
+        "hideUnresolved": false,
+        "showOrphans": true,
+        "collapse-color-groups": true,
+        "colorGroups": [
+          {
+            "query": "00 Maps",
+            "color": {
+              "a": 1,
+              "rgb": 2935773
+            }
+          },
+          {
+            "query": "01 Literature Notes",
+            "color": {
+              "a": 1,
+              "rgb": 9237432
+            }
+          },
+          {
+            "query": "02 Concepts",
+            "color": {
+              "a": 1,
+              "rgb": 5200350
+            }
+          },
+          {
+            "query": "03 Equations",
+            "color": {
+              "a": 1,
+              "rgb": 11135481
+            }
+          },
+          {
+            "query": "04 Collections",
+            "color": {
+              "a": 1,
+              "rgb": 5431473
+            }
+          },
+          {
+            "query": "05 Derivations",
+            "color": {
+              "a": 1,
+              "rgb": 5419488
+            }
+          },
+          {
+            "query": "06 Predictions",
+            "color": {
+              "a": 1,
+              "rgb": 14701180
+            }
+          },
+          {
+            "query": "07 Experiments",
+            "color": {
+              "a": 1,
+              "rgb": 5431425
+            }
+          }
+        ],
+        "collapse-display": true,
+        "showArrow": true,
+        "textFadeMultiplier": -1.7,
+        "nodeSizeMultiplier": 1.36574844074844,
+        "lineSizeMultiplier": 0.673024948024948,
+        "collapse-forces": true,
+        "centerStrength": 0.438149688149688,
+        "repelStrength": 10.1767151767152,
+        "linkStrength": 0.687629937629938,
+        "linkDistance": 203,
+        "scale": 0.3692465245171618,
+        "close": false
+      },
+      "nodePositions": [
+        {
+          "id": "02 Concepts/B0 → K star 0 μ+μ−",
+          "x": 107.85272216796875,
+          "y": -405.46875
+        },
+        {
+          "id": "Research/02 Concepts/Scale dilation.md",
+          "x": 366.3783874511719,
+          "y": -449.5372619628906
+        },
+        {
+          "id": "Research/02 Concepts/Spectral Entropy.md",
+          "x": 333.39752197265625,
+          "y": 175.7055206298828
+        },
+        {
+          "id": "Research/02 Concepts/Spectral Modulation.md",
+          "x": -275.85296630859375,
+          "y": 260.0928649902344
+        },
+        {
+          "id": "02 Concepts/Δm2 precision",
+          "x": -346.9237365722656,
+          "y": 449.7446594238281
+        },
+        {
+          "id": "Research/02 Concepts/Spectral residuals.md",
+          "x": -24.080867767333984,
+          "y": -235.6586151123047
+        },
+        {
+          "id": "Research/02 Concepts/Spectral structure.md",
+          "x": 250.66024780273438,
+          "y": -299.66131591796875
+        },
+        {
+          "id": "Research/02 Concepts/Swift-Hohenberg.md",
+          "x": 186.31573486328125,
+          "y": 219.46255493164062
+        },
+        {
+          "id": "Research/02 Concepts/Wavenumber.md",
+          "x": 3.919210433959961,
+          "y": 324.3577575683594
+        },
+        {
+          "id": "Research/02 Concepts/Complex Ginzburg-Landau.md",
+          "x": 408.6861267089844,
+          "y": -2.5246782302856445
+        },
+        {
+          "id": "Research/02 Concepts/Curvature Harmonics.md",
+          "x": -249.20211791992188,
+          "y": -384.01190185546875
+        },
+        {
+          "id": "Research/02 Concepts/Discrete Scale Invariance.md",
+          "x": -83.87618255615234,
+          "y": -34.328163146972656
+        },
+        {
+          "id": "Research/02 Concepts/Discrete scale structure.md",
+          "x": 420.5225830078125,
+          "y": -237.53648376464844
+        },
+        {
+          "id": "Research/02 Concepts/Eigenmode Spectrum.md",
+          "x": -425.2423095703125,
+          "y": -275.2763366699219
+        },
+        {
+          "id": "Research/02 Concepts/Emergent Order.md",
+          "x": 101.20822143554688,
+          "y": 23.2000732421875
+        },
+        {
+          "id": "Research/02 Concepts/Entropic Eigenmodes.md",
+          "x": 554.0426025390625,
+          "y": 22.835498809814453
+        },
+        {
+          "id": "Research/02 Concepts/Fourier Band Selection.md",
+          "x": 526.8606567382812,
+          "y": 217.18434143066406
+        },
+        {
+          "id": "Research/02 Concepts/Ginzburg-Landau.md",
+          "x": 395.27581787109375,
+          "y": 343.3874816894531
+        },
+        {
+          "id": "Research/02 Concepts/Harmonic spectrum.md",
+          "x": -453.3230895996094,
+          "y": -70.48193359375
+        },
+        {
+          "id": "Research/02 Concepts/Logarithmic wavenumber.md",
+          "x": -88.99998474121094,
+          "y": 179.57835388183594
+        },
+        {
+          "id": "Research/02 Concepts/Log-Energy Oscillations.md",
+          "x": -459.0210266113281,
+          "y": 211.49917602539062
+        },
+        {
+          "id": "Research/02 Concepts/Log-periodic modulation.md",
+          "x": 129.26138305664062,
+          "y": -179.24969482421875
+        },
+        {
+          "id": "Research/02 Concepts/Log-Periodic Residuals.md",
+          "x": 218.9893035888672,
+          "y": 2.2074577808380127
+        },
+        {
+          "id": "Research/02 Concepts/Log-periodicity.md",
+          "x": 149.0050048828125,
+          "y": 369.7608947753906
+        },
+        {
+          "id": "Research/02 Concepts/Pattern Formation.md",
+          "x": -114.34207153320312,
+          "y": 499.52008056640625
+        }
+      ],
+      "createdAt": "2026-06-26T00:38:19.199Z",
+      "updatedAt": "2026-06-26T00:42:37.128Z"
+    },
+    {
+      "id": "f1a4ef05-43ca-4c71-9449-2f43fcee4bc3",
+      "name": "06 — Experiments, protocols, and instrumentation",
+      "options": {
+        "collapse-filter": false,
+        "search": "path:\"02 Concepts\" file:(\"Experimental physics\" OR \"Experimental ledger\" OR \"Protocol registration\" OR \"Falsifiable Predictions\" OR \"Prediction audit\" OR \"Reproducible data analysis\" OR \"Public scientific data\" OR \"Open data\" OR \"Experimental Sensitivity\" OR \"Detector Resolution\" OR \"Energy Smearing\" OR \"Sideband analysis\" OR \"Parametric bootstrap\" OR \"Bin stability\" OR \"State induction\" OR \"Light-induced resonance\" OR \"Long-Lived Resonance\" OR \"Optical excitation\" OR \"Optical coherence\" OR \"Ultraviolet illumination\" OR \"Angular modulation\" OR \"Photodiode\" OR \"Persistent electrical states\")",
+        "showTags": false,
+        "showAttachments": false,
+        "hideUnresolved": false,
+        "showOrphans": true,
+        "collapse-color-groups": true,
+        "colorGroups": [
+          {
+            "query": "00 Maps",
+            "color": {
+              "a": 1,
+              "rgb": 2935773
+            }
+          },
+          {
+            "query": "01 Literature Notes",
+            "color": {
+              "a": 1,
+              "rgb": 9237432
+            }
+          },
+          {
+            "query": "02 Concepts",
+            "color": {
+              "a": 1,
+              "rgb": 5200350
+            }
+          },
+          {
+            "query": "03 Equations",
+            "color": {
+              "a": 1,
+              "rgb": 11135481
+            }
+          },
+          {
+            "query": "04 Collections",
+            "color": {
+              "a": 1,
+              "rgb": 5431473
+            }
+          },
+          {
+            "query": "05 Derivations",
+            "color": {
+              "a": 1,
+              "rgb": 5419488
+            }
+          },
+          {
+            "query": "06 Predictions",
+            "color": {
+              "a": 1,
+              "rgb": 14701180
+            }
+          },
+          {
+            "query": "07 Experiments",
+            "color": {
+              "a": 1,
+              "rgb": 5431425
+            }
+          }
+        ],
+        "collapse-display": true,
+        "showArrow": true,
+        "textFadeMultiplier": -1.7,
+        "nodeSizeMultiplier": 1.36574844074844,
+        "lineSizeMultiplier": 0.673024948024948,
+        "collapse-forces": true,
+        "centerStrength": 0.438149688149688,
+        "repelStrength": 10.1767151767152,
+        "linkStrength": 0.687629937629938,
+        "linkDistance": 203,
+        "scale": 0.3692465245171618,
+        "close": false
+      },
+      "nodePositions": [
+        {
+          "id": "02 Concepts/B0 → K star 0 μ+μ−",
+          "x": 391.8122253417969,
+          "y": -62.16411209106445
+        },
+        {
+          "id": "Research/02 Concepts/Prediction audit.md",
+          "x": -488.40692138671875,
+          "y": 83.36076354980469
+        },
+        {
+          "id": "Research/02 Concepts/Protocol registration.md",
+          "x": 183.39659118652344,
+          "y": -437.5257568359375
+        },
+        {
+          "id": "Research/02 Concepts/Public scientific data.md",
+          "x": 280.0914611816406,
+          "y": 198.72035217285156
+        },
+        {
+          "id": "Research/02 Concepts/Reproducible data analysis.md",
+          "x": -202.36599731445312,
+          "y": 196.3090362548828
+        },
+        {
+          "id": "Research/02 Concepts/Sideband analysis.md",
+          "x": 495.0069580078125,
+          "y": -248.49789428710938
+        },
+        {
+          "id": "Research/02 Concepts/State induction.md",
+          "x": -247.8839569091797,
+          "y": -414.0221862792969
+        },
+        {
+          "id": "Research/02 Concepts/Ultraviolet illumination.md",
+          "x": 210.94862365722656,
+          "y": -245.11431884765625
+        },
+        {
+          "id": "Research/02 Concepts/Angular modulation.md",
+          "x": -158.31591796875,
+          "y": -545.6683349609375
+        },
+        {
+          "id": "Research/02 Concepts/Bin stability.md",
+          "x": 46.386207580566406,
+          "y": 191.6358184814453
+        },
+        {
+          "id": "Research/02 Concepts/Detector Resolution.md",
+          "x": -112.76585388183594,
+          "y": 417.16851806640625
+        },
+        {
+          "id": "02 Concepts/Δm2 precision",
+          "x": -8.201996803283691,
+          "y": 528.6389770507812
+        },
+        {
+          "id": "Research/02 Concepts/Energy Smearing.md",
+          "x": -285.7951354980469,
+          "y": 369.16168212890625
+        },
+        {
+          "id": "Research/02 Concepts/Experimental ledger.md",
+          "x": -90.10150909423828,
+          "y": -177.16082763671875
+        },
+        {
+          "id": "Research/02 Concepts/Experimental physics.md",
+          "x": -238.68951416015625,
+          "y": -202.00477600097656
+        },
+        {
+          "id": "Research/02 Concepts/Falsifiable Predictions.md",
+          "x": -57.32609939575195,
+          "y": -412.0201721191406
+        },
+        {
+          "id": "Research/02 Concepts/Light-induced resonance.md",
+          "x": -73.89458465576172,
+          "y": 23.22837257385254
+        },
+        {
+          "id": "Research/02 Concepts/Long-Lived Resonance.md",
+          "x": 44.09379959106445,
+          "y": -302.952880859375
+        },
+        {
+          "id": "Research/02 Concepts/Open data.md",
+          "x": 501.71588134765625,
+          "y": 106.21463775634766
+        },
+        {
+          "id": "Research/02 Concepts/Optical coherence.md",
+          "x": -312.6580810546875,
+          "y": -7.461268901824951
+        },
+        {
+          "id": "Research/02 Concepts/Optical excitation.md",
+          "x": -343.18646240234375,
+          "y": -263.7759704589844
+        },
+        {
+          "id": "Research/02 Concepts/Parametric bootstrap.md",
+          "x": 192.6372833251953,
+          "y": 342.96893310546875
+        },
+        {
+          "id": "Research/02 Concepts/Persistent electrical states.md",
+          "x": 50.34992218017578,
+          "y": -549.0292358398438
+        },
+        {
+          "id": "Research/02 Concepts/Photodiode.md",
+          "x": 81.35306549072266,
+          "y": -136.95455932617188
+        }
+      ],
+      "createdAt": "2026-06-26T00:38:24.609Z",
+      "updatedAt": "2026-06-26T00:43:52.892Z"
+    },
+    {
+      "id": "fda7d19a-2e9c-4baf-b3ed-1242ff738f42",
+      "name": "07 — Particle physics and spectral data",
+      "options": {
+        "collapse-filter": false,
+        "search": "path:\"02 Concepts\" file:(\"Wave Confinement Theory\" OR \"Phase-Flux Field\" OR \"Geometry\" OR \"Curvature Feedback\" OR \"Theta Operator\" OR \"Θ-operator\" OR \"Conservation Laws\" OR \"Covariant Invariant\" OR \"Nonlinear Wave Confinement\" OR \"Nonlinear Wavefields\" OR \"Unified Field Theory\" OR \"Quantum emergence\" OR \"Spacetime Emergence\" OR \"Effective Metric\")",
+        "showTags": false,
+        "showAttachments": false,
+        "hideUnresolved": false,
+        "showOrphans": true,
+        "collapse-color-groups": true,
+        "colorGroups": [
+          {
+            "query": "00 Maps",
+            "color": {
+              "a": 1,
+              "rgb": 2935773
+            }
+          },
+          {
+            "query": "01 Literature Notes",
+            "color": {
+              "a": 1,
+              "rgb": 9237432
+            }
+          },
+          {
+            "query": "02 Concepts",
+            "color": {
+              "a": 1,
+              "rgb": 5200350
+            }
+          },
+          {
+            "query": "03 Equations",
+            "color": {
+              "a": 1,
+              "rgb": 11135481
+            }
+          },
+          {
+            "query": "04 Collections",
+            "color": {
+              "a": 1,
+              "rgb": 5431473
+            }
+          },
+          {
+            "query": "05 Derivations",
+            "color": {
+              "a": 1,
+              "rgb": 5419488
+            }
+          },
+          {
+            "query": "06 Predictions",
+            "color": {
+              "a": 1,
+              "rgb": 14701180
+            }
+          },
+          {
+            "query": "07 Experiments",
+            "color": {
+              "a": 1,
+              "rgb": 5431425
+            }
+          }
+        ],
+        "collapse-display": true,
+        "showArrow": true,
+        "textFadeMultiplier": -1.7,
+        "nodeSizeMultiplier": 1.36574844074844,
+        "lineSizeMultiplier": 0.673024948024948,
+        "collapse-forces": true,
+        "centerStrength": 0.438149688149688,
+        "repelStrength": 10.1767151767152,
+        "linkStrength": 0.687629937629938,
+        "linkDistance": 203,
+        "scale": 0.3692465245171618,
+        "close": false
+      },
+      "nodePositions": [
+        {
+          "id": "02 Concepts/B0 → K star 0 μ+μ−",
+          "x": 366.767822265625,
+          "y": -134.00047302246094
+        },
+        {
+          "id": "Research/02 Concepts/Candidate-spectrum geometry.md",
+          "x": 527.9865112304688,
+          "y": -280.2933044433594
+        },
+        {
+          "id": "Research/02 Concepts/Quantum emergence.md",
+          "x": 283.5217590332031,
+          "y": 125.099853515625
+        },
+        {
+          "id": "Research/02 Concepts/Spacetime Emergence.md",
+          "x": -251.96263122558594,
+          "y": 83.76812744140625
+        },
+        {
+          "id": "Research/02 Concepts/Theta Operator.md",
+          "x": 221.46730041503906,
+          "y": 309.0975036621094
+        },
+        {
+          "id": "Research/02 Concepts/Unified Field Theory.md",
+          "x": -65.70094299316406,
+          "y": -423.7776794433594
+        },
+        {
+          "id": "Research/02 Concepts/Wave Confinement Theory.md",
+          "x": 224.43597412109375,
+          "y": -234.90782165527344
+        },
+        {
+          "id": "Research/02 Concepts/Conservation Laws.md",
+          "x": 370.5109558105469,
+          "y": -427.4376525878906
+        },
+        {
+          "id": "Research/02 Concepts/Covariant Invariant.md",
+          "x": 115.66681671142578,
+          "y": -457.0976867675781
+        },
+        {
+          "id": "Research/02 Concepts/Curvature Feedback.md",
+          "x": -90.76052856445312,
+          "y": -109.20750427246094
+        },
+        {
+          "id": "Research/02 Concepts/Effective Metric.md",
+          "x": 73.94257354736328,
+          "y": -65.0641860961914
+        },
+        {
+          "id": "Research/02 Concepts/Geometry.md",
+          "x": 77.35047149658203,
+          "y": 151.49752807617188
+        },
+        {
+          "id": "Research/02 Concepts/Informational geometry.md",
+          "x": -79.0928726196289,
+          "y": -275.81915283203125
+        },
+        {
+          "id": "Research/02 Concepts/Mass-Phase Geometry.md",
+          "x": 428.14593505859375,
+          "y": 345.60443115234375
+        },
+        {
+          "id": "Research/02 Concepts/Nonlinear geometry.md",
+          "x": -72.15412139892578,
+          "y": 143.59414672851562
+        },
+        {
+          "id": "Research/02 Concepts/Nonlinear Wave Confinement.md",
+          "x": 326.350341796875,
+          "y": 523.6004028320312
+        },
+        {
+          "id": "Research/02 Concepts/Nonlinear Wavefields.md",
+          "x": 94.54439544677734,
+          "y": -338.8646240234375
+        },
+        {
+          "id": "Research/02 Concepts/Phase-Flux Field.md",
+          "x": 210.1360626220703,
+          "y": -566.1986083984375
+        }
+      ],
+      "createdAt": "2026-06-26T00:38:30.912Z",
+      "updatedAt": "2026-06-26T00:43:41.452Z"
+    },
+    {
+      "id": "3524c2be-0a62-4c4d-a045-f24b380c7837",
+      "name": "08 — Mathematical and numerical methods",
+      "options": {
+        "collapse-filter": false,
+        "search": "path:\"02 Concepts\" file:(\"Continuum PDE\" OR \"Nonlinear PDE evolution\" OR \"Nonlinear Dynamics\" OR \"Nonlinear geometry\" OR \"Curvature Flow\" OR \"Logarithmic Curvature Operator\" OR \"Cole-Hopf Transform\" OR \"KPZ Equation\" OR \"Laplacian Scaling\" OR \"Gaussian field\" OR \"Continuum Limits\" OR \"D4 Discrete Model\" OR \"Cellular Automata\" OR \"Gauge emergence\" OR \"General Relativity\" OR \"Quantum Field Theory\" OR \"Quantum Field Theory Constraints\" OR \"Informational geometry\" OR \"Modeling\")",
+        "showTags": false,
+        "showAttachments": false,
+        "hideUnresolved": false,
+        "showOrphans": true,
+        "collapse-color-groups": true,
+        "colorGroups": [
+          {
+            "query": "00 Maps",
+            "color": {
+              "a": 1,
+              "rgb": 2935773
+            }
+          },
+          {
+            "query": "01 Literature Notes",
+            "color": {
+              "a": 1,
+              "rgb": 9237432
+            }
+          },
+          {
+            "query": "02 Concepts",
+            "color": {
+              "a": 1,
+              "rgb": 5200350
+            }
+          },
+          {
+            "query": "03 Equations",
+            "color": {
+              "a": 1,
+              "rgb": 11135481
+            }
+          },
+          {
+            "query": "04 Collections",
+            "color": {
+              "a": 1,
+              "rgb": 5431473
+            }
+          },
+          {
+            "query": "05 Derivations",
+            "color": {
+              "a": 1,
+              "rgb": 5419488
+            }
+          },
+          {
+            "query": "06 Predictions",
+            "color": {
+              "a": 1,
+              "rgb": 14701180
+            }
+          },
+          {
+            "query": "07 Experiments",
+            "color": {
+              "a": 1,
+              "rgb": 5431425
+            }
+          }
+        ],
+        "collapse-display": true,
+        "showArrow": true,
+        "textFadeMultiplier": -1.7,
+        "nodeSizeMultiplier": 1.36574844074844,
+        "lineSizeMultiplier": 0.673024948024948,
+        "collapse-forces": true,
+        "centerStrength": 0.438149688149688,
+        "repelStrength": 10.1767151767152,
+        "linkStrength": 0.687629937629938,
+        "linkDistance": 203,
+        "scale": 0.3692465245171618,
+        "close": false
+      },
+      "nodePositions": [
+        {
+          "id": "Research/02 Concepts/Informational geometry.md",
+          "x": -372.6051025390625,
+          "y": -13.859687805175781
+        },
+        {
+          "id": "Research/02 Concepts/Nonlinear geometry.md",
+          "x": -281.4247741699219,
+          "y": 261.62200927734375
+        },
+        {
+          "id": "Research/02 Concepts/Quantum Field Theory Constraints.md",
+          "x": 199.24143981933594,
+          "y": -458.1497497558594
+        },
+        {
+          "id": "Research/02 Concepts/Quantum Field Theory.md",
+          "x": -188.8128662109375,
+          "y": 428.74053955078125
+        },
+        {
+          "id": "Research/02 Concepts/Transport modeling.md",
+          "x": 255.65985107421875,
+          "y": -161.51016235351562
+        },
+        {
+          "id": "Research/02 Concepts/Cellular Automata.md",
+          "x": 127.10009002685547,
+          "y": 379.1221618652344
+        },
+        {
+          "id": "Research/02 Concepts/Cole-Hopf Transform.md",
+          "x": 193.90196228027344,
+          "y": -10.751080513000488
+        },
+        {
+          "id": "Research/02 Concepts/Continuum Limits.md",
+          "x": 150.24655151367188,
+          "y": 171.7512969970703
+        },
+        {
+          "id": "Research/02 Concepts/Continuum PDE.md",
+          "x": -30.854581832885742,
+          "y": -184.71603393554688
+        },
+        {
+          "id": "Research/02 Concepts/Curvature Flow.md",
+          "x": 453.45440673828125,
+          "y": -49.09265899658203
+        },
+        {
+          "id": "Research/02 Concepts/D4 Discrete Model.md",
+          "x": 259.62908935546875,
+          "y": 349.0569152832031
+        },
+        {
+          "id": "Research/02 Concepts/Gauge emergence.md",
+          "x": -11.136640548706055,
+          "y": 489.558349609375
+        },
+        {
+          "id": "Research/02 Concepts/Gaussian field.md",
+          "x": -29.171443939208984,
+          "y": -441.2154235839844
+        },
+        {
+          "id": "Research/02 Concepts/General Relativity.md",
+          "x": -76.83301544189453,
+          "y": 294.6541442871094
+        },
+        {
+          "id": "Research/02 Concepts/KPZ Equation.md",
+          "x": 521.8763427734375,
+          "y": 128.80535888671875
+        },
+        {
+          "id": "Research/02 Concepts/Laplacian Scaling.md",
+          "x": 232.9268035888672,
+          "y": -304.63916015625
+        },
+        {
+          "id": "Research/02 Concepts/Logarithmic Curvature Operator.md",
+          "x": 333.0389404296875,
+          "y": 136.66941833496094
+        },
+        {
+          "id": "Research/02 Concepts/Modeling.md",
+          "x": 470.39080810546875,
+          "y": -254.7489471435547
+        },
+        {
+          "id": "Research/02 Concepts/Nonlinear Dynamics.md",
+          "x": -63.56267547607422,
+          "y": 141.54779052734375
+        },
+        {
+          "id": "Research/02 Concepts/Nonlinear PDE evolution.md",
+          "x": -21.185401916503906,
+          "y": -310.2415466308594
+        }
+      ],
+      "createdAt": "2026-06-26T00:38:35.415Z",
+      "updatedAt": "2026-06-26T00:43:32.100Z"
+    },
+    {
+      "id": "b4fd55cb-ae32-4141-b59f-71151e452804",
+      "name": "09 — Computation, complexity, and cryptography",
+      "options": {
+        "collapse-filter": false,
+        "search": "path:\"02 Concepts\" file:(\"Computational Complexity\" OR \"Physical Computation\" OR \"Wave Computation\" OR \"Wave Curvature Computation\" OR \"Wave-Constrained Computation\" OR \"Curvature-Bounded Computation\" OR \"Curvature Capacity\" OR \"Curvature complexity\" OR \"Geometric complexity\" OR \"Distinguishability Curvature\" OR \"Distinguishability cost\" OR \"Finite precision\" OR \"Finite-bandwidth computation\" OR \"Local-Update Machines\" OR \"Turing Machines\" OR \"Turing Simulation\" OR \"Turing Equivalence\" OR \"P vs NP\" OR \"P_WCC\" OR \"NP_WCC\" OR \"Physical P≠NP\" OR \"Model-relative lower bounds\" OR \"NP Verification\" OR \"Verifier Bijection\" OR \"Cook-Levin reduction\" OR \"SAT\" OR \"3-SAT\" OR \"Locked expander\" OR \"Expander graphs\" OR \"NC Circuits\" OR \"NC1 circuits\" OR \"Non-natural proofs\" OR \"Non-relativizing arguments\" OR \"Nonlinear computation\" OR \"One-Way Functions\" OR \"Post-Quantum Cryptography\" OR \"Curvature-based cryptography\" OR \"Geometric hashing\" OR \"Wavefield commitment schemes\" OR \"WaveLock\" OR \"Wave-Encoded Information\" OR \"Resonance encoding\" OR \"Non-volatile states\" OR \"Geometric memory\")",
+        "showTags": false,
+        "showAttachments": false,
+        "hideUnresolved": false,
+        "showOrphans": true,
+        "collapse-color-groups": true,
+        "colorGroups": [
+          {
+            "query": "00 Maps",
+            "color": {
+              "a": 1,
+              "rgb": 2935773
+            }
+          },
+          {
+            "query": "01 Literature Notes",
+            "color": {
+              "a": 1,
+              "rgb": 9237432
+            }
+          },
+          {
+            "query": "02 Concepts",
+            "color": {
+              "a": 1,
+              "rgb": 5200350
+            }
+          },
+          {
+            "query": "03 Equations",
+            "color": {
+              "a": 1,
+              "rgb": 11135481
+            }
+          },
+          {
+            "query": "04 Collections",
+            "color": {
+              "a": 1,
+              "rgb": 5431473
+            }
+          },
+          {
+            "query": "05 Derivations",
+            "color": {
+              "a": 1,
+              "rgb": 5419488
+            }
+          },
+          {
+            "query": "06 Predictions",
+            "color": {
+              "a": 1,
+              "rgb": 14701180
+            }
+          },
+          {
+            "query": "07 Experiments",
+            "color": {
+              "a": 1,
+              "rgb": 5431425
+            }
+          }
+        ],
+        "collapse-display": true,
+        "showArrow": true,
+        "textFadeMultiplier": -1.7,
+        "nodeSizeMultiplier": 1.36574844074844,
+        "lineSizeMultiplier": 0.673024948024948,
+        "collapse-forces": true,
+        "centerStrength": 0.438149688149688,
+        "repelStrength": 10.1767151767152,
+        "linkStrength": 0.687629937629938,
+        "linkDistance": 203,
+        "scale": 0.3692465245171618,
+        "close": false
+      },
+      "nodePositions": [
+        {
+          "id": "Research/02 Concepts/Physical Computation.md",
+          "x": 254.03179931640625,
+          "y": -201.63340759277344
+        },
+        {
+          "id": "Research/02 Concepts/Post-Quantum Cryptography.md",
+          "x": -295.4337463378906,
+          "y": 318.8648986816406
+        },
+        {
+          "id": "Research/02 Concepts/Resonance encoding.md",
+          "x": -746.0473022460938,
+          "y": -213.75376892089844
+        },
+        {
+          "id": "Research/02 Concepts/SAT.md",
+          "x": -135.57888793945312,
+          "y": -73.99803924560547
+        },
+        {
+          "id": "Research/02 Concepts/Turing Equivalence.md",
+          "x": 374.8503112792969,
+          "y": -270.2523498535156
+        },
+        {
+          "id": "Research/02 Concepts/Turing Machines.md",
+          "x": 418.28118896484375,
+          "y": -153.67384338378906
+        },
+        {
+          "id": "Research/02 Concepts/Turing Simulation.md",
+          "x": 16.424236297607422,
+          "y": 228.25791931152344
+        },
+        {
+          "id": "Research/02 Concepts/Verifier Bijection.md",
+          "x": 511.9408874511719,
+          "y": -57.795875549316406
+        },
+        {
+          "id": "Research/02 Concepts/Wave Computation.md",
+          "x": -227.29270935058594,
+          "y": 118.3448715209961
+        },
+        {
+          "id": "Research/02 Concepts/Wave Curvature Computation.md",
+          "x": -486.0899963378906,
+          "y": 33.988224029541016
+        },
+        {
+          "id": "Research/02 Concepts/Wave-Constrained Computation.md",
+          "x": 421.1877746582031,
+          "y": -387.8175048828125
+        },
+        {
+          "id": "Research/02 Concepts/Wave-Encoded Information.md",
+          "x": -268.9544982910156,
+          "y": -6.063256740570068
+        },
+        {
+          "id": "Research/02 Concepts/Wavefield commitment schemes.md",
+          "x": -555.3280639648438,
+          "y": 194.57647705078125
+        },
+        {
+          "id": "Research/02 Concepts/WaveLock.md",
+          "x": -150.8255615234375,
+          "y": -190.12945556640625
+        },
+        {
+          "id": "Research/02 Concepts/3-SAT.md",
+          "x": 68.83049011230469,
+          "y": -211.99488830566406
+        },
+        {
+          "id": "Research/02 Concepts/Computational Complexity.md",
+          "x": 180.8525848388672,
+          "y": -419.94036865234375
+        },
+        {
+          "id": "Research/02 Concepts/Cook-Levin reduction.md",
+          "x": 146.65403747558594,
+          "y": 484.331787109375
+        },
+        {
+          "id": "Research/02 Concepts/Curvature Capacity.md",
+          "x": 265.6148681640625,
+          "y": -12.682125091552734
+        },
+        {
+          "id": "Research/02 Concepts/Curvature complexity.md",
+          "x": -335.8462219238281,
+          "y": 206.65206909179688
+        },
+        {
+          "id": "Research/02 Concepts/Curvature Saturation.md",
+          "x": 353.3062438964844,
+          "y": -529.4159545898438
+        },
+        {
+          "id": "Research/02 Concepts/Curvature-based cryptography.md",
+          "x": 71.75029754638672,
+          "y": 26.628318786621094
+        },
+        {
+          "id": "Research/02 Concepts/Curvature-Bounded Computation.md",
+          "x": -56.26028823852539,
+          "y": -433.2721252441406
+        },
+        {
+          "id": "Research/02 Concepts/Distinguishability cost.md",
+          "x": 338.5870056152344,
+          "y": 196.7493438720703
+        },
+        {
+          "id": "Research/02 Concepts/Distinguishability Curvature.md",
+          "x": -207.5811004638672,
+          "y": -434.11907958984375
+        },
+        {
+          "id": "Research/02 Concepts/Expander graphs.md",
+          "x": 191.97215270996094,
+          "y": 630.1300659179688
+        },
+        {
+          "id": "Research/02 Concepts/Finite precision.md",
+          "x": 132.3287353515625,
+          "y": -93.62117767333984
+        },
+        {
+          "id": "Research/02 Concepts/Finite-bandwidth computation.md",
+          "x": -44.807369232177734,
+          "y": -0.21791255474090576
+        },
+        {
+          "id": "Research/02 Concepts/Geometric complexity.md",
+          "x": 144.16757202148438,
+          "y": 334.3329162597656
+        },
+        {
+          "id": "Research/02 Concepts/Geometric hashing.md",
+          "x": -447.14337158203125,
+          "y": -295.8773193359375
+        },
+        {
+          "id": "Research/02 Concepts/Geometric memory.md",
+          "x": 65.0531997680664,
+          "y": -500.497802734375
+        },
+        {
+          "id": "Research/02 Concepts/Local-Update Machines.md",
+          "x": -8.518091201782227,
+          "y": 113.39794921875
+        },
+        {
+          "id": "Research/02 Concepts/Locked expander.md",
+          "x": 224.26271057128906,
+          "y": 162.8184051513672
+        },
+        {
+          "id": "Research/02 Concepts/Model-relative lower bounds.md",
+          "x": 426.6161804199219,
+          "y": 117.78348541259766
+        },
+        {
+          "id": "Research/02 Concepts/NC Circuits.md",
+          "x": -110.76132202148438,
+          "y": 604.5863037109375
+        },
+        {
+          "id": "Research/02 Concepts/NC1 circuits.md",
+          "x": -238.09097290039062,
+          "y": 519.84423828125
+        },
+        {
+          "id": "Research/02 Concepts/Nonlinear computation.md",
+          "x": 87.60589599609375,
+          "y": -339.89495849609375
+        },
+        {
+          "id": "Research/02 Concepts/Non-natural proofs.md",
+          "x": 26.37771224975586,
+          "y": 594.8580322265625
+        },
+        {
+          "id": "Research/02 Concepts/Non-relativizing arguments.md",
+          "x": 458.87872314453125,
+          "y": 330.64501953125
+        },
+        {
+          "id": "Research/02 Concepts/Non-volatile states.md",
+          "x": -600.9849243164062,
+          "y": -247.86477661132812
+        },
+        {
+          "id": "Research/02 Concepts/NP Verification.md",
+          "x": 344.79595947265625,
+          "y": 492.8689880371094
+        },
+        {
+          "id": "Research/02 Concepts/NP_WCC.md",
+          "x": -81.17498779296875,
+          "y": 333.4450378417969
+        },
+        {
+          "id": "Research/02 Concepts/One-Way Functions.md",
+          "x": -443.7484436035156,
+          "y": -77.94637298583984
+        },
+        {
+          "id": "Research/02 Concepts/P vs NP.md",
+          "x": -246.47357177734375,
+          "y": -121.66229248046875
+        },
+        {
+          "id": "Research/02 Concepts/P_WCC.md",
+          "x": -155.80917358398438,
+          "y": -307.15582275390625
+        }
+      ],
+      "createdAt": "2026-06-26T00:38:40.269Z",
+      "updatedAt": "2026-06-26T00:43:24.549Z"
+    },
+    {
+      "id": "8ecbc4a3-08b0-4a53-a16b-a12ec07879ae",
+      "name": "10 — AI safety, recursive drift, and architecture",
+      "options": {
+        "collapse-filter": false,
+        "search": "path:\"02 Concepts\" file:(\"AGI Safety\" OR \"AI Safety\" OR \"AI alignment\" OR \"Symbolic AGI\" OR \"Non-Gradient AI\" OR \"RCA\" OR \"Resonance-Confinement Architecture\" OR \"Intelligent resonance\" OR \"Survivability architecture\" OR \"Symbolic persistence\" OR \"Symbolic physics\" OR \"Evolving memory\" OR \"Recursive AI Drift\" OR \"Recursive self-processing\" OR \"Recursive degradation\" OR \"Symbolic drift\" OR \"Semantic drift\" OR \"Semantic anchor decay\" OR \"Coherence mirage\" OR \"Coherence Collapse\" OR \"Coherence feedback\" OR \"Collapse score\" OR \"Propagation-correction criticality\" OR \"Model collapse\" OR \"Self-consuming\" OR \"Self-consuming generative models\" OR \"Synthetic data collapse\" OR \"Agent drift\" OR \"Problem drift\" OR \"Curriculum drift\" OR \"Constraint drift\" OR \"Emergent misalignment\" OR \"Reward hacking\" OR \"Verifier gaming\" OR \"Autonomous agents\" OR \"Multi-agent systems\" OR \"Generative-models\" OR \"GPT-4\" OR \"RLVR\" OR \"External validation\")",
+        "showTags": false,
+        "showAttachments": false,
+        "hideUnresolved": false,
+        "showOrphans": true,
+        "collapse-color-groups": true,
+        "colorGroups": [
+          {
+            "query": "00 Maps",
+            "color": {
+              "a": 1,
+              "rgb": 2935773
+            }
+          },
+          {
+            "query": "01 Literature Notes",
+            "color": {
+              "a": 1,
+              "rgb": 9237432
+            }
+          },
+          {
+            "query": "02 Concepts",
+            "color": {
+              "a": 1,
+              "rgb": 5200350
+            }
+          },
+          {
+            "query": "03 Equations",
+            "color": {
+              "a": 1,
+              "rgb": 11135481
+            }
+          },
+          {
+            "query": "04 Collections",
+            "color": {
+              "a": 1,
+              "rgb": 5431473
+            }
+          },
+          {
+            "query": "05 Derivations",
+            "color": {
+              "a": 1,
+              "rgb": 5419488
+            }
+          },
+          {
+            "query": "06 Predictions",
+            "color": {
+              "a": 1,
+              "rgb": 14701180
+            }
+          },
+          {
+            "query": "07 Experiments",
+            "color": {
+              "a": 1,
+              "rgb": 5431425
+            }
+          }
+        ],
+        "collapse-display": true,
+        "showArrow": true,
+        "textFadeMultiplier": -1.7,
+        "nodeSizeMultiplier": 1.36574844074844,
+        "lineSizeMultiplier": 0.673024948024948,
+        "collapse-forces": true,
+        "centerStrength": 0.438149688149688,
+        "repelStrength": 10.1767151767152,
+        "linkStrength": 0.687629937629938,
+        "linkDistance": 203,
+        "scale": 0.3692465245171618,
+        "close": false
+      },
+      "nodePositions": [
+        {
+          "id": "Research/02 Concepts/Problem drift.md",
+          "x": 268.3690185546875,
+          "y": 30.358577728271484
+        },
+        {
+          "id": "Research/02 Concepts/Propagation-correction criticality.md",
+          "x": -125.61224365234375,
+          "y": -182.74176025390625
+        },
+        {
+          "id": "Research/02 Concepts/RCA.md",
+          "x": 199.79641723632812,
+          "y": 128.8305206298828
+        },
+        {
+          "id": "Research/02 Concepts/Recursive AI Drift.md",
+          "x": -395.6248779296875,
+          "y": 44.48466110229492
+        },
+        {
+          "id": "Research/02 Concepts/Recursive degradation.md",
+          "x": -356.1690979003906,
+          "y": -196.4886474609375
+        },
+        {
+          "id": "Research/02 Concepts/Recursive self-processing.md",
+          "x": -41.71853256225586,
+          "y": -96.90440368652344
+        },
+        {
+          "id": "Research/02 Concepts/Resonance-Confinement Architecture.md",
+          "x": 63.11882400512695,
+          "y": -155.27813720703125
+        },
+        {
+          "id": "Research/02 Concepts/Reward hacking.md",
+          "x": -248.63165283203125,
+          "y": -261.044189453125
+        },
+        {
+          "id": "Research/02 Concepts/RLVR.md",
+          "x": -232.78302001953125,
+          "y": -126.7192611694336
+        },
+        {
+          "id": "Research/02 Concepts/Self-consuming generative models.md",
+          "x": -1.9956612586975098,
+          "y": 79.63853454589844
+        },
+        {
+          "id": "Research/02 Concepts/Self-consuming.md",
+          "x": -330.70098876953125,
+          "y": -56.431758880615234
+        },
+        {
+          "id": "Research/02 Concepts/Semantic anchor decay.md",
+          "x": -98.75357055664062,
+          "y": 8.667722702026367
+        },
+        {
+          "id": "Research/02 Concepts/Semantic drift.md",
+          "x": -23.962570190429688,
+          "y": 269.0306701660156
+        },
+        {
+          "id": "Research/02 Concepts/Survivability architecture.md",
+          "x": 367.23992919921875,
+          "y": 527.9732666015625
+        },
+        {
+          "id": "Research/02 Concepts/Symbolic AGI.md",
+          "x": 465.5439758300781,
+          "y": 376.66278076171875
+        },
+        {
+          "id": "Research/02 Concepts/Symbolic drift.md",
+          "x": -115.88330078125,
+          "y": 148.42547607421875
+        },
+        {
+          "id": "Research/02 Concepts/Symbolic persistence.md",
+          "x": 228.16766357421875,
+          "y": 648.8873291015625
+        },
+        {
+          "id": "Research/02 Concepts/Symbolic physics.md",
+          "x": 336.9776306152344,
+          "y": -616.2665405273438
+        },
+        {
+          "id": "Research/02 Concepts/Synthetic data collapse.md",
+          "x": -218.619384765625,
+          "y": 14.319441795349121
+        },
+        {
+          "id": "Research/02 Concepts/Verifier gaming.md",
+          "x": 297.63922119140625,
+          "y": -89.08975219726562
+        },
+        {
+          "id": "Research/02 Concepts/Agent drift.md",
+          "x": -475.8565979003906,
+          "y": -187.83912658691406
+        },
+        {
+          "id": "Research/02 Concepts/AGI Safety.md",
+          "x": 522.892578125,
+          "y": -471.33148193359375
+        },
+        {
+          "id": "Research/02 Concepts/AI alignment.md",
+          "x": -38.859519958496094,
+          "y": -445.4059143066406
+        },
+        {
+          "id": "Research/02 Concepts/AI Safety.md",
+          "x": -21.33880043029785,
+          "y": -326.6470031738281
+        },
+        {
+          "id": "Research/02 Concepts/Autonomous agents.md",
+          "x": -120.2350845336914,
+          "y": 505.19110107421875
+        },
+        {
+          "id": "Research/02 Concepts/Coherence Collapse.md",
+          "x": -505.26983642578125,
+          "y": -553.7449951171875
+        },
+        {
+          "id": "Research/02 Concepts/Coherence feedback.md",
+          "x": 97.36022186279297,
+          "y": 590.7520141601562
+        },
+        {
+          "id": "Research/02 Concepts/Coherence mirage.md",
+          "x": -257.2712707519531,
+          "y": 170.6961669921875
+        },
+        {
+          "id": "Research/02 Concepts/Collapse score.md",
+          "x": -207.45249938964844,
+          "y": -403.5509338378906
+        },
+        {
+          "id": "Research/02 Concepts/Constraint drift.md",
+          "x": -259.11102294921875,
+          "y": 353.77008056640625
+        },
+        {
+          "id": "Research/02 Concepts/Curriculum drift.md",
+          "x": -355.5080871582031,
+          "y": 274.133544921875
+        },
+        {
+          "id": "Research/02 Concepts/Emergent misalignment.md",
+          "x": 223.59664916992188,
+          "y": 246.43385314941406
+        },
+        {
+          "id": "Research/02 Concepts/Evolving memory.md",
+          "x": -440.796630859375,
+          "y": 174.2193145751953
+        },
+        {
+          "id": "Research/02 Concepts/External validation.md",
+          "x": 177.67098999023438,
+          "y": -91.57032775878906
+        },
+        {
+          "id": "Research/02 Concepts/Generative-models.md",
+          "x": 130.47889709472656,
+          "y": -341.94122314453125
+        },
+        {
+          "id": "Research/02 Concepts/GPT-4.md",
+          "x": 231.3763427734375,
+          "y": -221.94822692871094
+        },
+        {
+          "id": "Research/02 Concepts/Intelligent resonance.md",
+          "x": 153.1599884033203,
+          "y": 361.3536376953125
+        },
+        {
+          "id": "Research/02 Concepts/Model collapse.md",
+          "x": -503.9873352050781,
+          "y": -7.644420623779297
+        },
+        {
+          "id": "Research/02 Concepts/Multi-agent systems.md",
+          "x": 113.13736724853516,
+          "y": 45.84568405151367
+        },
+        {
+          "id": "Research/02 Concepts/Non-Gradient AI.md",
+          "x": -60.11502456665039,
+          "y": 401.3767395019531
+        }
+      ],
+      "createdAt": "2026-06-26T00:38:46.717Z",
+      "updatedAt": "2026-06-26T00:43:17.109Z"
+    },
+    {
+      "id": "3dbe7982-4d2c-4c53-a6e7-896d7fb43451",
+      "name": "11 — Fusion, plasma, and control",
+      "options": {
+        "collapse-filter": false,
+        "search": "path:\"02 Concepts\" file:(\"Fusion Energy\" OR \"Tokamak\" OR \"Tokamak Control\" OR \"Plasma confinement\" OR \"Real-time plasma control\" OR \"MHD Stabilization\" OR \"Transport modeling\" OR \"Energy balance\" OR \"Coherence proxy\" OR \"Control\" OR \"Control barrier\" OR \"Control barrier functions\" OR \"SPARC\" OR \"Coherence\" OR \"Resonance confinement\")",
+        "showTags": false,
+        "showAttachments": false,
+        "hideUnresolved": false,
+        "showOrphans": true,
+        "collapse-color-groups": true,
+        "colorGroups": [
+          {
+            "query": "00 Maps",
+            "color": {
+              "a": 1,
+              "rgb": 2935773
+            }
+          },
+          {
+            "query": "01 Literature Notes",
+            "color": {
+              "a": 1,
+              "rgb": 9237432
+            }
+          },
+          {
+            "query": "02 Concepts",
+            "color": {
+              "a": 1,
+              "rgb": 5200350
+            }
+          },
+          {
+            "query": "03 Equations",
+            "color": {
+              "a": 1,
+              "rgb": 11135481
+            }
+          },
+          {
+            "query": "04 Collections",
+            "color": {
+              "a": 1,
+              "rgb": 5431473
+            }
+          },
+          {
+            "query": "05 Derivations",
+            "color": {
+              "a": 1,
+              "rgb": 5419488
+            }
+          },
+          {
+            "query": "06 Predictions",
+            "color": {
+              "a": 1,
+              "rgb": 14701180
+            }
+          },
+          {
+            "query": "07 Experiments",
+            "color": {
+              "a": 1,
+              "rgb": 5431425
+            }
+          }
+        ],
+        "collapse-display": true,
+        "showArrow": true,
+        "textFadeMultiplier": -1.7,
+        "nodeSizeMultiplier": 1.36574844074844,
+        "lineSizeMultiplier": 0.673024948024948,
+        "collapse-forces": true,
+        "centerStrength": 0.438149688149688,
+        "repelStrength": 10.1767151767152,
+        "linkStrength": 0.687629937629938,
+        "linkDistance": 203,
+        "scale": 0.3692465245171618,
+        "close": false
+      },
+      "nodePositions": [
+        {
+          "id": "Research/02 Concepts/Plasma confinement.md",
+          "x": -58.61884307861328,
+          "y": -124.24232482910156
+        },
+        {
+          "id": "Research/02 Concepts/Real-time plasma control.md",
+          "x": -139.11099243164062,
+          "y": 128.4755096435547
+        },
+        {
+          "id": "Research/02 Concepts/Resonance confinement.md",
+          "x": 364.9779357910156,
+          "y": -68.7770767211914
+        },
+        {
+          "id": "Research/02 Concepts/SPARC.md",
+          "x": -154.44131469726562,
+          "y": -267.4103088378906
+        },
+        {
+          "id": "Research/02 Concepts/Tokamak Control.md",
+          "x": -353.6565856933594,
+          "y": 42.16078567504883
+        },
+        {
+          "id": "Research/02 Concepts/Tokamak.md",
+          "x": -124.2978286743164,
+          "y": 328.0802307128906
+        },
+        {
+          "id": "Research/02 Concepts/Transport modeling.md",
+          "x": 64.45604705810547,
+          "y": 289.6373596191406
+        },
+        {
+          "id": "Research/02 Concepts/Coherence Collapse.md",
+          "x": 61.02153396606445,
+          "y": -436.6608581542969
+        },
+        {
+          "id": "Research/02 Concepts/Coherence feedback.md",
+          "x": 320.81622314453125,
+          "y": -281.79852294921875
+        },
+        {
+          "id": "Research/02 Concepts/Coherence mirage.md",
+          "x": 404.72998046875,
+          "y": 175.4593048095703
+        },
+        {
+          "id": "Research/02 Concepts/Coherence proxy.md",
+          "x": -258.0033874511719,
+          "y": 199.0341339111328
+        },
+        {
+          "id": "Research/02 Concepts/Coherence.md",
+          "x": 124.05850219726562,
+          "y": 129.52783203125
+        },
+        {
+          "id": "Research/02 Concepts/Control barrier functions.md",
+          "x": -25.158084869384766,
+          "y": 200.2561492919922
+        },
+        {
+          "id": "Research/02 Concepts/Control barrier.md",
+          "x": -162.43772888183594,
+          "y": -15.282551765441895
+        },
+        {
+          "id": "Research/02 Concepts/Control.md",
+          "x": 72.6493911743164,
+          "y": -138.23202514648438
+        },
+        {
+          "id": "Research/02 Concepts/Energy balance.md",
+          "x": -371.1571350097656,
+          "y": 238.98008728027344
+        },
+        {
+          "id": "Research/02 Concepts/Fusion Energy.md",
+          "x": -388.9964599609375,
+          "y": -105.52434539794922
+        },
+        {
+          "id": "Research/02 Concepts/MHD Stabilization.md",
+          "x": -254.77627563476562,
+          "y": -153.92893981933594
+        },
+        {
+          "id": "Research/02 Concepts/Optical coherence.md",
+          "x": 131.03659057617188,
+          "y": 3.0305991172790527
+        }
+      ],
+      "createdAt": "2026-06-26T00:38:51.253Z",
+      "updatedAt": "2026-06-26T00:43:03.729Z"
+    },
+    {
+      "id": "56a58e26-ea91-4aa4-817f-41c194a1f772",
+      "name": "12 — Evidence, reproducibility, and claim status",
+      "options": {
+        "collapse-filter": false,
+        "search": "path:\"02 Concepts\" file:(\"Falsifiable Predictions\" OR \"Experimental ledger\" OR \"Protocol registration\" OR \"Prediction audit\" OR \"External validation\" OR \"Reproducible data analysis\" OR \"Open data\" OR \"Public scientific data\" OR \"Experimental Sensitivity\" OR \"Detector Resolution\" OR \"Bin stability\" OR \"Sideband analysis\" OR \"Parametric bootstrap\" OR \"Poisson likelihood\" OR \"Bounded Poisson likelihood\" OR \"Technical note\" OR \"Modeling\")",
+        "showTags": false,
+        "showAttachments": false,
+        "hideUnresolved": false,
+        "showOrphans": true,
+        "collapse-color-groups": true,
+        "colorGroups": [
+          {
+            "query": "00 Maps",
+            "color": {
+              "a": 1,
+              "rgb": 2935773
+            }
+          },
+          {
+            "query": "01 Literature Notes",
+            "color": {
+              "a": 1,
+              "rgb": 9237432
+            }
+          },
+          {
+            "query": "02 Concepts",
+            "color": {
+              "a": 1,
+              "rgb": 5200350
+            }
+          },
+          {
+            "query": "03 Equations",
+            "color": {
+              "a": 1,
+              "rgb": 11135481
+            }
+          },
+          {
+            "query": "04 Collections",
+            "color": {
+              "a": 1,
+              "rgb": 5431473
+            }
+          },
+          {
+            "query": "05 Derivations",
+            "color": {
+              "a": 1,
+              "rgb": 5419488
+            }
+          },
+          {
+            "query": "06 Predictions",
+            "color": {
+              "a": 1,
+              "rgb": 14701180
+            }
+          },
+          {
+            "query": "07 Experiments",
+            "color": {
+              "a": 1,
+              "rgb": 5431425
+            }
+          }
+        ],
+        "collapse-display": true,
+        "showArrow": true,
+        "textFadeMultiplier": -1.7,
+        "nodeSizeMultiplier": 1.36574844074844,
+        "lineSizeMultiplier": 0.673024948024948,
+        "collapse-forces": true,
+        "centerStrength": 0.438149688149688,
+        "repelStrength": 10.1767151767152,
+        "linkStrength": 0.687629937629938,
+        "linkDistance": 203,
+        "scale": 0.3692465245171618,
+        "close": false
+      },
+      "nodePositions": [
+        {
+          "id": "02 Concepts/B0 → K star 0 μ+μ−",
+          "x": 295.3302917480469,
+          "y": 50.2480354309082
+        },
+        {
+          "id": "Research/02 Concepts/Poisson likelihood.md",
+          "x": -25.265296936035156,
+          "y": 353.6501770019531
+        },
+        {
+          "id": "Research/02 Concepts/Prediction audit.md",
+          "x": 39.72959899902344,
+          "y": -338.7597961425781
+        },
+        {
+          "id": "Research/02 Concepts/Protocol registration.md",
+          "x": -441.4952392578125,
+          "y": 107.20521545410156
+        },
+        {
+          "id": "Research/02 Concepts/Public scientific data.md",
+          "x": 160.8008575439453,
+          "y": -107.70405578613281
+        },
+        {
+          "id": "Research/02 Concepts/Reproducible data analysis.md",
+          "x": 303.81756591796875,
+          "y": 249.75196838378906
+        },
+        {
+          "id": "Research/02 Concepts/Sideband analysis.md",
+          "x": 311.68109130859375,
+          "y": -181.49197387695312
+        },
+        {
+          "id": "Research/02 Concepts/Technical note.md",
+          "x": -103.88273620605469,
+          "y": -422.2115173339844
+        },
+        {
+          "id": "Research/02 Concepts/Transport modeling.md",
+          "x": -106.81678771972656,
+          "y": -115.47113037109375
+        },
+        {
+          "id": "Research/02 Concepts/Bin stability.md",
+          "x": 98.24932861328125,
+          "y": 173.25819396972656
+        },
+        {
+          "id": "Research/02 Concepts/Bounded Poisson likelihood.md",
+          "x": 474.89971923828125,
+          "y": -232.31494140625
+        },
+        {
+          "id": "Research/02 Concepts/Detector Resolution.md",
+          "x": -254.43014526367188,
+          "y": -184.51026916503906
+        },
+        {
+          "id": "02 Concepts/Δm2 precision",
+          "x": -304.1005554199219,
+          "y": -399.4998779296875
+        },
+        {
+          "id": "Research/02 Concepts/Experimental ledger.md",
+          "x": -314.44573974609375,
+          "y": -4.2315592765808105
+        },
+        {
+          "id": "Research/02 Concepts/External validation.md",
+          "x": 95.16810607910156,
+          "y": -527.7225952148438
+        },
+        {
+          "id": "Research/02 Concepts/Falsifiable Predictions.md",
+          "x": -457.8273620605469,
+          "y": -176.7067413330078
+        },
+        {
+          "id": "Research/02 Concepts/Modeling.md",
+          "x": 63.925106048583984,
+          "y": -37.16936492919922
+        },
+        {
+          "id": "Research/02 Concepts/Open data.md",
+          "x": 480.0698547363281,
+          "y": -11.217896461486816
+        },
+        {
+          "id": "Research/02 Concepts/Parametric bootstrap.md",
+          "x": -110.99149322509766,
+          "y": 137.17868041992188
+        }
+      ],
+      "createdAt": "2026-06-26T00:38:56.760Z",
+      "updatedAt": "2026-06-26T00:42:56.425Z"
+    }
+  ],
+  "activePresetId": "3dbe7982-4d2c-4c53-a6e7-896d7fb43451",
+  "restoreOnStartup": true
+}

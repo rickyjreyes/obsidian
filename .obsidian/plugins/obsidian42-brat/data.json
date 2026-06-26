@@ -1,0 +1,29 @@
+{
+  "pluginList": [
+    "Sphinxes0o0/graph-presets",
+    "ElsaTam/obsidian-extended-graph"
+  ],
+  "pluginSubListFrozenVersion": [
+    {
+      "repo": "Sphinxes0o0/graph-presets",
+      "version": "latest"
+    },
+    {
+      "repo": "ElsaTam/obsidian-extended-graph",
+      "version": ""
+    }
+  ],
+  "themesList": [],
+  "updateAtStartup": true,
+  "updateThemesAtStartup": true,
+  "enableAfterInstall": true,
+  "loggingEnabled": false,
+  "loggingPath": "BRAT-log",
+  "loggingVerboseEnabled": false,
+  "debuggingMode": false,
+  "notificationsEnabled": true,
+  "globalTokenName": "",
+  "personalAccessToken": "",
+  "selectLatestPluginVersionByDefault": false,
+  "allowIncompatiblePlugins": false
+}

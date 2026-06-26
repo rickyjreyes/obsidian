@@ -1,0 +1,283 @@
+{
+  "main": {
+    "id": "1819f22e19f6e45e",
+    "type": "split",
+    "children": [
+      {
+        "id": "99f06e603dd3b61e",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "bda3dbb6e2b96cbe",
+            "type": "leaf",
+            "pinned": true,
+            "state": {
+              "type": "graph",
+              "state": {},
+              "pinned": true,
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
+            }
+          },
+          {
+            "id": "19d4def60c570fc6",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Research/02 Concepts/Wave Confinement Theory.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "Wave Confinement Theory"
+            }
+          },
+          {
+            "id": "6796f15a1533f466",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Research/00 Maps/Concept Index.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "Concept Index"
+            }
+          }
+        ],
+        "currentTab": 2
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "e465606175ffe91a",
+    "type": "split",
+    "children": [
+      {
+        "id": "10d66ba2cd06b291",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "4eb8faca05a126be",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "efa85008fbef8be0",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "[\"citekey\"]",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "f7c31d5b37779e1e",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 210.5
+  },
+  "right": {
+    "id": "2d0646dbca3922e6",
+    "type": "split",
+    "children": [
+      {
+        "id": "4f21afe1b5c7f078",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "20a37158b566d980",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Research/00 Maps/Concept Index.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Concept Index"
+            }
+          },
+          {
+            "id": "c41dda87818f7094",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Research/00 Maps/Concept Index.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Concept Index"
+            }
+          },
+          {
+            "id": "20e820218c4fc0d2",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "52b70d9123cc8828",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "05131b5a0415b49e",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Research/00 Maps/Concept Index.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Concept Index"
+            }
+          },
+          {
+            "id": "cf184e57ac8fc61d",
+            "type": "leaf",
+            "state": {
+              "type": "zdc-debug",
+              "state": {},
+              "icon": "gear",
+              "title": "Zotero Data Explorer"
+            }
+          },
+          {
+            "id": "40fec4bac2fbf49d",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {},
+              "icon": "git-pull-request",
+              "title": "Source Control"
+            }
+          }
+        ],
+        "currentTab": 6
+      }
+    ],
+    "direction": "horizontal",
+    "width": 209.5,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "command-palette:Open command palette": false,
+      "templater-obsidian:Templater": false,
+      "omnisearch:Omnisearch": false,
+      "obsidian-excalidraw-plugin:New drawing": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "bases:Create new base": false,
+      "obsidian-git:Open Git source control": false,
+      "obsidian42-brat:BRAT": false
+    }
+  },
+  "active": "6796f15a1533f466",
+  "lastOpenFiles": [
+    "Research/00 Maps/Chronology.md",
+    "Research/02 Concepts/Wave Confinement Theory.md",
+    "Base.base",
+    "Research/00 Maps/Vault Structure.md",
+    "Research/00 Maps/Research Knowledge Map.md",
+    "Research/00 Maps/PDF Access.md",
+    "Research/00 Maps/Literature Notes Index.md",
+    "Research/00 Maps/Connections.md",
+    "Research/00 Maps/Concept Index.md",
+    "Research/04 Equations/02 Canonical Families/A - Rest Energy Curvature and Loop Locking/E2 - Weighted loop average.md",
+    "Research/04 Equations/02 Canonical Families/A - Rest Energy Curvature and Loop Locking/E1b - Curvature spectral rate (inverse-length).md",
+    "Research/04 Equations/02 Canonical Families/A - Rest Energy Curvature and Loop Locking/E1a - Curvature-rate density.md",
+    "Research/04 Equations/02 Canonical Families/A - Rest Energy Curvature and Loop Locking/A - Family Index.md",
+    "Research/04 Equations/01 Master and Closure Equations/Closure Layer/C5 - Renormalization - Scale Flow.md",
+    "Research/04 Equations/01 Master and Closure Equations/Closure Layer/C4 - Dispersion Relation.md",
+    "Research/04 Equations/01 Master and Closure Equations/Closure Layer/C3 - Phase Quantization (Loop Winding).md",
+    "Research/04 Equations/01 Master and Closure Equations/Closure Layer/C2 - Noether Current Conservation.md",
+    "03 Equations/01 Master and Closure Equations/Master Equations/ME2 - Curvature Operator & Lyapunov Energy.md",
+    "Research/04 Equations/01 Master and Closure Equations/Closure Layer/C1 - Master Action Principle.md",
+    "03 Equations/01 Master and Closure Equations/Master Equations",
+    "03 Equations/01 Master and Closure Equations",
+    "03 Equations",
+    "Research/02 Concepts/Nonlinear Dynamics.md",
+    "Research/03 Glossary/WCT Glossary.md",
+    "Research/04 Equations/02 Canonical Families/I - Self-Emergent Fourier Cymatics/E57 - Swift-Hohenberg operator representation.md",
+    "Research/04 Equations/02 Canonical Families/L - Entropy and Information Dynamics/L - Family Index.md",
+    "Research/04 Equations/02 Canonical Families/L - Entropy and Information Dynamics/E82 - Information-geometry duality.md",
+    "Research/04 Equations/02 Canonical Families/L - Entropy and Information Dynamics/E81 - Coherence length from entropy.md",
+    "Research/04 Equations/02 Canonical Families/L - Entropy and Information Dynamics/E80 - Landauer bound analog.md",
+    "Research/04 Equations/02 Canonical Families/Untitled 12",
+    "Research/04 Equations/02 Canonical Families/L - Entropy and Information Dynamics",
+    "Research/04 Equations/02 Canonical Families/J - Dimensionality Bounds and Sobolev Structure",
+    "Research/04 Equations/02 Canonical Families/I - Self-Emergent Fourier Cymatics",
+    "Research/04 Equations/02 Canonical Families/H - Geometry of Resonance Extensions",
+    "Research/04 Equations/02 Canonical Families/G - Resonant Cavity and Tokamak Scaling",
+    "Untitled.canvas",
+    "Untitled 1.canvas",
+    "Untitled 3.canvas",
+    "Untitled 2.canvas"
+  ]
+}
