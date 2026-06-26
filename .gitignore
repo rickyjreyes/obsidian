@@ -1,0 +1,19 @@
+# Obsidian transient state
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/cache/
+.obsidian/workspaces.json
+
+# Local trash and operating-system files
+.trash/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+~$*
+
+# Review large attachments and PDFs before publishing them in this public repository.
