@@ -14,5 +14,6 @@
   "wct-graph-engine",
   "wct-graph-motion",
   "wct-graph-polish",
-  "wct-graph-navigator"
+  "wct-graph-navigator",
+  "wct-graph-content-details"
 ]
