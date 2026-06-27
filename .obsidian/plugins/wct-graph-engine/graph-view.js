@@ -1,6 +1,10 @@
 "use strict";
 
-const { ItemView } = require("obsidian");
+const obsidianApi = globalThis.__WCT_OBSIDIAN_API__;
+if (!obsidianApi?.ItemView) {
+  throw new Error("WCT Graph Engine did not receive the Obsidian API before loading graph-view.js.");
+}
+const { ItemView } = obsidianApi;
 const rendererMethods = require("./graph-renderer");
 const interactionMethods = require("./graph-interaction");
 const {
