@@ -10,6 +10,7 @@ Object.assign(core, require(path.join(pluginRoot, "graph-timeline.js")));
 Object.assign(core, require(path.join(pluginRoot, "graph-knowledge.js")));
 const semanticSearch = require(path.join(pluginRoot, "graph-search-v05.js"));
 const { repositoryMatches } = require(path.join(pluginRoot, "graph-repository-index.js"));
+const { linkDerivationsByEquationId } = require(path.join(pluginRoot, "graph-linker-v07.js"));
 
 function file(filePath, ctime) {
   return {
@@ -141,5 +142,33 @@ assert(graph.priorityNodes.length === graph.nodes.length, "every indexed node sh
 const priorityScene = core.buildPriorityScene(core, graph, settings);
 assert(priorityScene.mode === "priority", "priority scene should use priority mode");
 assert(priorityScene.nodes.length > 0, "priority scene should contain ranked nodes");
+
+const equationNode = {
+  id: "Research/04 Equations/E24.md",
+  path: "Research/04 Equations/E24.md",
+  label: "E24 — Dimensional stability",
+  type: "Equations",
+  degree: 0,
+  frontmatter: { id: "EQ-000024" },
+};
+const derivationNode = {
+  id: "Research/04 Equations/Derivations/E24 Derivation.md",
+  path: "Research/04 Equations/Derivations/E24 Derivation.md",
+  label: "E24 Derivation",
+  type: "Derivations",
+  degree: 0,
+  frontmatter: { id: "DRV-000024" },
+};
+const linkerGraph = {
+  nodes: [equationNode, derivationNode],
+  edges: [],
+  byId: new Map([[equationNode.id, equationNode], [derivationNode.id, derivationNode]]),
+  adjacency: new Map([[equationNode.id, new Set()], [derivationNode.id, new Set()]]),
+  outgoing: new Map([[equationNode.id, []], [derivationNode.id, []]]),
+  incoming: new Map([[equationNode.id, []], [derivationNode.id, []]]),
+};
+linkDerivationsByEquationId(linkerGraph);
+assert.strictEqual(linkerGraph.inferredDerivationEdges, 1, "shared equation IDs should infer one derivation edge");
+assert(linkerGraph.edges.some((edge) => edge.source === derivationNode.id && edge.target === equationNode.id && edge.relation === "derives"), "the inferred edge should point from derivation to equation");
 
 console.log("WCT Graph Engine smoke test passed");
