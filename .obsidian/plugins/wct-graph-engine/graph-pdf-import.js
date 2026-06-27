@@ -24,6 +24,10 @@ function vaultRoot(plugin) {
   throw new Error("WCT PDF importer requires a local desktop vault.");
 }
 
+function delay(milliseconds) {
+  return new Promise((resolve) => setTimeout(resolve, milliseconds));
+}
+
 function execute(command, args, cwd, onLine) {
   return new Promise((resolve, reject) => {
     const child = spawn(command, args, {
@@ -114,8 +118,17 @@ function conciseFailure(result) {
 
 async function openReport(plugin) {
   const folder = plugin.settings?.pdfDerivationOutputFolder ?? "Research/08 Derivations/PDF";
-  const report = `${folder}/_PDF Derivation Import Report`;
-  await plugin.app.workspace.openLinkText(report, "", true);
+  const reportPath = `${folder}/_PDF Derivation Import Report.md`;
+  for (let attempt = 0; attempt < 12; attempt += 1) {
+    const file = plugin.app.vault.getAbstractFileByPath(reportPath);
+    if (file) {
+      await plugin.app.workspace.openLinkText(reportPath.slice(0, -3), "", true);
+      return true;
+    }
+    await delay(250);
+  }
+  new Notice(`PDF import report was written but Obsidian has not indexed it yet: ${reportPath}`, 9000);
+  return false;
 }
 
 async function runPdfImporter(plugin, options = {}) {
@@ -149,10 +162,7 @@ async function runPdfImporter(plugin, options = {}) {
       return;
     }
 
-    const failure = conciseFailure(result);
-    notice.hide?.();
-    new Notice(`PDF derivation import failed: ${failure}`, 12000);
-    throw new Error(failure);
+    throw new Error(conciseFailure(result));
   } catch (error) {
     notice.hide?.();
     console.error("WCT PDF derivation import failed", error);
