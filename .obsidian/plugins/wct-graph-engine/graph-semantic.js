@@ -285,7 +285,7 @@ function installSemanticGraph(core) {
         ...(settings.includeFolders ?? []),
         ...(settings.includeGeneratedObjects === false ? [] : ["WaveLock Research"]),
       ])];
-      const base = OriginalGraphIndex.build(app, { ...settings, includeFolders });
+      const base = OriginalGraphIndex.build(app, { ...settings, includeFolders, hideOrphans: false });
       const allMarkdown = app.vault.getMarkdownFiles();
       const idToPath = new Map();
       const basenameToPath = new Map();
@@ -317,9 +317,7 @@ function installSemanticGraph(core) {
         };
       });
 
-      if (settings.semanticObjectsOnly !== false) {
-        nodes = nodes.filter((node) => node.semanticAccepted);
-      }
+      if (settings.semanticObjectsOnly !== false) nodes = nodes.filter((node) => node.semanticAccepted);
 
       const allowedPaths = new Set(nodes.map((node) => node.id));
       const edgeMap = new Map();
@@ -361,7 +359,11 @@ function installSemanticGraph(core) {
         }
       }
 
-      const rebuilt = rebuildGraph(core, base, nodes, [...edgeMap.values()]);
+      let rebuilt = rebuildGraph(core, base, nodes, [...edgeMap.values()]);
+      if (settings.hideOrphans) {
+        const connectedNodes = rebuilt.nodes.filter((node) => node.degree > 0);
+        rebuilt = rebuildGraph(core, rebuilt, connectedNodes, rebuilt.edges);
+      }
       rebuilt.idToPath = idToPath;
       rebuilt.semanticRejectedCount = base.nodes.length - nodes.length;
       return rebuilt;
