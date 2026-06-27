@@ -27,11 +27,13 @@ class RendererV07 {
       const lineHeight = fontSize + (focused ? 6 : 3);
       const height = lines.length * lineHeight + (focused ? 11 : 7);
       const gap = Math.max(10, node.size * Math.sqrt(this.zoom) + (focused ? 13 : 8));
+      const topY = screen.y - gap - height;
+      const horizontalShift = Math.max(18, width * 0.38);
       const candidates = [
+        { x: screen.x - width / 2, y: topY },
+        { x: screen.x - width / 2 + horizontalShift, y: topY },
+        { x: screen.x - width / 2 - horizontalShift, y: topY },
         { x: screen.x - width / 2, y: screen.y + gap },
-        { x: screen.x - width / 2, y: screen.y - gap - height },
-        { x: screen.x + gap, y: screen.y - height / 2 },
-        { x: screen.x - gap - width, y: screen.y - height / 2 },
       ];
       let box = null;
       for (const candidate of candidates) {
@@ -43,9 +45,12 @@ class RendererV07 {
       }
       if (!box) {
         if (!isArea && !focused) continue;
+        const preferredTop = screen.y - gap - height;
         box = {
           x: clamp(screen.x - width / 2, 4, this.width - width - 4),
-          y: clamp(screen.y + gap, 4, this.height - height - 4),
+          y: preferredTop >= 4
+            ? clamp(preferredTop, 4, this.height - height - 4)
+            : clamp(screen.y + gap, 4, this.height - height - 4),
           width,
           height,
         };
