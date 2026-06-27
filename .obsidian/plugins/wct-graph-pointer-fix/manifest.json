@@ -1,0 +1,1 @@
+{"id":"wct-graph-pointer-fix","name":"WCT Graph Pointer Fix","version":"0.1.0","minAppVersion":"1.7.2","description":"Repairs node clicks, recursive subgraph controls, and stuck pointer-drag state in WCT Graph Navigator.","author":"Richard J. Reyes","authorUrl":"https://github.com/rickyjreyes","isDesktopOnly":false}
