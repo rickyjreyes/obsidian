@@ -7,6 +7,8 @@ if (!obsidianApi?.ItemView) {
 const { ItemView } = obsidianApi;
 const rendererMethods = require("./graph-renderer");
 const interactionMethods = require("./graph-interaction");
+const timelineMethods = require("./graph-timeline-view");
+const forceMethods = require("./graph-force");
 const {
   VIEW_TYPE,
   VIEW_NAME,
@@ -39,6 +41,10 @@ class WCTGraphView extends ItemView {
     this.animation = null;
     this.raf = null;
     this.needsRender = true;
+    this.timelineBounds = null;
+    this.timelineProgress = 0;
+    this.timelinePlaying = false;
+    this.timelineForceState = null;
   }
 
   getViewType() { return VIEW_TYPE; }
@@ -54,15 +60,18 @@ class WCTGraphView extends ItemView {
     this.backButton = this.toolbar.createEl("button", { text: "Back" });
     this.fullButton = this.toolbar.createEl("button", { text: "Full graph" });
     this.auditButton = this.toolbar.createEl("button", { text: "Audit" });
+    this.timelineButton = this.toolbar.createEl("button", { text: "Timeline" });
     this.breadcrumbs = this.toolbar.createDiv({ cls: "wct-graph-breadcrumbs" });
     this.searchInput = this.toolbar.createEl("input", {
       cls: "wct-graph-search",
-      attr: { type: "search", placeholder: "Find a paper, concept, equation, status, or audit issue…" },
+      attr: { type: "search", placeholder: "Find a paper, concept, equation, ID, status, or audit issue…" },
     });
     this.fitButton = this.toolbar.createEl("button", { text: "Fit" });
     this.motionButton = this.toolbar.createEl("button", { text: this.motionButtonText() });
     this.rebuildButton = this.toolbar.createEl("button", { text: "Rebuild" });
     this.status = this.toolbar.createSpan({ cls: "wct-graph-status" });
+
+    this.buildTimelineControls(root);
 
     this.stage = root.createDiv({ cls: "wct-graph-stage" });
     this.canvas = this.stage.createEl("canvas", { cls: "wct-graph-canvas" });
@@ -100,6 +109,7 @@ class WCTGraphView extends ItemView {
     this.backButton.addEventListener("click", () => this.back());
     this.fullButton.addEventListener("click", () => this.showFull());
     this.auditButton.addEventListener("click", () => this.showAudit());
+    this.timelineButton.addEventListener("click", () => this.showTimeline());
     this.fitButton.addEventListener("click", () => this.fitScene(true));
     this.motionButton.addEventListener("click", () => this.cycleMotionMode());
     this.rebuildButton.addEventListener("click", () => this.rebuildGraph());
@@ -149,9 +159,12 @@ class WCTGraphView extends ItemView {
     this.status.setText("Indexing…");
     this.graph = GraphIndex.build(this.app, this.settings);
     this.previewCache.clear();
+    this.timelineBounds = this.plugin.graphCore.timelineBounds(this.graph);
     this.auditButton.setText(`Audit ${this.graph.auditIssues.reduce((sum, issue) => sum + issue.nodeIds.length, 0)}`);
+    this.timelineButton.setText(`Timeline ${this.graph.nodes.length.toLocaleString()}`);
     this.showFull(true);
-    this.status.setText(`${this.graph.nodes.length.toLocaleString()} nodes · ${this.graph.edges.length.toLocaleString()} links`);
+    const rejected = this.graph.semanticRejectedCount ? ` · ${this.graph.semanticRejectedCount.toLocaleString()} noise nodes hidden` : "";
+    this.status.setText(`${this.graph.nodes.length.toLocaleString()} nodes · ${this.graph.edges.length.toLocaleString()} links${rejected}`);
   }
 
   showFull(force = false) {
@@ -209,7 +222,10 @@ class WCTGraphView extends ItemView {
     this.scene = scene;
     this.selected = null;
     this.hideInspector();
+    if (scene.mode === "timeline") this.showTimelineControls();
+    else this.hideTimelineControls();
     this.beginTransition(previous, scene, options.origin);
+    if (scene.mode === "timeline") this.initializeTimelineForce(scene, true);
     this.renderBreadcrumbs();
     this.updateStatus();
   }
@@ -220,6 +236,12 @@ class WCTGraphView extends ItemView {
     this.stack.pop();
     this.scene = this.stack[this.stack.length - 1].scene;
     this.hideInspector();
+    if (this.scene.mode === "timeline") {
+      this.showTimelineControls();
+      this.initializeTimelineForce(this.scene, true);
+    } else {
+      this.hideTimelineControls();
+    }
     this.beginTransition(previous, this.scene, this.scene.focusId ?? null);
     this.renderBreadcrumbs();
     this.updateStatus();
@@ -231,6 +253,12 @@ class WCTGraphView extends ItemView {
     this.stack = this.stack.slice(0, index + 1);
     this.scene = this.stack[this.stack.length - 1].scene;
     this.hideInspector();
+    if (this.scene.mode === "timeline") {
+      this.showTimelineControls();
+      this.initializeTimelineForce(this.scene, true);
+    } else {
+      this.hideTimelineControls();
+    }
     this.beginTransition(previous, this.scene, this.scene.focusId ?? null);
     this.renderBreadcrumbs();
     this.updateStatus();
@@ -258,6 +286,9 @@ class WCTGraphView extends ItemView {
         : `${scene.sourceNodeCount} matches · ${scene.nodes.length} visible nodes`);
     } else if (scene.mode === "audit") {
       this.status.setText(`${scene.title} · ${scene.issueCount} issue groups · ${scene.sourceNodeCount.toLocaleString()} findings`);
+    } else if (scene.mode === "timeline") {
+      const date = Number.isFinite(scene.cutoff) ? new Date(scene.cutoff).toLocaleDateString() : "Unknown date";
+      this.status.setText(`${date} · ${scene.sourceNodeCount.toLocaleString()} visible ideas · ${scene.sourceEdgeCount.toLocaleString()} links`);
     } else {
       this.status.setText(`${scene.title} · ${scene.sourceNodeCount.toLocaleString()} nodes · ${scene.sourceEdgeCount.toLocaleString()} links · depth ${this.stack.length - 1}`);
     }
@@ -292,12 +323,13 @@ class WCTGraphView extends ItemView {
   }
 
   async onClose() {
+    this.pauseTimeline();
     cancelAnimationFrame(this.raf);
     this.resizeObserver?.disconnect();
   }
 }
 
-for (const source of [interactionMethods, rendererMethods]) {
+for (const source of [interactionMethods, rendererMethods, timelineMethods, forceMethods]) {
   for (const name of Object.getOwnPropertyNames(source)) {
     if (name !== "constructor") {
       Object.defineProperty(WCTGraphView.prototype, name, Object.getOwnPropertyDescriptor(source, name));
