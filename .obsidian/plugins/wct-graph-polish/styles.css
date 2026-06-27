@@ -1,0 +1,9 @@
+.wct-graph-stage[data-polished="true"] .wct-graph-tooltip {
+  max-width: 420px;
+}
+
+.wct-graph-stage[data-polished="true"] {
+  background:
+    radial-gradient(circle at 50% 46%, color-mix(in srgb, var(--interactive-accent) 8%, transparent), transparent 50%),
+    var(--background-primary);
+}
