@@ -60,7 +60,7 @@ class InspectorV07 {
     card.style.setProperty("--wct-progress-color", color);
     const heading = card.createDiv({ cls: "wct-progress-heading" });
     heading.createSpan({ text: label });
-    heading.createStrong({ text: `${Math.round(value)}%` });
+    heading.createEl("strong", { text: `${Math.round(value)}%` });
     const track = card.createDiv({ cls: "wct-progress-track" });
     const fill = track.createDiv({ cls: "wct-progress-fill" });
     fill.style.width = `${Math.max(0, Math.min(100, value))}%`;
@@ -85,10 +85,10 @@ class InspectorV07 {
 
     this.tooltip.empty();
     this.tooltip.style.setProperty("--wct-hover-color", color);
-    this.tooltip.setAttr("data-object-type", node.type);
+    this.tooltip.setAttribute("data-object-type", node.type);
     const header = this.tooltip.createDiv({ cls: "wct-hover-header" });
     header.createSpan({ cls: "wct-hover-type", text: typeFacet(node) });
-    header.createStrong({ text: node.label });
+    header.createEl("strong", { text: node.label });
     const metrics = header.createDiv({ cls: "wct-hover-metrics" });
     metrics.createSpan({ text: `${validation.completion}% validation` });
     metrics.createSpan({ text: `${completeness.percent}% complete` });
@@ -98,7 +98,7 @@ class InspectorV07 {
     const addFacet = (label, count, facet) => {
       if (!count) return;
       const chip = facets.createSpan({ text: `${label} ${count}` });
-      chip.setAttr("data-facet", facet);
+      chip.setAttribute("data-facet", facet);
     };
     addFacet("Definitions", definitions, "definition");
     addFacet("Equations", equations, "equation");
@@ -117,7 +117,7 @@ class InspectorV07 {
       if (this.hovered?.id !== id) return;
       let text = preview.summary;
       if (node.type === "Glossary") text = await this.glossaryDefinitionFor(node.label) || preview.summary;
-      summary.setText(compactText(text, 330) || "No definition or summary recorded yet.");
+      summary.textContent = compactText(text, 330) || "No definition or summary recorded yet.";
       this.positionTooltip(event);
     });
   }
@@ -153,7 +153,7 @@ class InspectorV07 {
       const excerpt = card.createDiv({ cls: "wct-definition-link-excerpt", text: "Loading definition…" });
       const relatedPreview = await this.previewFor(item.node);
       const definition = await this.glossaryDefinitionFor(item.node.label) || relatedPreview.summary;
-      excerpt.setText(compactText(definition, 220) || "No definition recorded yet.");
+      excerpt.textContent = compactText(definition, 220) || "No definition recorded yet.";
     }
   }
 
@@ -209,10 +209,10 @@ class InspectorV07 {
 
     const score = this.inspectorSection(container, "Priority value", "Action priority, not scientific importance");
     const hero = score.createDiv({ cls: "wct-priority-hero wct-browser-filter-item" });
-    hero.createStrong({ text: String(priority.score) });
+    hero.createEl("strong", { text: String(priority.score) });
     const heroText = hero.createDiv();
     heroText.createSpan({ text: "Priority score" });
-    heroText.createSmall({ text: `${completeness.percent}% research complete · ${validation.completion}% validation complete` });
+    heroText.createEl("small", { text: `${completeness.percent}% research complete · ${validation.completion}% validation complete` });
 
     if (priority.reasons?.length) {
       const reasons = this.inspectorSection(container, "Why it bubbled up");
@@ -225,16 +225,16 @@ class InspectorV07 {
       const row = checklist.createDiv({ cls: `wct-check-row wct-browser-filter-item ${check.complete ? "is-complete" : "is-missing"}` });
       row.createSpan({ cls: "wct-check-symbol", text: check.complete ? "✓" : "○" });
       const body = row.createDiv();
-      body.createStrong({ text: check.label });
-      if (!check.complete && check.reason) body.createSmall({ text: check.reason });
+      body.createEl("strong", { text: check.label });
+      if (!check.complete && check.reason) body.createEl("small", { text: check.reason });
     }
 
     const validationSection = this.inspectorSection(container, "Validation dimensions");
     for (const entry of validation.entries ?? []) {
       const row = validationSection.createDiv({ cls: "wct-validation-dimension wct-browser-filter-item" });
       row.createSpan({ text: entry.label });
-      row.createStrong({ text: titleCase(entry.status) });
-      row.createEm({ text: `${Math.round(entry.weight * 100)}%` });
+      row.createEl("strong", { text: titleCase(entry.status) });
+      row.createEl("em", { text: `${Math.round(entry.weight * 100)}%` });
     }
   }
 
@@ -286,7 +286,7 @@ class InspectorV07 {
     const node = this.selected;
     if (!node) return;
     this.inspector.style.setProperty("--wct-object-color", TYPE_COLORS[node.type] ?? TYPE_COLORS.Other);
-    this.inspector.setAttr("data-object-type", node.type);
+    this.inspector.setAttribute("data-object-type", node.type);
     this.addBrowserTab("priority", "Priority", "definition");
     this.addBrowserTab("derivations", "Derivations", "papers");
   }
