@@ -130,6 +130,7 @@ class GraphRendererMethods {
   }
 
   renderLabels(ctx, labels) {
+    this.labelHitBoxes = [];
     labels.sort((a, b) => b.priority - a.priority);
     const occupied = [];
     const limit = Math.min(this.settings.labelLimit, labels.length);
@@ -163,6 +164,7 @@ class GraphRendererMethods {
         box = { x: clamp(screen.x - width / 2, 4, this.width - width - 4), y: clamp(screen.y + gap, 4, this.height - height - 4), width, height };
       }
       occupied.push(box);
+      this.labelHitBoxes.push({ node, x: box.x, y: box.y, width: box.width, height: box.height });
       ctx.fillStyle = isArea ? "rgba(15,18,24,.82)" : "rgba(15,18,24,.68)";
       ctx.beginPath();
       if (ctx.roundRect) ctx.roundRect(box.x, box.y, box.width, box.height, 4);
