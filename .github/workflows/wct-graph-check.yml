@@ -1,0 +1,29 @@
+name: WCT Graph Check
+
+on:
+  push:
+    paths:
+      - '.obsidian/plugins/wct-graph-engine/**'
+      - '.github/workflows/wct-graph-check.yml'
+  pull_request:
+    paths:
+      - '.obsidian/plugins/wct-graph-engine/**'
+      - '.github/workflows/wct-graph-check.yml'
+
+jobs:
+  syntax:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Validate JavaScript syntax
+        run: |
+          for file in .obsidian/plugins/wct-graph-engine/*.js; do
+            echo "Checking $file"
+            node --check "$file"
+          done
+      - name: Validate manifest and data JSON
+        run: |
+          node -e "JSON.parse(require('fs').readFileSync('.obsidian/plugins/wct-graph-engine/manifest.json','utf8')); JSON.parse(require('fs').readFileSync('.obsidian/plugins/wct-graph-engine/data.json','utf8'));"
