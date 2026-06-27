@@ -1,6 +1,7 @@
 "use strict";
 
 const { buildPriorityScene } = require("./graph-core");
+const scenesV09 = require("./graph-scenes-v09");
 
 function normalize(value) {
   return String(value ?? "").normalize("NFKC").toLowerCase().replace(/\s+/g, " ").trim();
@@ -32,20 +33,22 @@ function stateMatches(node, filter) {
 function compareNodes(left, right, sort) {
   if (sort === "missing-desc") {
     return (right.currentState?.missing?.length ?? 0) - (left.currentState?.missing?.length ?? 0)
-      || number(right.priorityProfile?.score) - number(left.priorityProfile?.score);
+      || number(left.priorityRank) - number(right.priorityRank);
   }
   if (sort === "completeness-asc") {
     return number(left.completenessProfile?.percent) - number(right.completenessProfile?.percent)
-      || number(right.priorityProfile?.score) - number(left.priorityProfile?.score);
+      || number(left.priorityRank) - number(right.priorityRank);
   }
   if (sort === "validation-asc") {
     return number(left.validationProfile?.completion) - number(right.validationProfile?.completion)
-      || number(right.priorityProfile?.score) - number(left.priorityProfile?.score);
+      || number(left.priorityRank) - number(right.priorityRank);
   }
-  if (sort === "name") return left.label.localeCompare(right.label);
-  return number(right.priorityProfile?.score) - number(left.priorityProfile?.score)
-    || (right.currentState?.missing?.length ?? 0) - (left.currentState?.missing?.length ?? 0)
-    || left.label.localeCompare(right.label);
+  if (sort === "score-desc") {
+    return number(right.priorityProfile?.score) - number(left.priorityProfile?.score)
+      || number(left.priorityRank) - number(right.priorityRank);
+  }
+  if (sort === "name") return left.label.localeCompare(right.label, undefined, { numeric: true, sensitivity: "base" });
+  return number(left.priorityRank) - number(right.priorityRank);
 }
 
 class GraphPriorityMethods {
@@ -53,8 +56,8 @@ class GraphPriorityMethods {
     this.priorityPanel = stage.createDiv({ cls: "wct-priority-panel is-hidden" });
     const header = this.priorityPanel.createDiv({ cls: "wct-priority-header" });
     const title = header.createDiv();
-    title.createEl("strong", { text: "Priority table" });
-    this.prioritySummary = title.createEl("small", { text: "Searchable research state, missing work, and action priority." });
+    title.createEl("strong", { text: "Corpus priority rank" });
+    this.prioritySummary = title.createEl("small", { text: "Every object receives one unique rank; the 0–100 score remains a diagnostic component." });
     this.priorityCollapseButton = header.createEl("button", { text: "—", attr: { type: "button", "aria-label": "Collapse priority table" } });
     this.priorityCollapseButton.addEventListener("click", () => {
       const collapsed = !this.priorityPanel.classList.contains("is-collapsed");
@@ -67,7 +70,7 @@ class GraphPriorityMethods {
       cls: "wct-priority-filter",
       attr: {
         type: "search",
-        placeholder: "Search object, state, missing item, ID, or path…",
+        placeholder: "Search rank, object, state, missing item, ID, or path…",
         "aria-label": "Search priority table",
       },
     });
@@ -95,7 +98,8 @@ class GraphPriorityMethods {
       attr: { "aria-label": "Sort priority table" },
     });
     for (const [value, label] of [
-      ["priority-desc", "Highest priority"],
+      ["rank-asc", "Corpus rank"],
+      ["score-desc", "Diagnostic score"],
       ["missing-desc", "Most missing"],
       ["completeness-asc", "Least complete"],
       ["validation-asc", "Least validated"],
@@ -114,7 +118,7 @@ class GraphPriorityMethods {
     this.priorityTable = this.priorityTableWrap.createEl("table", { cls: "wct-priority-table" });
     const head = this.priorityTable.createEl("thead");
     const headerRow = head.createEl("tr");
-    for (const label of ["#", "Object", "Type", "Priority", "Complete", "Validation", "Current state", "What is missing"]) {
+    for (const label of ["Rank", "Object", "Type", "Score", "Complete", "Validation", "Current state", "What is missing"]) {
       headerRow.createEl("th", { text: label });
     }
     this.priorityTableBody = this.priorityTable.createEl("tbody");
@@ -125,7 +129,7 @@ class GraphPriorityMethods {
     if (!this.priorityTypeFilter || !this.graph) return;
     const selected = this.priorityTypeFilter.value || "all";
     while (this.priorityTypeFilter.options.length > 1) this.priorityTypeFilter.remove(1);
-    const types = [...new Set(this.graph.nodes.map((node) => node.type))].sort();
+    const types = [...new Set(this.graph.nodes.map((node) => node.type))].sort((a, b) => a.localeCompare(b));
     for (const type of types) addOption(this.priorityTypeFilter, type, type);
     this.priorityTypeFilter.value = types.includes(selected) ? selected : "all";
   }
@@ -135,10 +139,17 @@ class GraphPriorityMethods {
     this.searchInput.value = "";
     const rootScene = this.stack[0]?.scene?.mode === "full"
       ? this.stack[0].scene
-      : this.plugin.graphCore.buildFullScene(this.graph, this.settings);
-    this.stack = [{ label: "Full graph", scene: rootScene }];
+      : scenesV09.buildFullScene(this.plugin.graphCore, this.graph, this.settings);
+    this.stack = [{ label: "WCT Research", scene: rootScene }];
     const scene = buildPriorityScene(this.plugin.graphCore, this.graph, this.settings);
-    this.navigate(scene, "Priority", { origin: null });
+    for (const sceneNode of scene.nodes) {
+      const source = this.graph.byId.get(sceneNode.id);
+      if (!source) continue;
+      sceneNode.label = `${source.label}\n#${source.priorityRank}/${source.priorityTotal} · S${source.priorityProfile?.score ?? 0}`;
+      sceneNode.priorityRank = source.priorityRank;
+      sceneNode.priorityTotal = source.priorityTotal;
+    }
+    this.navigate(scene, "Corpus priority", { origin: null });
     this.priorityPanel?.removeClass("is-hidden");
     this.populatePriorityTypes();
     this.renderPriorityList();
@@ -153,8 +164,8 @@ class GraphPriorityMethods {
     const type = this.priorityTypeFilter?.value ?? "all";
     const state = this.priorityStateFilter?.value ?? "all";
     const missingOnly = Boolean(this.priorityMissingOnly?.checked);
-    const sort = this.prioritySort?.value ?? "priority-desc";
-    const limit = Number(this.settings.priorityListLimit) || 200;
+    const sort = this.prioritySort?.value ?? "rank-asc";
+    const limit = Number(this.settings.priorityListLimit) || 5000;
 
     return (this.graph.priorityNodes ?? [])
       .filter((node) => type === "all" || node.type === type)
@@ -163,6 +174,8 @@ class GraphPriorityMethods {
       .filter((node) => {
         if (!query) return true;
         const searchable = [
+          node.priorityRank,
+          node.priorityKey,
           node.label,
           node.type,
           node.path,
@@ -183,10 +196,11 @@ class GraphPriorityMethods {
     if (!this.priorityTableBody || !this.graph) return;
     this.priorityTableBody.empty();
     const nodes = this.priorityRows();
+    const total = this.graph.priorityNodes?.length ?? this.graph.nodes.length;
     const summary = this.graph.validationSummary ?? {};
     const missingCount = nodes.filter((node) => (node.currentState?.missing?.length ?? 0) > 0).length;
     if (this.prioritySummary) {
-      this.prioritySummary.textContent = `${nodes.length} shown · ${missingCount} with missing work · ${summary.averageResearchCompleteness ?? 0}% corpus completeness · ${summary.averageCompletion ?? 0}% validation`;
+      this.prioritySummary.textContent = `${nodes.length.toLocaleString()} shown of ${total.toLocaleString()} ranked objects · ${missingCount.toLocaleString()} with missing work · ${summary.averageResearchCompleteness ?? 0}% completeness · ${summary.averageCompletion ?? 0}% validation`;
     }
 
     if (!nodes.length) {
@@ -197,14 +211,17 @@ class GraphPriorityMethods {
       return;
     }
 
-    for (const [index, node] of nodes.entries()) {
+    for (const node of nodes) {
       const state = node.currentState ?? { label: "Unknown", summary: "", missingLabels: [] };
       const row = this.priorityTableBody.createEl("tr", { cls: `tone-${state.tone ?? "open"}` });
       row.style.setProperty("--wct-priority-color", this.plugin.graphCore.TYPE_COLORS[node.type] ?? this.plugin.graphCore.TYPE_COLORS.Other);
       row.tabIndex = 0;
       row.setAttribute("role", "button");
-      row.setAttribute("aria-label", `Open ${node.label}`);
-      row.createEl("td", { cls: "wct-priority-rank", text: String(index + 1) });
+      row.setAttribute("aria-label", `Open rank ${node.priorityRank}, ${node.label}`);
+
+      const rank = row.createEl("td", { cls: "wct-priority-rank" });
+      rank.createEl("strong", { text: `#${node.priorityRank ?? "—"}` });
+      rank.createEl("small", { text: `/${node.priorityTotal ?? total}` });
 
       const objectCell = row.createEl("td", { cls: "wct-priority-object" });
       objectCell.createEl("strong", { text: node.label });
