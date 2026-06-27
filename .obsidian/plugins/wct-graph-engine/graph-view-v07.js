@@ -3,8 +3,8 @@
 const { WCTGraphView } = require("./graph-view");
 const rendererV07 = require("./graph-renderer-v07");
 const priorityMethods = require("./graph-priority-view");
-const { decorateGraph } = require("./graph-knowledge");
 const { linkDerivationsByEquationId } = require("./graph-linker-v07");
+const { decorateGraphState, decorateCurrentStates } = require("./graph-state-v08");
 
 const originalOnOpen = WCTGraphView.prototype.onOpen;
 const originalNavigate = WCTGraphView.prototype.navigate;
@@ -137,8 +137,9 @@ WCTGraphView.prototype.rebuildGraph = async function rebuildGraphV07() {
   this.status?.setText("Indexing, linking, and scoring…");
   this.graph = this.plugin.graphCore.GraphIndex.build(this.app, this.settings);
   linkDerivationsByEquationId(this.graph);
-  decorateGraph(this.graph);
+  decorateGraphState(this.graph);
   applyPriorityTypePolicy(this.graph);
+  decorateCurrentStates(this.graph);
   this.previewCache.clear();
   this.timelineBounds = this.plugin.graphCore.timelineBounds(this.graph);
   this.auditButton?.setText(`Audit ${this.graph.auditIssues.reduce((sum, issue) => sum + issue.nodeIds.length, 0)}`);
