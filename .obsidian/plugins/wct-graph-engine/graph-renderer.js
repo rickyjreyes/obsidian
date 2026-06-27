@@ -16,13 +16,22 @@ function rgba(hex, alpha) {
   return `rgba(${(number >> 16) & 255},${(number >> 8) & 255},${number & 255},${alpha})`;
 }
 
+function shortDate(timestamp) {
+  if (!Number.isFinite(timestamp)) return "—";
+  return new Date(timestamp).toLocaleDateString(undefined, { year: "numeric", month: "short" });
+}
+
 class GraphRendererMethods {
   startLoop() {
     const loop = (time) => {
       this.raf = requestAnimationFrame(loop);
+      this.tickTimeline?.(time);
+      const forceActive = this.stepTimelineForce?.(time) ?? false;
       this.updateAnimations(time);
       const activeMotion = this.settings.motionMode !== "off" && !document.hidden;
-      if (this.needsRender || this.animation || this.cameraAnimation || activeMotion) this.render(time);
+      if (this.needsRender || this.animation || this.cameraAnimation || activeMotion || forceActive || this.timelinePlaying) {
+        this.render(time);
+      }
     };
     this.raf = requestAnimationFrame(loop);
   }
@@ -73,6 +82,40 @@ class GraphRendererMethods {
     ctx.fill();
   }
 
+  drawTimelineAxis(ctx) {
+    if (this.scene?.mode !== "timeline") return;
+    const y = this.height - 28;
+    const left = this.worldToScreen(-980, 0).x;
+    const right = this.worldToScreen(980, 0).x;
+    const minX = clamp(Math.min(left, right), 18, this.width - 18);
+    const maxX = clamp(Math.max(left, right), 18, this.width - 18);
+    const progress = clamp((this.scene.cutoff - this.scene.minDate) / Math.max(1, this.scene.maxDate - this.scene.minDate), 0, 1);
+    const markerX = minX + (maxX - minX) * progress;
+
+    ctx.strokeStyle = "rgba(170,185,210,.35)";
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(minX, y);
+    ctx.lineTo(maxX, y);
+    ctx.stroke();
+
+    ctx.strokeStyle = "rgba(235,242,255,.55)";
+    ctx.beginPath();
+    ctx.moveTo(markerX, 12);
+    ctx.lineTo(markerX, y + 4);
+    ctx.stroke();
+
+    ctx.fillStyle = "rgba(225,232,244,.75)";
+    ctx.font = "10px system-ui, sans-serif";
+    ctx.textBaseline = "top";
+    ctx.textAlign = "left";
+    ctx.fillText(shortDate(this.scene.minDate), minX, y + 5);
+    ctx.textAlign = "center";
+    ctx.fillText(shortDate((this.scene.minDate + this.scene.maxDate) / 2), (minX + maxX) / 2, y + 5);
+    ctx.textAlign = "right";
+    ctx.fillText(shortDate(this.scene.maxDate), maxX, y + 5);
+  }
+
   render(time) {
     if (!this.context || !this.scene) return;
     const ctx = this.context;
@@ -80,6 +123,7 @@ class GraphRendererMethods {
     ctx.clearRect(0, 0, this.width, this.height);
     ctx.fillStyle = getComputedStyle(this.stage).getPropertyValue("--background-primary") || "#111318";
     ctx.fillRect(0, 0, this.width, this.height);
+    this.drawTimelineAxis(ctx);
 
     const nodeById = new Map(this.scene.nodes.map((node) => [node.id, node]));
     const edgeAlpha = (this.animation?.edgeAlpha ?? 1) * this.settings.edgeOpacity;
@@ -131,7 +175,9 @@ class GraphRendererMethods {
       const position = this.displayPositions.get(node.id) ?? node;
       const phase = (hashString(node.id) % 1000) * 0.00628;
       const motionScale = this.settings.motionMode === "full" ? 1 : this.settings.motionMode === "reduced" ? 0.3 : 0;
-      const ambient = node.kind === "note" && !this.animation ? 1.8 * motionScale * Math.sin(time * 0.0008 + phase) : 0;
+      const ambient = this.scene.mode !== "timeline" && node.kind === "note" && !this.animation
+        ? 1.8 * motionScale * Math.sin(time * 0.0008 + phase)
+        : 0;
       const screen = this.worldToScreen(position.x + ambient, position.y + ambient * 0.45);
       if (screen.x < -40 || screen.y < -40 || screen.x > this.width + 40 || screen.y > this.height + 40) continue;
       const hovered = this.hovered?.id === node.id;
@@ -175,8 +221,8 @@ class GraphRendererMethods {
     }
 
     let particleCount = 0;
-    if (this.settings.motionMode === "full") particleCount = Math.min(this.scene.mode === "full" ? 70 : 110, this.scene.edges.length);
-    else if (this.settings.motionMode === "reduced") particleCount = Math.min(this.scene.mode === "full" ? 18 : 32, this.scene.edges.length);
+    if (this.settings.motionMode === "full") particleCount = Math.min(this.scene.mode === "full" ? 70 : this.scene.mode === "timeline" ? 45 : 110, this.scene.edges.length);
+    else if (this.settings.motionMode === "reduced") particleCount = Math.min(this.scene.mode === "full" ? 18 : this.scene.mode === "timeline" ? 12 : 32, this.scene.edges.length);
 
     for (let index = 0; index < particleCount; index += 1) {
       const edge = this.scene.edges[index];
