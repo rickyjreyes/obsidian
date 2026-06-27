@@ -9,6 +9,9 @@ tags: [index, literature-notes]
 
 > [!note] These notes currently use Zotero metadata and record descriptions. Full equation-, section-, and page-level extraction requires the actual PDF files.
 
+> [!success] Complete corpus bibliography
+> [[WCT Corpus Reference Index|Open the WCT Corpus Reference Index]] for all **285 numbered reference occurrences** across the 22 Zenodo-linked papers, deduplicated into **214 canonical source entries**.
+
 - [[01 Literature Notes/Classical P vs NP Is Ill-Posed|The Classical P vs NP Problem is Mathematically and Physically Ill-Posed]]
 - [[01 Literature Notes/JUNO Ghost-Mode Neutrinos|JUNO Energy Resolution and Detectability of WCT Ghost-Mode Neutrinos]]
 - [[01 Literature Notes/Log-Periodic C9 Deformation|A Curvature-Induced Log-Periodic Deformation of C9(q 2): Wave Confinement Theory and the LHCb B 0 → K ∗0µ+µ− Anomaly]]
