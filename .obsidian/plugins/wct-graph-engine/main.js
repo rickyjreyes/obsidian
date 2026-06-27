@@ -113,6 +113,7 @@ module.exports = class WCTGraphPlugin extends Plugin {
       const moduleNames = [
         "graph-research.js",
         "graph-core.js",
+        "graph-audit.js",
         "graph-renderer.js",
         "graph-input.js",
         "graph-inspector.js",
@@ -127,8 +128,10 @@ module.exports = class WCTGraphPlugin extends Plugin {
       }
 
       const corePath = resolvePluginFile(this, "graph-core.js");
+      const auditPath = resolvePluginFile(this, "graph-audit.js");
       const viewPath = resolvePluginFile(this, "graph-view.js");
       this.graphCore = require(corePath);
+      this.graphCore.buildAuditScene = require(auditPath).buildAuditScene;
       const { WCTGraphView } = require(viewPath);
       const {
         VIEW_TYPE,
