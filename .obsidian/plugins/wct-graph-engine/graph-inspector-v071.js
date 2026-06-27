@@ -32,6 +32,21 @@ class InspectorV071 {
     this.tooltip.style.top = `${clamp(top, 8, Math.max(8, this.height - height - 8))}px`;
   }
 
+  showTooltip(sceneNode, event) {
+    base.showTooltip.call(this, sceneNode, event);
+    const node = this.graph.byId.get(sceneNode.id) ?? sceneNode;
+    const state = node.currentState;
+    if (!state) return;
+    const existing = this.tooltip.querySelector(".wct-hover-current-state");
+    existing?.remove();
+    const card = this.tooltip.createDiv({ cls: `wct-hover-current-state tone-${state.tone ?? "open"}` });
+    card.createEl("strong", { text: state.label });
+    card.createSpan({ text: state.summary });
+    const missingCount = state.missing?.length ?? 0;
+    card.createEl("em", { text: missingCount ? `${missingCount} required item${missingCount === 1 ? "" : "s"} missing` : "No required structural gaps" });
+    this.positionTooltip(event);
+  }
+
   async renderDefinitionTab(node, preview, container) {
     await base.renderDefinitionTab.call(this, node, preview, container);
 
