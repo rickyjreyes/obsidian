@@ -19,6 +19,17 @@ function titleCase(value) {
     .replace(/\b\w/g, (letter) => letter.toUpperCase());
 }
 
+function formatCreated(timestamp) {
+  if (!Number.isFinite(Number(timestamp))) return "Unknown";
+  return new Date(Number(timestamp)).toLocaleString(undefined, {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+    hour: "numeric",
+    minute: "2-digit",
+  });
+}
+
 class GraphInspectorMethods {
   async previewFor(node) {
     if (!node?.path) return { summary: "", type: node?.type ?? "Other", neighbors: [] };
@@ -37,18 +48,21 @@ class GraphInspectorMethods {
     return result;
   }
 
-  showTooltip(node, event) {
+  showTooltip(sceneNode, event) {
+    const node = this.graph.byId.get(sceneNode.id) ?? sceneNode;
     const auditCount = node.auditIssues?.length ?? 0;
     const relationCount = (this.graph.outgoing.get(node.id)?.length ?? 0)
       + (this.graph.incoming.get(node.id)?.length ?? 0);
     const initial = [
       node.label,
       `${node.type} · ${node.degree} connections`,
+      node.stableId ? `ID: ${node.stableId}` : null,
+      node.createdAt ? `Created: ${formatCreated(node.createdAt)}` : null,
       `Validation: ${titleCase(node.overallStatus ?? "unreviewed")}`,
       relationCount ? `${relationCount} typed relations` : "No typed relations recorded",
       auditCount ? `${auditCount} audit findings` : "No audit findings",
       node.path ?? "Click to enter this area",
-    ].join("\n");
+    ].filter(Boolean).join("\n");
     this.tooltip.setText(initial);
     this.tooltip.removeClass("is-hidden");
     this.positionTooltip(event);
@@ -59,8 +73,9 @@ class GraphInspectorMethods {
       const lines = [
         node.label,
         `${node.type} · ${node.degree} connections · ${titleCase(node.overallStatus ?? "unreviewed")}`,
+        node.stableId ? `ID: ${node.stableId}` : null,
         compactText(preview.summary) || "No summary recorded yet.",
-      ];
+      ].filter(Boolean);
       if (preview.neighbors.length) lines.push(`Top links: ${preview.neighbors.join(" · ")}`);
       if (auditCount) lines.push(`Audit: ${auditCount} open findings`);
       this.tooltip.setText(lines.join("\n"));
@@ -69,8 +84,8 @@ class GraphInspectorMethods {
 
   positionTooltip(event) {
     const rect = this.stage.getBoundingClientRect();
-    const left = clamp(event.clientX - rect.left + 16, 8, Math.max(8, this.width - 390));
-    const top = clamp(event.clientY - rect.top + 16, 8, Math.max(8, this.height - 210));
+    const left = clamp(event.clientX - rect.left + 16, 8, Math.max(8, this.width - 410));
+    const top = clamp(event.clientY - rect.top + 16, 8, Math.max(8, this.height - 230));
     this.tooltip.style.left = `${left}px`;
     this.tooltip.style.top = `${top}px`;
   }
@@ -119,6 +134,12 @@ class GraphInspectorMethods {
     }
   }
 
+  createIdentityRow(container, label, value, warning = false) {
+    const row = container.createDiv({ cls: `wct-graph-identity-row${warning ? " is-warning" : ""}` });
+    row.createSpan({ cls: "wct-graph-identity-label", text: label });
+    row.createSpan({ cls: "wct-graph-identity-value", text: String(value ?? "—") });
+  }
+
   async showInspector(sceneNodeValue) {
     const node = this.graph.byId.get(sceneNodeValue.id) ?? sceneNodeValue;
     if (!node?.path) return;
@@ -136,7 +157,9 @@ class GraphInspectorMethods {
       ? "Equation and meaning"
       : node.type === "Glossary"
         ? "Definition"
-        : "Summary";
+        : node.type === "References"
+          ? "Reference"
+          : "Summary";
     const summarySection = this.inspectorSection(sectionTitle);
     const markdown = summarySection.createDiv({ cls: "wct-graph-inspector-markdown" });
     await MarkdownRenderer.render(
@@ -146,6 +169,14 @@ class GraphInspectorMethods {
       node.path,
       this.plugin,
     );
+
+    const identity = this.inspectorSection("Object identity and chronology");
+    const identityGrid = identity.createDiv({ cls: "wct-graph-identity-grid" });
+    this.createIdentityRow(identityGrid, "Stable ID", node.stableId ?? "Missing", node.stableIdSource !== "frontmatter");
+    this.createIdentityRow(identityGrid, "ID source", titleCase(node.stableIdSource ?? "missing"), node.stableIdSource !== "frontmatter");
+    this.createIdentityRow(identityGrid, "Created", formatCreated(node.createdAt));
+    this.createIdentityRow(identityGrid, "Date source", titleCase(node.dateSource ?? "unknown"));
+    this.createIdentityRow(identityGrid, "Semantic type", node.type);
 
     const validation = this.inspectorSection("Validation state");
     const badges = validation.createDiv({ cls: "wct-graph-status-grid" });
@@ -158,7 +189,7 @@ class GraphInspectorMethods {
     const outgoing = this.graph.outgoing.get(node.id) ?? [];
     const incoming = this.graph.incoming.get(node.id) ?? [];
     if (outgoing.length || incoming.length) {
-      const relations = this.inspectorSection("Typed research relations");
+      const relations = this.inspectorSection(node.type === "References" ? "Citation and source links" : "Typed research relations");
       this.createRelationGroup(relations, "Outgoing", outgoing, "out");
       this.createRelationGroup(relations, "Incoming", incoming, "in");
     }
@@ -186,7 +217,9 @@ class GraphInspectorMethods {
     const groups = new Map(TYPE_ORDER.map((type) => [type, []]));
     for (const id of this.graph.adjacency.get(node.id) ?? []) {
       const connected = this.graph.byId.get(id);
-      if (connected) groups.get(connected.type)?.push(connected);
+      if (!connected) continue;
+      if (!groups.has(connected.type)) groups.set(connected.type, []);
+      groups.get(connected.type).push(connected);
     }
     for (const list of groups.values()) list.sort((a, b) => b.degree - a.degree);
     const connections = this.inspectorSection("Connected nodes");
