@@ -1,5 +1,7 @@
 "use strict";
 
+const { buildAuditIssues, AUDIT_DEFINITIONS } = require("./graph-research");
+
 const EQUATION_ID_PATTERN = /\b(?:M\d+[A-Z]?|E\d+[A-Z]?|CLE\d+|CM\d+|TOP\d+|CORR\d+|G1|EX|EY|EZ|FA)\b/g;
 
 function equationIds(value) {
@@ -12,6 +14,18 @@ function nodeText(node) {
 
 function edgeKey(edge) {
   return `${edge.source}\u0000${edge.target}\u0000${edge.relation}\u0000${edge.directed ? 1 : 0}`;
+}
+
+function refreshAuditIssues(graph) {
+  const standardKeys = new Set(AUDIT_DEFINITIONS.map((definition) => definition.key));
+  const supplemental = (graph.auditIssues ?? []).filter((issue) => !standardKeys.has(issue.key));
+  graph.auditIssues = [...buildAuditIssues(graph), ...supplemental];
+  graph.auditByKey = new Map(graph.auditIssues.map((issue) => [issue.key, issue]));
+  for (const node of graph.nodes) node.auditIssues = [];
+  for (const issue of graph.auditIssues) {
+    for (const id of issue.nodeIds ?? []) graph.byId.get(id)?.auditIssues.push(issue.key);
+  }
+  return graph;
 }
 
 function linkDerivationsByEquationId(graph) {
@@ -62,7 +76,17 @@ function linkDerivationsByEquationId(graph) {
       }
     }
   }
+
+  for (const ids of graph.groups?.values?.() ?? []) {
+    ids.sort((left, right) => {
+      const a = graph.byId.get(left);
+      const b = graph.byId.get(right);
+      return (b?.degree ?? 0) - (a?.degree ?? 0) || String(a?.label).localeCompare(String(b?.label));
+    });
+  }
+
   graph.inferredDerivationEdges = added;
+  refreshAuditIssues(graph);
   return graph;
 }
 
@@ -94,6 +118,7 @@ function mentionedGlossary(graph, node, content, limit = 12) {
 
 module.exports = {
   equationIds,
+  refreshAuditIssues,
   linkDerivationsByEquationId,
   mentionedGlossary,
 };
