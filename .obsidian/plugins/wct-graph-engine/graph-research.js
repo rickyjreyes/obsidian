@@ -79,6 +79,12 @@ const AUDIT_DEFINITIONS = [
     severity: "high",
   },
   {
+    key: "paper-pdf-no-derivations",
+    label: "PDF papers missing imported derivations",
+    description: "Paper notes with a pdf_url but no connected PDF-derived derivation object. Run WCT Graph Engine: Import PDF Derivations.",
+    severity: "high",
+  },
+  {
     key: "equation-no-implementation",
     label: "Equations missing implementation links",
     description: "Equation notes not linked to SymPy, Lean, code, or implementation notes.",
@@ -162,9 +168,7 @@ function extractRelations(frontmatter = {}) {
     for (const [rawKey, rawValue] of Object.entries(source ?? {})) {
       const relation = RELATION_ALIASES[normalizeKey(rawKey)];
       if (!relation) continue;
-      for (const target of listValues(rawValue)) {
-        relations.push({ relation, target });
-      }
+      for (const target of listValues(rawValue)) relations.push({ relation, target });
     }
   }
 
@@ -229,6 +233,11 @@ function hasRelation(graph, nodeId, names) {
     || (graph.incoming.get(nodeId) ?? []).some((edge) => set.has(edge.relation));
 }
 
+function hasConnectedType(graph, nodeId, type) {
+  return [...(graph.adjacency.get(nodeId) ?? [])]
+    .some((id) => graph.byId.get(id)?.type === type);
+}
+
 function buildAuditIssues(graph) {
   const issues = AUDIT_DEFINITIONS.map((definition) => ({ ...definition, nodeIds: [] }));
   const byKey = new Map(issues.map((issue) => [issue.key, issue]));
@@ -259,9 +268,12 @@ function buildAuditIssues(graph) {
     }
 
     if (node.type === "Papers") {
-      const hasEquation = [...(graph.adjacency.get(node.id) ?? [])]
-        .some((id) => graph.byId.get(id)?.type === "Equations");
-      if (!hasEquation) byKey.get("paper-no-equations").nodeIds.push(node.id);
+      if (!hasConnectedType(graph, node.id, "Equations")) {
+        byKey.get("paper-no-equations").nodeIds.push(node.id);
+      }
+      if (frontmatter.pdf_url && !hasConnectedType(graph, node.id, "Derivations")) {
+        byKey.get("paper-pdf-no-derivations").nodeIds.push(node.id);
+      }
     }
 
     if (statuses.every((status) => status === "unreviewed")) {
