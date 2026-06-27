@@ -68,12 +68,22 @@ class GraphInputMethods {
     const rect = this.canvas.getBoundingClientRect();
     const x = clientX - rect.left;
     const y = clientY - rect.top;
+
+    for (let index = (this.labelHitBoxes?.length ?? 0) - 1; index >= 0; index -= 1) {
+      const box = this.labelHitBoxes[index];
+      if (x >= box.x && x <= box.x + box.width && y >= box.y && y <= box.y + box.height) {
+        return box.node;
+      }
+    }
+
     let best = null;
     let bestDistance = Infinity;
     for (const node of this.scene.nodes) {
       const position = this.displayPositions.get(node.id) ?? { x: node.x, y: node.y };
       const screen = this.worldToScreen(position.x, position.y);
-      const radius = Math.max(8, node.size * this.settings.nodeScale * this.zoom + 5);
+      const radius = node.kind === "area" || node.kind === "area-link"
+        ? Math.max(24, node.size * Math.sqrt(this.zoom) + 10)
+        : Math.max(8, node.size * this.settings.nodeScale * this.zoom + 5);
       const distance = Math.hypot(x - screen.x, y - screen.y);
       if (distance <= radius && distance < bestDistance) {
         best = node;
