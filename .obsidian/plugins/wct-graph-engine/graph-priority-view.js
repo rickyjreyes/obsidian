@@ -11,6 +11,12 @@ function number(value) {
   return Number.isFinite(result) ? result : 0;
 }
 
+function addOption(select, value, label) {
+  const option = select.createEl("option", { text: label });
+  option.value = value;
+  return option;
+}
+
 function stateMatches(node, filter) {
   if (!filter || filter === "all") return true;
   const state = node.currentState ?? {};
@@ -69,7 +75,7 @@ class GraphPriorityMethods {
       cls: "wct-priority-select",
       attr: { "aria-label": "Filter priority table by object type" },
     });
-    this.priorityTypeFilter.createEl("option", { text: "All types", value: "all" });
+    addOption(this.priorityTypeFilter, "all", "All types");
     this.priorityStateFilter = controls.createEl("select", {
       cls: "wct-priority-select",
       attr: { "aria-label": "Filter priority table by current state" },
@@ -82,7 +88,7 @@ class GraphPriorityMethods {
       ["open", "Open / missing"],
       ["conditional", "Conditional / review"],
       ["complete", "Complete"],
-    ]) this.priorityStateFilter.createEl("option", { text: label, value });
+    ]) addOption(this.priorityStateFilter, value, label);
 
     this.prioritySort = controls.createEl("select", {
       cls: "wct-priority-select",
@@ -94,7 +100,7 @@ class GraphPriorityMethods {
       ["completeness-asc", "Least complete"],
       ["validation-asc", "Least validated"],
       ["name", "Name"],
-    ]) this.prioritySort.createEl("option", { text: label, value });
+    ]) addOption(this.prioritySort, value, label);
 
     const missingLabel = controls.createEl("label", { cls: "wct-priority-missing-toggle" });
     this.priorityMissingOnly = missingLabel.createEl("input", { attr: { type: "checkbox" } });
@@ -120,7 +126,7 @@ class GraphPriorityMethods {
     const selected = this.priorityTypeFilter.value || "all";
     while (this.priorityTypeFilter.options.length > 1) this.priorityTypeFilter.remove(1);
     const types = [...new Set(this.graph.nodes.map((node) => node.type))].sort();
-    for (const type of types) this.priorityTypeFilter.createEl("option", { text: type, value: type });
+    for (const type of types) addOption(this.priorityTypeFilter, type, type);
     this.priorityTypeFilter.value = types.includes(selected) ? selected : "all";
   }
 
