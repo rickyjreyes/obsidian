@@ -32,6 +32,13 @@ $$
 
 The purpose of the vault is to expose missing links, prevent claim drift, preserve priority, and direct work toward the highest-value mathematical or empirical closure.
 
+## Research operating system
+
+- [[Research/00 Maps/WCT Research Compiler V2|WCT Research Compiler V2]]
+- Use **WCT Graph Engine: Open WCT Graph** for corpus navigation.
+- Use **WCT Graph Engine: Open WCT Research Audit** for missing-link closure.
+- Use **WCT Graph Engine: Open WCT Idea Timeline** to replay object creation by date with adjustable graph forces.
+
 ## Primary research branches
 
 ### Foundations and field theory
