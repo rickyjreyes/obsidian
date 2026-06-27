@@ -1,0 +1,1 @@
+{"id":"wct-graph-panel-isolation","name":"WCT Graph Panel Isolation","version":"0.1.0","minAppVersion":"1.7.2","description":"Prevents graph pointer capture from intercepting inspector buttons, scrolling, and recursive connection controls.","author":"Richard J. Reyes","authorUrl":"https://github.com/rickyjreyes","isDesktopOnly":false}
