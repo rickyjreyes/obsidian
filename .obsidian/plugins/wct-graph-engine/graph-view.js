@@ -15,6 +15,7 @@ const {
   buildFullScene,
   buildCategoryScene,
   buildConnectionScene,
+  buildAuditScene,
   buildSearchScene,
 } = require("./graph-core");
 
@@ -52,12 +53,14 @@ class WCTGraphView extends ItemView {
     this.toolbar = root.createDiv({ cls: "wct-graph-toolbar" });
     this.backButton = this.toolbar.createEl("button", { text: "Back" });
     this.fullButton = this.toolbar.createEl("button", { text: "Full graph" });
+    this.auditButton = this.toolbar.createEl("button", { text: "Audit" });
     this.breadcrumbs = this.toolbar.createDiv({ cls: "wct-graph-breadcrumbs" });
     this.searchInput = this.toolbar.createEl("input", {
       cls: "wct-graph-search",
-      attr: { type: "search", placeholder: "Find a paper, concept, equation, or source…" },
+      attr: { type: "search", placeholder: "Find a paper, concept, equation, status, or audit issue…" },
     });
     this.fitButton = this.toolbar.createEl("button", { text: "Fit" });
+    this.motionButton = this.toolbar.createEl("button", { text: this.motionButtonText() });
     this.rebuildButton = this.toolbar.createEl("button", { text: "Rebuild" });
     this.status = this.toolbar.createSpan({ cls: "wct-graph-status" });
 
@@ -96,7 +99,9 @@ class WCTGraphView extends ItemView {
   bindEvents() {
     this.backButton.addEventListener("click", () => this.back());
     this.fullButton.addEventListener("click", () => this.showFull());
+    this.auditButton.addEventListener("click", () => this.showAudit());
     this.fitButton.addEventListener("click", () => this.fitScene(true));
+    this.motionButton.addEventListener("click", () => this.cycleMotionMode());
     this.rebuildButton.addEventListener("click", () => this.rebuildGraph());
     this.searchInput.addEventListener("input", debounce(() => {
       const query = this.searchInput.value.trim();
@@ -120,14 +125,31 @@ class WCTGraphView extends ItemView {
       const node = this.hitTest(event.clientX, event.clientY);
       if (node?.kind === "note") this.pushConnections(node.id, node);
       else if (node?.kind === "area") this.pushCategory(node.type, node);
+      else if (node?.kind === "audit-area") this.pushAuditIssue(node.auditKey, node);
     });
     this.canvas.addEventListener("wheel", (event) => this.onWheel(event), { passive: false });
+  }
+
+  motionButtonText() {
+    const value = this.settings.motionMode ?? "full";
+    const label = value === "off" ? "Off" : value === "reduced" ? "Reduced" : "Full";
+    return `Motion: ${label}`;
+  }
+
+  async cycleMotionMode() {
+    const modes = ["full", "reduced", "off"];
+    const current = modes.indexOf(this.settings.motionMode ?? "full");
+    this.settings.motionMode = modes[(current + 1) % modes.length];
+    this.motionButton.setText(this.motionButtonText());
+    await this.plugin.saveSettings();
+    this.needsRender = true;
   }
 
   async rebuildGraph() {
     this.status.setText("Indexing…");
     this.graph = GraphIndex.build(this.app, this.settings);
     this.previewCache.clear();
+    this.auditButton.setText(`Audit ${this.graph.auditIssues.reduce((sum, issue) => sum + issue.nodeIds.length, 0)}`);
     this.showFull(true);
     this.status.setText(`${this.graph.nodes.length.toLocaleString()} nodes · ${this.graph.edges.length.toLocaleString()} links`);
   }
@@ -151,6 +173,22 @@ class WCTGraphView extends ItemView {
     if (!scene) return;
     const node = this.graph.byId.get(nodeId);
     this.navigate(scene, node?.label ?? "Connections", { origin: originNode?.id ?? nodeId });
+  }
+
+  showAudit(issueKey = null) {
+    if (!this.graph) return;
+    this.searchInput.value = "";
+    const rootScene = this.stack[0]?.scene?.mode === "full"
+      ? this.stack[0].scene
+      : buildFullScene(this.graph, this.settings);
+    this.stack = [{ label: "Full graph", scene: rootScene }];
+    const scene = buildAuditScene(this.graph, this.settings, issueKey);
+    this.navigate(scene, issueKey ? scene.title : "Research audit", { origin: null });
+  }
+
+  pushAuditIssue(issueKey, originNode = null) {
+    const scene = buildAuditScene(this.graph, this.settings, issueKey);
+    this.navigate(scene, scene.title, { origin: originNode?.id ?? null });
   }
 
   showSearch(query) {
@@ -218,6 +256,8 @@ class WCTGraphView extends ItemView {
       this.status.setText(scene.noMatches
         ? `No matches for “${scene.query}”`
         : `${scene.sourceNodeCount} matches · ${scene.nodes.length} visible nodes`);
+    } else if (scene.mode === "audit") {
+      this.status.setText(`${scene.title} · ${scene.issueCount} issue groups · ${scene.sourceNodeCount.toLocaleString()} findings`);
     } else {
       this.status.setText(`${scene.title} · ${scene.sourceNodeCount.toLocaleString()} nodes · ${scene.sourceEdgeCount.toLocaleString()} links · depth ${this.stack.length - 1}`);
     }
@@ -242,12 +282,12 @@ class WCTGraphView extends ItemView {
     }
     this.animation = {
       start: performance.now(),
-      duration: 620,
+      duration: this.settings.motionMode === "off" ? 1 : 620,
       starts,
       targets: targetById,
       edgeAlpha: 0,
     };
-    this.fitScene(true);
+    this.fitScene(this.settings.motionMode !== "off");
     this.needsRender = true;
   }
 
