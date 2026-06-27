@@ -1,6 +1,10 @@
 "use strict";
 
-const { MarkdownRenderer } = require("obsidian");
+const obsidianApi = globalThis.__WCT_OBSIDIAN_API__;
+if (!obsidianApi?.MarkdownRenderer) {
+  throw new Error("WCT Graph Engine did not receive the Obsidian API before loading graph-inspector.js.");
+}
+const { MarkdownRenderer } = obsidianApi;
 const { TYPE_ORDER, clamp, summaryForType, compactText } = require("./graph-core");
 
 class GraphInspectorMethods {
