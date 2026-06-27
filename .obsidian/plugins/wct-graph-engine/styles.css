@@ -1,0 +1,114 @@
+.wct-graph-view {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+  background: var(--background-primary);
+}
+
+.wct-graph-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 9px;
+  border-bottom: 1px solid var(--background-modifier-border);
+  background: var(--background-secondary);
+  flex: 0 0 auto;
+}
+
+.wct-graph-toolbar button,
+.wct-graph-search {
+  height: 30px;
+  font-size: 12px;
+}
+
+.wct-graph-search {
+  width: min(340px, 38vw);
+  padding: 0 10px;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 6px;
+  background: var(--background-primary);
+  color: var(--text-normal);
+}
+
+.wct-graph-status {
+  margin-left: auto;
+  color: var(--text-muted);
+  font-size: 11px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.wct-graph-stage {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: hidden;
+  cursor: grab;
+  user-select: none;
+  touch-action: none;
+  background:
+    radial-gradient(circle at 50% 48%, color-mix(in srgb, var(--interactive-accent) 7%, transparent), transparent 45%),
+    var(--background-primary);
+}
+
+.wct-graph-stage:active {
+  cursor: grabbing;
+}
+
+.wct-graph-canvas,
+.wct-graph-labels {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.wct-graph-labels {
+  pointer-events: none;
+}
+
+.wct-graph-tooltip {
+  position: absolute;
+  z-index: 5;
+  max-width: 360px;
+  padding: 7px 9px;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 7px;
+  background: color-mix(in srgb, var(--background-primary) 94%, transparent);
+  color: var(--text-normal);
+  box-shadow: var(--shadow-s);
+  white-space: pre-line;
+  pointer-events: none;
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.wct-graph-error {
+  margin: auto;
+  max-width: 520px;
+  padding: 18px;
+  border: 1px solid var(--background-modifier-error);
+  border-radius: 8px;
+  color: var(--text-error);
+  background: var(--background-secondary);
+}
+
+@media (max-width: 700px) {
+  .wct-graph-toolbar {
+    flex-wrap: wrap;
+  }
+
+  .wct-graph-search {
+    width: 100%;
+  }
+
+  .wct-graph-status {
+    width: 100%;
+    margin-left: 0;
+  }
+}
