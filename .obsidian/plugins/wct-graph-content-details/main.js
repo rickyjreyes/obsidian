@@ -8,7 +8,6 @@ const CONCEPT_PREFIX = "Research/02 Concepts/";
 const PATCHED = Symbol("wctGraphContentDetailsPatched");
 
 const isConcept = (path) => String(path ?? "").startsWith(CONCEPT_PREFIX);
-const displayName = (path) => String(path ?? "").split("/").pop()?.replace(/\.md$/i, "") ?? "";
 
 function cleanDefinition(value) {
   return String(value ?? "")
@@ -17,6 +16,15 @@ function cleanDefinition(value) {
     .replace(/\s+/g, " ")
     .trim()
     .replace(/[,;:]$/, ".");
+}
+
+function explicitDefinition(content) {
+  const match = String(content ?? "").match(/^## Definition\s*$([\s\S]*?)(?=^##\s|\Z)/im);
+  if (!match) return "";
+  const definition = match[1].trim();
+  if (!definition) return "";
+  if (/add a concise definition|definition pending|no summary/i.test(definition)) return "";
+  return definition;
 }
 
 class DefinitionStore {
@@ -66,6 +74,10 @@ async function patchInspector(plugin, controller) {
   inspector.show = async (node) => {
     await originalShow(node);
     if (!isConcept(node?.path)) return;
+
+    const file = inspector.view.app.vault.getAbstractFileByPath(node.path);
+    const content = file ? await inspector.view.app.vault.cachedRead(file) : "";
+    if (explicitDefinition(content)) return;
 
     await plugin.store.load();
     const entry = plugin.store.get(node.path);
