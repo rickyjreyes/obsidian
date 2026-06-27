@@ -4,12 +4,49 @@ const { WCTGraphView } = require("./graph-view");
 const rendererV07 = require("./graph-renderer-v07");
 const priorityMethods = require("./graph-priority-view");
 const { decorateGraph } = require("./graph-knowledge");
+const { linkDerivationsByEquationId } = require("./graph-linker-v07");
 
 const originalOnOpen = WCTGraphView.prototype.onOpen;
 const originalNavigate = WCTGraphView.prototype.navigate;
 const originalBack = WCTGraphView.prototype.back;
 const originalJump = WCTGraphView.prototype.jump;
 const originalUpdateStatus = WCTGraphView.prototype.updateStatus;
+
+const PRIORITY_TYPE_FACTORS = {
+  Equations: 1.18,
+  Derivations: 1.22,
+  Predictions: 1.24,
+  Experiments: 1.24,
+  Claims: 1.18,
+  Theorems: 1.15,
+  Contradictions: 1.2,
+  Glossary: 1,
+  Papers: 0.9,
+  Maps: 0.72,
+  Projects: 0.85,
+  Evidence: 0.95,
+  References: 0.48,
+  Artifacts: 0.4,
+  Other: 0.62,
+};
+
+function applyPriorityTypePolicy(graph) {
+  for (const node of graph.nodes) {
+    const profile = node.priorityProfile;
+    if (!profile) continue;
+    const factor = PRIORITY_TYPE_FACTORS[node.type] ?? 0.8;
+    const adjusted = Math.round(Math.max(
+      profile.explicit ?? 0,
+      Math.min(100, profile.score * factor),
+    ));
+    profile.rawScore = profile.score;
+    profile.score = adjusted;
+  }
+  graph.priorityNodes = [...graph.nodes]
+    .sort((a, b) => (b.priorityProfile?.score ?? 0) - (a.priorityProfile?.score ?? 0)
+      || (b.degree ?? 0) - (a.degree ?? 0)
+      || a.label.localeCompare(b.label));
+}
 
 for (const source of [rendererV07, priorityMethods]) {
   for (const name of Object.getOwnPropertyNames(source)) {
@@ -97,9 +134,11 @@ WCTGraphView.prototype.onOpen = async function onOpenV07() {
 };
 
 WCTGraphView.prototype.rebuildGraph = async function rebuildGraphV07() {
-  this.status?.setText("Indexing and scoring…");
+  this.status?.setText("Indexing, linking, and scoring…");
   this.graph = this.plugin.graphCore.GraphIndex.build(this.app, this.settings);
+  linkDerivationsByEquationId(this.graph);
   decorateGraph(this.graph);
+  applyPriorityTypePolicy(this.graph);
   this.previewCache.clear();
   this.timelineBounds = this.plugin.graphCore.timelineBounds(this.graph);
   this.auditButton?.setText(`Audit ${this.graph.auditIssues.reduce((sum, issue) => sum + issue.nodeIds.length, 0)}`);
@@ -107,9 +146,10 @@ WCTGraphView.prototype.rebuildGraph = async function rebuildGraphV07() {
   this.priorityButton?.setText(`Priority ${Math.min(Number(this.settings.priorityNodeLimit) || 120, this.graph.nodes.length)}`);
   this.showFull(true);
   const rejected = this.graph.semanticRejectedCount ? ` · ${this.graph.semanticRejectedCount.toLocaleString()} noise nodes hidden` : "";
+  const inferred = this.graph.inferredDerivationEdges ? ` · ${this.graph.inferredDerivationEdges} ID-matched derivation links` : "";
   const summary = this.graph.validationSummary ?? {};
   this.status?.setText(
-    `${this.graph.nodes.length.toLocaleString()} nodes · ${this.graph.edges.length.toLocaleString()} links · ${summary.averageResearchCompleteness ?? 0}% complete · ${summary.averageCompletion ?? 0}% validation${rejected}`,
+    `${this.graph.nodes.length.toLocaleString()} nodes · ${this.graph.edges.length.toLocaleString()} links · ${summary.averageResearchCompleteness ?? 0}% complete · ${summary.averageCompletion ?? 0}% validation${inferred}${rejected}`,
   );
   this.renderPriorityList?.();
 };
