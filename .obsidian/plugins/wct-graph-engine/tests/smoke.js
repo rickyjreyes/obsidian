@@ -7,6 +7,7 @@ const pluginRoot = path.resolve(__dirname, "..");
 const core = require(path.join(pluginRoot, "graph-core.js"));
 require(path.join(pluginRoot, "graph-semantic.js")).installSemanticGraph(core);
 Object.assign(core, require(path.join(pluginRoot, "graph-timeline.js")));
+Object.assign(core, require(path.join(pluginRoot, "graph-knowledge.js")));
 const semanticSearch = require(path.join(pluginRoot, "graph-search-v05.js"));
 const { repositoryMatches } = require(path.join(pluginRoot, "graph-repository-index.js"));
 
@@ -34,7 +35,15 @@ const caches = new Map([
     links: [],
   }],
   [reference.path, {
-    frontmatter: { id: "obj_1dcc2d3a2afb", type: "reference", confidence: 0.55 },
+    frontmatter: {
+      id: "obj_1dcc2d3a2afb",
+      type: "reference",
+      confidence: 0.55,
+      symbolic_status: "PASS",
+      formal_status: "CONDITIONAL",
+      physical_status: "OPEN",
+      experimental_status: "UNTESTED",
+    },
     headings: [{ heading: "3. [[WCT Corpus Sources 082-114#^SRC-097|J. L. O’Brien, Optical Waveguide Analogues of Quantum Mechanics (2002).]]" }],
     links: [
       { link: "WCT Corpus Sources 082-114#^SRC-097", displayText: "J. L. O’Brien, Optical Waveguide Analogues of Quantum Mechanics (2002)." },
@@ -75,6 +84,7 @@ const settings = {
   includeFolders: ["Research", "WaveLock Research"],
   hideOrphans: true,
   semanticObjectsOnly: true,
+  priorityNodeLimit: 120,
 };
 
 const graph = core.GraphIndex.build(app, settings);
@@ -120,5 +130,16 @@ const dimensional = repositoryMatches(
   "The exact embedding threshold gives n ≤ 3. E24 E25 E26 E27.",
 );
 assert(dimensional.families.some((family) => family.key === "dimensional-stability"), "dimensionality should map to the canonical regularity family");
+
+core.decorateGraph(graph);
+const scoredReference = graph.byId.get(reference.path);
+assert(Number.isFinite(scoredReference.validationProfile.completion), "validation completion should be numeric");
+assert(scoredReference.validationProfile.completion > 0 && scoredReference.validationProfile.completion < 100, "mixed statuses should produce partial completion");
+assert(Number.isFinite(scoredReference.completenessProfile.percent), "research completeness should be numeric");
+assert(Number.isFinite(scoredReference.priorityProfile.score), "priority score should be numeric");
+assert(graph.priorityNodes.length === graph.nodes.length, "every indexed node should receive a priority ranking");
+const priorityScene = core.buildPriorityScene(core, graph, settings);
+assert(priorityScene.mode === "priority", "priority scene should use priority mode");
+assert(priorityScene.nodes.length > 0, "priority scene should contain ranked nodes");
 
 console.log("WCT Graph Engine smoke test passed");
