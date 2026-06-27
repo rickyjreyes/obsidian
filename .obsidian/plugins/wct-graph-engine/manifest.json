@@ -1,0 +1,1 @@
+{"id":"wct-graph-engine","name":"WCT Graph Engine","version":"0.1.0","minAppVersion":"1.7.2","description":"GPU-rendered research graph for large Obsidian vaults with worker-based layout, viewport culling, incremental indexing, and zoom-aware labels.","author":"Richard J. Reyes","authorUrl":"https://github.com/rickyjreyes","isDesktopOnly":false}
