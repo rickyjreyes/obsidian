@@ -14,6 +14,7 @@ const STATUS_WEIGHTS = {
 
 const POSITIVE_STATUSES = new Set(["pass", "empirical"]);
 const RESOLVED_STATUSES = new Set(["pass", "empirical", "fail", "contradicted"]);
+const DERIVATION_RELATIONS = new Set(["derives", "derived-from", "depends-on"]);
 const RELATION_LABELS = {
   defines: "defines",
   "defined-by": "defined by",
@@ -98,11 +99,14 @@ function relatedDefinitions(graph, node, limit = 18) {
   const seen = new Set();
   return direct
     .filter((item) => item.id !== node.id && !seen.has(item.id) && seen.add(item.id))
-    .map((item) => ({
-      node: item,
-      relation: relationTo(graph, node.id, item.id),
-      relationLabel: RELATION_LABELS[relationTo(graph, node.id, item.id)] ?? "related",
-    }))
+    .map((item) => {
+      const relation = relationTo(graph, node.id, item.id);
+      return {
+        node: item,
+        relation,
+        relationLabel: RELATION_LABELS[relation] ?? "related",
+      };
+    })
     .sort((a, b) => {
       const typedA = a.relation === "links" ? 0 : 1;
       const typedB = b.relation === "links" ? 0 : 1;
@@ -111,28 +115,41 @@ function relatedDefinitions(graph, node, limit = 18) {
     .slice(0, limit);
 }
 
+function derivationTargetTypes(node) {
+  if (node.type === "Derivations") return new Set(["Equations"]);
+  if (node.type === "Equations") return new Set(["Derivations"]);
+  return new Set(["Equations", "Derivations"]);
+}
+
 function derivationConnections(graph, node, limit = 40) {
-  const relevantTypes = node.type === "Derivations" ? ["Equations"] : ["Derivations"];
-  const direct = adjacentOfType(graph, node, relevantTypes);
-  const typedIds = new Set();
+  const targetTypes = derivationTargetTypes(node);
+  const candidates = new Map();
+
+  for (const item of adjacentOfType(graph, node, [...targetTypes])) {
+    if (item.id !== node.id) candidates.set(item.id, item);
+  }
+
   for (const edge of relationEdges(graph, node.id)) {
-    if (!["derives", "derived-from", "depends-on"].includes(edge.relation)) continue;
-    typedIds.add(edge.direction === "out" ? edge.target : edge.source);
+    if (!DERIVATION_RELATIONS.has(edge.relation)) continue;
+    const otherId = edge.direction === "out" ? edge.target : edge.source;
+    const candidate = graph.byId.get(otherId);
+    if (candidate && targetTypes.has(candidate.type) && candidate.id !== node.id) {
+      candidates.set(candidate.id, candidate);
+    }
   }
-  const all = [...direct];
-  for (const id of typedIds) {
-    const candidate = graph.byId.get(id);
-    if (candidate && !all.some((item) => item.id === id)) all.push(candidate);
-  }
-  return all
-    .map((item) => ({
-      node: item,
-      relation: relationTo(graph, node.id, item.id),
-      relationLabel: RELATION_LABELS[relationTo(graph, node.id, item.id)] ?? "related",
-    }))
+
+  return [...candidates.values()]
+    .map((item) => {
+      const relation = relationTo(graph, node.id, item.id);
+      return {
+        node: item,
+        relation,
+        relationLabel: RELATION_LABELS[relation] ?? "related",
+      };
+    })
     .sort((a, b) => {
-      const typedA = ["derives", "derived-from", "depends-on"].includes(a.relation) ? 1 : 0;
-      const typedB = ["derives", "derived-from", "depends-on"].includes(b.relation) ? 1 : 0;
+      const typedA = DERIVATION_RELATIONS.has(a.relation) ? 1 : 0;
+      const typedB = DERIVATION_RELATIONS.has(b.relation) ? 1 : 0;
       return typedB - typedA || (b.node.degree ?? 0) - (a.node.degree ?? 0) || a.node.label.localeCompare(b.node.label);
     })
     .slice(0, limit);
@@ -171,12 +188,12 @@ function researchChecklist(graph, node) {
     add("papers", "Paper appearances", linkCount(graph, node, "Papers") > 0, 1, "Link the concept to papers where it appears.");
     add("relations", "Related definitions", relatedDefinitions(graph, node, 1).length > 0, 1, "Add typed links to neighboring concepts.");
   } else if (node.type === "Equations") {
-    add("derivation", "Derivation", derivationConnections(graph, node, 1).length > 0, 2, "Link a derivation using derives, derived-from, or depends-on.");
+    add("derivation", "Derivation", derivationConnections(graph, node, 1).length > 0, 2, "Link a derivation object using derives, derived-from, or an ordinary equation–derivation link.");
     add("definitions", "Defined symbols", linkCount(graph, node, "Glossary") > 0, 1.5, "Link the equation to the definitions of its symbols and operators.");
     add("implementation", "Executable implementation", relationCount(graph, node, ["implements", "implemented-by"]) > 0 || /sympy|lean/i.test(JSON.stringify(node.frontmatter ?? {})), 1.5, "Link SymPy, Lean, or code implementation objects.");
     add("papers", "Paper appearances", linkCount(graph, node, "Papers") > 0, 1, "Link papers that state or use the equation.");
   } else if (node.type === "Derivations") {
-    add("equations", "Equation links", derivationConnections(graph, node, 1).length > 0, 2, "Link the derivation to the equations it derives or depends on.");
+    add("equations", "Equation links", derivationConnections(graph, node, 1).length > 0, 2, "Link the derivation to the canonical equations it derives or depends on.");
     add("assumptions", "Assumptions", hasHeading(node, ["assumptions", "conditions"]) || hasField(node, ["assumptions", "conditions"]), 1.5, "Record assumptions and domain conditions.");
     add("steps", "Derivation steps", hasHeading(node, ["derivation", "proof", "steps"]) || hasField(node, ["steps", "proof"]), 1.5, "Record the mathematical steps or proof.");
     add("papers", "Source papers", linkCount(graph, node, "Papers") > 0, 1, "Link the derivation to its source papers.");
