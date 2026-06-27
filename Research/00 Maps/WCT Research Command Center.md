@@ -2,6 +2,7 @@
 type: research-command-center
 program: Wave Confinement Theory
 status: active
+compiler_spec: MAP-WAVELOCK-RESEARCH-COMPILER-V4
 ---
 
 # WCT Research Command Center
@@ -34,8 +35,10 @@ The purpose of the vault is to expose missing links, prevent claim drift, preser
 
 ## Research operating system
 
-- [[Research/00 Maps/WCT Research Compiler V2|WCT Research Compiler V2]]
-- Use **WCT Graph Engine: Open WCT Graph** for corpus navigation.
+- [[Research/00 Maps/WaveLock Research Compiler V4|WaveLock Research Compiler V4 — canonical architecture]]
+- [[Research/00 Maps/WCT Research Compiler V2|WCT Research Compiler V2 — legacy design history]]
+- [[Research/06 Repositories/WCT Repository Registry|WCT Repository Registry]]
+- Use **WCT Graph Engine: Open WCT Graph** for corpus navigation and the tabbed research browser.
 - Use **WCT Graph Engine: Open WCT Research Audit** for missing-link closure.
 - Use **WCT Graph Engine: Open WCT Idea Timeline** to replay object creation by date with adjustable graph forces.
 
@@ -99,7 +102,8 @@ Convert the strongest WCT branches from internally connected claims into indepen
 2. complete action-to-field-equation and field-equation-to-stability derivations;
 3. explicit separation of exact derivations, model-relative results, fitted relations, simulations, and phenomenological ansätze;
 4. equation-to-code-to-data traceability;
-5. external corroboration and prior-art chronology without using absence of peer review as a truth criterion.
+5. external corroboration and prior-art chronology without using absence of peer review as a truth criterion;
+6. implementation of the V4 canonical registry, assertion, relationship, and provenance layers before further large-scale object extraction.
 
 ## Definition of success
 
@@ -113,4 +117,6 @@ The vault succeeds when a reader or machine can start from any WCT claim and det
 - what measurable result follows;
 - what evidence currently exists;
 - what observation would reject it;
-- what the next unresolved step is.
+- what the next unresolved step is;
+- which compiler assertion supplied each field and relationship;
+- whether the displayed value is extracted, inferred, reviewed, formally proved, experimentally supported, contradicted, or still open.
