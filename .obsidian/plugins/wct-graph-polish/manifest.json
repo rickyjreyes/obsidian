@@ -1,0 +1,1 @@
+{"id":"wct-graph-polish","name":"WCT Graph Polish","version":"0.1.0","minAppVersion":"1.7.2","description":"Normalizes WCT graph areas, removes stray file categories, balances external nodes, and prevents label collisions.","author":"Richard J. Reyes","authorUrl":"https://github.com/rickyjreyes","isDesktopOnly":false}
