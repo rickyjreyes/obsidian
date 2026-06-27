@@ -146,6 +146,7 @@ module.exports = class WCTGraphPlugin extends Plugin {
         "graph-inspector.js",
         "graph-interaction.js",
         "graph-timeline-view.js",
+        "graph-style-v05.js",
         "graph-view.js",
       ];
       const modulePaths = moduleNames.map((name) => resolvePluginFile(this, name));
@@ -157,12 +158,14 @@ module.exports = class WCTGraphPlugin extends Plugin {
       const semanticPath = resolvePluginFile(this, "graph-semantic.js");
       const auditPath = resolvePluginFile(this, "graph-audit.js");
       const timelinePath = resolvePluginFile(this, "graph-timeline.js");
+      const stylePath = resolvePluginFile(this, "graph-style-v05.js");
       const viewPath = resolvePluginFile(this, "graph-view.js");
 
       this.graphCore = require(corePath);
       require(semanticPath).installSemanticGraph(this.graphCore);
       this.graphCore.buildAuditScene = require(auditPath).buildAuditScene;
       Object.assign(this.graphCore, require(timelinePath));
+      require(stylePath).installStyles(this);
 
       const { WCTGraphView } = require(viewPath);
       const { VIEW_TYPE, DEFAULT_SETTINGS, debounce } = this.graphCore;
