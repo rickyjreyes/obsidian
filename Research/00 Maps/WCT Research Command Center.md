@@ -81,8 +81,9 @@ The purpose of the vault is to expose missing links, prevent claim drift, preser
 - [[Research/00 Maps/Program Status Matrix|Program Status Matrix]]
 - [[Research/00 Maps/Chronology|Chronology]]
 - [[Research/00 Maps/Concept Index|Concept Index]]
-- [[Research/00 Maps/WCT Glossary|WCT Glossary]]
-- [[Research/03 Equations/00 Equations Index|Equations Index]]
+- [[Research/03 Glossary/WCT Glossary|WCT Glossary]]
+- [[Research/00 Maps/Glossary Overview Map|Glossary Overview Map]]
+- [[Research/04 Equations/00 Equation Dependency Map|Equation Dependency Map]]
 
 ## Current highest-value objective
 
