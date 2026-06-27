@@ -19,9 +19,12 @@ function cleanDefinition(value) {
 }
 
 function explicitDefinition(content) {
-  const match = String(content ?? "").match(/^## Definition\s*$([\s\S]*?)(?=^##\s|\Z)/im);
-  if (!match) return "";
-  const definition = match[1].trim();
+  const text = String(content ?? "");
+  const heading = /^## Definition\s*$/im.exec(text);
+  if (!heading) return "";
+  const tail = text.slice(heading.index + heading[0].length);
+  const nextHeading = tail.search(/^##\s+/m);
+  const definition = (nextHeading >= 0 ? tail.slice(0, nextHeading) : tail).trim();
   if (!definition) return "";
   if (/add a concise definition|definition pending|no summary/i.test(definition)) return "";
   return definition;
