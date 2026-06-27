@@ -79,6 +79,15 @@ function applyPdfChecks(graph, node) {
   }
 }
 
+function assignPriorityRanks(graph) {
+  const total = graph.priorityNodes.length;
+  graph.priorityNodes.forEach((node, index) => {
+    node.priorityRank = index + 1;
+    node.priorityTotal = total;
+    node.priorityKey = `${String(index + 1).padStart(String(total).length, "0")}/${total}`;
+  });
+}
+
 function decorateGraphState(graph) {
   decorateGraph(graph);
   for (const node of graph.nodes) applyPdfChecks(graph, node);
@@ -87,6 +96,7 @@ function decorateGraphState(graph) {
     .sort((a, b) => (b.priorityProfile?.score ?? 0) - (a.priorityProfile?.score ?? 0)
       || (b.degree ?? 0) - (a.degree ?? 0)
       || a.label.localeCompare(b.label));
+  assignPriorityRanks(graph);
   graph.validationSummary.averageResearchCompleteness = Math.round(
     graph.nodes.reduce((sum, node) => sum + (node.completenessProfile?.percent ?? 0), 0)
       / Math.max(1, graph.nodes.length),
@@ -157,6 +167,7 @@ function currentState(graph, node) {
 }
 
 function decorateCurrentStates(graph) {
+  assignPriorityRanks(graph);
   for (const node of graph.nodes) node.currentState = currentState(graph, node);
   return graph;
 }
@@ -166,4 +177,5 @@ module.exports = {
   decorateCurrentStates,
   currentState,
   connectedByType,
+  assignPriorityRanks,
 };
