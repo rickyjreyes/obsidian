@@ -1,4 +1,4 @@
-.wct-graph-view {
+.wct-graph-root {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -12,7 +12,8 @@
   display: flex;
   align-items: center;
   gap: 6px;
-  padding: 7px 9px;
+  min-height: 42px;
+  padding: 6px 8px;
   border-bottom: 1px solid var(--background-modifier-border);
   background: var(--background-secondary);
   flex: 0 0 auto;
@@ -24,8 +25,33 @@
   font-size: 12px;
 }
 
+.wct-graph-breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  min-width: 0;
+  max-width: 34vw;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.wct-graph-breadcrumbs button {
+  flex: 0 0 auto;
+  max-width: 170px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  height: 27px;
+  font-size: 11px;
+}
+
+.wct-graph-breadcrumb-separator {
+  color: var(--text-faint);
+  font-size: 11px;
+}
+
 .wct-graph-search {
-  width: min(340px, 38vw);
+  width: min(330px, 32vw);
   padding: 0 10px;
   border: 1px solid var(--background-modifier-border);
   border-radius: 6px;
@@ -47,68 +73,197 @@
   flex: 1 1 auto;
   min-height: 0;
   overflow: hidden;
-  cursor: grab;
-  user-select: none;
-  touch-action: none;
   background:
-    radial-gradient(circle at 50% 48%, color-mix(in srgb, var(--interactive-accent) 7%, transparent), transparent 45%),
+    radial-gradient(circle at 50% 48%, color-mix(in srgb, var(--interactive-accent) 8%, transparent), transparent 46%),
     var(--background-primary);
 }
 
-.wct-graph-stage:active {
-  cursor: grabbing;
-}
-
-.wct-graph-canvas,
-.wct-graph-labels {
+.wct-graph-canvas {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   display: block;
-}
-
-.wct-graph-labels {
-  pointer-events: none;
+  cursor: grab;
+  user-select: none;
+  touch-action: none;
 }
 
 .wct-graph-tooltip {
   position: absolute;
-  z-index: 5;
-  max-width: 360px;
-  padding: 7px 9px;
+  z-index: 20;
+  width: min(360px, 42vw);
+  max-height: 180px;
+  overflow: hidden;
+  padding: 8px 10px;
   border: 1px solid var(--background-modifier-border);
   border-radius: 7px;
-  background: color-mix(in srgb, var(--background-primary) 94%, transparent);
+  background: color-mix(in srgb, var(--background-primary) 95%, transparent);
   color: var(--text-normal);
   box-shadow: var(--shadow-s);
   white-space: pre-line;
   pointer-events: none;
   font-size: 11px;
-  line-height: 1.4;
+  line-height: 1.45;
+  backdrop-filter: blur(10px);
 }
 
-.wct-graph-error {
-  margin: auto;
-  max-width: 520px;
-  padding: 18px;
-  border: 1px solid var(--background-modifier-error);
-  border-radius: 8px;
-  color: var(--text-error);
+.wct-graph-tooltip.is-hidden,
+.wct-graph-inspector.is-hidden {
+  display: none;
+}
+
+.wct-graph-inspector {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 30;
+  width: min(460px, 44vw);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid var(--background-modifier-border);
+  background: color-mix(in srgb, var(--background-primary) 97%, transparent);
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.24);
+  backdrop-filter: blur(12px);
+  user-select: text;
+}
+
+.wct-graph-inspector-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 14px 16px 10px;
+  border-bottom: 1px solid var(--background-modifier-border);
+}
+
+.wct-graph-inspector-title {
+  flex: 1;
+  min-width: 0;
+}
+
+.wct-graph-inspector-title h2 {
+  margin: 0 0 2px;
+  font-size: 18px;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+
+.wct-graph-inspector-title small {
+  color: var(--text-muted);
+  font-size: 11px;
+}
+
+.wct-graph-inspector-close {
+  flex: 0 0 auto;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  font-size: 20px;
+  line-height: 1;
+}
+
+.wct-graph-inspector-body {
+  flex: 1;
+  overflow: auto;
+  padding: 14px 16px 20px;
+}
+
+.wct-graph-inspector-section {
+  margin-bottom: 18px;
+}
+
+.wct-graph-inspector-section h3 {
+  margin: 0 0 7px;
+  color: var(--text-muted);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.wct-graph-inspector-markdown {
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.wct-graph-inspector-markdown > :first-child {
+  margin-top: 0;
+}
+
+.wct-graph-inspector-markdown > :last-child {
+  margin-bottom: 0;
+}
+
+.wct-graph-inspector-path {
+  padding: 7px 9px;
+  border-radius: 6px;
+  background: var(--background-secondary);
+  color: var(--text-muted);
+  font-family: var(--font-monospace);
+  font-size: 10px;
+  word-break: break-all;
+}
+
+.wct-graph-connection-group {
+  margin-bottom: 10px;
+}
+
+.wct-graph-connection-group strong {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--text-muted);
+  font-size: 11px;
+}
+
+.wct-graph-connection-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.wct-graph-connection-buttons button {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 10px;
+}
+
+.wct-graph-inspector-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 7px;
+  padding: 12px 16px;
+  border-top: 1px solid var(--background-modifier-border);
   background: var(--background-secondary);
 }
 
-@media (max-width: 700px) {
+.wct-graph-inspector-actions button {
+  width: 100%;
+}
+
+@media (max-width: 860px) {
   .wct-graph-toolbar {
     flex-wrap: wrap;
   }
 
-  .wct-graph-search {
+  .wct-graph-breadcrumbs {
+    order: 10;
     width: 100%;
+    max-width: 100%;
+  }
+
+  .wct-graph-search {
+    flex: 1 1 220px;
+    width: auto;
   }
 
   .wct-graph-status {
     width: 100%;
     margin-left: 0;
+  }
+
+  .wct-graph-inspector {
+    width: 100%;
   }
 }
