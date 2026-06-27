@@ -1,5 +1,13 @@
 "use strict";
 
+const {
+  RELATION_COLORS,
+  STATUS_COLORS,
+  fileMetadata,
+  buildExplicitRelationEdges,
+  buildAuditIssues,
+} = require("./graph-research");
+
 const VIEW_TYPE = "wct-graph-view";
 const VIEW_NAME = "WCT Graph";
 
@@ -14,6 +22,9 @@ const DEFAULT_SETTINGS = {
   nodeScale: 1,
   edgeOpacity: 0.12,
   autoRebuild: true,
+  motionMode: "full",
+  showStatusRings: true,
+  showRelationArrows: true,
 };
 
 const TYPE_ORDER = [
@@ -42,6 +53,12 @@ const TYPE_COLORS = {
   Projects: "#e15f94",
   References: "#8993a2",
   Other: "#7598bf",
+};
+
+const AUDIT_COLORS = {
+  high: "#e05252",
+  medium: "#f09a34",
+  low: "#8993a2",
 };
 
 const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
@@ -91,8 +108,28 @@ function pathAllowed(path, settings) {
   return !excludes.some((folder) => path === folder || path.startsWith(`${folder}/`) || path.includes(`/${folder}/`));
 }
 
-function edgeKey(left, right) {
-  return left < right ? `${left}\u0000${right}` : `${right}\u0000${left}`;
+function edgeKey(edge) {
+  if (edge.directed) return `${edge.source}\u0000${edge.target}\u0000${edge.relation}\u00001`;
+  const left = edge.source < edge.target ? edge.source : edge.target;
+  const right = edge.source < edge.target ? edge.target : edge.source;
+  return `${left}\u0000${right}\u0000${edge.relation}\u00000`;
+}
+
+function addEdge(edgeMap, edge) {
+  const normalized = {
+    source: edge.source,
+    target: edge.target,
+    relation: edge.relation ?? "links",
+    directed: Boolean(edge.directed),
+    weight: Math.max(1, Number(edge.weight) || 1),
+  };
+  if (!normalized.directed && normalized.source > normalized.target) {
+    [normalized.source, normalized.target] = [normalized.target, normalized.source];
+  }
+  const key = edgeKey(normalized);
+  const current = edgeMap.get(key);
+  if (current) current.weight += normalized.weight;
+  else edgeMap.set(key, normalized);
 }
 
 function stripFrontmatter(content) {
@@ -166,46 +203,70 @@ class GraphIndex {
   static build(app, settings) {
     const files = app.vault.getMarkdownFiles().filter((file) => pathAllowed(file.path, settings));
     const fileByPath = new Map(files.map((file) => [file.path, file]));
-    const degrees = new Map(files.map((file) => [file.path, 0]));
-    const weights = new Map();
+    const metadataByPath = new Map(files.map((file) => [file.path, fileMetadata(app, file)]));
+    const edgeMap = new Map();
     const resolved = app.metadataCache.resolvedLinks ?? {};
 
     for (const [source, destinations] of Object.entries(resolved)) {
       if (!fileByPath.has(source)) continue;
       for (const [target, rawWeight] of Object.entries(destinations ?? {})) {
         if (!fileByPath.has(target) || source === target) continue;
-        const key = edgeKey(source, target);
-        const weight = Math.max(1, Number(rawWeight) || 1);
-        weights.set(key, (weights.get(key) ?? 0) + weight);
+        addEdge(edgeMap, {
+          source,
+          target,
+          relation: "links",
+          directed: false,
+          weight: rawWeight,
+        });
       }
     }
 
-    const edges = [];
-    for (const [key, weight] of weights) {
-      const [source, target] = key.split("\u0000");
-      edges.push({ source, target, weight });
-      degrees.set(source, (degrees.get(source) ?? 0) + weight);
-      degrees.set(target, (degrees.get(target) ?? 0) + weight);
+    for (const edge of buildExplicitRelationEdges(app, files, fileByPath, metadataByPath)) {
+      addEdge(edgeMap, edge);
     }
 
-    let nodes = files.map((file) => ({
-      id: file.path,
-      path: file.path,
-      label: basename(file.path),
-      type: classifyPath(file.path),
-      degree: degrees.get(file.path) ?? 0,
-      file,
-    }));
+    const edges = [...edgeMap.values()];
+    const degrees = new Map(files.map((file) => [file.path, 0]));
+    for (const edge of edges) {
+      degrees.set(edge.source, (degrees.get(edge.source) ?? 0) + edge.weight);
+      degrees.set(edge.target, (degrees.get(edge.target) ?? 0) + edge.weight);
+    }
+
+    let nodes = files.map((file) => {
+      const metadata = metadataByPath.get(file.path);
+      return {
+        id: file.path,
+        path: file.path,
+        label: basename(file.path),
+        type: classifyPath(file.path),
+        degree: degrees.get(file.path) ?? 0,
+        file,
+        frontmatter: metadata.frontmatter,
+        headings: metadata.headings,
+        statuses: metadata.statuses,
+        overallStatus: metadata.overallStatus,
+        relations: metadata.relations,
+        auditIssues: [],
+      };
+    });
 
     if (settings.hideOrphans) nodes = nodes.filter((node) => node.degree > 0);
     const allowed = new Set(nodes.map((node) => node.id));
     const filteredEdges = edges.filter((edge) => allowed.has(edge.source) && allowed.has(edge.target));
     const byId = new Map(nodes.map((node) => [node.id, node]));
     const adjacency = new Map(nodes.map((node) => [node.id, new Set()]));
+    const outgoing = new Map(nodes.map((node) => [node.id, []]));
+    const incoming = new Map(nodes.map((node) => [node.id, []]));
+
     for (const edge of filteredEdges) {
       adjacency.get(edge.source)?.add(edge.target);
       adjacency.get(edge.target)?.add(edge.source);
+      if (edge.directed) {
+        outgoing.get(edge.source)?.push(edge);
+        incoming.get(edge.target)?.push(edge);
+      }
     }
+
     const groups = new Map(TYPE_ORDER.map((type) => [type, []]));
     for (const node of nodes) {
       if (!groups.has(node.type)) groups.set(node.type, []);
@@ -218,7 +279,24 @@ class GraphIndex {
         return (b?.degree ?? 0) - (a?.degree ?? 0) || String(a?.label).localeCompare(String(b?.label));
       });
     }
-    return { nodes, edges: filteredEdges, byId, adjacency, groups };
+
+    const graph = {
+      nodes,
+      edges: filteredEdges,
+      byId,
+      adjacency,
+      outgoing,
+      incoming,
+      groups,
+      auditIssues: [],
+      auditByKey: new Map(),
+    };
+    graph.auditIssues = buildAuditIssues(graph);
+    graph.auditByKey = new Map(graph.auditIssues.map((issue) => [issue.key, issue]));
+    for (const issue of graph.auditIssues) {
+      for (const id of issue.nodeIds) byId.get(id)?.auditIssues.push(issue.key);
+    }
+    return graph;
   }
 }
 
@@ -236,6 +314,9 @@ function sceneNode(node, x, y, options = {}) {
     color: options.color ?? TYPE_COLORS[options.type ?? node.type] ?? TYPE_COLORS.Other,
     alwaysLabel: options.alwaysLabel ?? false,
     labelPriority: options.labelPriority ?? node.degree ?? 0,
+    statuses: node.statuses,
+    overallStatus: node.overallStatus,
+    auditIssues: node.auditIssues ?? [],
   };
 }
 
@@ -262,7 +343,8 @@ function edgeScore(graph, edge) {
   if (!source || !target) return -Infinity;
   const cross = source.type !== target.type ? 4 : 0;
   const map = source.type === "Maps" || target.type === "Maps" ? 5 : 0;
-  return Math.max(1, edge.weight) * 8 + Math.log2(source.degree + 2) + Math.log2(target.degree + 2) + cross + map;
+  const typed = edge.relation !== "links" ? 10 : 0;
+  return Math.max(1, edge.weight) * 8 + Math.log2(source.degree + 2) + Math.log2(target.degree + 2) + cross + map + typed;
 }
 
 function buildFullScene(graph, settings) {
@@ -412,10 +494,84 @@ function buildConnectionScene(graph, centerId, settings) {
   };
 }
 
+function buildAuditScene(graph, settings, issueKey = null) {
+  const issues = issueKey
+    ? [graph.auditByKey.get(issueKey)].filter(Boolean)
+    : graph.auditIssues;
+  const nodes = [];
+  const selectedIds = new Set();
+
+  issues.forEach((issue, issueIndex) => {
+    const angle = -Math.PI / 2 + (issueIndex / Math.max(1, issues.length)) * Math.PI * 2;
+    const anchorX = issueKey ? 0 : Math.cos(angle) * 760;
+    const anchorY = issueKey ? 0 : Math.sin(angle) * 540;
+    const hub = {
+      id: `audit:${issue.key}`,
+      path: null,
+      label: `${issue.label}\n${issue.nodeIds.length} findings`,
+      type: "Audit",
+      kind: "audit-area",
+      auditKey: issue.key,
+      degree: issue.nodeIds.length,
+      x: anchorX,
+      y: anchorY,
+      size: clamp(24 + Math.log2(issue.nodeIds.length + 1) * 3, 26, 46),
+      color: AUDIT_COLORS[issue.severity] ?? AUDIT_COLORS.low,
+      alwaysLabel: true,
+      labelPriority: 700000 + issue.nodeIds.length,
+    };
+    nodes.push(hub);
+
+    const ids = issue.nodeIds
+      .map((id) => graph.byId.get(id))
+      .filter(Boolean)
+      .sort((a, b) => b.degree - a.degree)
+      .slice(0, issueKey ? settings.maxCategoryNodes : 24);
+    ids.forEach((node, index) => {
+      selectedIds.add(node.id);
+      const localAngle = index * 2.399963229728653;
+      const radius = 72 + Math.sqrt(index + 1) * 31;
+      nodes.push(sceneNode(node,
+        anchorX + Math.cos(localAngle) * radius,
+        anchorY + Math.sin(localAngle) * radius * 0.82,
+        { alwaysLabel: issueKey ? index < 14 : index < 4, labelPriority: 300000 - index },
+      ));
+    });
+  });
+
+  const edges = graph.edges
+    .filter((edge) => selectedIds.has(edge.source) && selectedIds.has(edge.target))
+    .sort((a, b) => edgeScore(graph, b) - edgeScore(graph, a))
+    .slice(0, 900);
+
+  const total = issues.reduce((sum, issue) => sum + issue.nodeIds.length, 0);
+  return {
+    key: issueKey ? `audit:${issueKey}` : "audit",
+    mode: "audit",
+    title: issueKey ? issues[0]?.label ?? "Audit" : "Research audit",
+    auditKey: issueKey,
+    nodes,
+    edges,
+    sourceNodeCount: total,
+    sourceEdgeCount: edges.length,
+    issueCount: issues.length,
+  };
+}
+
 function buildSearchScene(graph, query, settings) {
   const normalized = query.trim().toLowerCase();
   const matches = graph.nodes
-    .filter((node) => node.label.toLowerCase().includes(normalized) || node.path.toLowerCase().includes(normalized))
+    .filter((node) => {
+      const metadata = [
+        node.label,
+        node.path,
+        node.type,
+        node.overallStatus,
+        ...Object.values(node.statuses ?? {}),
+        ...(node.auditIssues ?? []),
+      ].join(" ").toLowerCase();
+      return metadata.includes(normalized);
+    })
     .sort((a, b) => b.degree - a.degree)
     .slice(0, 40);
   const selected = new Set(matches.map((node) => node.id));
@@ -476,6 +632,9 @@ module.exports = {
   DEFAULT_SETTINGS,
   TYPE_ORDER,
   TYPE_COLORS,
+  RELATION_COLORS,
+  STATUS_COLORS,
+  AUDIT_COLORS,
   clamp,
   debounce,
   hashString,
@@ -485,6 +644,7 @@ module.exports = {
   buildFullScene,
   buildCategoryScene,
   buildConnectionScene,
+  buildAuditScene,
   buildSearchScene,
   summaryForType,
   compactText,
