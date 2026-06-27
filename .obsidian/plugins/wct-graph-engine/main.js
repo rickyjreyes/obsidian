@@ -1,7 +1,10 @@
 "use strict";
 
 const path = require("path");
-const { Plugin, PluginSettingTab, Setting, Notice } = require("obsidian");
+const obsidianApi = require("obsidian");
+const { Plugin, PluginSettingTab, Setting, Notice } = obsidianApi;
+
+globalThis.__WCT_OBSIDIAN_API__ = obsidianApi;
 
 function resolvePluginFile(plugin, filename) {
   const adapter = plugin.app.vault.adapter;
@@ -69,6 +72,8 @@ class WCTGraphSettingTab extends PluginSettingTab {
 module.exports = class WCTGraphPlugin extends Plugin {
   async onload() {
     try {
+      globalThis.__WCT_OBSIDIAN_API__ = obsidianApi;
+
       const corePath = resolvePluginFile(this, "graph-core.js");
       const viewPath = resolvePluginFile(this, "graph-view.js");
 
@@ -126,5 +131,11 @@ module.exports = class WCTGraphPlugin extends Plugin {
 
   async saveSettings() {
     await this.saveData(this.settings);
+  }
+
+  onunload() {
+    if (globalThis.__WCT_OBSIDIAN_API__ === obsidianApi) {
+      delete globalThis.__WCT_OBSIDIAN_API__;
+    }
   }
 };
