@@ -140,6 +140,7 @@ module.exports = class WCTGraphPlugin extends Plugin {
         "graph-semantic.js",
         "graph-audit.js",
         "graph-timeline.js",
+        "graph-search-v05.js",
         "graph-force.js",
         "graph-renderer.js",
         "graph-input.js",
@@ -158,6 +159,7 @@ module.exports = class WCTGraphPlugin extends Plugin {
       const semanticPath = resolvePluginFile(this, "graph-semantic.js");
       const auditPath = resolvePluginFile(this, "graph-audit.js");
       const timelinePath = resolvePluginFile(this, "graph-timeline.js");
+      const searchPath = resolvePluginFile(this, "graph-search-v05.js");
       const stylePath = resolvePluginFile(this, "graph-style-v05.js");
       const viewPath = resolvePluginFile(this, "graph-view.js");
 
@@ -165,6 +167,8 @@ module.exports = class WCTGraphPlugin extends Plugin {
       require(semanticPath).installSemanticGraph(this.graphCore);
       this.graphCore.buildAuditScene = require(auditPath).buildAuditScene;
       Object.assign(this.graphCore, require(timelinePath));
+      const semanticSearch = require(searchPath);
+      this.graphCore.buildSearchScene = (graph, query, settings) => semanticSearch.buildSearchScene(this.graphCore, graph, query, settings);
       require(stylePath).installStyles(this);
 
       const { WCTGraphView } = require(viewPath);
