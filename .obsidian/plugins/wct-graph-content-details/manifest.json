@@ -1,0 +1,1 @@
+{"id":"wct-graph-content-details","name":"WCT Graph Content Details","version":"0.1.0","minAppVersion":"1.7.2","description":"Supplies canonical glossary definitions to graph inspectors and removes obsolete glossary-index map nodes from graph scenes.","author":"Richard J. Reyes","authorUrl":"https://github.com/rickyjreyes","isDesktopOnly":false}
