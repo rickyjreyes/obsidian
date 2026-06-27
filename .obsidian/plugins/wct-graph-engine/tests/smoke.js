@@ -8,6 +8,7 @@ const core = require(path.join(pluginRoot, "graph-core.js"));
 require(path.join(pluginRoot, "graph-semantic.js")).installSemanticGraph(core);
 Object.assign(core, require(path.join(pluginRoot, "graph-timeline.js")));
 const semanticSearch = require(path.join(pluginRoot, "graph-search-v05.js"));
+const { repositoryMatches } = require(path.join(pluginRoot, "graph-repository-index.js"));
 
 function file(filePath, ctime) {
   return {
@@ -105,5 +106,19 @@ assert(timeline.nodes.every((node) => Number.isFinite(node.createdAt)), "timelin
 
 const idSearch = semanticSearch.buildSearchScene(core, graph, "id:obj_1dcc2d3a2afb", settings);
 assert.strictEqual(idSearch.sourceNodeCount, 1, "stable-ID search should find exactly the reference object");
+
+const curvature = repositoryMatches(
+  { label: "Curvature Feedback", path: "Research/02 Concepts/Curvature Feedback.md", type: "Glossary" },
+  "E17 E18 regularized curvature operator and Lyapunov gradient flow",
+);
+assert(curvature.families.some((family) => family.key === "curvature-feedback"), "curvature feedback should map to E17-E23");
+assert(curvature.repositories.some((repo) => repo.id === "wct-sympy"), "curvature feedback should map to wct-sympy");
+assert(curvature.lean.some((entry) => entry.ids.includes("E18")), "E18 should expose Lean declarations");
+
+const dimensional = repositoryMatches(
+  { label: "D — Dimensionality and Functional Bounds", path: "Research/04 Equations/D.md", type: "Equations" },
+  "The exact embedding threshold gives n ≤ 3. E24 E25 E26 E27.",
+);
+assert(dimensional.families.some((family) => family.key === "dimensional-stability"), "dimensionality should map to the canonical regularity family");
 
 console.log("WCT Graph Engine smoke test passed");
