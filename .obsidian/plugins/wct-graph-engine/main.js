@@ -6,18 +6,16 @@ const { Plugin, PluginSettingTab, Setting, Notice } = obsidianApi;
 
 globalThis.__WCT_OBSIDIAN_API__ = obsidianApi;
 
-function resolvePluginFile(plugin, filename) {
+function pluginFile(plugin, filename) {
   const adapter = plugin.app.vault.adapter;
-  const pluginDir = plugin.manifest.dir
-    ?? `${plugin.app.vault.configDir}/plugins/${plugin.manifest.id}`;
-  const relativePath = `${pluginDir}/${filename}`.replace(/\\/g, "/");
-
-  if (typeof adapter.getFullPath === "function") return adapter.getFullPath(relativePath);
-  if (typeof adapter.getBasePath === "function") return path.join(adapter.getBasePath(), ...relativePath.split("/"));
+  const dir = plugin.manifest.dir ?? `${plugin.app.vault.configDir}/plugins/${plugin.manifest.id}`;
+  const relative = `${dir}/${filename}`.replace(/\\/g, "/");
+  if (typeof adapter.getFullPath === "function") return adapter.getFullPath(relative);
+  if (typeof adapter.getBasePath === "function") return path.join(adapter.getBasePath(), ...relative.split("/"));
   throw new Error("WCT Graph Engine could not resolve its plugin directory.");
 }
 
-class WCTGraphSettingTab extends PluginSettingTab {
+class WCTSettings extends PluginSettingTab {
   constructor(app, plugin) {
     super(app, plugin);
     this.plugin = plugin;
@@ -25,106 +23,52 @@ class WCTGraphSettingTab extends PluginSettingTab {
 
   display() {
     const { containerEl } = this;
-    const { clamp } = this.plugin.graphCore;
+    const plugin = this.plugin;
+    const { clamp } = plugin.graphCore;
     containerEl.empty();
     containerEl.createEl("h2", { text: "WCT Graph" });
 
-    new Setting(containerEl)
-      .setName("Include folders")
-      .setDesc("Comma-separated vault folders to index. Research and WaveLock Research are recommended.")
-      .addText((text) => text
-        .setValue(this.plugin.settings.includeFolders.join(", "))
-        .onChange(async (value) => {
-          this.plugin.settings.includeFolders = value.split(",").map((item) => item.trim()).filter(Boolean);
-          await this.plugin.saveSettings();
-        }));
+    new Setting(containerEl).setName("Include folders")
+      .setDesc("Comma-separated vault folders to index.")
+      .addText((text) => text.setValue(plugin.settings.includeFolders.join(", ")).onChange(async (value) => {
+        plugin.settings.includeFolders = value.split(",").map((item) => item.trim()).filter(Boolean);
+        await plugin.saveSettings();
+      }));
 
-    new Setting(containerEl)
-      .setName("Generated research objects")
-      .setDesc("Include semantic objects and artifacts from WaveLock Research.")
-      .addToggle((toggle) => toggle
-        .setValue(this.plugin.settings.includeGeneratedObjects !== false)
-        .onChange(async (value) => {
-          this.plugin.settings.includeGeneratedObjects = value;
-          await this.plugin.saveSettings();
-          this.plugin.rebuildViews();
+    for (const [key, name, description] of [
+      ["includeGeneratedObjects", "Generated research objects", "Include semantic objects and artifacts from WaveLock Research."],
+      ["semanticObjectsOnly", "Semantic object filter", "Hide obvious parser fragments and metadata-only objects."],
+      ["hideOrphans", "Hide orphan notes", "Hide objects with no resolved graph connection."],
+      ["showStatusRings", "Validation status rings", "Show aggregate SymPy, Lean, physical, and experimental state."],
+      ["showRelationArrows", "Typed relation arrows", "Show direction for typed research relations."],
+    ]) {
+      new Setting(containerEl).setName(name).setDesc(description)
+        .addToggle((toggle) => toggle.setValue(plugin.settings[key] !== false).onChange(async (value) => {
+          plugin.settings[key] = value;
+          await plugin.saveSettings();
+          key === "showStatusRings" || key === "showRelationArrows" ? plugin.refreshViews() : plugin.rebuildViews();
         }));
+    }
 
-    new Setting(containerEl)
-      .setName("Semantic object filter")
-      .setDesc("Hide parser fragments such as authors, aliases, comments, overview headings, and one-letter definitions.")
-      .addToggle((toggle) => toggle
-        .setValue(this.plugin.settings.semanticObjectsOnly !== false)
-        .onChange(async (value) => {
-          this.plugin.settings.semanticObjectsOnly = value;
-          await this.plugin.saveSettings();
-          this.plugin.rebuildViews();
-        }));
+    new Setting(containerEl).setName("Full graph edge budget")
+      .addText((text) => text.setValue(String(plugin.settings.fullEdgeBudget)).onChange(async (value) => {
+        plugin.settings.fullEdgeBudget = clamp(Number(value) || 1700, 200, 5000);
+        await plugin.saveSettings();
+      }));
 
-    new Setting(containerEl)
-      .setName("Hide orphan notes")
-      .addToggle((toggle) => toggle
-        .setValue(this.plugin.settings.hideOrphans)
-        .onChange(async (value) => {
-          this.plugin.settings.hideOrphans = value;
-          await this.plugin.saveSettings();
-          this.plugin.rebuildViews();
-        }));
+    new Setting(containerEl).setName("Timeline node budget")
+      .addText((text) => text.setValue(String(plugin.settings.timelineMaxNodes ?? 2200)).onChange(async (value) => {
+        plugin.settings.timelineMaxNodes = clamp(Number(value) || 2200, 200, 5000);
+        await plugin.saveSettings();
+      }));
 
-    new Setting(containerEl)
-      .setName("Full graph edge budget")
-      .setDesc("Limits rendered edges while retaining every indexed node.")
-      .addText((text) => text
-        .setValue(String(this.plugin.settings.fullEdgeBudget))
-        .onChange(async (value) => {
-          this.plugin.settings.fullEdgeBudget = clamp(Number(value) || 1700, 200, 5000);
-          await this.plugin.saveSettings();
-        }));
-
-    new Setting(containerEl)
-      .setName("Timeline node budget")
-      .setDesc("Maximum number of date-ordered nodes shown at the end of the timelapse.")
-      .addText((text) => text
-        .setValue(String(this.plugin.settings.timelineMaxNodes ?? 2200))
-        .onChange(async (value) => {
-          this.plugin.settings.timelineMaxNodes = clamp(Number(value) || 2200, 200, 5000);
-          await this.plugin.saveSettings();
-        }));
-
-    new Setting(containerEl)
-      .setName("Motion")
-      .setDesc("Full keeps ambient movement and particles, Reduced lowers animation cost, and Off renders only when needed.")
+    new Setting(containerEl).setName("Motion")
       .addDropdown((dropdown) => dropdown
-        .addOption("full", "Full")
-        .addOption("reduced", "Reduced")
-        .addOption("off", "Off")
-        .setValue(this.plugin.settings.motionMode ?? "full")
-        .onChange(async (value) => {
-          this.plugin.settings.motionMode = value;
-          await this.plugin.saveSettings();
-          this.plugin.refreshViews();
-        }));
-
-    new Setting(containerEl)
-      .setName("Validation status rings")
-      .setDesc("Draw the overall SymPy, Lean, physical, and experimental state around each note.")
-      .addToggle((toggle) => toggle
-        .setValue(this.plugin.settings.showStatusRings !== false)
-        .onChange(async (value) => {
-          this.plugin.settings.showStatusRings = value;
-          await this.plugin.saveSettings();
-          this.plugin.refreshViews();
-        }));
-
-    new Setting(containerEl)
-      .setName("Typed relation arrows")
-      .setDesc("Show direction for defines, derives, predicts, tests, implements, supports, cites, and source relations.")
-      .addToggle((toggle) => toggle
-        .setValue(this.plugin.settings.showRelationArrows !== false)
-        .onChange(async (value) => {
-          this.plugin.settings.showRelationArrows = value;
-          await this.plugin.saveSettings();
-          this.plugin.refreshViews();
+        .addOption("full", "Full").addOption("reduced", "Reduced").addOption("off", "Off")
+        .setValue(plugin.settings.motionMode ?? "full").onChange(async (value) => {
+          plugin.settings.motionMode = value;
+          await plugin.saveSettings();
+          plugin.refreshViews();
         }));
   }
 }
@@ -133,85 +77,51 @@ module.exports = class WCTGraphPlugin extends Plugin {
   async onload() {
     try {
       globalThis.__WCT_OBSIDIAN_API__ = obsidianApi;
-
-      const moduleNames = [
-        "graph-research.js",
-        "graph-core.js",
-        "graph-semantic.js",
-        "graph-audit.js",
-        "graph-timeline.js",
-        "graph-search-v05.js",
-        "graph-force.js",
-        "graph-renderer.js",
-        "graph-input.js",
-        "graph-inspector.js",
-        "graph-interaction.js",
-        "graph-timeline-view.js",
-        "graph-style-v05.js",
-        "graph-view.js",
+      const names = [
+        "graph-research.js", "graph-core.js", "graph-semantic.js", "graph-audit.js",
+        "graph-timeline.js", "graph-search-v05.js", "graph-force.js", "graph-renderer.js",
+        "graph-input.js", "graph-repository-index.js", "graph-inspector.js",
+        "graph-interaction.js", "graph-timeline-view.js", "graph-style-v05.js",
+        "graph-style-v06.js", "graph-view.js",
       ];
-      const modulePaths = moduleNames.map((name) => resolvePluginFile(this, name));
-      for (const modulePath of modulePaths) {
-        try { delete require.cache[require.resolve(modulePath)]; } catch (_) {}
+      for (const name of names) {
+        const full = pluginFile(this, name);
+        try { delete require.cache[require.resolve(full)]; } catch (_) {}
       }
 
-      const corePath = resolvePluginFile(this, "graph-core.js");
-      const semanticPath = resolvePluginFile(this, "graph-semantic.js");
-      const auditPath = resolvePluginFile(this, "graph-audit.js");
-      const timelinePath = resolvePluginFile(this, "graph-timeline.js");
-      const searchPath = resolvePluginFile(this, "graph-search-v05.js");
-      const stylePath = resolvePluginFile(this, "graph-style-v05.js");
-      const viewPath = resolvePluginFile(this, "graph-view.js");
+      this.graphCore = require(pluginFile(this, "graph-core.js"));
+      require(pluginFile(this, "graph-semantic.js")).installSemanticGraph(this.graphCore);
+      this.graphCore.buildAuditScene = require(pluginFile(this, "graph-audit.js")).buildAuditScene;
+      Object.assign(this.graphCore, require(pluginFile(this, "graph-timeline.js")));
+      const search = require(pluginFile(this, "graph-search-v05.js"));
+      this.graphCore.buildSearchScene = (graph, query, settings) => search.buildSearchScene(this.graphCore, graph, query, settings);
+      require(pluginFile(this, "graph-style-v05.js")).installStyles(this);
+      require(pluginFile(this, "graph-style-v06.js")).installStyles(this);
 
-      this.graphCore = require(corePath);
-      require(semanticPath).installSemanticGraph(this.graphCore);
-      this.graphCore.buildAuditScene = require(auditPath).buildAuditScene;
-      Object.assign(this.graphCore, require(timelinePath));
-      const semanticSearch = require(searchPath);
-      this.graphCore.buildSearchScene = (graph, query, settings) => semanticSearch.buildSearchScene(this.graphCore, graph, query, settings);
-      require(stylePath).installStyles(this);
-
-      const { WCTGraphView } = require(viewPath);
+      const { WCTGraphView } = require(pluginFile(this, "graph-view.js"));
       const { VIEW_TYPE, DEFAULT_SETTINGS, debounce } = this.graphCore;
       this.viewType = VIEW_TYPE;
-
-      const saved = await this.loadData() ?? {};
-      this.settings = Object.assign({}, DEFAULT_SETTINGS, saved);
+      this.settings = Object.assign({}, DEFAULT_SETTINGS, await this.loadData() ?? {});
       if (this.settings.includeGeneratedObjects !== false) {
         this.settings.includeFolders = [...new Set([...(this.settings.includeFolders ?? ["Research"]), "WaveLock Research"])];
       }
 
       this.registerView(VIEW_TYPE, (leaf) => new WCTGraphView(leaf, this));
-      this.addCommand({
-        id: "open-wct-graph",
-        name: "Open WCT Graph",
-        callback: () => this.activateView(),
-      });
-      this.addCommand({
-        id: "open-wct-research-audit",
-        name: "Open WCT Research Audit",
-        callback: async () => {
-          await this.activateView();
-          this.app.workspace.getLeavesOfType(VIEW_TYPE)[0]?.view?.showAudit?.();
-        },
-      });
-      this.addCommand({
-        id: "open-wct-idea-timeline",
-        name: "Open WCT Idea Timeline",
-        callback: async () => {
-          await this.activateView();
-          this.app.workspace.getLeavesOfType(VIEW_TYPE)[0]?.view?.showTimeline?.();
-        },
-      });
-      this.addSettingTab(new WCTGraphSettingTab(this.app, this));
+      this.addCommand({ id: "open-wct-graph", name: "Open WCT Graph", callback: () => this.activateView() });
+      this.addCommand({ id: "open-wct-research-audit", name: "Open WCT Research Audit", callback: async () => {
+        await this.activateView();
+        this.app.workspace.getLeavesOfType(VIEW_TYPE)[0]?.view?.showAudit?.();
+      }});
+      this.addCommand({ id: "open-wct-idea-timeline", name: "Open WCT Idea Timeline", callback: async () => {
+        await this.activateView();
+        this.app.workspace.getLeavesOfType(VIEW_TYPE)[0]?.view?.showTimeline?.();
+      }});
+      this.addSettingTab(new WCTSettings(this.app, this));
 
       if (this.settings.autoRebuild) {
         const rebuild = debounce(() => this.rebuildViews(), 900);
+        for (const event of ["create", "delete", "rename", "modify"]) this.registerEvent(this.app.vault.on(event, rebuild));
         this.registerEvent(this.app.metadataCache.on("resolved", rebuild));
-        this.registerEvent(this.app.vault.on("create", rebuild));
-        this.registerEvent(this.app.vault.on("delete", rebuild));
-        this.registerEvent(this.app.vault.on("rename", rebuild));
-        this.registerEvent(this.app.vault.on("modify", rebuild));
       }
     } catch (error) {
       console.error("WCT Graph Engine failed to load", error);
@@ -242,9 +152,7 @@ module.exports = class WCTGraphPlugin extends Plugin {
     await this.app.workspace.revealLeaf(leaf);
   }
 
-  async saveSettings() {
-    await this.saveData(this.settings);
-  }
+  async saveSettings() { await this.saveData(this.settings); }
 
   onunload() {
     if (globalThis.__WCT_OBSIDIAN_API__ === obsidianApi) delete globalThis.__WCT_OBSIDIAN_API__;
