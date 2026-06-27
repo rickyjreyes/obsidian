@@ -1,0 +1,13 @@
+{
+  "includeFolders": ["Research"],
+  "excludeFolders": [".obsidian", "Templates"],
+  "hideOrphans": true,
+  "maxNodes": 6000,
+  "labelLimit": 90,
+  "labelMinZoom": 0.25,
+  "layoutIterations": 420,
+  "layoutPublishEvery": 12,
+  "nodeScale": 1.05,
+  "edgeOpacity": 0.07,
+  "autoRebuild": true
+}
