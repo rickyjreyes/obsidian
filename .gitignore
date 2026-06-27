@@ -4,6 +4,9 @@
 .obsidian/cache/
 .obsidian/workspaces.json
 
+# WaveLock local compiler caches
+.wct-cache/
+
 # Local trash and operating-system files
 .trash/
 .DS_Store
