@@ -1,7 +1,7 @@
 "use strict";
 
 const input = require("./graph-input");
-const inspector = require("./graph-inspector");
+const inspector = require("./graph-inspector-v07");
 const combined = {};
 for (const source of [input, inspector]) {
   for (const name of Object.getOwnPropertyNames(source)) {
