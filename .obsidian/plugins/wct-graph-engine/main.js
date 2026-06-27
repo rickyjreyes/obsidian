@@ -12,14 +12,8 @@ function resolvePluginFile(plugin, filename) {
     ?? `${plugin.app.vault.configDir}/plugins/${plugin.manifest.id}`;
   const relativePath = `${pluginDir}/${filename}`.replace(/\\/g, "/");
 
-  if (typeof adapter.getFullPath === "function") {
-    return adapter.getFullPath(relativePath);
-  }
-
-  if (typeof adapter.getBasePath === "function") {
-    return path.join(adapter.getBasePath(), ...relativePath.split("/"));
-  }
-
+  if (typeof adapter.getFullPath === "function") return adapter.getFullPath(relativePath);
+  if (typeof adapter.getBasePath === "function") return path.join(adapter.getBasePath(), ...relativePath.split("/"));
   throw new Error("WCT Graph Engine could not resolve its plugin directory.");
 }
 
@@ -37,15 +31,34 @@ class WCTGraphSettingTab extends PluginSettingTab {
 
     new Setting(containerEl)
       .setName("Include folders")
-      .setDesc("Comma-separated vault folders to index.")
+      .setDesc("Comma-separated vault folders to index. Research and WaveLock Research are recommended.")
       .addText((text) => text
         .setValue(this.plugin.settings.includeFolders.join(", "))
         .onChange(async (value) => {
-          this.plugin.settings.includeFolders = value
-            .split(",")
-            .map((item) => item.trim())
-            .filter(Boolean);
+          this.plugin.settings.includeFolders = value.split(",").map((item) => item.trim()).filter(Boolean);
           await this.plugin.saveSettings();
+        }));
+
+    new Setting(containerEl)
+      .setName("Generated research objects")
+      .setDesc("Include semantic objects and artifacts from WaveLock Research.")
+      .addToggle((toggle) => toggle
+        .setValue(this.plugin.settings.includeGeneratedObjects !== false)
+        .onChange(async (value) => {
+          this.plugin.settings.includeGeneratedObjects = value;
+          await this.plugin.saveSettings();
+          this.plugin.rebuildViews();
+        }));
+
+    new Setting(containerEl)
+      .setName("Semantic object filter")
+      .setDesc("Hide parser fragments such as authors, aliases, comments, overview headings, and one-letter definitions.")
+      .addToggle((toggle) => toggle
+        .setValue(this.plugin.settings.semanticObjectsOnly !== false)
+        .onChange(async (value) => {
+          this.plugin.settings.semanticObjectsOnly = value;
+          await this.plugin.saveSettings();
+          this.plugin.rebuildViews();
         }));
 
     new Setting(containerEl)
@@ -55,6 +68,7 @@ class WCTGraphSettingTab extends PluginSettingTab {
         .onChange(async (value) => {
           this.plugin.settings.hideOrphans = value;
           await this.plugin.saveSettings();
+          this.plugin.rebuildViews();
         }));
 
     new Setting(containerEl)
@@ -64,6 +78,16 @@ class WCTGraphSettingTab extends PluginSettingTab {
         .setValue(String(this.plugin.settings.fullEdgeBudget))
         .onChange(async (value) => {
           this.plugin.settings.fullEdgeBudget = clamp(Number(value) || 1700, 200, 5000);
+          await this.plugin.saveSettings();
+        }));
+
+    new Setting(containerEl)
+      .setName("Timeline node budget")
+      .setDesc("Maximum number of date-ordered nodes shown at the end of the timelapse.")
+      .addText((text) => text
+        .setValue(String(this.plugin.settings.timelineMaxNodes ?? 2200))
+        .onChange(async (value) => {
+          this.plugin.settings.timelineMaxNodes = clamp(Number(value) || 2200, 200, 5000);
           await this.plugin.saveSettings();
         }));
 
@@ -94,7 +118,7 @@ class WCTGraphSettingTab extends PluginSettingTab {
 
     new Setting(containerEl)
       .setName("Typed relation arrows")
-      .setDesc("Show direction for defines, derives, predicts, tests, implements, supports, and related research links.")
+      .setDesc("Show direction for defines, derives, predicts, tests, implements, supports, cites, and source relations.")
       .addToggle((toggle) => toggle
         .setValue(this.plugin.settings.showRelationArrows !== false)
         .onChange(async (value) => {
@@ -113,34 +137,42 @@ module.exports = class WCTGraphPlugin extends Plugin {
       const moduleNames = [
         "graph-research.js",
         "graph-core.js",
+        "graph-semantic.js",
         "graph-audit.js",
+        "graph-timeline.js",
+        "graph-force.js",
         "graph-renderer.js",
         "graph-input.js",
         "graph-inspector.js",
         "graph-interaction.js",
+        "graph-timeline-view.js",
         "graph-view.js",
       ];
       const modulePaths = moduleNames.map((name) => resolvePluginFile(this, name));
       for (const modulePath of modulePaths) {
-        try {
-          delete require.cache[require.resolve(modulePath)];
-        } catch (_) {}
+        try { delete require.cache[require.resolve(modulePath)]; } catch (_) {}
       }
 
       const corePath = resolvePluginFile(this, "graph-core.js");
+      const semanticPath = resolvePluginFile(this, "graph-semantic.js");
       const auditPath = resolvePluginFile(this, "graph-audit.js");
+      const timelinePath = resolvePluginFile(this, "graph-timeline.js");
       const viewPath = resolvePluginFile(this, "graph-view.js");
-      this.graphCore = require(corePath);
-      this.graphCore.buildAuditScene = require(auditPath).buildAuditScene;
-      const { WCTGraphView } = require(viewPath);
-      const {
-        VIEW_TYPE,
-        DEFAULT_SETTINGS,
-        debounce,
-      } = this.graphCore;
 
+      this.graphCore = require(corePath);
+      require(semanticPath).installSemanticGraph(this.graphCore);
+      this.graphCore.buildAuditScene = require(auditPath).buildAuditScene;
+      Object.assign(this.graphCore, require(timelinePath));
+
+      const { WCTGraphView } = require(viewPath);
+      const { VIEW_TYPE, DEFAULT_SETTINGS, debounce } = this.graphCore;
       this.viewType = VIEW_TYPE;
-      this.settings = Object.assign({}, DEFAULT_SETTINGS, await this.loadData());
+
+      const saved = await this.loadData() ?? {};
+      this.settings = Object.assign({}, DEFAULT_SETTINGS, saved);
+      if (this.settings.includeGeneratedObjects !== false) {
+        this.settings.includeFolders = [...new Set([...(this.settings.includeFolders ?? ["Research"]), "WaveLock Research"])];
+      }
 
       this.registerView(VIEW_TYPE, (leaf) => new WCTGraphView(leaf, this));
       this.addCommand({
@@ -156,14 +188,18 @@ module.exports = class WCTGraphPlugin extends Plugin {
           this.app.workspace.getLeavesOfType(VIEW_TYPE)[0]?.view?.showAudit?.();
         },
       });
+      this.addCommand({
+        id: "open-wct-idea-timeline",
+        name: "Open WCT Idea Timeline",
+        callback: async () => {
+          await this.activateView();
+          this.app.workspace.getLeavesOfType(VIEW_TYPE)[0]?.view?.showTimeline?.();
+        },
+      });
       this.addSettingTab(new WCTGraphSettingTab(this.app, this));
 
       if (this.settings.autoRebuild) {
-        const rebuild = debounce(() => {
-          for (const leaf of this.app.workspace.getLeavesOfType(VIEW_TYPE)) {
-            leaf.view.rebuildGraph?.();
-          }
-        }, 700);
+        const rebuild = debounce(() => this.rebuildViews(), 900);
         this.registerEvent(this.app.metadataCache.on("resolved", rebuild));
         this.registerEvent(this.app.vault.on("create", rebuild));
         this.registerEvent(this.app.vault.on("delete", rebuild));
@@ -182,7 +218,12 @@ module.exports = class WCTGraphPlugin extends Plugin {
       leaf.view.settings = this.settings;
       leaf.view.motionButton?.setText(leaf.view.motionButtonText?.() ?? "Motion");
       leaf.view.needsRender = true;
+      leaf.view.wakeTimelineForce?.(2500);
     }
+  }
+
+  rebuildViews() {
+    for (const leaf of this.app.workspace.getLeavesOfType(this.viewType)) leaf.view.rebuildGraph?.();
   }
 
   async activateView() {
@@ -199,8 +240,6 @@ module.exports = class WCTGraphPlugin extends Plugin {
   }
 
   onunload() {
-    if (globalThis.__WCT_OBSIDIAN_API__ === obsidianApi) {
-      delete globalThis.__WCT_OBSIDIAN_API__;
-    }
+    if (globalThis.__WCT_OBSIDIAN_API__ === obsidianApi) delete globalThis.__WCT_OBSIDIAN_API__;
   }
 };
