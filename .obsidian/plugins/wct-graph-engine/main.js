@@ -165,9 +165,9 @@ module.exports = class WCTGraphPlugin extends Plugin {
         "graph-timeline.js", "graph-search-v05.js", "graph-knowledge.js", "graph-linker-v07.js",
         "graph-force.js", "graph-renderer.js", "graph-renderer-v07.js", "graph-input.js",
         "graph-repository-index.js", "graph-inspector.js", "graph-inspector-v07.js",
-        "graph-interaction.js", "graph-timeline-view.js", "graph-priority-view.js",
-        "graph-style-v05.js", "graph-style-v06.js", "graph-style-v07.js",
-        "graph-view.js", "graph-view-v07.js",
+        "graph-inspector-v071.js", "graph-interaction.js", "graph-timeline-view.js",
+        "graph-priority-view.js", "graph-style-v05.js", "graph-style-v06.js",
+        "graph-style-v07.js", "graph-view.js", "graph-view-v07.js",
       ];
       for (const name of names) {
         const full = pluginFile(this, name);
