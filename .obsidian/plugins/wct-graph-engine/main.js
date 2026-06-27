@@ -33,12 +33,14 @@ class WCTSettings extends PluginSettingTab {
       .addText((text) => text.setValue(plugin.settings.includeFolders.join(", ")).onChange(async (value) => {
         plugin.settings.includeFolders = value.split(",").map((item) => item.trim()).filter(Boolean);
         await plugin.saveSettings();
+        plugin.rebuildViews();
       }));
 
     for (const [key, name, description] of [
       ["includeGeneratedObjects", "Generated research objects", "Include semantic objects and artifacts from WaveLock Research."],
       ["semanticObjectsOnly", "Semantic object filter", "Hide obvious parser fragments and metadata-only objects."],
-      ["hideOrphans", "Hide orphan notes", "Hide objects with no resolved graph connection."],
+      ["inferGlossaryMentions", "Parse glossary terms in references and papers", "Create reviewable exact-name mention links from references, papers, claims, theorems, derivations, and other objects to canonical glossary definitions."],
+      ["extractPaperObjects", "Extract paper claims and formal objects", "Expose explicit claims, theorems, derivations, and contradictions found in the ingested paper text as individual graph objects."],
       ["showStatusRings", "Validation status rings", "Show aggregate SymPy, Lean, physical, and experimental state."],
       ["showRelationArrows", "Typed relation arrows", "Show direction for typed research relations."],
     ]) {
@@ -50,10 +52,27 @@ class WCTSettings extends PluginSettingTab {
         }));
     }
 
+    new Setting(containerEl).setName("Retain unseen corpus nodes")
+      .setDesc("Keep valid research objects connected to the WCT Research root even when no ordinary note link currently reaches them.")
+      .addToggle((toggle) => toggle.setValue(plugin.settings.retainUnseenNodes !== false).onChange(async (value) => {
+        plugin.settings.retainUnseenNodes = value;
+        plugin.settings.hideOrphans = !value;
+        await plugin.saveSettings();
+        plugin.rebuildViews();
+      }));
+
     new Setting(containerEl).setName("Full graph edge budget")
       .addText((text) => text.setValue(String(plugin.settings.fullEdgeBudget)).onChange(async (value) => {
         plugin.settings.fullEdgeBudget = clamp(Number(value) || 1700, 200, 5000);
         await plugin.saveSettings();
+      }));
+
+    new Setting(containerEl).setName("Full graph previews per type")
+      .setDesc("The WCT Research root retains every object; this controls only how many previews appear around each main type hub.")
+      .addText((text) => text.setValue(String(plugin.settings.fullPreviewPerType ?? 28)).onChange(async (value) => {
+        plugin.settings.fullPreviewPerType = clamp(Number(value) || 28, 0, 80);
+        await plugin.saveSettings();
+        plugin.rebuildViews();
       }));
 
     new Setting(containerEl).setName("Timeline node budget")
@@ -65,14 +84,14 @@ class WCTSettings extends PluginSettingTab {
     new Setting(containerEl).setName("Priority bubble count")
       .setDesc("Number of highest-priority research objects shown in the bubble-up graph.")
       .addText((text) => text.setValue(String(plugin.settings.priorityNodeLimit ?? 120)).onChange(async (value) => {
-        plugin.settings.priorityNodeLimit = clamp(Number(value) || 120, 30, 400);
+        plugin.settings.priorityNodeLimit = clamp(Number(value) || 120, 30, 500);
         await plugin.saveSettings();
       }));
 
     new Setting(containerEl).setName("Priority table row count")
-      .setDesc("Maximum rows returned by the searchable priority table after filtering.")
-      .addText((text) => text.setValue(String(plugin.settings.priorityListLimit ?? 200)).onChange(async (value) => {
-        plugin.settings.priorityListLimit = clamp(Number(value) || 200, 20, 1000);
+      .setDesc("Maximum rows returned by the searchable corpus-wide rank table.")
+      .addText((text) => text.setValue(String(plugin.settings.priorityListLimit ?? 5000)).onChange(async (value) => {
+        plugin.settings.priorityListLimit = clamp(Number(value) || 5000, 20, 10000);
         await plugin.saveSettings();
         plugin.refreshViews();
       }));
@@ -119,12 +138,13 @@ class WCTSettings extends PluginSettingTab {
         }));
 
     new Setting(containerEl).setName("Inspector width")
+      .setDesc("Version 0.9 defaults to the full 940 px research browser.")
       .addDropdown((dropdown) => dropdown
         .addOption("560", "Narrow — 560 px")
-        .addOption("690", "Normal — 690 px")
+        .addOption("690", "Medium — 690 px")
         .addOption("820", "Wide — 820 px")
-        .addOption("940", "Extra wide — 940 px")
-        .setValue(String(plugin.settings.inspectorWidth ?? 690))
+        .addOption("940", "Default — 940 px")
+        .setValue(String(plugin.settings.inspectorWidth ?? 940))
         .onChange(async (value) => {
           plugin.settings.inspectorWidth = Number(value);
           await plugin.saveSettings();
@@ -146,7 +166,6 @@ class WCTSettings extends PluginSettingTab {
         }));
 
     new Setting(containerEl).setName("Focused label enlargement")
-      .setDesc("How much a hovered or selected object label grows.")
       .addDropdown((dropdown) => dropdown
         .addOption("1.2", "Subtle")
         .addOption("1.5", "Normal")
@@ -165,7 +184,7 @@ class WCTSettings extends PluginSettingTab {
         .addOption("1", "Normal")
         .addOption("1.15", "Large")
         .addOption("1.3", "Extra large")
-        .setValue(String(plugin.settings.hoverCardScale ?? 1))
+        .setValue(String(plugin.settings.hoverCardScale ?? 1.15))
         .onChange(async (value) => {
           plugin.settings.hoverCardScale = Number(value);
           await plugin.saveSettings();
@@ -188,11 +207,14 @@ module.exports = class WCTGraphPlugin extends Plugin {
     try {
       globalThis.__WCT_OBSIDIAN_API__ = obsidianApi;
       const names = [
-        "graph-research.js", "graph-core.js", "graph-semantic.js", "graph-audit.js",
-        "graph-timeline.js", "graph-search-v05.js", "graph-knowledge.js", "graph-linker-v07.js",
-        "graph-state-v08.js", "graph-pdf-import.js", "graph-force.js", "graph-renderer.js",
-        "graph-renderer-v07.js", "graph-input.js", "graph-repository-index.js", "graph-inspector.js",
-        "graph-inspector-v07.js", "graph-inspector-v071.js", "graph-interaction.js",
+        "graph-research.js", "graph-core.js", "graph-semantic.js", "graph-ontology-v09.js",
+        "graph-text-v09.js", "graph-reindex-v09.js", "graph-paper-objects-v09.js",
+        "graph-link-enrichment-v09.js", "graph-enrichment-v09.js", "graph-scenes-v09.js",
+        "graph-audit.js", "graph-timeline.js", "graph-search-v05.js", "graph-knowledge.js",
+        "graph-linker-v07.js", "graph-state-v08.js", "graph-pdf-import.js", "graph-force.js",
+        "graph-renderer.js", "graph-renderer-v07.js", "graph-renderer-v09.js", "graph-input.js",
+        "graph-repository-index.js", "graph-inspector.js", "graph-inspector-v07.js",
+        "graph-inspector-v071.js", "graph-inspector-text-v09.js", "graph-interaction.js",
         "graph-timeline-view.js", "graph-priority-view.js", "graph-style-v05.js",
         "graph-style-v06.js", "graph-style-v07.js", "graph-style-v08.js",
         "graph-view.js", "graph-view-v07.js", "graph-view-v08.js",
@@ -203,21 +225,28 @@ module.exports = class WCTGraphPlugin extends Plugin {
       }
 
       this.graphCore = require(pluginFile(this, "graph-core.js"));
+      require(pluginFile(this, "graph-ontology-v09.js")).installOntology(this.graphCore);
       require(pluginFile(this, "graph-semantic.js")).installSemanticGraph(this.graphCore);
       this.graphCore.buildAuditScene = require(pluginFile(this, "graph-audit.js")).buildAuditScene;
       Object.assign(this.graphCore, require(pluginFile(this, "graph-timeline.js")));
       Object.assign(this.graphCore, require(pluginFile(this, "graph-knowledge.js")));
       Object.assign(this.graphCore.DEFAULT_SETTINGS, {
+        retainUnseenNodes: true,
+        inferGlossaryMentions: true,
+        extractPaperObjects: true,
+        glossaryMentionLimit: 80,
+        fullPreviewPerType: 28,
+        maxCategoryNodes: 1200,
         priorityNodeLimit: 120,
-        priorityListLimit: 200,
+        priorityListLimit: 5000,
         pdfDerivationOutputFolder: "Research/08 Derivations/PDF",
         pdfDerivationMaxSections: 10,
         pdfDerivationMaxPages: 5,
         browserFontScale: 1,
-        inspectorWidth: 690,
+        inspectorWidth: 940,
         graphLabelScale: 1,
         focusLabelScale: 1.5,
-        hoverCardScale: 1,
+        hoverCardScale: 1.15,
       });
       const search = require(pluginFile(this, "graph-search-v05.js"));
       this.graphCore.buildSearchScene = (graph, query, settings) => search.buildSearchScene(this.graphCore, graph, query, settings);
@@ -234,6 +263,9 @@ module.exports = class WCTGraphPlugin extends Plugin {
       if (this.settings.includeGeneratedObjects !== false) {
         this.settings.includeFolders = [...new Set([...(this.settings.includeFolders ?? ["Research"]), "WaveLock Research"])];
       }
+      if (this.settings.retainUnseenNodes !== false) this.settings.hideOrphans = false;
+      if (!Number.isFinite(Number(this.settings.inspectorWidth)) || Number(this.settings.inspectorWidth) === 690) this.settings.inspectorWidth = 940;
+      if (!Number.isFinite(Number(this.settings.priorityListLimit)) || Number(this.settings.priorityListLimit) <= 200) this.settings.priorityListLimit = 5000;
 
       this.registerView(VIEW_TYPE, (leaf) => new WCTGraphView(leaf, this));
       this.addCommand({ id: "open-wct-graph", name: "Open WCT Graph", callback: () => this.activateView() });
@@ -245,7 +277,7 @@ module.exports = class WCTGraphPlugin extends Plugin {
         await this.activateView();
         this.app.workspace.getLeavesOfType(VIEW_TYPE)[0]?.view?.showTimeline?.();
       }});
-      this.addCommand({ id: "open-wct-priority", name: "Open WCT Priority Table and Bubble-Up", callback: async () => {
+      this.addCommand({ id: "open-wct-priority", name: "Open WCT Corpus Priority Rank", callback: async () => {
         await this.activateView();
         this.app.workspace.getLeavesOfType(VIEW_TYPE)[0]?.view?.showPriority?.();
       }});
