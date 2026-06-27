@@ -11,6 +11,8 @@ Object.assign(core, require(path.join(pluginRoot, "graph-knowledge.js")));
 const semanticSearch = require(path.join(pluginRoot, "graph-search-v05.js"));
 const { repositoryMatches } = require(path.join(pluginRoot, "graph-repository-index.js"));
 const { linkDerivationsByEquationId } = require(path.join(pluginRoot, "graph-linker-v07.js"));
+const { buildAuditIssues } = require(path.join(pluginRoot, "graph-research.js"));
+const { decorateGraphState, decorateCurrentStates } = require(path.join(pluginRoot, "graph-state-v08.js"));
 
 function file(filePath, ctime) {
   return {
@@ -166,9 +168,100 @@ const linkerGraph = {
   adjacency: new Map([[equationNode.id, new Set()], [derivationNode.id, new Set()]]),
   outgoing: new Map([[equationNode.id, []], [derivationNode.id, []]]),
   incoming: new Map([[equationNode.id, []], [derivationNode.id, []]]),
+  auditIssues: [],
+  auditByKey: new Map(),
 };
 linkDerivationsByEquationId(linkerGraph);
 assert.strictEqual(linkerGraph.inferredDerivationEdges, 1, "shared equation IDs should infer one derivation edge");
 assert(linkerGraph.edges.some((edge) => edge.source === derivationNode.id && edge.target === equationNode.id && edge.relation === "derives"), "the inferred edge should point from derivation to equation");
+
+function emptyStatuses() {
+  return { symbolic: "unreviewed", formal: "unreviewed", physical: "unreviewed", experimental: "unreviewed" };
+}
+
+const pdfPaper = {
+  id: "Research/01 Literature Notes/Test PDF Paper.md",
+  path: "Research/01 Literature Notes/Test PDF Paper.md",
+  label: "Test PDF Paper",
+  type: "Papers",
+  degree: 0,
+  frontmatter: { id: "PAP-TEST", pdf_url: "https://example.org/test.pdf" },
+  headings: new Set(["overview"]),
+  statuses: emptyStatuses(),
+  overallStatus: "unreviewed",
+  stableId: "PAP-TEST",
+  stableIdSource: "frontmatter",
+  auditIssues: [],
+};
+const pdfGraph = {
+  nodes: [pdfPaper],
+  edges: [],
+  byId: new Map([[pdfPaper.id, pdfPaper]]),
+  adjacency: new Map([[pdfPaper.id, new Set()]]),
+  outgoing: new Map([[pdfPaper.id, []]]),
+  incoming: new Map([[pdfPaper.id, []]]),
+  groups: new Map([["Papers", [pdfPaper.id]]]),
+  auditIssues: [],
+  auditByKey: new Map(),
+};
+pdfGraph.auditIssues = buildAuditIssues(pdfGraph);
+pdfGraph.auditByKey = new Map(pdfGraph.auditIssues.map((issue) => [issue.key, issue]));
+for (const issue of pdfGraph.auditIssues) for (const id of issue.nodeIds) pdfGraph.byId.get(id)?.auditIssues.push(issue.key);
+decorateGraphState(pdfGraph);
+decorateCurrentStates(pdfGraph);
+assert(pdfGraph.auditByKey.get("paper-pdf-no-derivations")?.nodeIds.includes(pdfPaper.id), "PDF paper without imported derivations should be audited");
+assert.strictEqual(pdfPaper.currentState.label, "PDF derivations not imported", "PDF paper should explain its current missing state");
+assert(pdfPaper.completenessProfile.missing.some((check) => check.key === "pdf-derivations"), "paper completeness should require PDF derivation import");
+
+const pdfDerivation = {
+  id: "Research/08 Derivations/PDF/Test PDF Paper/Test Derivation.md",
+  path: "Research/08 Derivations/PDF/Test PDF Paper/Test Derivation.md",
+  label: "Test PDF Paper — Derivation — pp. 2-3",
+  type: "Derivations",
+  degree: 2,
+  frontmatter: {
+    id: "DRV-PDF-TEST",
+    source_kind: "pdf",
+    source_pages: "2-3",
+    human_verified: false,
+    canonical_latex_verified: false,
+  },
+  headings: new Set(["derivation", "current state", "what is missing"]),
+  statuses: emptyStatuses(),
+  overallStatus: "unreviewed",
+  stableId: "DRV-PDF-TEST",
+  stableIdSource: "frontmatter",
+  auditIssues: [],
+};
+const pdfEdge = {
+  source: pdfDerivation.id,
+  target: pdfPaper.id,
+  relation: "derived-from",
+  directed: true,
+  weight: 2,
+};
+pdfPaper.degree = 2;
+pdfPaper.auditIssues = [];
+pdfGraph.nodes.push(pdfDerivation);
+pdfGraph.edges.push(pdfEdge);
+pdfGraph.byId.set(pdfDerivation.id, pdfDerivation);
+pdfGraph.adjacency.set(pdfDerivation.id, new Set([pdfPaper.id]));
+pdfGraph.adjacency.get(pdfPaper.id).add(pdfDerivation.id);
+pdfGraph.outgoing.set(pdfDerivation.id, [pdfEdge]);
+pdfGraph.incoming.set(pdfDerivation.id, []);
+pdfGraph.outgoing.get(pdfPaper.id).length = 0;
+pdfGraph.incoming.get(pdfPaper.id).push(pdfEdge);
+pdfGraph.groups.set("Derivations", [pdfDerivation.id]);
+pdfGraph.auditIssues = buildAuditIssues(pdfGraph);
+pdfGraph.auditByKey = new Map(pdfGraph.auditIssues.map((issue) => [issue.key, issue]));
+for (const node of pdfGraph.nodes) node.auditIssues = [];
+for (const issue of pdfGraph.auditIssues) for (const id of issue.nodeIds) pdfGraph.byId.get(id)?.auditIssues.push(issue.key);
+decorateGraphState(pdfGraph);
+decorateCurrentStates(pdfGraph);
+assert(!pdfGraph.auditByKey.get("paper-pdf-no-derivations")?.nodeIds.includes(pdfPaper.id), "connected PDF derivation should clear the missing-import audit");
+assert.notStrictEqual(pdfPaper.currentState.label, "PDF derivations not imported", "paper current state should change after import");
+assert.strictEqual(pdfDerivation.currentState.label, "PDF extraction awaiting review", "generated derivation should explain that human review is still missing");
+assert(pdfDerivation.completenessProfile.missing.some((check) => check.key === "human-verification"), "PDF derivation should require human verification");
+assert(pdfDerivation.completenessProfile.missing.some((check) => check.key === "canonical-latex"), "PDF derivation should require canonical LaTeX verification");
 
 console.log("WCT Graph Engine smoke test passed");
