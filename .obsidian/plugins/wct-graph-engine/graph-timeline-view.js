@@ -129,8 +129,9 @@ class GraphTimelineViewMethods {
     }
 
     this.animation = null;
+    const visibleIds = new Set(scene.nodes.map((node) => node.id));
     this.displayPositions = new Map(
-      [...this.displayPositions.entries()].filter(([id]) => scene.nodes.some((node) => node.id === id)),
+      [...this.displayPositions.entries()].filter(([id]) => visibleIds.has(id)),
     );
     this.initializeTimelineForce?.(scene, true);
     this.timelineDateLabel.setText(formatDate(cutoff));
