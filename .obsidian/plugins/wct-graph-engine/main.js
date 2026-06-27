@@ -195,7 +195,7 @@ module.exports = class WCTGraphPlugin extends Plugin {
         "graph-inspector-v07.js", "graph-inspector-v071.js", "graph-interaction.js",
         "graph-timeline-view.js", "graph-priority-view.js", "graph-style-v05.js",
         "graph-style-v06.js", "graph-style-v07.js", "graph-style-v08.js",
-        "graph-view.js", "graph-view-v07.js",
+        "graph-view.js", "graph-view-v07.js", "graph-view-v08.js",
       ];
       for (const name of names) {
         const full = pluginFile(this, name);
@@ -227,7 +227,7 @@ module.exports = class WCTGraphPlugin extends Plugin {
       require(pluginFile(this, "graph-style-v07.js")).installStyles(this);
       require(pluginFile(this, "graph-style-v08.js")).installStyles(this);
 
-      const { WCTGraphView } = require(pluginFile(this, "graph-view-v07.js"));
+      const { WCTGraphView } = require(pluginFile(this, "graph-view-v08.js"));
       const { VIEW_TYPE, DEFAULT_SETTINGS, debounce } = this.graphCore;
       this.viewType = VIEW_TYPE;
       this.settings = Object.assign({}, DEFAULT_SETTINGS, await this.loadData() ?? {});
