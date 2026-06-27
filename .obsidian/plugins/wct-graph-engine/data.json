@@ -8,5 +8,8 @@
   "labelLimit": 90,
   "nodeScale": 1,
   "edgeOpacity": 0.12,
-  "autoRebuild": true
+  "autoRebuild": true,
+  "motionMode": "full",
+  "showStatusRings": true,
+  "showRelationArrows": true
 }
