@@ -25,8 +25,8 @@ WCTGraphView.prototype.applyAppearance = function applyAppearance() {
   this.contentEl.style.setProperty("--wct-browser-font-scale", String(fontScale));
   this.contentEl.style.setProperty("--wct-inspector-width", `${width}px`);
   this.contentEl.style.setProperty("--wct-hover-scale", String(Math.max(0.9, Math.min(1.6, Number(this.settings.hoverCardScale) || 1))));
-  this.inspectorWidthButton?.setText(`${Math.round(width)}px`);
-  this.labelScaleButton?.setText(`Labels ${Number(this.settings.graphLabelScale ?? 1).toFixed(1)}×`);
+  if (this.inspectorWidthButton) this.inspectorWidthButton.textContent = `${Math.round(width)}px`;
+  if (this.labelScaleButton) this.labelScaleButton.textContent = `Labels ${Number(this.settings.graphLabelScale ?? 1).toFixed(1)}×`;
 };
 
 WCTGraphView.prototype.changeBrowserFont = async function changeBrowserFont(delta) {
@@ -56,7 +56,8 @@ WCTGraphView.prototype.cycleLabelScale = async function cycleLabelScale() {
 };
 
 WCTGraphView.prototype.installV07Controls = function installV07Controls() {
-  this.priorityButton = this.toolbar.createEl("button", { text: "Priority", attr: { type: "button" } });
+  const priorityCount = Math.min(Number(this.settings.priorityNodeLimit) || 120, this.graph?.nodes?.length ?? 0);
+  this.priorityButton = this.toolbar.createEl("button", { text: `Priority ${priorityCount}`, attr: { type: "button" } });
   this.toolbar.insertBefore(this.priorityButton, this.breadcrumbs);
   this.priorityButton.addEventListener("click", () => this.showPriority());
 
