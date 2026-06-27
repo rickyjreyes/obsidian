@@ -1,15 +1,1 @@
-[
-  "obsidian-zotero-desktop-connector",
-  "obsidian-citation-plugin",
-  "templater-obsidian",
-  "omnisearch",
-  "obsidian-linter",
-  "obsidian-latex-suite",
-  "obsidian-git",
-  "obsidian-excalidraw-plugin",
-  "dataview",
-  "obsidian42-brat",
-  "extended-graph",
-  "graph-presets",
-  "wct-graph-engine"
-]
+["obsidian-zotero-desktop-connector","obsidian-citation-plugin","templater-obsidian","omnisearch","obsidian-linter","obsidian-latex-suite","obsidian-git","obsidian-excalidraw-plugin","dataview","obsidian42-brat","extended-graph","graph-presets","wct-graph-engine","wct-graph-layout-fix"]
