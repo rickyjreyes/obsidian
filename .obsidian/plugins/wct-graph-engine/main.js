@@ -1,17 +1,23 @@
 "use strict";
 
 const path = require("path");
-const { Plugin, PluginSettingTab, Setting, FileSystemAdapter, Notice } = require("obsidian");
+const { Plugin, PluginSettingTab, Setting, Notice } = require("obsidian");
 
 function resolvePluginFile(plugin, filename) {
   const adapter = plugin.app.vault.adapter;
-  if (!(adapter instanceof FileSystemAdapter) || typeof adapter.getBasePath !== "function") {
-    throw new Error("WCT Graph Engine requires Obsidian desktop filesystem access.");
-  }
-  const basePath = adapter.getBasePath();
   const pluginDir = plugin.manifest.dir
     ?? `${plugin.app.vault.configDir}/plugins/${plugin.manifest.id}`;
-  return path.join(basePath, pluginDir, filename);
+  const relativePath = `${pluginDir}/${filename}`.replace(/\\/g, "/");
+
+  if (typeof adapter.getFullPath === "function") {
+    return adapter.getFullPath(relativePath);
+  }
+
+  if (typeof adapter.getBasePath === "function") {
+    return path.join(adapter.getBasePath(), ...relativePath.split("/"));
+  }
+
+  throw new Error("WCT Graph Engine could not resolve its plugin directory.");
 }
 
 class WCTGraphSettingTab extends PluginSettingTab {
@@ -66,8 +72,11 @@ module.exports = class WCTGraphPlugin extends Plugin {
       const corePath = resolvePluginFile(this, "graph-core.js");
       const viewPath = resolvePluginFile(this, "graph-view.js");
 
-      delete require.cache[require.resolve(corePath)];
-      delete require.cache[require.resolve(viewPath)];
+      for (const modulePath of [corePath, viewPath]) {
+        try {
+          delete require.cache[require.resolve(modulePath)];
+        } catch (_) {}
+      }
 
       this.graphCore = require(corePath);
       const { WCTGraphView } = require(viewPath);
