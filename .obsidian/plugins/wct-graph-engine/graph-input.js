@@ -81,7 +81,8 @@ class GraphInputMethods {
     for (const node of this.scene.nodes) {
       const position = this.displayPositions.get(node.id) ?? { x: node.x, y: node.y };
       const screen = this.worldToScreen(position.x, position.y);
-      const radius = node.kind === "area" || node.kind === "area-link"
+      const largeTarget = ["area", "area-link", "audit-area"].includes(node.kind);
+      const radius = largeTarget
         ? Math.max(24, node.size * Math.sqrt(this.zoom) + 10)
         : Math.max(8, node.size * this.settings.nodeScale * this.zoom + 5);
       const distance = Math.hypot(x - screen.x, y - screen.y);
@@ -184,6 +185,10 @@ class GraphInputMethods {
   activateNode(node) {
     if (node.kind === "area" || node.kind === "area-link") {
       this.pushCategory(node.type, node);
+      return;
+    }
+    if (node.kind === "audit-area") {
+      this.pushAuditIssue(node.auditKey, node);
       return;
     }
     if (node.kind === "note") this.showInspector(node);
