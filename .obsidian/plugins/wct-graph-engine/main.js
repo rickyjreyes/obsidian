@@ -63,18 +63,45 @@ class WCTSettings extends PluginSettingTab {
       }));
 
     new Setting(containerEl).setName("Priority bubble count")
-      .setDesc("Number of highest-priority research objects shown in the bubble-up view.")
+      .setDesc("Number of highest-priority research objects shown in the bubble-up graph.")
       .addText((text) => text.setValue(String(plugin.settings.priorityNodeLimit ?? 120)).onChange(async (value) => {
         plugin.settings.priorityNodeLimit = clamp(Number(value) || 120, 30, 400);
         await plugin.saveSettings();
       }));
 
-    new Setting(containerEl).setName("Priority list count")
-      .setDesc("Maximum number of objects shown in the ranked priority list.")
-      .addText((text) => text.setValue(String(plugin.settings.priorityListLimit ?? 80)).onChange(async (value) => {
-        plugin.settings.priorityListLimit = clamp(Number(value) || 80, 20, 300);
+    new Setting(containerEl).setName("Priority table row count")
+      .setDesc("Maximum rows returned by the searchable priority table after filtering.")
+      .addText((text) => text.setValue(String(plugin.settings.priorityListLimit ?? 200)).onChange(async (value) => {
+        plugin.settings.priorityListLimit = clamp(Number(value) || 200, 20, 1000);
+        await plugin.saveSettings();
+        plugin.refreshViews();
+      }));
+
+    containerEl.createEl("h3", { text: "PDF derivation import" });
+
+    new Setting(containerEl).setName("PDF derivation output folder")
+      .setDesc("Generated page-provenance derivation objects are written here.")
+      .addText((text) => text.setValue(plugin.settings.pdfDerivationOutputFolder ?? "Research/08 Derivations/PDF").onChange(async (value) => {
+        plugin.settings.pdfDerivationOutputFolder = value.trim() || "Research/08 Derivations/PDF";
         await plugin.saveSettings();
       }));
+
+    new Setting(containerEl).setName("Maximum derivation sections per PDF")
+      .addText((text) => text.setValue(String(plugin.settings.pdfDerivationMaxSections ?? 10)).onChange(async (value) => {
+        plugin.settings.pdfDerivationMaxSections = clamp(Number(value) || 10, 1, 40);
+        await plugin.saveSettings();
+      }));
+
+    new Setting(containerEl).setName("Maximum pages per extracted section")
+      .addText((text) => text.setValue(String(plugin.settings.pdfDerivationMaxPages ?? 5)).onChange(async (value) => {
+        plugin.settings.pdfDerivationMaxPages = clamp(Number(value) || 5, 1, 12);
+        await plugin.saveSettings();
+      }));
+
+    new Setting(containerEl).setName("Import PDF derivations")
+      .setDesc("Downloads PDFs referenced by literature-note pdf_url fields and creates page-provenance derivation objects. Requires Python 3 and PyMuPDF, pypdf, or pdftotext.")
+      .addButton((button) => button.setButtonText("Import now").setCta().onClick(() => plugin.pdfImporter.runPdfImporter(plugin)))
+      .addButton((button) => button.setButtonText("Open report").onClick(() => plugin.pdfImporter.openReport(plugin)));
 
     new Setting(containerEl).setName("Panel text size")
       .setDesc("Scales the inspector, equations, definitions, properties, and tabs.")
@@ -163,11 +190,12 @@ module.exports = class WCTGraphPlugin extends Plugin {
       const names = [
         "graph-research.js", "graph-core.js", "graph-semantic.js", "graph-audit.js",
         "graph-timeline.js", "graph-search-v05.js", "graph-knowledge.js", "graph-linker-v07.js",
-        "graph-force.js", "graph-renderer.js", "graph-renderer-v07.js", "graph-input.js",
-        "graph-repository-index.js", "graph-inspector.js", "graph-inspector-v07.js",
-        "graph-inspector-v071.js", "graph-interaction.js", "graph-timeline-view.js",
-        "graph-priority-view.js", "graph-style-v05.js", "graph-style-v06.js",
-        "graph-style-v07.js", "graph-view.js", "graph-view-v07.js",
+        "graph-state-v08.js", "graph-pdf-import.js", "graph-force.js", "graph-renderer.js",
+        "graph-renderer-v07.js", "graph-input.js", "graph-repository-index.js", "graph-inspector.js",
+        "graph-inspector-v07.js", "graph-inspector-v071.js", "graph-interaction.js",
+        "graph-timeline-view.js", "graph-priority-view.js", "graph-style-v05.js",
+        "graph-style-v06.js", "graph-style-v07.js", "graph-style-v08.js",
+        "graph-view.js", "graph-view-v07.js",
       ];
       for (const name of names) {
         const full = pluginFile(this, name);
@@ -181,7 +209,10 @@ module.exports = class WCTGraphPlugin extends Plugin {
       Object.assign(this.graphCore, require(pluginFile(this, "graph-knowledge.js")));
       Object.assign(this.graphCore.DEFAULT_SETTINGS, {
         priorityNodeLimit: 120,
-        priorityListLimit: 80,
+        priorityListLimit: 200,
+        pdfDerivationOutputFolder: "Research/08 Derivations/PDF",
+        pdfDerivationMaxSections: 10,
+        pdfDerivationMaxPages: 5,
         browserFontScale: 1,
         inspectorWidth: 690,
         graphLabelScale: 1,
@@ -190,9 +221,11 @@ module.exports = class WCTGraphPlugin extends Plugin {
       });
       const search = require(pluginFile(this, "graph-search-v05.js"));
       this.graphCore.buildSearchScene = (graph, query, settings) => search.buildSearchScene(this.graphCore, graph, query, settings);
+      this.pdfImporter = require(pluginFile(this, "graph-pdf-import.js"));
       require(pluginFile(this, "graph-style-v05.js")).installStyles(this);
       require(pluginFile(this, "graph-style-v06.js")).installStyles(this);
       require(pluginFile(this, "graph-style-v07.js")).installStyles(this);
+      require(pluginFile(this, "graph-style-v08.js")).installStyles(this);
 
       const { WCTGraphView } = require(pluginFile(this, "graph-view-v07.js"));
       const { VIEW_TYPE, DEFAULT_SETTINGS, debounce } = this.graphCore;
@@ -212,10 +245,13 @@ module.exports = class WCTGraphPlugin extends Plugin {
         await this.activateView();
         this.app.workspace.getLeavesOfType(VIEW_TYPE)[0]?.view?.showTimeline?.();
       }});
-      this.addCommand({ id: "open-wct-priority", name: "Open WCT Priority Bubble-Up", callback: async () => {
+      this.addCommand({ id: "open-wct-priority", name: "Open WCT Priority Table and Bubble-Up", callback: async () => {
         await this.activateView();
         this.app.workspace.getLeavesOfType(VIEW_TYPE)[0]?.view?.showPriority?.();
       }});
+      this.addCommand({ id: "import-wct-pdf-derivations", name: "Import PDF Derivations", callback: () => this.pdfImporter.runPdfImporter(this) });
+      this.addCommand({ id: "refresh-wct-pdf-derivations", name: "Re-import All PDF Derivations", callback: () => this.pdfImporter.runPdfImporter(this, { refresh: true }) });
+      this.addCommand({ id: "open-wct-pdf-derivation-report", name: "Open PDF Derivation Import Report", callback: () => this.pdfImporter.openReport(this) });
       this.addSettingTab(new WCTSettings(this.app, this));
 
       if (this.settings.autoRebuild) {
@@ -235,6 +271,7 @@ module.exports = class WCTGraphPlugin extends Plugin {
       leaf.view.settings = this.settings;
       leaf.view.motionButton?.setText(leaf.view.motionButtonText?.() ?? "Motion");
       leaf.view.applyAppearance?.();
+      leaf.view.populatePriorityTypes?.();
       leaf.view.needsRender = true;
       leaf.view.wakeTimelineForce?.(2500);
       leaf.view.renderPriorityList?.();
