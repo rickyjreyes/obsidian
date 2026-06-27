@@ -66,6 +66,42 @@ class WCTGraphSettingTab extends PluginSettingTab {
           this.plugin.settings.fullEdgeBudget = clamp(Number(value) || 1700, 200, 5000);
           await this.plugin.saveSettings();
         }));
+
+    new Setting(containerEl)
+      .setName("Motion")
+      .setDesc("Full keeps ambient movement and particles, Reduced lowers animation cost, and Off renders only when needed.")
+      .addDropdown((dropdown) => dropdown
+        .addOption("full", "Full")
+        .addOption("reduced", "Reduced")
+        .addOption("off", "Off")
+        .setValue(this.plugin.settings.motionMode ?? "full")
+        .onChange(async (value) => {
+          this.plugin.settings.motionMode = value;
+          await this.plugin.saveSettings();
+          this.plugin.refreshViews();
+        }));
+
+    new Setting(containerEl)
+      .setName("Validation status rings")
+      .setDesc("Draw the overall SymPy, Lean, physical, and experimental state around each note.")
+      .addToggle((toggle) => toggle
+        .setValue(this.plugin.settings.showStatusRings !== false)
+        .onChange(async (value) => {
+          this.plugin.settings.showStatusRings = value;
+          await this.plugin.saveSettings();
+          this.plugin.refreshViews();
+        }));
+
+    new Setting(containerEl)
+      .setName("Typed relation arrows")
+      .setDesc("Show direction for defines, derives, predicts, tests, implements, supports, and related research links.")
+      .addToggle((toggle) => toggle
+        .setValue(this.plugin.settings.showRelationArrows !== false)
+        .onChange(async (value) => {
+          this.plugin.settings.showRelationArrows = value;
+          await this.plugin.saveSettings();
+          this.plugin.refreshViews();
+        }));
   }
 }
 
@@ -74,15 +110,24 @@ module.exports = class WCTGraphPlugin extends Plugin {
     try {
       globalThis.__WCT_OBSIDIAN_API__ = obsidianApi;
 
-      const corePath = resolvePluginFile(this, "graph-core.js");
-      const viewPath = resolvePluginFile(this, "graph-view.js");
-
-      for (const modulePath of [corePath, viewPath]) {
+      const moduleNames = [
+        "graph-research.js",
+        "graph-core.js",
+        "graph-renderer.js",
+        "graph-input.js",
+        "graph-inspector.js",
+        "graph-interaction.js",
+        "graph-view.js",
+      ];
+      const modulePaths = moduleNames.map((name) => resolvePluginFile(this, name));
+      for (const modulePath of modulePaths) {
         try {
           delete require.cache[require.resolve(modulePath)];
         } catch (_) {}
       }
 
+      const corePath = resolvePluginFile(this, "graph-core.js");
+      const viewPath = resolvePluginFile(this, "graph-view.js");
       this.graphCore = require(corePath);
       const { WCTGraphView } = require(viewPath);
       const {
@@ -100,6 +145,14 @@ module.exports = class WCTGraphPlugin extends Plugin {
         name: "Open WCT Graph",
         callback: () => this.activateView(),
       });
+      this.addCommand({
+        id: "open-wct-research-audit",
+        name: "Open WCT Research Audit",
+        callback: async () => {
+          await this.activateView();
+          this.app.workspace.getLeavesOfType(VIEW_TYPE)[0]?.view?.showAudit?.();
+        },
+      });
       this.addSettingTab(new WCTGraphSettingTab(this.app, this));
 
       if (this.settings.autoRebuild) {
@@ -112,11 +165,20 @@ module.exports = class WCTGraphPlugin extends Plugin {
         this.registerEvent(this.app.vault.on("create", rebuild));
         this.registerEvent(this.app.vault.on("delete", rebuild));
         this.registerEvent(this.app.vault.on("rename", rebuild));
+        this.registerEvent(this.app.vault.on("modify", rebuild));
       }
     } catch (error) {
       console.error("WCT Graph Engine failed to load", error);
       new Notice(`WCT Graph Engine failed to load: ${error?.message ?? error}`);
       throw error;
+    }
+  }
+
+  refreshViews() {
+    for (const leaf of this.app.workspace.getLeavesOfType(this.viewType)) {
+      leaf.view.settings = this.settings;
+      leaf.view.motionButton?.setText(leaf.view.motionButtonText?.() ?? "Motion");
+      leaf.view.needsRender = true;
     }
   }
 
