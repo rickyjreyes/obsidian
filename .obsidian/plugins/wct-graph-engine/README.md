@@ -1,21 +1,98 @@
 # WCT Graph Engine
 
-A vault-local Obsidian plugin for navigating, validating, auditing, and replaying the evolution of the WCT research corpus.
+A vault-local Obsidian research browser for navigating, validating, auditing, and replaying the WCT corpus.
 
-## Version 0.5
+## Version 0.6 — research browser
 
-Version 0.5 adds the bridge from a Markdown graph toward a semantic research operating system:
+Version 0.6 reorganizes each selected graph object into a tabbed research view instead of one long inspector panel.
 
-- creation-date idea timeline;
-- play, pause, restart, scrub, and selectable timelapse duration;
-- adjustable **Center**, **Repel**, and **Link distance** forces;
-- stable object IDs displayed in the inspector;
-- semantic object categories for claims, theorems, contradictions, and artifacts;
-- suppression of obvious parser fragments such as `authors`, `aliases`, `comment`, `overview`, and one-letter definitions;
-- custom ID-link resolution for links such as `[[art_83f18cbcdb2d]]`;
-- repaired reference connections to both corpus source notes and imported artifact notes;
-- search by stable ID, type, status, audit finding, path, and date;
-- all 0.4 validation, relation, audit, breadcrumb, and recursive subgraph features.
+Tabs:
+
+- **Overview** — canonical summary, identity, chronology, validation, connection counts, and audit findings.
+- **Definition** — the note's Definition section, with fallback to the canonical WCT Glossary entry.
+- **Equations** — rendered display equations, connected equation objects, canonical SymPy families, and matching Lean declarations.
+- **Papers** — paper links written in the note and connected paper objects.
+- **Links** — typed outgoing research relations and ordinary Obsidian links.
+- **Backlinks** — typed incoming relations and ordinary Obsidian backlinks.
+- **Properties** — readable frontmatter properties with Unicode symbol normalization.
+- **Repositories** — matching definitions and formal objects from `geometry_of_resonance`, `wct-sympy`, and `wct-lean`.
+- **All** — the principal research sections in one scrollable view.
+- **Source** — the entire note rendered as Markdown and LaTeX.
+
+Every tab has an object-local search field so a large object can be viewed in full or narrowed to one definition, equation ID, paper, property, relation, or repository declaration.
+
+## Pretty mathematics and symbols
+
+Equation blocks are passed through Obsidian's Markdown renderer so vault LaTeX is displayed rather than shown as raw source.
+
+Repository definitions use canonical notation such as:
+
+$$
+\Theta_\varepsilon[\psi]
+=
+-(\Delta\psi)
+\frac{\overline\psi}{|\psi|^2+\varepsilon^2e^{-2\alpha|\psi|^2}},
+$$
+
+$$
+\sigma(k)=r+a k^2-b k^4,
+\qquad
+k_\star=\sqrt{\frac{a}{2b}},
+$$
+
+and
+
+$$
+\psi\in H^s,
+\quad s>\frac n2+2
+\Longrightarrow
+\Theta_\varepsilon[\psi]\in L^\infty.
+$$
+
+Property values normalize common symbol names such as `psi`, `Theta`, `sigma`, `kappa`, `tau`, `lambda`, `phi`, `hbar`, `Delta`, `partial`, and `grad` to readable Unicode where appropriate.
+
+## Repository matching
+
+The **Repositories** and **Equations** tabs use a local canonical index derived from the maintained repository documentation.
+
+### geometry_of_resonance
+
+Role: canonical master equations, corrected equation registry, paper source, and research implementations.
+
+### wct-sympy
+
+Role: executable symbolic identities, dimensions, limits, residuals, and counterexamples.
+
+Recognized families include:
+
+- E1A, E1B, E2–E8 — rest energy and loop locking;
+- E9–E16 — phase flux and finite-band selection;
+- E17–E23 — curvature feedback;
+- E24–E27 and E65–E70 — dimensional stability and regularity;
+- E28–E34, E41, and E72 — entropy and recursive state evolution;
+- E44–E56 — cavity, power balance, and effective mass;
+- E57–E64 — spectral projection;
+- CLE1–CLE10 — curvature-locked electron family;
+- G1, EX, EY, EZ, and FA — logarithmic transforms;
+- CM1–CM20 — curvature-acoustic cosmology.
+
+### wct-lean
+
+Role: kernel-checked definitions, lemmas, counterexamples, and conditional theorems.
+
+The browser currently recognizes formal mappings including:
+
+- E2 — `densityWeightedAverage_denominator_ne_zero`;
+- E3 — `lockingMismatch_nonnegative`, `lockingMismatch_zero`;
+- E5 — effective-wavenumber chain declarations;
+- E9 — phase-current and conservation-residual declarations;
+- E13/E14 — `bandpass_oneMode_symbol`;
+- E18 — nonnegative energy and gradient-flow descent;
+- E58 — band-selective Green-kernel bounds;
+- CM9 — first-order/second-order oscillator equivalence;
+- CM12, CM13, and CM16 — power-spectrum, peak-ratio, and horizon definitions.
+
+The vault note `Research/06 Repositories/WCT Repository Registry.md` preserves the same repository roles and canonical formulas in ordinary Obsidian Markdown.
 
 ## Commands
 
@@ -23,19 +100,32 @@ Version 0.5 adds the bridge from a Markdown graph toward a semantic research ope
 - `WCT Graph Engine: Open WCT Research Audit`
 - `WCT Graph Engine: Open WCT Idea Timeline`
 
+## Main graph controls
+
+- **Full graph** — complete clustered corpus.
+- **Audit** — corpus closure audit.
+- **Timeline** — creation-date timelapse and force view.
+- Click a category node or label to enter it.
+- Click a note to open the research browser.
+- Double-click a note or choose **View connections** for a recursive local graph.
+- Use **Back** or breadcrumbs to unwind.
+- Drag empty space to pan.
+- Scroll to zoom.
+- **Fit** frames the scene.
+- **Motion** cycles Full, Reduced, and Off.
+- **Rebuild** refreshes metadata and generated-object links.
+
 ## Timeline
 
-Open **Timeline** from the graph toolbar or use the command palette.
+Timeline controls:
 
-Controls:
-
-- **Play / Pause** — runs the corpus from its earliest recorded creation date to its latest.
-- **Restart** — returns to the first date.
-- **Timeline slider** — manually scrubs through creation history.
-- **Duration** — 8, 18, 30, or 60 seconds.
-- **Center** — strength that pulls nodes toward their chronological position and the graph centerline.
-- **Repel** — local node repulsion.
-- **Link distance** — target length of connected edges.
+- Play / Pause;
+- Restart;
+- manual date scrubber;
+- 8, 18, 30, or 60 second playback;
+- Center force;
+- Repel force;
+- Link-distance force.
 
 Date priority:
 
@@ -47,63 +137,59 @@ Date priority:
 6. file creation time
 7. file modification time
 
-For accurate historical playback, add explicit `idea_date` or `created` metadata instead of relying only on filesystem timestamps.
+Explicit `idea_date` or `created` values provide more reliable historical playback than filesystem timestamps.
 
 ## Stable object identity
 
-The inspector now displays:
-
-- stable ID;
-- whether the ID came from frontmatter or was temporarily derived from the path;
-- creation date;
-- date source;
-- semantic type.
-
-Existing generated object IDs such as:
+Existing frontmatter IDs such as:
 
 ```yaml
 id: obj_1dcc2d3a2afb
 ```
 
-are treated as stable identifiers. Objects without an explicit ID receive a temporary type-prefixed path hash and appear in the audit as **Objects missing stable IDs**. The long-term compiler should issue permanent IDs such as `DEF-*`, `EQ-*`, `CLA-*`, `EXP-*`, `REF-*`, and `THM-*` at extraction time.
+are treated as stable identifiers. Objects without an explicit ID receive a temporary type-prefixed path hash and appear in the audit as **Objects missing stable IDs**.
+
+The long-term compiler should issue permanent IDs such as:
+
+```text
+DEF-000143
+EQ-000082
+CLA-000051
+EXP-000017
+REF-000489
+THM-000004
+```
 
 ## Semantic generated-object filter
 
-`WaveLock Research/Objects` and `WaveLock Research/Artifacts` are now indexed alongside `Research`.
+`WaveLock Research/Objects` and `WaveLock Research/Artifacts` are indexed alongside `Research`.
 
-The semantic filter keeps meaningful generated objects and hides obvious extraction noise, including:
+The semantic filter suppresses obvious extraction noise including:
 
 - single letters;
-- `authors`;
-- `aliases`;
-- `comment`;
-- `family`;
-- `overview`;
-- `figure`;
-- `table`;
-- generic `claim`, `definition`, or `research notes` nodes.
+- authors;
+- aliases;
+- comment;
+- family;
+- overview;
+- figure;
+- table;
+- generic claim, definition, or research-notes nodes.
 
-Citation-shaped text is reclassified as **References**, even when an earlier extractor labeled it as a definition.
-
-The filter can be disabled under **Settings → WCT Graph Engine → Semantic object filter** for inspection of the raw extractor output.
+Citation-shaped text is reclassified as **References** even when an earlier extractor labeled it as a definition.
 
 ## Repaired references
 
-A generated reference object can now connect through two independent mechanisms:
+Generated reference objects can resolve both:
 
 ```markdown
 [[WCT Corpus Sources 082-114#^SRC-097|citation text]]
 [[art_83f18cbcdb2d]]
 ```
 
-The first resolves to the corpus source note. The second resolves through the target note's frontmatter ID, even though the artifact filename is different.
+The first becomes a `CITES →` edge to the corpus source note. The second resolves through the target artifact's frontmatter ID and becomes a `DERIVED FROM →` edge.
 
-Reference edges are typed as:
-
-- `CITES →` for corpus source notes;
-- `DERIVED FROM →` for imported artifact notes.
-
-## Search syntax
+## Global graph search
 
 Examples:
 
@@ -128,47 +214,6 @@ Supported filters:
 - `after:`
 - `before:`
 
-## Typed research relations
-
-Add relations in note frontmatter:
-
-```yaml
----
-relations:
-  defines:
-    - Curvature Feedback
-  derives:
-    - E17 Curvature Operator
-  uses:
-    - Phase-Flux Field
-  predicts:
-    - Finite-k Shell Selection
-  tested-by:
-    - Photodiode Harmonic Protocol
-  implemented-by:
-    - wct-sympy
-  supported-by:
-    - Water Cavity Experiment
----
-```
-
-Supported relation names:
-
-- `defines`, `defined-by`
-- `derives`, `derived-from`
-- `uses`, `used-by`
-- `predicts`, `predicted-by`
-- `tests`, `tested-by`
-- `implements`, `implemented-by`
-- `supports`, `supported-by`
-- `depends-on`
-- `contradicts`
-- `cites`
-- `refines`
-- `extends`
-
-Underscore aliases such as `tested_by`, `implemented_by`, and `depends_on` are also accepted.
-
 ## Validation metadata
 
 ```yaml
@@ -180,7 +225,7 @@ experimental_status: UNTESTED
 ---
 ```
 
-The note fill color represents semantic type. The outer ring represents aggregate validation state.
+The node fill color represents semantic type. The outer ring represents aggregate validation state.
 
 ## Research audit
 
@@ -195,31 +240,9 @@ The Audit view detects:
 - unreviewed validation state;
 - generated objects without explicit stable IDs.
 
-## Main graph controls
-
-- **Full graph** — complete clustered corpus.
-- **Audit** — corpus closure audit.
-- **Timeline** — creation-date timelapse and force view.
-- Click a category node or label to enter it.
-- Click a note to open its inspector.
-- Double-click a note or choose **View connections** for a recursive local graph.
-- Use **Back** or breadcrumbs to unwind.
-- Drag empty space to pan.
-- Scroll to zoom.
-- **Fit** frames the scene.
-- **Motion** cycles Full, Reduced, and Off.
-- **Rebuild** refreshes metadata and generated-object links.
-
 ## Relationship to the research compiler
 
-The graph now understands semantic object metadata, but it does not replace the extraction compiler. The compiler remains responsible for:
-
-- issuing permanent type-specific UUIDs;
-- distinguishing concepts from headings and sentence fragments;
-- extracting structured references;
-- extracting equations with variables, dimensions, dependencies, proof, simulation, and validation state;
-- extracting claims with evidence and contradiction state;
-- extracting executable experiment objects.
+The graph consumes semantic object metadata but does not replace the extraction compiler. The compiler remains responsible for permanent type-specific IDs, semantic classification, structured reference extraction, equation ASTs, provenance, duplicate merging, and executable claim or experiment schemas.
 
 See `Research/00 Maps/WCT Research Compiler V2.md` for the target architecture.
 
