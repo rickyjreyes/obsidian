@@ -1,56 +1,143 @@
 # WCT Graph Engine
 
-A vault-local Obsidian plugin that renders the WCT research graph independently of Obsidian's built-in Graph View.
+A vault-local Obsidian plugin for navigating, validating, and auditing the WCT research corpus.
 
-## Why version 0.2 changed the layout
+## What version 0.4 adds
 
-Rendering every note and every link simultaneously produced an unreadable hairball. Version 0.2 uses a multilevel research graph instead:
-
-1. **Overview** — labeled supernodes for Maps, Papers, Concepts, Equations, Derivations, Predictions, Experiments, Evidence, Projects, References, and Other.
-2. **Cluster view** — click an area to inspect its highest-degree notes in deterministic rings, with a limited set of meaningful internal edges.
-3. **Focus view** — search for a term to display direct matches and a bounded one-hop neighborhood.
-
-The full vault remains indexed, but only the part needed for the current question is rendered.
-
-## Rendering architecture
-
-- WebGL 2 draws nodes and edges in GPU batches.
-- Layout is deterministic; there is no force simulation or background layout worker.
-- Obsidian's `metadataCache.resolvedLinks` supplies the graph without rereading every Markdown file.
-- Category-to-category relationships are aggregated in Overview.
-- Cluster and search views apply explicit node and edge budgets.
-- A 2D canvas overlay draws prioritized labels.
-- Debounced vault and metadata events rebuild open graph views.
+- Full clustered graph with stable category regions.
+- Recursive local connection graphs with breadcrumbs and Back navigation.
+- Rich glossary, equation, paper, and general-note inspectors.
+- Typed directional research relations.
+- Validation rings for symbolic, formal, physical, and experimental status.
+- Research-audit views for missing definitions, derivations, implementations, experiments, evidence, equation links, and validation metadata.
+- Full, Reduced, and Off motion modes.
+- Search across titles, paths, node types, validation states, and audit issue names.
 
 ## Open the graph
 
-Use the ribbon network icon or run:
+Run either command:
 
 - `WCT Graph Engine: Open WCT Graph`
+- `WCT Graph Engine: Open WCT Research Audit`
 
-## Controls
+## Main controls
 
-- Click an Overview area to drill into it.
-- Click a note to open it.
-- Click an external category node in Cluster view to switch categories.
-- Type in the search box to show matching notes and immediate neighbors.
-- Use **Back** or **Overview** to return to the top level.
-- Drag to pan.
+- **Full graph** returns to the complete clustered corpus.
+- **Audit** opens the corpus closure audit.
+- Click a large category node or label to enter that category.
+- Click a note node to open its inspector.
+- Double-click a note or choose **View connections** to enter its local graph.
+- Click another note and choose **View connections** again to drill deeper.
+- Use **Back** or any breadcrumb to unwind the graph path.
+- Drag empty graph space to pan.
 - Scroll to zoom around the pointer.
-- Double-click or select **Fit** to frame the current view.
-- Select **Rebuild** after changing graph settings.
+- **Fit** frames the current scene.
+- **Motion** cycles Full, Reduced, and Off.
+- **Rebuild** refreshes graph metadata after note changes.
 
-## Defaults
+## Typed research relations
 
-- Includes `Research/`.
-- Excludes `.obsidian/` and `Templates/`.
-- Hides orphan notes.
-- Displays at most 220 notes in one category.
-- Displays at most 240 notes in a search-focused neighborhood.
-- Displays at most 120 prioritized labels in detailed views.
+Add relations in note frontmatter:
 
-Settings are available under **Settings → WCT Graph Engine**.
+```yaml
+---
+relations:
+  defines:
+    - Curvature Feedback
+  derives:
+    - E17 Curvature Operator
+  uses:
+    - Phase-Flux Field
+  predicts:
+    - Finite-k Shell Selection
+  tested-by:
+    - Photodiode Harmonic Protocol
+  implemented-by:
+    - wct-sympy
+  supported-by:
+    - Water Cavity Experiment
+---
+```
+
+Supported relation names:
+
+- `defines`, `defined-by`
+- `derives`, `derived-from`
+- `uses`, `used-by`
+- `predicts`, `predicted-by`
+- `tests`, `tested-by`
+- `implements`, `implemented-by`
+- `supports`, `supported-by`
+- `depends-on`
+- `contradicts`
+- `cites`
+- `refines`
+- `extends`
+
+Underscore aliases such as `tested_by`, `implemented_by`, and `depends_on` are also accepted.
+
+## Validation metadata
+
+Add validation fields to frontmatter:
+
+```yaml
+---
+symbolic_status: PASS
+formal_status: CONDITIONAL
+physical_status: OPEN
+experimental_status: UNTESTED
+---
+```
+
+Recognized states include:
+
+- `PASS`
+- `CONDITIONAL`
+- `DEFINITION`
+- `OPEN`
+- `FAIL`
+- `CONTRADICTED`
+- `UNTESTED`
+- `EMPIRICAL`
+- `UNREVIEWED`
+
+The note fill color still represents its research type. The outer ring represents its aggregate validation state.
+
+## Research audit
+
+The Audit view currently detects:
+
+- glossary or concept notes without a `Definition` heading;
+- equation notes without derivation relations;
+- equation notes without implementation relations;
+- prediction notes without experiment relations;
+- experiment notes without evidence relations;
+- paper notes without equation connections;
+- notes without recorded validation metadata.
+
+Click an audit group to zone into its findings. Clicking a finding opens the normal note inspector, including validation state, typed relations, and a direct link back to the relevant audit graph.
+
+## Performance
+
+Motion modes:
+
+- **Full** — ambient node motion, transitions, and edge particles.
+- **Reduced** — lighter motion and fewer particles.
+- **Off** — redraw only when the graph changes or the user interacts.
+
+The full vault remains indexed, while edge and label budgets limit visual overload.
+
+## Settings
+
+Settings are available under **Settings → WCT Graph Engine**:
+
+- indexed folders;
+- orphan-note handling;
+- full-graph edge budget;
+- motion mode;
+- validation rings;
+- typed relation arrows.
 
 ## Relationship to other graph plugins
 
-This plugin does not patch or wrap the built-in Graph View. `graph-presets` and `extended-graph` can remain installed for the original graph. The temporary `wct-graph-layout-fix` compatibility plugin is removed in version 0.2.
+WCT Graph Engine renders its own view. Extended Graph and Graph Presets may remain installed for Obsidian's built-in Graph View, but the older WCT Motion, Navigator, Polish, Pointer Fix, Content Details, and Panel Isolation plugins should remain disabled.
