@@ -11,8 +11,9 @@ class GraphPriorityMethods {
     this.prioritySummary = title.createEl("small", { text: "Ranked by incomplete validation, missing links, audits, and centrality." });
     this.priorityCollapseButton = header.createEl("button", { text: "—", attr: { type: "button", "aria-label": "Collapse priority list" } });
     this.priorityCollapseButton.addEventListener("click", () => {
-      this.priorityPanel.toggleClass("is-collapsed", !this.priorityPanel.hasClass("is-collapsed"));
-      this.priorityCollapseButton.setText(this.priorityPanel.hasClass("is-collapsed") ? "+" : "—");
+      const collapsed = !this.priorityPanel.classList.contains("is-collapsed");
+      this.priorityPanel.classList.toggle("is-collapsed", collapsed);
+      this.priorityCollapseButton.textContent = collapsed ? "+" : "—";
     });
     this.priorityFilter = this.priorityPanel.createEl("input", {
       cls: "wct-priority-filter",
@@ -49,9 +50,9 @@ class GraphPriorityMethods {
       .slice(0, limit);
 
     const summary = this.graph.validationSummary ?? {};
-    this.prioritySummary?.setText(
-      `${nodes.length} shown · corpus validation ${summary.averageCompletion ?? 0}% · research completeness ${summary.averageResearchCompleteness ?? 0}%`,
-    );
+    if (this.prioritySummary) {
+      this.prioritySummary.textContent = `${nodes.length} shown · corpus validation ${summary.averageCompletion ?? 0}% · research completeness ${summary.averageResearchCompleteness ?? 0}%`;
+    }
 
     for (const [index, node] of nodes.entries()) {
       const item = this.priorityList.createEl("button", {
@@ -60,11 +61,11 @@ class GraphPriorityMethods {
       });
       item.style.setProperty("--wct-priority-color", this.plugin.graphCore.TYPE_COLORS[node.type] ?? this.plugin.graphCore.TYPE_COLORS.Other);
       const rank = item.createDiv({ cls: "wct-priority-rank", text: String(index + 1) });
-      rank.setAttr("aria-hidden", "true");
+      rank.setAttribute("aria-hidden", "true");
       const body = item.createDiv({ cls: "wct-priority-body" });
       const heading = body.createDiv({ cls: "wct-priority-title" });
       heading.createSpan({ text: node.label });
-      heading.createEm({ text: `P${node.priorityProfile?.score ?? 0}` });
+      heading.createEl("em", { text: `P${node.priorityProfile?.score ?? 0}` });
       const meters = body.createDiv({ cls: "wct-priority-meters" });
       const completion = node.completenessProfile?.percent ?? 0;
       const validation = node.validationProfile?.completion ?? 0;
