@@ -30,7 +30,8 @@ const STATUS_WEIGHTS = {
 
 function normalizeStatus(value, fallback = "unreviewed") {
   const raw = String(value ?? "").trim().toUpperCase().replace(/[\s-]+/g, "_");
-  return STATUS_MAP[raw] ?? String(value ?? fallback).trim().toLowerCase().replace(/[\s_]+/g, "-") || fallback;
+  const normalized = STATUS_MAP[raw] ?? String(value ?? fallback).trim().toLowerCase().replace(/[\s_]+/g, "-");
+  return normalized || fallback;
 }
 
 function registryEquationId(value) {
