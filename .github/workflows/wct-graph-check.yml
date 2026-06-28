@@ -26,13 +26,11 @@ jobs:
         run: |
           set -euo pipefail
           for file in .obsidian/plugins/wct-graph-engine/*.js .obsidian/plugins/wct-graph-engine/tests/*.js; do
-            echo "Checking $file"
             node --check "$file"
           done
-      - name: Validate Python importer syntax
-        run: python -m py_compile .obsidian/plugins/wct-graph-engine/wct_pdf_derivations.py
-      - name: Validate manifest and data JSON
-        run: |
-          node -e "JSON.parse(require('fs').readFileSync('.obsidian/plugins/wct-graph-engine/manifest.json','utf8')); JSON.parse(require('fs').readFileSync('.obsidian/plugins/wct-graph-engine/data.json','utf8'));"
-      - name: Test semantic references, stable IDs, timeline, PDF state, and priority
+      - name: Validate Python syntax
+        run: python -m py_compile .obsidian/plugins/wct-graph-engine/*.py
+      - name: Validate JSON
+        run: node -e "JSON.parse(require('fs').readFileSync('.obsidian/plugins/wct-graph-engine/manifest.json','utf8')); JSON.parse(require('fs').readFileSync('.obsidian/plugins/wct-graph-engine/data.json','utf8'));"
+      - name: Run smoke tests
         run: node .obsidian/plugins/wct-graph-engine/tests/smoke.js
