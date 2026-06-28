@@ -2,6 +2,7 @@
 
 const { buildPriorityScene } = require("./graph-core");
 const scenesV09 = require("./graph-scenes-v09");
+const { MODEL_VERSION, priorityMarkdown } = require("./graph-priority-model-v091");
 
 function normalize(value) {
   return String(value ?? "").normalize("NFKC").toLowerCase().replace(/\s+/g, " ").trim();
@@ -18,6 +19,27 @@ function addOption(select, value, label) {
   return option;
 }
 
+function notify(message, timeout = 5000) {
+  const Notice = globalThis.__WCT_OBSIDIAN_API__?.Notice;
+  if (Notice) new Notice(message, timeout);
+}
+
+async function copyText(value) {
+  if (navigator.clipboard?.writeText) {
+    await navigator.clipboard.writeText(value);
+    return;
+  }
+  const textarea = document.createElement("textarea");
+  textarea.value = value;
+  textarea.style.position = "fixed";
+  textarea.style.opacity = "0";
+  document.body.appendChild(textarea);
+  textarea.select();
+  const copied = document.execCommand("copy");
+  textarea.remove();
+  if (!copied) throw new Error("Clipboard copy was rejected by the desktop environment.");
+}
+
 function stateMatches(node, filter) {
   if (!filter || filter === "all") return true;
   const state = node.currentState ?? {};
@@ -31,6 +53,14 @@ function stateMatches(node, filter) {
 }
 
 function compareNodes(left, right, sort) {
+  if (sort === "importance-desc") {
+    return number(right.priorityProfile?.importance) - number(left.priorityProfile?.importance)
+      || number(left.priorityRank) - number(right.priorityRank);
+  }
+  if (sort === "urgency-desc") {
+    return number(right.priorityProfile?.urgency) - number(left.priorityProfile?.urgency)
+      || number(left.priorityRank) - number(right.priorityRank);
+  }
   if (sort === "missing-desc") {
     return (right.currentState?.missing?.length ?? 0) - (left.currentState?.missing?.length ?? 0)
       || number(left.priorityRank) - number(right.priorityRank);
@@ -57,7 +87,7 @@ class GraphPriorityMethods {
     const header = this.priorityPanel.createDiv({ cls: "wct-priority-header" });
     const title = header.createDiv();
     title.createEl("strong", { text: "Corpus priority rank" });
-    this.prioritySummary = title.createEl("small", { text: "Every object receives one unique rank; the 0–100 score remains a diagnostic component." });
+    this.prioritySummary = title.createEl("small", { text: `Model ${MODEL_VERSION}: research importance plus unfinished-work urgency.` });
     this.priorityCollapseButton = header.createEl("button", { text: "—", attr: { type: "button", "aria-label": "Collapse priority table" } });
     this.priorityCollapseButton.addEventListener("click", () => {
       const collapsed = !this.priorityPanel.classList.contains("is-collapsed");
@@ -99,7 +129,9 @@ class GraphPriorityMethods {
     });
     for (const [value, label] of [
       ["rank-asc", "Corpus rank"],
-      ["score-desc", "Diagnostic score"],
+      ["score-desc", "Priority score"],
+      ["importance-desc", "Importance"],
+      ["urgency-desc", "Urgency"],
       ["missing-desc", "Most missing"],
       ["completeness-asc", "Least complete"],
       ["validation-asc", "Least validated"],
@@ -110,19 +142,65 @@ class GraphPriorityMethods {
     this.priorityMissingOnly = missingLabel.createEl("input", { attr: { type: "checkbox" } });
     missingLabel.createSpan({ text: "Missing only" });
 
+    this.priorityCopyFilteredButton = controls.createEl("button", {
+      text: "Copy filtered",
+      cls: "wct-priority-export-button",
+      attr: { type: "button", title: "Copy every currently filtered row as Markdown" },
+    });
+    this.priorityCopyAllButton = controls.createEl("button", {
+      text: "Copy all",
+      cls: "wct-priority-export-button",
+      attr: { type: "button", title: "Copy the complete corpus priority list as Markdown" },
+    });
+    this.priorityExportButton = controls.createEl("button", {
+      text: "Export .md",
+      cls: "wct-priority-export-button",
+      attr: { type: "button", title: "Write the complete list to Research/WCT Corpus Priority Rank.md" },
+    });
+
     for (const control of [this.priorityFilter, this.priorityTypeFilter, this.priorityStateFilter, this.prioritySort, this.priorityMissingOnly]) {
       control.addEventListener(control === this.priorityFilter ? "input" : "change", () => this.renderPriorityList());
     }
+    this.priorityCopyFilteredButton.addEventListener("click", () => this.copyPriorityRows(this.priorityRows(), "filtered"));
+    this.priorityCopyAllButton.addEventListener("click", () => this.copyPriorityRows(this.graph.priorityNodes ?? [], "complete"));
+    this.priorityExportButton.addEventListener("click", () => this.exportPriorityRows());
 
     this.priorityTableWrap = this.priorityPanel.createDiv({ cls: "wct-priority-table-wrap" });
     this.priorityTable = this.priorityTableWrap.createEl("table", { cls: "wct-priority-table" });
     const head = this.priorityTable.createEl("thead");
     const headerRow = head.createEl("tr");
-    for (const label of ["Rank", "Object", "Type", "Score", "Complete", "Validation", "Current state", "What is missing"]) {
+    for (const label of ["Rank", "Object", "Type", "Priority", "Importance", "Urgency", "Complete", "Validation", "Current state", "What is missing"]) {
       headerRow.createEl("th", { text: label });
     }
     this.priorityTableBody = this.priorityTable.createEl("tbody");
     this.populatePriorityTypes();
+  }
+
+  async copyPriorityRows(nodes, label) {
+    try {
+      const markdown = priorityMarkdown(nodes, { title: label === "complete" ? "WCT Complete Corpus Priority Rank" : "WCT Filtered Corpus Priority Rank" });
+      await copyText(markdown);
+      notify(`Copied ${nodes.length.toLocaleString()} ${label} priority rows.`);
+    } catch (error) {
+      console.error("WCT priority copy failed", error);
+      notify(`Could not copy priority rows: ${error?.message ?? error}`, 9000);
+    }
+  }
+
+  async exportPriorityRows() {
+    const nodes = this.graph.priorityNodes ?? [];
+    const targetPath = "Research/WCT Corpus Priority Rank.md";
+    const markdown = priorityMarkdown(nodes, { title: "WCT Complete Corpus Priority Rank" });
+    try {
+      const existing = this.app.vault.getAbstractFileByPath(targetPath);
+      if (existing) await this.app.vault.modify(existing, markdown);
+      else await this.app.vault.create(targetPath, markdown);
+      notify(`Exported ${nodes.length.toLocaleString()} priority rows to ${targetPath}.`);
+      await this.app.workspace.openLinkText(targetPath.slice(0, -3), "", true);
+    } catch (error) {
+      console.error("WCT priority export failed", error);
+      notify(`Could not export the priority list: ${error?.message ?? error}`, 9000);
+    }
   }
 
   populatePriorityTypes() {
@@ -145,7 +223,7 @@ class GraphPriorityMethods {
     for (const sceneNode of scene.nodes) {
       const source = this.graph.byId.get(sceneNode.id);
       if (!source) continue;
-      sceneNode.label = `${source.label}\n#${source.priorityRank}/${source.priorityTotal} · S${source.priorityProfile?.score ?? 0}`;
+      sceneNode.label = `${source.label}\n#${source.priorityRank}/${source.priorityTotal} · P${source.priorityProfile?.score ?? 0} · I${source.priorityProfile?.importance ?? 0} · U${source.priorityProfile?.urgency ?? 0}`;
       sceneNode.priorityRank = source.priorityRank;
       sceneNode.priorityTotal = source.priorityTotal;
     }
@@ -183,6 +261,9 @@ class GraphPriorityMethods {
           node.overallStatus,
           node.currentState?.label,
           node.currentState?.summary,
+          node.priorityProfile?.score,
+          node.priorityProfile?.importance,
+          node.priorityProfile?.urgency,
           ...(node.currentState?.missingLabels ?? []),
           ...(node.priorityProfile?.reasons ?? []),
         ].join(" ");
@@ -200,13 +281,13 @@ class GraphPriorityMethods {
     const summary = this.graph.validationSummary ?? {};
     const missingCount = nodes.filter((node) => (node.currentState?.missing?.length ?? 0) > 0).length;
     if (this.prioritySummary) {
-      this.prioritySummary.textContent = `${nodes.length.toLocaleString()} shown of ${total.toLocaleString()} ranked objects · ${missingCount.toLocaleString()} with missing work · ${summary.averageResearchCompleteness ?? 0}% completeness · ${summary.averageCompletion ?? 0}% validation`;
+      this.prioritySummary.textContent = `${nodes.length.toLocaleString()} shown of ${total.toLocaleString()} ranked objects · model ${MODEL_VERSION}: 68% importance + 32% urgency · ${missingCount.toLocaleString()} with missing work · ${summary.averageResearchCompleteness ?? 0}% completeness · ${summary.averageCompletion ?? 0}% validation`;
     }
 
     if (!nodes.length) {
       const row = this.priorityTableBody.createEl("tr");
       const cell = row.createEl("td", { text: "No objects match the current search and filters." });
-      cell.colSpan = 8;
+      cell.colSpan = 10;
       cell.classList.add("wct-priority-empty");
       return;
     }
@@ -228,6 +309,8 @@ class GraphPriorityMethods {
       objectCell.createEl("small", { text: node.stableId ?? node.path ?? "No stable ID" });
       row.createEl("td", { cls: "wct-priority-type", text: node.type });
       row.createEl("td", { cls: "wct-priority-number is-priority", text: String(node.priorityProfile?.score ?? 0) });
+      row.createEl("td", { cls: "wct-priority-number is-importance", text: String(node.priorityProfile?.importance ?? 0) });
+      row.createEl("td", { cls: "wct-priority-number is-urgency", text: String(node.priorityProfile?.urgency ?? 0) });
       row.createEl("td", { cls: "wct-priority-number", text: `${node.completenessProfile?.percent ?? 0}%` });
       row.createEl("td", { cls: "wct-priority-number", text: `${node.validationProfile?.completion ?? 0}%` });
 
