@@ -4,10 +4,12 @@ on:
   push:
     paths:
       - '.obsidian/plugins/wct-graph-engine/**'
+      - 'Research/06 Experiments/**'
       - '.github/workflows/wct-graph-check.yml'
   pull_request:
     paths:
       - '.obsidian/plugins/wct-graph-engine/**'
+      - 'Research/06 Experiments/**'
       - '.github/workflows/wct-graph-check.yml'
   workflow_dispatch:
 
@@ -30,5 +32,8 @@ jobs:
         run: node -e "JSON.parse(require('fs').readFileSync('.obsidian/plugins/wct-graph-engine/manifest.json','utf8')); JSON.parse(require('fs').readFileSync('.obsidian/plugins/wct-graph-engine/data.json','utf8'));"
       - name: Run graph tests
         run: |
-          node .obsidian/plugins/wct-graph-engine/tests/smoke.js
-          node .obsidian/plugins/wct-graph-engine/tests/v09.js
+          set -euo pipefail
+          for file in .obsidian/plugins/wct-graph-engine/tests/*.js; do
+            echo "Running $file"
+            node "$file"
+          done
