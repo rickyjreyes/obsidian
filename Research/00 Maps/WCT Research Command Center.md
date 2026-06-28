@@ -36,6 +36,7 @@ The purpose of the vault is to expose missing links, prevent claim drift, preser
 ## Research operating system
 
 - [[Research/00 Maps/WaveLock Research Compiler V4|WaveLock Research Compiler V4 — canonical architecture]]
+- [[Research/00 Maps/WaveLock Obsidian Fixes V2|WaveLock Obsidian Fixes V2 — canonical identity, ranking, export, and graph repair specification]]
 - [[Research/00 Maps/WCT Research Compiler V2|WCT Research Compiler V2 — legacy design history]]
 - [[Research/06 Repositories/WCT Repository Registry|WCT Repository Registry]]
 - Use **WCT Graph Engine: Open WCT Graph** for corpus navigation and the tabbed research browser.
