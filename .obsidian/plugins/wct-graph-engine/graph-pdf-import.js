@@ -127,37 +127,37 @@ async function openReport(plugin) {
     }
     await delay(250);
   }
-  new Notice(`PDF import report was written but Obsidian has not indexed it yet: ${reportPath}`, 9000);
+  new Notice(`PDF research-object import finished, but Obsidian has not indexed the report yet: ${reportPath}`, 9000);
   return false;
 }
 
 async function runPdfImporter(plugin, options = {}) {
   if (plugin.pdfImportRunning) {
-    new Notice("WCT PDF derivation import is already running.");
+    new Notice("WCT PDF research-object import is already running.");
     return;
   }
   plugin.pdfImportRunning = true;
-  const script = pluginFile(plugin, "wct_pdf_derivations.py");
+  const script = pluginFile(plugin, "wct_pdf_all.py");
   const cwd = vaultRoot(plugin);
-  const notice = new Notice("Starting PDF derivation import…", 0);
+  const notice = new Notice("Starting PDF derivation and paper-object import…", 0);
   try {
     const result = await findPython(script, importArgs(plugin, options), cwd, (line, isError) => {
       console[isError ? "warn" : "log"](`[WCT PDF] ${line}`);
-      notice.setMessage?.(`PDF derivations: ${line.slice(0, 170)}`);
+      notice.setMessage?.(`PDF research objects: ${line.slice(0, 170)}`);
     });
 
     plugin.rebuildViews?.();
 
     if (result.code === 0) {
-      notice.setMessage?.("PDF derivations imported. Opening the current-state report…");
-      setTimeout(() => notice.hide?.(), 4500);
+      notice.setMessage?.("PDF derivations, claims, theorems, and limitations imported. Opening the report…");
+      setTimeout(() => notice.hide?.(), 5000);
       await openReport(plugin);
       return;
     }
 
     if (result.code === 1 && result.stdout.includes("Completed:")) {
-      notice.setMessage?.("PDF import completed with some failed papers. Opening the report…");
-      setTimeout(() => notice.hide?.(), 6500);
+      notice.setMessage?.("PDF research-object import completed with some warnings. Opening the report…");
+      setTimeout(() => notice.hide?.(), 7000);
       await openReport(plugin);
       return;
     }
@@ -165,12 +165,12 @@ async function runPdfImporter(plugin, options = {}) {
     throw new Error(conciseFailure(result));
   } catch (error) {
     notice.hide?.();
-    console.error("WCT PDF derivation import failed", error);
+    console.error("WCT PDF research-object import failed", error);
     const message = String(error?.message ?? error);
     const dependencyHint = /pymupdf|extractor|fitz|pypdf|pdftotext/i.test(message)
       ? " Install the extractor with: py -m pip install pymupdf"
       : "";
-    new Notice(`WCT PDF derivation import failed: ${message}.${dependencyHint}`, 15000);
+    new Notice(`WCT PDF research-object import failed: ${message}.${dependencyHint}`, 15000);
   } finally {
     plugin.pdfImportRunning = false;
   }
