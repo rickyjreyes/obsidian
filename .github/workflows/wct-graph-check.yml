@@ -23,9 +23,7 @@ jobs:
         with:
           python-version: '3.12'
       - name: Validate JavaScript syntax
-        run: |
-          node --check .obsidian/plugins/wct-graph-engine/*.js
-          node --check .obsidian/plugins/wct-graph-engine/tests/*.js
+        run: find .obsidian/plugins/wct-graph-engine -name '*.js' -print0 | xargs -0 -n1 node --check
       - name: Validate Python syntax
         run: python -m py_compile .obsidian/plugins/wct-graph-engine/*.py
       - name: Validate JSON
