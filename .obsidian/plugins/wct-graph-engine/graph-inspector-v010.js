@@ -1,6 +1,6 @@
 "use strict";
 
-const base = require("./graph-inspector-text-v09");
+const base = require("./graph-inspector-v071");
 
 function addMetric(container, label, value, detail = "") {
   const card = container.createDiv({ cls: "wct-priority-metric-card wct-browser-filter-item" });
