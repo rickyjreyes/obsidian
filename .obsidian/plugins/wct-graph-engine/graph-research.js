@@ -81,7 +81,7 @@ const AUDIT_DEFINITIONS = [
   {
     key: "paper-pdf-no-derivations",
     label: "PDF papers missing imported derivations",
-    description: "Paper notes with a pdf_url but no connected PDF-derived derivation object. Run WCT Graph Engine: Import PDF Derivations.",
+    description: "Paper notes with a pdf_url but no connected page-provenance PDF derivation object. Run WCT Graph Engine: Import PDF Research Objects.",
     severity: "high",
   },
   {
@@ -238,6 +238,14 @@ function hasConnectedType(graph, nodeId, type) {
     .some((id) => graph.byId.get(id)?.type === type);
 }
 
+function hasConnectedPdfDerivation(graph, nodeId) {
+  return [...(graph.adjacency.get(nodeId) ?? [])].some((id) => {
+    const candidate = graph.byId.get(id);
+    return candidate?.type === "Derivations"
+      && String(candidate.frontmatter?.source_kind ?? "").toLowerCase() === "pdf";
+  });
+}
+
 function buildAuditIssues(graph) {
   const issues = AUDIT_DEFINITIONS.map((definition) => ({ ...definition, nodeIds: [] }));
   const byKey = new Map(issues.map((issue) => [issue.key, issue]));
@@ -271,7 +279,7 @@ function buildAuditIssues(graph) {
       if (!hasConnectedType(graph, node.id, "Equations")) {
         byKey.get("paper-no-equations").nodeIds.push(node.id);
       }
-      if (frontmatter.pdf_url && !hasConnectedType(graph, node.id, "Derivations")) {
+      if (frontmatter.pdf_url && !hasConnectedPdfDerivation(graph, node.id)) {
         byKey.get("paper-pdf-no-derivations").nodeIds.push(node.id);
       }
     }
