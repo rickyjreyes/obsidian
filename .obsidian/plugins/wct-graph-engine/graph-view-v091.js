@@ -4,6 +4,7 @@ const { WCTGraphView } = require("./graph-view-v07");
 const rendererV09 = require("./graph-renderer-v09");
 const inspectorTextV09 = require("./graph-inspector-text-v09");
 const scenesV09 = require("./graph-scenes-v09");
+const styleV091 = require("./graph-style-v091");
 const { enrichResearchGraph } = require("./graph-enrichment-v09");
 const { linkDerivationsByEquationId } = require("./graph-linker-v07");
 const { decorateGraphState, decorateCurrentStates, assignPriorityRanks } = require("./graph-state-v08");
@@ -17,6 +18,10 @@ for (const source of [rendererV09, inspectorTextV09]) {
 
 const installControls = WCTGraphView.prototype.installV07Controls;
 WCTGraphView.prototype.installV07Controls = function installV091Controls() {
+  if (!this.plugin._wctV091StylesInstalled) {
+    styleV091.installStyles(this.plugin);
+    this.plugin._wctV091StylesInstalled = true;
+  }
   installControls.call(this);
   if (this.pdfDerivationsButton) return;
   this.pdfDerivationsButton = this.toolbar.createEl("button", {
