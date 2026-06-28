@@ -1,11 +1,11 @@
 "use strict";
 
-const { nodeEquationId } = require("./graph-validation-sync-v010");
+const { nodeEquationId, validationProfile } = require("./graph-validation-sync-v010");
 
 const NAVIGATION_LABEL = /(?:^|\b)(index|matrix|dependency map|source status|source register|canonical corrections|equation families|master equations|equations index|family index|report|dashboard)(?:\b|$)/i;
 const NAVIGATION_PATH = /(?:\/00 |\/00\s|\/90 Source\/|Index\.md$|Matrix\.md$|Dependency Map\.md$|Source Status\.md$|Canonical Corrections\.md$|MASTER_EQUATIONS\.md$|EQUATIONS\.md$)/i;
 const GENERIC_PREDICTION = /^(papers?|primary papers?|related papers?|abstract(?:\s*\/\s*record description)?|bibliograph(?:y|ies)|references?|source(?:s)?|record description)$/i;
-const PREDICTIVE_SIGNAL = /\b(predicts?|prediction|expected|observable|measur(?:e|ed|able)|threshold|scaling|shift|ratio|peak|spectrum|frequency|mass|falsif|reject|testable|should|will)\b/i;
+const PREDICTIVE_SIGNAL = /\b(predicts?|prediction|expected|observable|measur(?:e|ed|able)|falsif|reject|testable|should|will|forecast|yields?)\b/i;
 
 const EXPERIMENT_COMPONENTS = new Map([
   ["photodiode", "EXP-PHOTODIODE-HARMONIC-STATE"],
@@ -64,7 +64,7 @@ function classifyObjectState(graph, node) {
   if (generated && node.type === "Predictions") {
     const content = `${node.label}\n${contentFor(graph, node)}`;
     if (GENERIC_PREDICTION.test(node.label) || !PREDICTIVE_SIGNAL.test(content)) {
-      return { state: "source-fragment", included: false, reason: "not-a-predictive-proposition", confidence: 18 };
+      return { state: "source-fragment", included: false, reason: "not-a-predictive-proposition", confidence: 18, suggestedType: "source-fragment" };
     }
   }
 
@@ -114,7 +114,7 @@ function applyChain(nodesByEquation, chain, graph) {
     if (index > 0) {
       const upstream = nodesByEquation.get(chain[index - 1]);
       if (upstream) {
-        node.blockedBy.push(upstream.id);
+        node.blockedBy = [...new Set([...node.blockedBy, upstream.id])];
         upstream.blocks = [...new Set([...(upstream.blocks ?? []), node.id])];
       }
     }
@@ -149,14 +149,30 @@ function assignWorkPhase(node) {
   return "Phase 8 — General corpus backlog";
 }
 
+function refreshValidationChecklist(node) {
+  node.validationProfile = validationProfile(node.statuses);
+  const check = node.completenessProfile?.checks?.find((item) => item.key === "validation");
+  if (!check) return;
+  check.complete = node.validationProfile.coverage >= 50;
+  const checks = node.completenessProfile.checks;
+  const total = checks.reduce((sum, item) => sum + (Number(item.weight) || 0), 0);
+  const complete = checks.reduce((sum, item) => sum + (item.complete ? Number(item.weight) || 0 : 0), 0);
+  node.completenessProfile.totalWeight = total;
+  node.completenessProfile.completeWeight = complete;
+  node.completenessProfile.percent = Math.round((complete / Math.max(1, total)) * 100);
+  node.completenessProfile.missing = checks.filter((item) => !item.complete);
+}
+
 function applyObjectIntegrity(graph) {
   for (const node of graph.nodes) {
+    refreshValidationChecklist(node);
     const state = classifyObjectState(graph, node);
     node.objectState = state.state;
     node.priorityIncluded = state.included;
     node.priorityExclusionReason = state.reason;
     node.classificationConfidence = state.confidence;
     node.classificationReason = state.reason ?? "canonical-source-object";
+    node.classificationSuggestedType = state.suggestedType ?? null;
     node.experimentParent = state.experimentParent ?? null;
     node.canonicalId = node.frontmatter?.canonical_id ?? node.stableId ?? null;
     node.blockedBy = [];
@@ -176,11 +192,11 @@ function applyObjectIntegrity(graph) {
   applyChain(byEquation, MASTER_CHAIN, graph);
   applyChain(byEquation, DIMENSION_CHAIN, graph);
 
+  const maximumDownstream = Math.max(1, ...graph.nodes.map((candidate) => candidate.downstreamCount ?? 0));
   for (const node of graph.nodes) {
     node.dependencyStatus = node.blockedBy.length
       ? dependencyStatus(graph.byId.get(node.blockedBy[0]))
       : dependencyStatus(node);
-    const maximumDownstream = Math.max(1, ...graph.nodes.map((candidate) => candidate.downstreamCount ?? 0));
     node.dependencyImpact = Math.round(Math.min(100,
       (node.criticalPath ? 35 : 0)
       + Math.log2((node.downstreamCount ?? 0) + 1) / Math.max(1, Math.log2(maximumDownstream + 1)) * 50
