@@ -3,6 +3,7 @@
 const { WCTGraphView } = require("./graph-view-v07");
 const rendererV09 = require("./graph-renderer-v09");
 const inspectorTextV09 = require("./graph-inspector-text-v09");
+const inspectorV010 = require("./graph-inspector-v010");
 const scenesV09 = require("./graph-scenes-v09");
 const styleV091 = require("./graph-style-v091");
 const styleV010 = require("./graph-style-v010");
@@ -13,7 +14,7 @@ const { loadValidationRegistry, applyValidationRegistry } = require("./graph-val
 const { applyObjectIntegrity } = require("./graph-integrity-v010");
 const { calibratePriorities } = require("./graph-priority-model-v010");
 
-for (const source of [rendererV09, inspectorTextV09]) {
+for (const source of [rendererV09, inspectorTextV09, inspectorV010]) {
   for (const name of Object.getOwnPropertyNames(source)) {
     if (name !== "constructor") Object.defineProperty(WCTGraphView.prototype, name, Object.getOwnPropertyDescriptor(source, name));
   }
