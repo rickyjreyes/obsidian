@@ -25,7 +25,7 @@ def options() -> argparse.Namespace:
     return parser.parse_args()
 
 
-def shared(value: argparse.Namespace) -> list[str]:
+def shared(value: argparse.Namespace, controls: bool = True) -> list[str]:
     result = [
         "--vault", value.vault,
         "--notes-folder", value.notes_folder,
@@ -34,11 +34,11 @@ def shared(value: argparse.Namespace) -> list[str]:
     ]
     for paper in value.paper:
         result.extend(["--paper", paper])
-    if value.max_papers > 0:
+    if controls and value.max_papers > 0:
         result.extend(["--max-papers", str(value.max_papers)])
     if value.refresh:
         result.append("--refresh")
-    if value.dry_run:
+    if controls and value.dry_run:
         result.append("--dry-run")
     return result
 
@@ -57,9 +57,9 @@ def main() -> int:
         "--max-sections", str(value.max_sections),
     ])
     paper_objects = invoke(folder / "wct_pdf_paper_objects.py", [
-        *shared(value),
+        *shared(value, controls=False),
         "--output", "Research/09 Paper Objects/PDF",
-        "--max-sections", str(max(30, value.max_sections)),
+        "--max-sections", str(max(120, value.max_sections)),
     ])
     warnings = int(derivation != 0) + int(paper_objects != 0)
     print(f"Completed: PDF research objects finished with {warnings} importer warning(s).", flush=True)
