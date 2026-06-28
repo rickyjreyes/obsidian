@@ -24,13 +24,13 @@ jobs:
           python-version: '3.12'
       - name: Validate JavaScript syntax
         run: |
-          set -euo pipefail
-          for file in .obsidian/plugins/wct-graph-engine/*.js .obsidian/plugins/wct-graph-engine/tests/*.js; do
-            node --check "$file"
-          done
+          node --check .obsidian/plugins/wct-graph-engine/*.js
+          node --check .obsidian/plugins/wct-graph-engine/tests/*.js
       - name: Validate Python syntax
         run: python -m py_compile .obsidian/plugins/wct-graph-engine/*.py
       - name: Validate JSON
         run: node -e "JSON.parse(require('fs').readFileSync('.obsidian/plugins/wct-graph-engine/manifest.json','utf8')); JSON.parse(require('fs').readFileSync('.obsidian/plugins/wct-graph-engine/data.json','utf8'));"
-      - name: Run smoke tests
-        run: node .obsidian/plugins/wct-graph-engine/tests/smoke.js
+      - name: Run graph tests
+        run: |
+          node .obsidian/plugins/wct-graph-engine/tests/smoke.js
+          node .obsidian/plugins/wct-graph-engine/tests/v09.js
