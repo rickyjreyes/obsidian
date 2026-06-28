@@ -19,8 +19,8 @@ WCTGraphView.prototype.installV07Controls = function installV09Controls() {
   installControls.call(this);
   if (this.pdfDerivationsButton) return;
   this.pdfDerivationsButton = this.toolbar.createEl("button", {
-    text: "PDF derivations",
-    attr: { type: "button", title: "Import page-provenance derivations from literature-note PDF URLs" },
+    text: "PDF objects",
+    attr: { type: "button", title: "Import page-provenance derivations, claims, theorems, and limitations from paper PDFs" },
   });
   this.toolbar.insertBefore(this.pdfDerivationsButton, this.breadcrumbs);
   this.pdfDerivationsButton.addEventListener("click", () => this.plugin.pdfImporter?.runPdfImporter?.(this.plugin));
